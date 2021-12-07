@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from warehouse import store_pb2 as warehouse_dot_store__pb2
+from logic.protogen.warehouse import store_pb2 as warehouse_dot_store__pb2
 
 
 class StoreStub(object):

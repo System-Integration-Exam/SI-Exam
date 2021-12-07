@@ -1,4 +1,3 @@
-from entities.person import Person
 from entities.store import Store
 from entities.store_m2m_book import StoreM2MBook
 from entities.store_m2m_vinyl import StoreM2MVinyl
