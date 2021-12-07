@@ -15,3 +15,13 @@ with open(_filename) as f:
     _content = f.read()
 
 CONFIG = toml.loads(_content)
+
+if os.getenv('PRODUCTION'):
+    CONFIG = toml.loads(_content)["production"]
+else:
+    print("********************************")
+    print("********************************")
+    print("GATEWAY RUNNING IN DEV MODE")
+    print("********************************")
+    print("********************************")
+    CONFIG = toml.loads(_content)["development"]

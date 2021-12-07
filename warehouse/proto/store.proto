@@ -31,7 +31,11 @@ message StoreObject {
 }
 
 // ######## Request ########
-message CreateStoreRequest { StoreObject store = 1; }
+message CreateStoreRequest { 
+    string address = 1; 
+    string phone_number = 2;
+    string email = 3;
+}
 message UpdateStoreRequest {
   int32 id = 1;
   StoreObject store = 2;

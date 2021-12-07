@@ -8,7 +8,6 @@ pub async fn create(
     request: store::CreateStoreRequest,
 ) -> anyhow::Result<store::CreateStoreResponse> {
     let pool = get_db_pool().await?;
-    let store_object = request.store.unwrap();
 
 
     match sqlx::query(
@@ -17,9 +16,9 @@ pub async fn create(
         VALUES( $1, $2, $3 )
         "#,
     )
-    .bind(&store_object.address)
-    .bind(&store_object.phone_number)
-    .bind(&store_object.email)
+    .bind(request.address)
+    .bind(request.phone_number)
+    .bind(request.email)
     .execute(&pool)
     .await
     {

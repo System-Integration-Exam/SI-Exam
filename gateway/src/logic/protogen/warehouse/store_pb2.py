@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x15warehouse/store.proto\x12\x05store\"k\n\x0bStoreObject\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x14\n\x0cphone_number\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\ncreated_at\x18\x04 \x01(\t\x12\x12\n\nupdated_at\x18\x05 \x01(\t\"7\n\x12\x43reateStoreRequest\x12!\n\x05store\x18\x01 \x01(\x0b\x32\x12.store.StoreObject\"C\n\x12UpdateStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12!\n\x05store\x18\x02 \x01(\x0b\x32\x12.store.StoreObject\" \n\x12\x44\x65leteStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1e\n\x10ReadStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\x16\n\x14ReadStoreListRequest\":\n\x15\x41\x64\x64\x42ookToStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"?\n\x1aRemoveBookFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"L\n\'GetAmountOfSpecificBookFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"<\n\x16\x41\x64\x64VinylToStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"A\n\x1bRemoveVinylFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"N\n(GetAmountOfSpecificVinylFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"\"\n\x13\x43reateStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"6\n\x11ReadStoreResponse\x12!\n\x05store\x18\x01 \x01(\x0b\x32\x12.store.StoreObject\"\"\n\x13UpdateStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"\"\n\x13\x44\x65leteStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"?\n\x15ReadStoreListResponse\x12&\n\nstore_list\x18\x01 \x03(\x0b\x32\x12.store.StoreObject\"%\n\x16\x41\x64\x64\x42ookToStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"*\n\x1bRemoveBookFromStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\":\n(GetAmountOfSpecificBookFromStoreResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x05\"&\n\x17\x41\x64\x64VinylToStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"+\n\x1cRemoveVinylFromStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\";\n)GetAmountOfSpecificVinylFromStoreResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x05\x32\xea\x07\n\x05Store\x12\x46\n\x0b\x43reateStore\x12\x19.store.CreateStoreRequest\x1a\x1a.store.CreateStoreResponse\"\x00\x12@\n\tReadStore\x12\x17.store.ReadStoreRequest\x1a\x18.store.ReadStoreResponse\"\x00\x12\x46\n\x0bUpdateStore\x12\x19.store.UpdateStoreRequest\x1a\x1a.store.UpdateStoreResponse\"\x00\x12\x46\n\x0b\x44\x65leteStore\x12\x19.store.DeleteStoreRequest\x1a\x1a.store.DeleteStoreResponse\"\x00\x12L\n\rReadStoreList\x12\x1b.store.ReadStoreListRequest\x1a\x1c.store.ReadStoreListResponse\"\x00\x12O\n\x0e\x41\x64\x64\x42ookToStore\x12\x1c.store.AddBookToStoreRequest\x1a\x1d.store.AddBookToStoreResponse\"\x00\x12^\n\x13RemoveBookFromStore\x12!.store.RemoveBookFromStoreRequest\x1a\".store.RemoveBookFromStoreResponse\"\x00\x12\x85\x01\n GetAmountOfSpecificBookFromStore\x12..store.GetAmountOfSpecificBookFromStoreRequest\x1a/.store.GetAmountOfSpecificBookFromStoreResponse\"\x00\x12R\n\x0f\x41\x64\x64VinylToStore\x12\x1d.store.AddVinylToStoreRequest\x1a\x1e.store.AddVinylToStoreResponse\"\x00\x12\x61\n\x14RemoveVinylFromStore\x12\".store.RemoveVinylFromStoreRequest\x1a#.store.RemoveVinylFromStoreResponse\"\x00\x12\x88\x01\n!GetAmountOfSpecificVinylFromStore\x12/.store.GetAmountOfSpecificVinylFromStoreRequest\x1a\x30.store.GetAmountOfSpecificVinylFromStoreResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x15warehouse/store.proto\x12\x05store\"k\n\x0bStoreObject\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x14\n\x0cphone_number\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\ncreated_at\x18\x04 \x01(\t\x12\x12\n\nupdated_at\x18\x05 \x01(\t\"J\n\x12\x43reateStoreRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x14\n\x0cphone_number\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\"C\n\x12UpdateStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12!\n\x05store\x18\x02 \x01(\x0b\x32\x12.store.StoreObject\" \n\x12\x44\x65leteStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1e\n\x10ReadStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\x16\n\x14ReadStoreListRequest\":\n\x15\x41\x64\x64\x42ookToStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"?\n\x1aRemoveBookFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"L\n\'GetAmountOfSpecificBookFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"<\n\x16\x41\x64\x64VinylToStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"A\n\x1bRemoveVinylFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"N\n(GetAmountOfSpecificVinylFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"\"\n\x13\x43reateStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"6\n\x11ReadStoreResponse\x12!\n\x05store\x18\x01 \x01(\x0b\x32\x12.store.StoreObject\"\"\n\x13UpdateStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"\"\n\x13\x44\x65leteStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"?\n\x15ReadStoreListResponse\x12&\n\nstore_list\x18\x01 \x03(\x0b\x32\x12.store.StoreObject\"%\n\x16\x41\x64\x64\x42ookToStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"*\n\x1bRemoveBookFromStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\":\n(GetAmountOfSpecificBookFromStoreResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x05\"&\n\x17\x41\x64\x64VinylToStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"+\n\x1cRemoveVinylFromStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\";\n)GetAmountOfSpecificVinylFromStoreResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x05\x32\xea\x07\n\x05Store\x12\x46\n\x0b\x43reateStore\x12\x19.store.CreateStoreRequest\x1a\x1a.store.CreateStoreResponse\"\x00\x12@\n\tReadStore\x12\x17.store.ReadStoreRequest\x1a\x18.store.ReadStoreResponse\"\x00\x12\x46\n\x0bUpdateStore\x12\x19.store.UpdateStoreRequest\x1a\x1a.store.UpdateStoreResponse\"\x00\x12\x46\n\x0b\x44\x65leteStore\x12\x19.store.DeleteStoreRequest\x1a\x1a.store.DeleteStoreResponse\"\x00\x12L\n\rReadStoreList\x12\x1b.store.ReadStoreListRequest\x1a\x1c.store.ReadStoreListResponse\"\x00\x12O\n\x0e\x41\x64\x64\x42ookToStore\x12\x1c.store.AddBookToStoreRequest\x1a\x1d.store.AddBookToStoreResponse\"\x00\x12^\n\x13RemoveBookFromStore\x12!.store.RemoveBookFromStoreRequest\x1a\".store.RemoveBookFromStoreResponse\"\x00\x12\x85\x01\n GetAmountOfSpecificBookFromStore\x12..store.GetAmountOfSpecificBookFromStoreRequest\x1a/.store.GetAmountOfSpecificBookFromStoreResponse\"\x00\x12R\n\x0f\x41\x64\x64VinylToStore\x12\x1d.store.AddVinylToStoreRequest\x1a\x1e.store.AddVinylToStoreResponse\"\x00\x12\x61\n\x14RemoveVinylFromStore\x12\".store.RemoveVinylFromStoreRequest\x1a#.store.RemoveVinylFromStoreResponse\"\x00\x12\x88\x01\n!GetAmountOfSpecificVinylFromStore\x12/.store.GetAmountOfSpecificVinylFromStoreRequest\x1a\x30.store.GetAmountOfSpecificVinylFromStoreResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -94,9 +94,23 @@ _CREATESTOREREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='store', full_name='store.CreateStoreRequest.store', index=0,
-      number=1, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='address', full_name='store.CreateStoreRequest.address', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='phone_number', full_name='store.CreateStoreRequest.phone_number', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='email', full_name='store.CreateStoreRequest.email', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -113,7 +127,7 @@ _CREATESTOREREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=141,
-  serialized_end=196,
+  serialized_end=215,
 )
 
 
@@ -151,8 +165,8 @@ _UPDATESTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=198,
-  serialized_end=265,
+  serialized_start=217,
+  serialized_end=284,
 )
 
 
@@ -183,8 +197,8 @@ _DELETESTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=267,
-  serialized_end=299,
+  serialized_start=286,
+  serialized_end=318,
 )
 
 
@@ -215,8 +229,8 @@ _READSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=301,
-  serialized_end=331,
+  serialized_start=320,
+  serialized_end=350,
 )
 
 
@@ -240,8 +254,8 @@ _READSTORELISTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=333,
-  serialized_end=355,
+  serialized_start=352,
+  serialized_end=374,
 )
 
 
@@ -279,8 +293,8 @@ _ADDBOOKTOSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=357,
-  serialized_end=415,
+  serialized_start=376,
+  serialized_end=434,
 )
 
 
@@ -318,8 +332,8 @@ _REMOVEBOOKFROMSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=417,
-  serialized_end=480,
+  serialized_start=436,
+  serialized_end=499,
 )
 
 
@@ -357,8 +371,8 @@ _GETAMOUNTOFSPECIFICBOOKFROMSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=482,
-  serialized_end=558,
+  serialized_start=501,
+  serialized_end=577,
 )
 
 
@@ -396,8 +410,8 @@ _ADDVINYLTOSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=560,
-  serialized_end=620,
+  serialized_start=579,
+  serialized_end=639,
 )
 
 
@@ -435,8 +449,8 @@ _REMOVEVINYLFROMSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=622,
-  serialized_end=687,
+  serialized_start=641,
+  serialized_end=706,
 )
 
 
@@ -474,8 +488,8 @@ _GETAMOUNTOFSPECIFICVINYLFROMSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=689,
-  serialized_end=767,
+  serialized_start=708,
+  serialized_end=786,
 )
 
 
@@ -506,8 +520,8 @@ _CREATESTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=769,
-  serialized_end=803,
+  serialized_start=788,
+  serialized_end=822,
 )
 
 
@@ -538,8 +552,8 @@ _READSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=805,
-  serialized_end=859,
+  serialized_start=824,
+  serialized_end=878,
 )
 
 
@@ -570,8 +584,8 @@ _UPDATESTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=861,
-  serialized_end=895,
+  serialized_start=880,
+  serialized_end=914,
 )
 
 
@@ -602,8 +616,8 @@ _DELETESTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=897,
-  serialized_end=931,
+  serialized_start=916,
+  serialized_end=950,
 )
 
 
@@ -634,8 +648,8 @@ _READSTORELISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=933,
-  serialized_end=996,
+  serialized_start=952,
+  serialized_end=1015,
 )
 
 
@@ -666,8 +680,8 @@ _ADDBOOKTOSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=998,
-  serialized_end=1035,
+  serialized_start=1017,
+  serialized_end=1054,
 )
 
 
@@ -698,8 +712,8 @@ _REMOVEBOOKFROMSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1037,
-  serialized_end=1079,
+  serialized_start=1056,
+  serialized_end=1098,
 )
 
 
@@ -730,8 +744,8 @@ _GETAMOUNTOFSPECIFICBOOKFROMSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1081,
-  serialized_end=1139,
+  serialized_start=1100,
+  serialized_end=1158,
 )
 
 
@@ -762,8 +776,8 @@ _ADDVINYLTOSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1141,
-  serialized_end=1179,
+  serialized_start=1160,
+  serialized_end=1198,
 )
 
 
@@ -794,8 +808,8 @@ _REMOVEVINYLFROMSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1181,
-  serialized_end=1224,
+  serialized_start=1200,
+  serialized_end=1243,
 )
 
 
@@ -826,11 +840,10 @@ _GETAMOUNTOFSPECIFICVINYLFROMSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1226,
-  serialized_end=1285,
+  serialized_start=1245,
+  serialized_end=1304,
 )
 
-_CREATESTOREREQUEST.fields_by_name['store'].message_type = _STOREOBJECT
 _UPDATESTOREREQUEST.fields_by_name['store'].message_type = _STOREOBJECT
 _READSTORERESPONSE.fields_by_name['store'].message_type = _STOREOBJECT
 _READSTORELISTRESPONSE.fields_by_name['store_list'].message_type = _STOREOBJECT
@@ -1029,8 +1042,8 @@ _STORE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1288,
-  serialized_end=2290,
+  serialized_start=1307,
+  serialized_end=2309,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateStore',
