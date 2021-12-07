@@ -1,36 +1,11 @@
-[development]
-[development.database]
-host="127.0.0.1"
-port=30302
-user="some_user"
-pass="some_pass"
-db="some_db"
 
-[development.server]
+[server]
+port=20080
 host="0.0.0.0"
-port=30303
 
-[production]
-[production.database]
-host="127.0.0.1"
-port=30302
-user="some_user"
-pass="some_pass"
-db="some_db"
-
-[production.server]
-host="0.0.0.0"
-port=30303
+[database]
+db ="migration/data/store"
 
 
-[testing]
-[testing.database]
-host="127.0.0.1"
-port=30302
-user="some_user"
-pass="some_pass"
-db="some_db"
 
-[testing.server]
-host="127.0.0.1"
-port=30303
+

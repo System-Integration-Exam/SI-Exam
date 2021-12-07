@@ -1,27 +1,51 @@
-[server]
-host="0.0.0.0"
-port=10000
 
-[clients]
+[development]
+[development.server]
+host = "127.0.0.1"
+port = 20090
 
-[clients.rest]
-[clients.rest.mini-proj]
-host = "rest-service"
+
+[development.clients]
+[development.clients.warehouse]
+host = "127.0.0.1"
+port = 20080
+
+
+[development.clients.metadata]
+host = "127.0.0.1"
+port = 20070
+
+
+[development.clients.subscription]
+host = "127.0.0.1"
+port = 20060
+
+[development.clients.reservation]
+host = "127.0.0.1"
+port = 20050
+
+
+[production]
+[production.server]
+host = "0.0.0.0"
+port = 20090
+
+
+[production.clients]
+[production.clients.warehouse]
+host = "warehouse"
 port = 80
 
 
-[clients.soap]
-[clients.soap.mini-proj]
-host="soap-service"
-port=80
+[production.clients.metadata]
+host = "metadata"
+port = 80
 
 
-[clients.grpc]
-[clients.grpc.mini-proj]
-host="grpc-service"
-port=80
+[production.clients.subscription]
+host = "subscription"
+port = 80
 
-[clients.bus]
-[clients.bus.mini-proj]
-host="bus-service"
-port=80
+[production.clients.reservation]
+host = "reservation"
+port = 80

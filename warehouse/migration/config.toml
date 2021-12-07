@@ -1,0 +1,14 @@
+
+[development]
+[development.database]
+db ="data/store"
+
+[containerized]
+[containerized.database]
+db ="data/store"
+
+
+
+# From root of project. See utils/aliases.py
+[misc]
+migrations_folder="/migrations"
