@@ -5,14 +5,29 @@ services:
   gateway:
     build: ./gateway 
     container_name: si-exam-gateway
-    ports: 20090:20090
-    networks:
-      - app-network 
+    ports: 
+      - 20090:20090
 
-
-networks:
-  app-network:
-    driver: "bridge"
-
-
-# Primarily only includes technologies vital to development
+# Kafka
+  zookeeper:
+    image: zookeeper:3.7.0
+    ports:
+      - 2181:2181
+  kafka:
+    image: wurstmeister/kafka:2.12-2.5.0
+    ports:
+      - 9094:9094
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL://localhost:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: true
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_LISTENERS: INTERNAL://:9092,EXTERNAL://:9094
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    ports:
+      - 9000:9000
+    environment:
+      KAFKA_BROKERCONNECT: kafka:9092
