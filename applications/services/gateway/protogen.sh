@@ -7,6 +7,6 @@ mkdir ./src/logic/protogen
 
 # Protogen
 echo generating protogen
-python -m grpc_tools.protoc -I./proto --python_out=./src/logic/protogen --grpc_python_out=./src/logic/protogen ./proto/warehouse/store.proto
+python -m grpc_tools.protoc -I../../protos --python_out=./src/logic/protogen --grpc_python_out=./src/logic/protogen ../../protos/store.proto
 
 echo Ok
