@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from logic.protogen.warehouse import store_pb2 as warehouse_dot_store__pb2
+import logic.protogen.store_pb2 as store__pb2
 
 
 class StoreStub(object):
@@ -16,58 +16,58 @@ class StoreStub(object):
         """
         self.CreateStore = channel.unary_unary(
                 '/store.Store/CreateStore',
-                request_serializer=warehouse_dot_store__pb2.CreateStoreRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.CreateStoreResponse.FromString,
+                request_serializer=store__pb2.CreateStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.CreateStoreResponse.FromString,
                 )
         self.ReadStore = channel.unary_unary(
                 '/store.Store/ReadStore',
-                request_serializer=warehouse_dot_store__pb2.ReadStoreRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.ReadStoreResponse.FromString,
+                request_serializer=store__pb2.ReadStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.ReadStoreResponse.FromString,
                 )
         self.UpdateStore = channel.unary_unary(
                 '/store.Store/UpdateStore',
-                request_serializer=warehouse_dot_store__pb2.UpdateStoreRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.UpdateStoreResponse.FromString,
+                request_serializer=store__pb2.UpdateStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.UpdateStoreResponse.FromString,
                 )
         self.DeleteStore = channel.unary_unary(
                 '/store.Store/DeleteStore',
-                request_serializer=warehouse_dot_store__pb2.DeleteStoreRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.DeleteStoreResponse.FromString,
+                request_serializer=store__pb2.DeleteStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.DeleteStoreResponse.FromString,
                 )
         self.ReadStoreList = channel.unary_unary(
                 '/store.Store/ReadStoreList',
-                request_serializer=warehouse_dot_store__pb2.ReadStoreListRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.ReadStoreListResponse.FromString,
+                request_serializer=store__pb2.ReadStoreListRequest.SerializeToString,
+                response_deserializer=store__pb2.ReadStoreListResponse.FromString,
                 )
         self.AddBookToStore = channel.unary_unary(
                 '/store.Store/AddBookToStore',
-                request_serializer=warehouse_dot_store__pb2.AddBookToStoreRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.AddBookToStoreResponse.FromString,
+                request_serializer=store__pb2.AddBookToStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.AddBookToStoreResponse.FromString,
                 )
         self.RemoveBookFromStore = channel.unary_unary(
                 '/store.Store/RemoveBookFromStore',
-                request_serializer=warehouse_dot_store__pb2.RemoveBookFromStoreRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.RemoveBookFromStoreResponse.FromString,
+                request_serializer=store__pb2.RemoveBookFromStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.RemoveBookFromStoreResponse.FromString,
                 )
         self.GetAmountOfSpecificBookFromStore = channel.unary_unary(
                 '/store.Store/GetAmountOfSpecificBookFromStore',
-                request_serializer=warehouse_dot_store__pb2.GetAmountOfSpecificBookFromStoreRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.GetAmountOfSpecificBookFromStoreResponse.FromString,
+                request_serializer=store__pb2.GetAmountOfSpecificBookFromStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.GetAmountOfSpecificBookFromStoreResponse.FromString,
                 )
         self.AddVinylToStore = channel.unary_unary(
                 '/store.Store/AddVinylToStore',
-                request_serializer=warehouse_dot_store__pb2.AddVinylToStoreRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.AddVinylToStoreResponse.FromString,
+                request_serializer=store__pb2.AddVinylToStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.AddVinylToStoreResponse.FromString,
                 )
         self.RemoveVinylFromStore = channel.unary_unary(
                 '/store.Store/RemoveVinylFromStore',
-                request_serializer=warehouse_dot_store__pb2.RemoveVinylFromStoreRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.RemoveVinylFromStoreResponse.FromString,
+                request_serializer=store__pb2.RemoveVinylFromStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.RemoveVinylFromStoreResponse.FromString,
                 )
         self.GetAmountOfSpecificVinylFromStore = channel.unary_unary(
                 '/store.Store/GetAmountOfSpecificVinylFromStore',
-                request_serializer=warehouse_dot_store__pb2.GetAmountOfSpecificVinylFromStoreRequest.SerializeToString,
-                response_deserializer=warehouse_dot_store__pb2.GetAmountOfSpecificVinylFromStoreResponse.FromString,
+                request_serializer=store__pb2.GetAmountOfSpecificVinylFromStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.GetAmountOfSpecificVinylFromStoreResponse.FromString,
                 )
 
 
@@ -147,58 +147,58 @@ def add_StoreServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'CreateStore': grpc.unary_unary_rpc_method_handler(
                     servicer.CreateStore,
-                    request_deserializer=warehouse_dot_store__pb2.CreateStoreRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.CreateStoreResponse.SerializeToString,
+                    request_deserializer=store__pb2.CreateStoreRequest.FromString,
+                    response_serializer=store__pb2.CreateStoreResponse.SerializeToString,
             ),
             'ReadStore': grpc.unary_unary_rpc_method_handler(
                     servicer.ReadStore,
-                    request_deserializer=warehouse_dot_store__pb2.ReadStoreRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.ReadStoreResponse.SerializeToString,
+                    request_deserializer=store__pb2.ReadStoreRequest.FromString,
+                    response_serializer=store__pb2.ReadStoreResponse.SerializeToString,
             ),
             'UpdateStore': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateStore,
-                    request_deserializer=warehouse_dot_store__pb2.UpdateStoreRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.UpdateStoreResponse.SerializeToString,
+                    request_deserializer=store__pb2.UpdateStoreRequest.FromString,
+                    response_serializer=store__pb2.UpdateStoreResponse.SerializeToString,
             ),
             'DeleteStore': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteStore,
-                    request_deserializer=warehouse_dot_store__pb2.DeleteStoreRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.DeleteStoreResponse.SerializeToString,
+                    request_deserializer=store__pb2.DeleteStoreRequest.FromString,
+                    response_serializer=store__pb2.DeleteStoreResponse.SerializeToString,
             ),
             'ReadStoreList': grpc.unary_unary_rpc_method_handler(
                     servicer.ReadStoreList,
-                    request_deserializer=warehouse_dot_store__pb2.ReadStoreListRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.ReadStoreListResponse.SerializeToString,
+                    request_deserializer=store__pb2.ReadStoreListRequest.FromString,
+                    response_serializer=store__pb2.ReadStoreListResponse.SerializeToString,
             ),
             'AddBookToStore': grpc.unary_unary_rpc_method_handler(
                     servicer.AddBookToStore,
-                    request_deserializer=warehouse_dot_store__pb2.AddBookToStoreRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.AddBookToStoreResponse.SerializeToString,
+                    request_deserializer=store__pb2.AddBookToStoreRequest.FromString,
+                    response_serializer=store__pb2.AddBookToStoreResponse.SerializeToString,
             ),
             'RemoveBookFromStore': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveBookFromStore,
-                    request_deserializer=warehouse_dot_store__pb2.RemoveBookFromStoreRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.RemoveBookFromStoreResponse.SerializeToString,
+                    request_deserializer=store__pb2.RemoveBookFromStoreRequest.FromString,
+                    response_serializer=store__pb2.RemoveBookFromStoreResponse.SerializeToString,
             ),
             'GetAmountOfSpecificBookFromStore': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAmountOfSpecificBookFromStore,
-                    request_deserializer=warehouse_dot_store__pb2.GetAmountOfSpecificBookFromStoreRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.GetAmountOfSpecificBookFromStoreResponse.SerializeToString,
+                    request_deserializer=store__pb2.GetAmountOfSpecificBookFromStoreRequest.FromString,
+                    response_serializer=store__pb2.GetAmountOfSpecificBookFromStoreResponse.SerializeToString,
             ),
             'AddVinylToStore': grpc.unary_unary_rpc_method_handler(
                     servicer.AddVinylToStore,
-                    request_deserializer=warehouse_dot_store__pb2.AddVinylToStoreRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.AddVinylToStoreResponse.SerializeToString,
+                    request_deserializer=store__pb2.AddVinylToStoreRequest.FromString,
+                    response_serializer=store__pb2.AddVinylToStoreResponse.SerializeToString,
             ),
             'RemoveVinylFromStore': grpc.unary_unary_rpc_method_handler(
                     servicer.RemoveVinylFromStore,
-                    request_deserializer=warehouse_dot_store__pb2.RemoveVinylFromStoreRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.RemoveVinylFromStoreResponse.SerializeToString,
+                    request_deserializer=store__pb2.RemoveVinylFromStoreRequest.FromString,
+                    response_serializer=store__pb2.RemoveVinylFromStoreResponse.SerializeToString,
             ),
             'GetAmountOfSpecificVinylFromStore': grpc.unary_unary_rpc_method_handler(
                     servicer.GetAmountOfSpecificVinylFromStore,
-                    request_deserializer=warehouse_dot_store__pb2.GetAmountOfSpecificVinylFromStoreRequest.FromString,
-                    response_serializer=warehouse_dot_store__pb2.GetAmountOfSpecificVinylFromStoreResponse.SerializeToString,
+                    request_deserializer=store__pb2.GetAmountOfSpecificVinylFromStoreRequest.FromString,
+                    response_serializer=store__pb2.GetAmountOfSpecificVinylFromStoreResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -222,8 +222,8 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/CreateStore',
-            warehouse_dot_store__pb2.CreateStoreRequest.SerializeToString,
-            warehouse_dot_store__pb2.CreateStoreResponse.FromString,
+            store__pb2.CreateStoreRequest.SerializeToString,
+            store__pb2.CreateStoreResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -239,8 +239,8 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/ReadStore',
-            warehouse_dot_store__pb2.ReadStoreRequest.SerializeToString,
-            warehouse_dot_store__pb2.ReadStoreResponse.FromString,
+            store__pb2.ReadStoreRequest.SerializeToString,
+            store__pb2.ReadStoreResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -256,8 +256,8 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/UpdateStore',
-            warehouse_dot_store__pb2.UpdateStoreRequest.SerializeToString,
-            warehouse_dot_store__pb2.UpdateStoreResponse.FromString,
+            store__pb2.UpdateStoreRequest.SerializeToString,
+            store__pb2.UpdateStoreResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -273,8 +273,8 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/DeleteStore',
-            warehouse_dot_store__pb2.DeleteStoreRequest.SerializeToString,
-            warehouse_dot_store__pb2.DeleteStoreResponse.FromString,
+            store__pb2.DeleteStoreRequest.SerializeToString,
+            store__pb2.DeleteStoreResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -290,8 +290,8 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/ReadStoreList',
-            warehouse_dot_store__pb2.ReadStoreListRequest.SerializeToString,
-            warehouse_dot_store__pb2.ReadStoreListResponse.FromString,
+            store__pb2.ReadStoreListRequest.SerializeToString,
+            store__pb2.ReadStoreListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -307,8 +307,8 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/AddBookToStore',
-            warehouse_dot_store__pb2.AddBookToStoreRequest.SerializeToString,
-            warehouse_dot_store__pb2.AddBookToStoreResponse.FromString,
+            store__pb2.AddBookToStoreRequest.SerializeToString,
+            store__pb2.AddBookToStoreResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -324,8 +324,8 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/RemoveBookFromStore',
-            warehouse_dot_store__pb2.RemoveBookFromStoreRequest.SerializeToString,
-            warehouse_dot_store__pb2.RemoveBookFromStoreResponse.FromString,
+            store__pb2.RemoveBookFromStoreRequest.SerializeToString,
+            store__pb2.RemoveBookFromStoreResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -341,8 +341,8 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/GetAmountOfSpecificBookFromStore',
-            warehouse_dot_store__pb2.GetAmountOfSpecificBookFromStoreRequest.SerializeToString,
-            warehouse_dot_store__pb2.GetAmountOfSpecificBookFromStoreResponse.FromString,
+            store__pb2.GetAmountOfSpecificBookFromStoreRequest.SerializeToString,
+            store__pb2.GetAmountOfSpecificBookFromStoreResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -358,8 +358,8 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/AddVinylToStore',
-            warehouse_dot_store__pb2.AddVinylToStoreRequest.SerializeToString,
-            warehouse_dot_store__pb2.AddVinylToStoreResponse.FromString,
+            store__pb2.AddVinylToStoreRequest.SerializeToString,
+            store__pb2.AddVinylToStoreResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -375,8 +375,8 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/RemoveVinylFromStore',
-            warehouse_dot_store__pb2.RemoveVinylFromStoreRequest.SerializeToString,
-            warehouse_dot_store__pb2.RemoveVinylFromStoreResponse.FromString,
+            store__pb2.RemoveVinylFromStoreRequest.SerializeToString,
+            store__pb2.RemoveVinylFromStoreResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -392,7 +392,7 @@ class Store(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/store.Store/GetAmountOfSpecificVinylFromStore',
-            warehouse_dot_store__pb2.GetAmountOfSpecificVinylFromStoreRequest.SerializeToString,
-            warehouse_dot_store__pb2.GetAmountOfSpecificVinylFromStoreResponse.FromString,
+            store__pb2.GetAmountOfSpecificVinylFromStoreRequest.SerializeToString,
+            store__pb2.GetAmountOfSpecificVinylFromStoreResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

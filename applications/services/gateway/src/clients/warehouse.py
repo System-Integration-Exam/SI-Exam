@@ -1,6 +1,6 @@
 import json as JSON
-from logic.protogen.warehouse import store_pb2_grpc
-from logic.protogen.warehouse import store_pb2
+from logic.protogen import store_pb2_grpc
+from logic.protogen import store_pb2
 from utils.config import CONFIG
 from entities.warehouse.store import Store
 
