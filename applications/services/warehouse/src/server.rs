@@ -114,7 +114,8 @@ impl Store for StoreCon {
     async fn get_amount_of_specific_book_from_store(
         &self,
         request: tonic::Request<store::GetAmountOfSpecificBookFromStoreRequest>,
-    ) -> Result<tonic::Response<store::GetAmountOfSpecificBookFromStoreResponse>, tonic::Status> {
+    ) -> Result<tonic::Response<store::GetAmountOfSpecificBookFromStoreResponse>, tonic::Status>
+    {
         println!("Got a request from {:?}", request.remote_addr());
 
         Ok(Response::new(
@@ -149,11 +150,12 @@ impl Store for StoreCon {
                 .expect("Store Read List failed"),
         ))
     }
-    
+
     async fn get_amount_of_specific_vinyl_from_store(
         &self,
         request: tonic::Request<store::GetAmountOfSpecificVinylFromStoreRequest>,
-    ) -> Result<tonic::Response<store::GetAmountOfSpecificVinylFromStoreResponse>, tonic::Status> {
+    ) -> Result<tonic::Response<store::GetAmountOfSpecificVinylFromStoreResponse>, tonic::Status>
+    {
         println!("Got a request from {:?}", request.remote_addr());
 
         Ok(Response::new(
@@ -162,7 +164,6 @@ impl Store for StoreCon {
                 .expect("Store Read List failed"),
         ))
     }
-
 }
 
 #[tokio::main]
@@ -170,17 +171,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let addr = format!("{}:{}", CONFIG.server.host, CONFIG.server.port)
         .parse()
         .unwrap();
-    let store_con = StoreCon::default();
 
     println!(
         "Server running on: {}:{}",
         CONFIG.server.host, CONFIG.server.port
     );
-
+    tokio::spawn(async move {
+        println!("Kafka Consumption listener goes here")
+    });
     Server::builder()
-        .add_service(StoreServer::new(store_con))
+        .add_service(StoreServer::new(StoreCon::default()))
         .serve(addr)
-        .await?;
-
+        .await
+        .unwrap();
     Ok(())
 }

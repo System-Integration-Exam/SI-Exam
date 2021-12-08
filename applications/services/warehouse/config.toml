@@ -6,6 +6,7 @@ host="0.0.0.0"
 [database]
 db ="migration/data/store"
 
-
-
-
+[kafka]
+bootstrap_servers = "localhost:9094"
+message_timeout_ms = "5000"
+log-conf = true
