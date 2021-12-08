@@ -6,5 +6,5 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/empty.proto";
 
 service ReservationGrpc {
-    rpc CreateReservation (google.protobuf.Int32Value) returns (google.protobuf.Empty);
+    rpc CreateReservation (google.protobuf.StringValue) returns (google.protobuf.Empty);
 }

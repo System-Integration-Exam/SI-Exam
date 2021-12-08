@@ -26,9 +26,9 @@ namespace Reservation.Protos {
           string.Concat(
             "ChFyZXNlcnZhdGlvbi5wcm90bxILcmVzZXJ2YXRpb24aHmdvb2dsZS9wcm90",
             "b2J1Zi93cmFwcGVycy5wcm90bxobZ29vZ2xlL3Byb3RvYnVmL2VtcHR5LnBy",
-            "b3RvMlsKD1Jlc2VydmF0aW9uR3JwYxJIChFDcmVhdGVSZXNlcnZhdGlvbhIb",
-            "Lmdvb2dsZS5wcm90b2J1Zi5JbnQzMlZhbHVlGhYuZ29vZ2xlLnByb3RvYnVm",
-            "LkVtcHR5QhWqAhJSZXNlcnZhdGlvbi5Qcm90b3NiBnByb3RvMw=="));
+            "b3RvMlwKD1Jlc2VydmF0aW9uR3JwYxJJChFDcmVhdGVSZXNlcnZhdGlvbhIc",
+            "Lmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRoWLmdvb2dsZS5wcm90b2J1",
+            "Zi5FbXB0eUIVqgISUmVzZXJ2YXRpb24uUHJvdG9zYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, null));
