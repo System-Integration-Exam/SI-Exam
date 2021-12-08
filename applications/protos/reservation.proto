@@ -1,0 +1,10 @@
+syntax = "proto3";
+package reservation;
+
+option csharp_namespace = "Reservation.Grpc";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+
+service ReservationService {
+    rpc CreateReservation (google.protobuf.Int32Value) returns (google.protobuf.Empty);
+}
