@@ -8,9 +8,9 @@
 using grpc = global::Grpc.Core;
 
 namespace Reservation.Protos {
-  public static partial class ReservationService
+  public static partial class ReservationGrpc
   {
-    static readonly string __ServiceName = "reservation.ReservationService";
+    static readonly string __ServiceName = "reservation.ReservationGrpc";
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static void __Helper_SerializeMessage(global::Google.Protobuf.IMessage message, grpc::SerializationContext context)
@@ -64,9 +64,9 @@ namespace Reservation.Protos {
       get { return global::Reservation.Protos.ReservationReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of ReservationService</summary>
-    [grpc::BindServiceMethod(typeof(ReservationService), "BindService")]
-    public abstract partial class ReservationServiceBase
+    /// <summary>Base class for server-side implementations of ReservationGrpc</summary>
+    [grpc::BindServiceMethod(typeof(ReservationGrpc), "BindService")]
+    public abstract partial class ReservationGrpcBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> CreateReservation(global::Google.Protobuf.WellKnownTypes.Int32Value request, grpc::ServerCallContext context)
@@ -79,7 +79,7 @@ namespace Reservation.Protos {
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static grpc::ServerServiceDefinition BindService(ReservationServiceBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(ReservationGrpcBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_CreateReservation, serviceImpl.CreateReservation).Build();
@@ -90,7 +90,7 @@ namespace Reservation.Protos {
     /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, ReservationServiceBase serviceImpl)
+    public static void BindService(grpc::ServiceBinderBase serviceBinder, ReservationGrpcBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_CreateReservation, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Google.Protobuf.WellKnownTypes.Int32Value, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.CreateReservation));
     }
