@@ -13,6 +13,7 @@ RUN apt-get update -y
 RUN cargo chef cook --release --recipe-path recipe.json
 # Build application
 COPY . .
+RUN rustup component add rustfmt
 RUN cargo build --release --bin server
 
 # We do not need the Rust toolchain to run the binary!
