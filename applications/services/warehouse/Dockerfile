@@ -22,7 +22,6 @@ FROM python:3.9.4-slim as migrator
 
 COPY --from=planner /app/migration /app
 WORKDIR /app
-RUN ls
 
 RUN apt-get update && apt-get install -y --no-install-recommends netcat
 RUN apt-get install sqlite3 -y
@@ -31,9 +30,6 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN ls
-RUN cat requirements.txt
-#COPY /usr/src/app/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 
@@ -44,6 +40,7 @@ RUN python src/main.py
 
 # We do not need the Rust toolchain to run the binary!
 FROM debian:bullseye-slim AS runtime
+LABEL org.opencontainers.image.source https://github.com/System-Integration-Exam/SI-Exam
 WORKDIR /app
 RUN mkdir /app/migration
 COPY --from=migrator /app/data /app/migration/data
