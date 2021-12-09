@@ -3,8 +3,8 @@ from concurrent import futures
 import time
 
 # import the generated classes
-import stubs.book_pb2 as book_pb2
-import stubs.book_pb2_grpc as book_pb2_grpc
+import protogen.book_pb2 as book_pb2
+import protogen.book_pb2_grpc as book_pb2_grpc
 
 # import the original calculator.py
 import entities.book as book

@@ -1,8 +1,8 @@
 import grpc
 
 # import the generated classes
-import stubs.book_pb2 as book_pb2
-import stubs.book_pb2_grpc as book_pb2_grpc
+import protogen.book_pb2 as book_pb2
+import protogen.book_pb2_grpc as book_pb2_grpc
 
 # open a gRPC channel
 channel = grpc.insecure_channel('localhost:50051')
