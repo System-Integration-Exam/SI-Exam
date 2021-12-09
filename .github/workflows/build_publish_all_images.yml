@@ -8,7 +8,7 @@ on:
 jobs:
   call-build-and-publish-workflow:
     name: Build & Publish Reservation Service
-    uses: System-Integration-Exam/SI-Exam/blob/main/.github/workflows/build_publish_image.yml@main
+    uses: System-Integration-Exam/SI-Exam/.github/workflows/build_publish_image.yml@main
     with:
       image_name: Reservation-Service
       image_path: "application/services/reservation"
