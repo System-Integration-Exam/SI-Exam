@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from stubs import book_pb2 as protos_dot_book__pb2
+from protogen import book_pb2 as protos_dot_book__pb2
 
 
 class BookStub(object):
