@@ -1,4 +1,4 @@
-from connection.sqllite_connection import execute_query
+from connection.sqlite_connection import execute_query
 from utils.query_utils import get_all_up_scripts, get_all_down_scripts
 
 

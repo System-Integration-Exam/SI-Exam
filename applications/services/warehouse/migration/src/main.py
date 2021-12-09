@@ -1,7 +1,7 @@
 import time
 
 from logic.table_exec import migrate_up, migrate_down
-from logic.pop import populate
+from logic.data_pop import populate
 
 
 
