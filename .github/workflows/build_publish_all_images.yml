@@ -10,7 +10,7 @@ jobs:
     name: Build & Publish Reservation Service
     uses: System-Integration-Exam/SI-Exam/.github/workflows/build_publish_image.yml@main
     with:
-      image_name: Reservation-Service
+      image_name: reservation_rervice
       image_path: "application/services/reservation"
     secrets:
       ghcr_token: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
