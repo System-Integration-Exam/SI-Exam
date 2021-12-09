@@ -1,0 +1,16 @@
+name: Build and Publish all docker images
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-build-and-publish-workflow:
+    name: Build & Publish Reservation Service
+    uses: System-Integration-Exam/SI-Exam/blob/main/.github/workflows/build_publish_image.yml@main
+    with:
+      image_name: Reservation-Service
+      image_path: "application/services/reservation"
+    secrets:
+      ghcr_token: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
