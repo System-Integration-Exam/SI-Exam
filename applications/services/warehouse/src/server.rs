@@ -1,6 +1,8 @@
+use rdkafka::util::get_rdkafka_version;
 use store::store_server::{Store, StoreServer};
 use store::{CreateStoreRequest, CreateStoreResponse};
 use tonic::{transport::Server, Request, Response, Status};
+use log::{info, warn};
 
 #[macro_use]
 extern crate lazy_static;
@@ -14,6 +16,9 @@ use entities::store;
 use logic::store_handler;
 
 use utils::config::CONFIG;
+
+use crate::logic::kafka::consumer::consume_and_print;
+use crate::logic::kafka::logger::setup_logger;
 
 #[derive(Default)]
 pub struct StoreCon {}
@@ -177,7 +182,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         CONFIG.server.host, CONFIG.server.port
     );
     tokio::spawn(async move {
-        println!("Kafka Consumption listener goes here")
+        setup_logger(true,Some(&CONFIG.kafka.consumer.log_conf));
+
+        let (version_n, version_s) = get_rdkafka_version();
+        info!("rd_kafka_version: 0x{:08x}, {}", version_n, version_s);
+    
+        let topics = CONFIG.kafka.consumer.topics.to_owned();
+        let half_owned_topics: Vec<_> = topics.iter().map(String::as_str).collect();
+        let group_id = "reservation".to_owned();
+    
+        consume_and_print(group_id.as_str(), &half_owned_topics).await
     });
     Server::builder()
         .add_service(StoreServer::new(StoreCon::default()))

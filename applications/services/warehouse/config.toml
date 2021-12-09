@@ -6,7 +6,17 @@ host="0.0.0.0"
 [database]
 db ="migration/data/store"
 
+
 [kafka]
 bootstrap_servers = "localhost:9094"
+
+[kafka.producer]
 message_timeout_ms = "5000"
-log-conf = true
+log_conf = "true"
+
+[kafka.consumer]
+enable_partition_eof = "false"
+enable_auto_commit = "true"
+session_timeout_ms = "6000"
+log_conf = "true"
+topics = ["reservation"]
