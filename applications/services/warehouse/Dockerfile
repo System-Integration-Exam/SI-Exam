@@ -3,7 +3,7 @@ WORKDIR /app
 
 FROM chef AS planner
 COPY . .
-RUN apt-get install cmake
+RUN apt-get update && apt-get -y install cmake protobuf-compiler
 RUN cargo chef prepare --recipe-path recipe.json
 
 FROM chef AS builder 
