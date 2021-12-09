@@ -1,20 +1,21 @@
-FROM rust:1.57-buster
+FROM lukemathwalker/cargo-chef:latest-rust-1.57.0 AS chef
+WORKDIR /app
 
-# Postgres
-
-RUN apt-get update
-#RUN apt-get install libpq-dev -y
-#RUN apt-get install -y clang libclang-dev
-
-WORKDIR /usr/src/backend
+FROM chef AS planner
 COPY . .
+RUN cargo chef prepare --recipe-path recipe.json
 
-#EXPOSE 13000
-#RUN cargo install --path .
-RUN rustup component add rustfmt
-#RUN cargo install sqlx-cli --no-default-features --features sqlite
-#RUN sqlx database create
-#RUN sqlx migrate run
-RUN cargo b
+FROM chef AS builder 
+COPY --from=planner /app/recipe.json recipe.json
+# Build dependencies - this is the caching Docker layer!
+RUN cargo chef cook --release --recipe-path recipe.json
+# Build application
+COPY . .
+RUN apt-get install cmake
+RUN cargo build --release --bin app
 
-CMD ["cargo","r","--bin","server"]
+# We do not need the Rust toolchain to run the binary!
+FROM debian:bullseye-slim AS runtime
+WORKDIR /app
+COPY --from=builder /app/target/release/app /usr/local/bin
+ENTRYPOINT ["/usr/local/bin/app"]
