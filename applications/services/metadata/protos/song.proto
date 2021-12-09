@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message SongRequest {
+    string id = 1;
+}
+
+message SongResponse {
+    string id = 1;
+    string title = 2;
+    int32 duration_sec = 3;
+}
+
+service Song {
+    rpc getSongInfo(SongRequest) returns (SongResponse);
+}

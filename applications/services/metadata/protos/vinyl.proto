@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message VinylRequest {
+    string id = 1;
+}
+
+message VinylResponse {
+    string id = 1;
+    string artist = 2;
+    string genre = 3;
+}
+
+service Vinyl {
+    rpc getVinylInfo(VinylRequest) returns (VinylResponse);
+}
