@@ -27,6 +27,3 @@ class Book:
     def delete():
         return 0
 
-def getBookInfo(x):
-    y = x+x
-    return y

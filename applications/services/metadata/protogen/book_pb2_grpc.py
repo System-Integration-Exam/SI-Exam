@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from protogen import book_pb2 as protos_dot_book__pb2
+from protogen import book_pb2 as book__pb2
 
 
 class BookStub(object):
@@ -16,8 +16,8 @@ class BookStub(object):
         """
         self.getBookInfo = channel.unary_unary(
                 '/Book/getBookInfo',
-                request_serializer=protos_dot_book__pb2.BookRequest.SerializeToString,
-                response_deserializer=protos_dot_book__pb2.BookRequest.FromString,
+                request_serializer=book__pb2.BookRequest.SerializeToString,
+                response_deserializer=book__pb2.BookResponse.FromString,
                 )
 
 
@@ -35,8 +35,8 @@ def add_BookServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'getBookInfo': grpc.unary_unary_rpc_method_handler(
                     servicer.getBookInfo,
-                    request_deserializer=protos_dot_book__pb2.BookRequest.FromString,
-                    response_serializer=protos_dot_book__pb2.BookRequest.SerializeToString,
+                    request_deserializer=book__pb2.BookRequest.FromString,
+                    response_serializer=book__pb2.BookResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -60,7 +60,7 @@ class Book(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Book/getBookInfo',
-            protos_dot_book__pb2.BookRequest.SerializeToString,
-            protos_dot_book__pb2.BookRequest.FromString,
+            book__pb2.BookRequest.SerializeToString,
+            book__pb2.BookResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

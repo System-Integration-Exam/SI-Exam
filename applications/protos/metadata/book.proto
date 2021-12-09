@@ -12,6 +12,6 @@ message BookResponse {
 }
 
 service Book {
-    rpc getBookInfo(BookRequest) returns (BookRequest) {}
+    rpc getBookInfo(BookRequest) returns (BookResponse) {}
     
 }
