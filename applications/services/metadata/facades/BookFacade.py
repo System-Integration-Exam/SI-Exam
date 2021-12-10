@@ -1,5 +1,5 @@
 
-from entities.Book import Book
+from entities.book import Book
 
 def getBookInfo(x):
     #todo get from database
