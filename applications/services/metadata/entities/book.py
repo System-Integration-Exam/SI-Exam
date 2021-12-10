@@ -15,15 +15,3 @@ class Book:
         self.author = author
         self.rating = rating
 
-    def create():
-        return 0
-
-    def read():
-        return 0
-
-    def update():
-        return 0
-    
-    def delete():
-        return 0
-

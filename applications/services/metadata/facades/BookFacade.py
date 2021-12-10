@@ -9,4 +9,17 @@ def getBookInfo(x):
     return book
 
 
+def create():
+    return 0
+
+def read():
+    return 0
+
+def update():
+    return 0
+    
+def delete():
+    return 0
+
+
 print(getBookInfo(10))
