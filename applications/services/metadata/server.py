@@ -8,7 +8,7 @@ import protogen.book_pb2_grpc as book_pb2_grpc
 
 # import the original calculator.py
 import entities.book as Book
-import facades.BookFacade as BF
+import facades.book_facade as BF
 
 # create a class to define the server functions, derived from
 # book_pb2_grpc.BookServicer

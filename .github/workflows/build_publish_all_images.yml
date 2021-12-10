@@ -23,3 +23,12 @@ jobs:
       image_path: "applications/services/warehouse"
     secrets:
       ghcr_token: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
+
+  call-build-and-publish-metadata:
+    name: Build & Publish Metadata Service
+    uses: System-Integration-Exam/SI-Exam/.github/workflows/build_publish_image.yml@main
+    with:
+      image_name: metadata-service
+      image_path: "applications/services/metadata"
+    secrets:
+      ghcr_token: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
