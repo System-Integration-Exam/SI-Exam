@@ -16,6 +16,7 @@ RUN dotnet publish "Reservation.csproj" -c Release -o /app/publish
 
 FROM base AS final
 
+LABEL org.opencontainers.image.source https://github.com/System-Integration-Exam/SI-Exam
 ENV ASPNETCORE_URLS=http://+:5000
 EXPOSE 5000
 WORKDIR /app

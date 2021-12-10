@@ -8,6 +8,16 @@ services:
     ports: 
       - 20090:20090
 
+  warehouse:
+    build: ./applications/services/warehouse
+    container_name: "si-exam-warehouse"
+    ports:
+      - 20080:20080
+
+  warehouse-migrator:
+    build: ./applications/services/warehouse/migration
+    container_name: "si-exam-warehouse-migrator"
+    
 # Kafka
   zookeeper:
     image: zookeeper:3.7.0

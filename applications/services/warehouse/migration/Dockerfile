@@ -13,6 +13,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
-RUN sqlite3 data/rest.db ".backup main backup:Sqlite"
+RUN mkdir data
+RUN sqlite3 data/store.db ".backup main backup:Sqlite"
 
 CMD ["python", "src/main.py"]

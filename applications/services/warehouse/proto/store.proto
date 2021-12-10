@@ -1,0 +1,86 @@
+syntax = "proto3";
+package store;
+
+service Store {
+  rpc CreateStore(CreateStoreRequest) returns (CreateStoreResponse) {}
+  rpc ReadStore(ReadStoreRequest) returns (ReadStoreResponse) {}
+  rpc UpdateStore(UpdateStoreRequest) returns (UpdateStoreResponse) {}
+  rpc DeleteStore(DeleteStoreRequest) returns (DeleteStoreResponse) {}
+  rpc ReadStoreList(ReadStoreListRequest) returns (ReadStoreListResponse) {}
+  //
+  rpc AddBookToStore(AddBookToStoreRequest) returns (AddBookToStoreResponse) {}
+  rpc RemoveBookFromStore(RemoveBookFromStoreRequest)
+      returns (RemoveBookFromStoreResponse) {}
+  rpc GetAmountOfSpecificBookFromStore(GetAmountOfSpecificBookFromStoreRequest)
+      returns (GetAmountOfSpecificBookFromStoreResponse) {}
+  //
+  rpc AddVinylToStore(AddVinylToStoreRequest)
+      returns (AddVinylToStoreResponse) {}
+  rpc RemoveVinylFromStore(RemoveVinylFromStoreRequest)
+      returns (RemoveVinylFromStoreResponse) {}
+  rpc GetAmountOfSpecificVinylFromStore(GetAmountOfSpecificVinylFromStoreRequest)
+      returns (GetAmountOfSpecificVinylFromStoreResponse) {}
+}
+
+message StoreObject {
+  string address = 1;
+  string phone_number = 2;
+  string email = 3;
+  string created_at = 4;
+  string updated_at = 5;
+}
+
+// ######## Request ########
+message CreateStoreRequest { 
+    string address = 1; 
+    string phone_number = 2;
+    string email = 3;
+}
+message UpdateStoreRequest {
+  int32 id = 1;
+  StoreObject store = 2;
+}
+message DeleteStoreRequest { int32 id = 1; }
+message ReadStoreRequest { int32 id = 1; }
+message ReadStoreListRequest {}
+
+message AddBookToStoreRequest {
+  int32 store_id = 1;
+  int32 book_id = 2;
+}
+message RemoveBookFromStoreRequest {
+  int32 store_id = 1;
+  int32 book_id = 2;
+}
+message GetAmountOfSpecificBookFromStoreRequest {
+  int32 store_id = 1;
+  int32 book_id = 2;
+}
+
+message AddVinylToStoreRequest {
+  int32 store_id = 1;
+  int32 vinyl_id = 2;
+}
+message RemoveVinylFromStoreRequest {
+  int32 store_id = 1;
+  int32 vinyl_id = 2;
+}
+message GetAmountOfSpecificVinylFromStoreRequest {
+  int32 store_id = 1;
+  int32 vinyl_id = 2;
+}
+// ######## Response #######
+
+message CreateStoreResponse { string msg = 1; }
+message ReadStoreResponse { StoreObject store = 1; }
+message UpdateStoreResponse { string msg = 1; }
+message DeleteStoreResponse { string msg = 1; }
+message ReadStoreListResponse { repeated StoreObject store_list = 1; }
+
+message AddBookToStoreResponse { string msg = 1; }
+message RemoveBookFromStoreResponse { string msg = 1; }
+message GetAmountOfSpecificBookFromStoreResponse { int32 amount = 1; }
+
+message AddVinylToStoreResponse { string msg = 1; }
+message RemoveVinylFromStoreResponse { string msg = 1; }
+message GetAmountOfSpecificVinylFromStoreResponse { int32 amount = 1; }

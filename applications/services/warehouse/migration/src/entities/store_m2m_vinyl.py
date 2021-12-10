@@ -1,6 +1,6 @@
 from connection.sqlite_connection import execute_query
 import datetime
-from dataclass import dataclass
+from dataclasses import dataclass
 
 @dataclass
 class StoreM2MVinyl():
@@ -8,5 +8,5 @@ class StoreM2MVinyl():
     vinyl_id: int
 
     def insert_query(self) -> None:
-        query = f"INSERT INTO store_m2m_vinyl (store_id, vinyl_id) VALUES ('{self.address}', '{self.phone_number}')"
+        query = f"INSERT INTO store_m2m_vinyl (store_id, vinyl_id) VALUES ('{self.store_id}', '{self.vinyl_id}')"
         execute_query(query)

@@ -11,4 +11,4 @@ db ="data/store"
 
 # From root of project. See utils/aliases.py
 [misc]
-migrations_folder="/migrations"
+migration_directory="/migrations"

@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import song_pb2 as protos_dot_song__pb2
+from protogen import song_pb2 as protos_dot_song__pb2
 
 
 class SongStub(object):

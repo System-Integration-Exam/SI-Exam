@@ -12,6 +12,7 @@ lazy_static! {
 pub struct Config {
     pub server: Server,
     pub database: Database,
+    pub kafka: Kafka,
 }
 
 #[derive(Deserialize)]
@@ -23,6 +24,28 @@ pub struct Server {
 #[derive(Deserialize)]
 pub struct Database {
     pub db: String,
+}
+
+#[derive(Deserialize)]
+pub struct Kafka {
+    pub bootstrap_servers: String,
+    pub producer: Producer,
+    pub consumer: Consumer,
+}
+
+#[derive(Deserialize)]
+pub struct Producer {
+    pub message_timeout_ms: String,
+    pub log_conf: String,
+}
+
+#[derive(Deserialize)]
+pub struct Consumer {
+    pub enable_partition_eof: String,
+    pub enable_auto_commit: String,
+    pub session_timeout_ms: String,
+    pub log_conf: String,
+    pub topics: Vec<String>,
 }
 
 fn read_config_file(path: &str) -> Result<Config, Box<dyn Error>> {
