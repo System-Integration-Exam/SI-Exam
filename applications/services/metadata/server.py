@@ -7,7 +7,8 @@ import protogen.book_pb2 as book_pb2
 import protogen.book_pb2_grpc as book_pb2_grpc
 
 # import the original calculator.py
-import entities.book as book
+import entities.book as Book
+import facades.book_facade as BF
 
 # create a class to define the server functions, derived from
 # book_pb2_grpc.BookServicer
@@ -17,8 +18,14 @@ class BookServicer(book_pb2_grpc.BookServicer):
     # the request and response are of the data type
     # book_pb2.Id
     def getBookInfo(self, request, context):
-        response = book_pb2.BookRequest()
-        response.id = book.getBookInfo(request.id)
+        response = book_pb2.BookResponse()
+        book = BF.getBookInfo(request.id)
+
+        response.id = book.id
+        response.title = book.title
+        response.author = book.author
+        response.rating = book.rating
+        
         return response
 
 

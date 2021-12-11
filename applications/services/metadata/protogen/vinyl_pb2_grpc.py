@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from protogen import vinyl_pb2 as protos_dot_vinyl__pb2
+import vinyl_pb2 as protos_dot_vinyl__pb2
 
 
 class VinylStub(object):

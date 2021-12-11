@@ -17,4 +17,4 @@ id = book_pb2.BookRequest(id=10)
 response = stub.getBookInfo(id)
 
 # et voilà
-print(response.id)
+print(response)
