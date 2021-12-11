@@ -13,7 +13,6 @@ service ReservationGrpc {
 message CreateReqeust {
     string item_id = 1;
     string user_id = 2;
-    Format item_format = 3;
 }
 
 message ChangeReqeust {
@@ -28,16 +27,9 @@ message ReservationResponse {
     string id = 1;
     string item_id = 2;
     string user_id = 3;
-    Format item_format = 4;
-    string expiry_time_unix = 5;
+    int64 expiry_time_unix = 4;
 }
 
 message RetriveResponse {
     repeated ReservationResponse reservations = 1;
-}
-
-enum Format {
-    NULL = 0;
-    BOOK = 1;
-    VINYL = 2;
 }
