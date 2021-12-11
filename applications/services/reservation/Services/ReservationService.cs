@@ -15,10 +15,10 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
         _kafkaService = kafkaService;
     }
 
-    public override Task<Empty> CreateReservation(StringValue request, ServerCallContext context)
+    public override Task<ReservationResponse> CreateReservation(CreateReqeust request, ServerCallContext context)
     {
-        _kafkaService.ReservationCreatedEvent(request.Value);
-        _logger.LogInformation($"Reservation created for: {request.Value}");
-        return Task.FromResult(new Empty());
+        _kafkaService.ReservationCreatedEvent(request.ItemId);
+        _logger.LogInformation($"Reservation created for: {request.ItemId}");
+        return Task.FromResult(new ReservationResponse());
     }
 }
