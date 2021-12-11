@@ -1,0 +1,11 @@
+# dev kafka service
+apiVersion: v1
+kind: Service
+metadata:
+  name: dev-kafka-service
+spec:
+  selector:
+    app: kafka
+  type: LoadBalancer
+  ports:
+  - port: 9094
