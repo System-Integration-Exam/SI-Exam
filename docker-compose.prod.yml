@@ -14,9 +14,6 @@ services:
     ports:
       - 20080:20080
 
-  warehouse-migrator:
-    build: ./applications/services/warehouse/migration
-    container_name: "si-exam-warehouse-migrator"
     
 # Kafka
   zookeeper:

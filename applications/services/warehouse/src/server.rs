@@ -11,6 +11,7 @@ mod connection;
 mod entities;
 mod logic;
 mod utils;
+mod tests;
 
 use entities::store;
 use logic::store_handler;
