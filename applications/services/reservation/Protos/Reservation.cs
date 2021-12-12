@@ -31,15 +31,15 @@ namespace Reservation.Protos {
             "KAkSDwoHaXRlbV9pZBgCIAEoCRIPCgd1c2VyX2lkGAMgASgJEhgKEGV4cGly",
             "eV90aW1lX3VuaXgYBCABKAMiSQoPUmV0cml2ZVJlc3BvbnNlEjYKDHJlc2Vy",
             "dmF0aW9ucxgBIAMoCzIgLnJlc2VydmF0aW9uLlJlc2VydmF0aW9uUmVzcG9u",
-            "c2Uy5wIKD1Jlc2VydmF0aW9uR3JwYxJRChFDcmVhdGVSZXNlcnZhdGlvbhIa",
+            "c2Uy4wIKD1Jlc2VydmF0aW9uR3JwYxJRChFDcmVhdGVSZXNlcnZhdGlvbhIa",
             "LnJlc2VydmF0aW9uLkNyZWF0ZVJlcWV1c3QaIC5yZXNlcnZhdGlvbi5SZXNl",
             "cnZhdGlvblJlc3BvbnNlElEKEUNhbmNlbFJlc2VydmF0aW9uEhoucmVzZXJ2",
             "YXRpb24uQ2hhbmdlUmVxZXVzdBogLnJlc2VydmF0aW9uLlJlc2VydmF0aW9u",
             "UmVzcG9uc2USUwoTQ29tcGxldGVSZXNlcnZhdGlvbhIaLnJlc2VydmF0aW9u",
             "LkNoYW5nZVJlcWV1c3QaIC5yZXNlcnZhdGlvbi5SZXNlcnZhdGlvblJlc3Bv",
-            "bnNlElkKGFJldHJpdmVVc2Vyc1Jlc2VydmF0aW9ucxIbLnJlc2VydmF0aW9u",
-            "LlJldHJpdmVSZXF1ZXN0GiAucmVzZXJ2YXRpb24uUmVzZXJ2YXRpb25SZXNw",
-            "b25zZUIVqgISUmVzZXJ2YXRpb24uUHJvdG9zYgZwcm90bzM="));
+            "bnNlElUKGFJldHJpdmVVc2Vyc1Jlc2VydmF0aW9ucxIbLnJlc2VydmF0aW9u",
+            "LlJldHJpdmVSZXF1ZXN0GhwucmVzZXJ2YXRpb24uUmV0cml2ZVJlc3BvbnNl",
+            "QhWqAhJSZXNlcnZhdGlvbi5Qcm90b3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

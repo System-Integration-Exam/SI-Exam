@@ -7,7 +7,7 @@ service ReservationGrpc {
     rpc CreateReservation (CreateReqeust) returns (ReservationResponse);
     rpc CancelReservation (ChangeReqeust) returns (ReservationResponse);
     rpc CompleteReservation (ChangeReqeust) returns (ReservationResponse);
-    rpc RetriveUsersReservations (RetriveRequest) returns (ReservationResponse);
+    rpc RetriveUsersReservations (RetriveRequest) returns (RetriveResponse);
 }
 
 message CreateReqeust {

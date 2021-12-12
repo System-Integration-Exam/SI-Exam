@@ -26,4 +26,12 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
         _logger.LogInformation("New reservation created: {reservation}", reservation);
         return Task.FromResult(reservation);
     }
+
+    public override Task<RetriveResponse> RetriveUsersReservations(RetriveRequest request, ServerCallContext context)
+    {
+        IEnumerable<ReservationResponse> reservations = _repository.GetAll(request.UserId);
+        RetriveResponse retriveResponse = new();
+        retriveResponse.Reservations.AddRange(reservations);
+        return Task.FromResult(retriveResponse);
+    }
 }

@@ -53,6 +53,8 @@ namespace Reservation.Protos {
     static readonly grpc::Marshaller<global::Reservation.Protos.ChangeReqeust> __Marshaller_reservation_ChangeReqeust = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Reservation.Protos.ChangeReqeust.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Reservation.Protos.RetriveRequest> __Marshaller_reservation_RetriveRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Reservation.Protos.RetriveRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Reservation.Protos.RetriveResponse> __Marshaller_reservation_RetriveResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Reservation.Protos.RetriveResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Reservation.Protos.CreateReqeust, global::Reservation.Protos.ReservationResponse> __Method_CreateReservation = new grpc::Method<global::Reservation.Protos.CreateReqeust, global::Reservation.Protos.ReservationResponse>(
@@ -79,12 +81,12 @@ namespace Reservation.Protos {
         __Marshaller_reservation_ReservationResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Reservation.Protos.RetriveRequest, global::Reservation.Protos.ReservationResponse> __Method_RetriveUsersReservations = new grpc::Method<global::Reservation.Protos.RetriveRequest, global::Reservation.Protos.ReservationResponse>(
+    static readonly grpc::Method<global::Reservation.Protos.RetriveRequest, global::Reservation.Protos.RetriveResponse> __Method_RetriveUsersReservations = new grpc::Method<global::Reservation.Protos.RetriveRequest, global::Reservation.Protos.RetriveResponse>(
         grpc::MethodType.Unary,
         __ServiceName,
         "RetriveUsersReservations",
         __Marshaller_reservation_RetriveRequest,
-        __Marshaller_reservation_ReservationResponse);
+        __Marshaller_reservation_RetriveResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -115,7 +117,7 @@ namespace Reservation.Protos {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Reservation.Protos.ReservationResponse> RetriveUsersReservations(global::Reservation.Protos.RetriveRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Reservation.Protos.RetriveResponse> RetriveUsersReservations(global::Reservation.Protos.RetriveRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -144,7 +146,7 @@ namespace Reservation.Protos {
       serviceBinder.AddMethod(__Method_CreateReservation, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Reservation.Protos.CreateReqeust, global::Reservation.Protos.ReservationResponse>(serviceImpl.CreateReservation));
       serviceBinder.AddMethod(__Method_CancelReservation, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Reservation.Protos.ChangeReqeust, global::Reservation.Protos.ReservationResponse>(serviceImpl.CancelReservation));
       serviceBinder.AddMethod(__Method_CompleteReservation, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Reservation.Protos.ChangeReqeust, global::Reservation.Protos.ReservationResponse>(serviceImpl.CompleteReservation));
-      serviceBinder.AddMethod(__Method_RetriveUsersReservations, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Reservation.Protos.RetriveRequest, global::Reservation.Protos.ReservationResponse>(serviceImpl.RetriveUsersReservations));
+      serviceBinder.AddMethod(__Method_RetriveUsersReservations, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Reservation.Protos.RetriveRequest, global::Reservation.Protos.RetriveResponse>(serviceImpl.RetriveUsersReservations));
     }
 
   }

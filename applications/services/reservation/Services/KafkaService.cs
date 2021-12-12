@@ -25,7 +25,7 @@ public class KafkaService
 
         Message<Null, string> message = new()
         {
-            Value = itemId.ToString()
+            Value = itemId
         };
 
         producer.Produce(_topic, message);
