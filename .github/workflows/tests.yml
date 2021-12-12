@@ -10,10 +10,10 @@ jobs:
         with:
           toolchain: stable
       - run: |
+          ls
           cd applications
           cd services
           cd warehouse
-          apt-get install gcc
           cargo r > redirection &
           sudo docker-compose up --build -d
           sleep 30
