@@ -10,15 +10,11 @@ jobs:
         with:
           toolchain: stable
       - run: |
-          echo changing
-          cd applications
-          echo in applications
-          cd services
-          echo in services
-          cd warehouse
-          echo in warehouse
-          cargo r > redirection &
           sudo docker-compose up --build -d
+          cd applications
+          cd services
+          cd warehouse
+          cargo r > redirection &
           sleep 30
           sudo chmod +x ./reset_and_test.sh
           ./reset_and_test.sh
