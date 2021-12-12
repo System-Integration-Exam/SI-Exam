@@ -104,6 +104,19 @@ impl Store for StoreCon {
         ))
     }
 
+    async fn delete_store_by_address(
+        &self,
+        request: tonic::Request<store::DeleteStoreByAddressRequest>,
+    ) -> Result<tonic::Response<store::DeleteStoreByAddressResponse>, tonic::Status> {
+        println!("Got a request from {:?}", request.remote_addr());
+
+        Ok(Response::new(
+            store_handler::delete_store_by_address(request.into_inner())
+                .await
+                .expect("Store Delete failed"),
+        ))
+    }
+
     async fn read_store_list(
         &self,
         request: tonic::Request<store::ReadStoreListRequest>,

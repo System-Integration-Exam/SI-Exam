@@ -174,6 +174,34 @@ pub async fn delete(
     }
 }
 
+pub async fn delete_store_by_address(
+    request: store::DeleteStoreByAddressRequest,
+) -> anyhow::Result<store::DeleteStoreByAddressResponse> {
+    let pool = get_db_pool().await?;
+    match sqlx::query(
+        r#"
+        DELETE FROM store WHERE address = $1
+        "#,
+    )
+    .bind(request.address)
+    .execute(&pool)
+    .await
+    {
+        Ok(_) => {
+            pool.close().await;
+            Ok(store::DeleteStoreByAddressResponse {
+                msg: "200".to_owned().to_owned(),
+            })
+        }
+        Err(_) => {
+            pool.close().await;
+            Ok(store::DeleteStoreByAddressResponse {
+                msg: "200".to_owned().to_owned(),
+            })
+        }
+    }
+}
+
 pub async fn read_list(
     _request: store::ReadStoreListRequest,
 ) -> anyhow::Result<store::ReadStoreListResponse> {

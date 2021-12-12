@@ -14,6 +14,9 @@ jobs:
           cd applications
           cd services
           cd warehouse
+          cd migration
+          pip install --no-cache-dir -r requirements.txt
+          cd ..
           cargo r > redirection &
           sudo chmod +x ./reset_and_test.sh
           ./reset_and_test.sh
