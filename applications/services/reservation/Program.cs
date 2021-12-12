@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using Reservation.Configuration;
+using Reservation.Persistency;
 using Reservation.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGrpc();
 builder.Services.AddOptions<AppSettings>().BindConfiguration("AppSettings");
 builder.Services.AddSingleton<KafkaService>();
+
+string connString = builder.Configuration.GetConnectionString("ReservationContext");
+builder.Services.AddDbContext<ReservationContext>(options => options.UseSqlite(connString));
 
 var app = builder.Build();
 
