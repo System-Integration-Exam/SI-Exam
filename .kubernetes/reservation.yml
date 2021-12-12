@@ -11,9 +11,17 @@ spec:
       labels:
         app: reservation
     spec:
+      volumes:
+      - name: reservationdb
+        hostPath:
+          path: /srv/db/reservation
+          type: DirectoryOrCreate
       containers:
       - name: reservation
         image: ghcr.io/system-integration-exam/si-exam/reservation-service:latest
+        volumeMounts:
+        - name: reservationdb
+          mountPath: /app/Data
         resources:
           limits:
             memory: "128Mi"
