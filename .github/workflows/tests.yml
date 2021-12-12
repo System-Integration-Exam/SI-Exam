@@ -10,10 +10,13 @@ jobs:
         with:
           toolchain: stable
       - run: |
-          ls
+          echo changing
           cd applications
+          echo in applications
           cd services
+          echo in services
           cd warehouse
+          echo in warehouse
           cargo r > redirection &
           sudo docker-compose up --build -d
           sleep 30
