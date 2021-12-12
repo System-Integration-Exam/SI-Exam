@@ -14,7 +14,7 @@ jobs:
           cd applications
           cd services
           cd warehouse
-          sleep 30
+          cargo r > redirection &
           sudo chmod +x ./reset_and_test.sh
           ./reset_and_test.sh
           
