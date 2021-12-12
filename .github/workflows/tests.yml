@@ -1,0 +1,20 @@
+on: [push]
+
+jobs:
+  warehouse_tests:
+    name: Warehouse Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: |
+          cd applications/services/warehouse
+          apt-get install gcc
+          cargo r > redirection &
+          docker-compose up --build -d
+          sleep 30
+          ./reset_and_test.sh
+          
+          
