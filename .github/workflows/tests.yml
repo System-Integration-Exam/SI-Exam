@@ -15,8 +15,9 @@ jobs:
           cd warehouse
           apt-get install gcc
           cargo r > redirection &
-          docker-compose up --build -d
+          sudo docker-compose up --build -d
           sleep 30
+          sudo chmod +x ./reset_and_test.sh
           ./reset_and_test.sh
           
           
