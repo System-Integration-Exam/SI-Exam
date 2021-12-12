@@ -24,47 +24,35 @@ namespace Reservation.Protos {
     static ReservationReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFyZXNlcnZhdGlvbi5wcm90bxILcmVzZXJ2YXRpb24iWwoNQ3JlYXRlUmVx",
-            "ZXVzdBIPCgdpdGVtX2lkGAEgASgJEg8KB3VzZXJfaWQYAiABKAkSKAoLaXRl",
-            "bV9mb3JtYXQYAyABKA4yEy5yZXNlcnZhdGlvbi5Gb3JtYXQiGwoNQ2hhbmdl",
-            "UmVxZXVzdBIKCgJpZBgBIAEoCSIhCg5SZXRyaXZlUmVxdWVzdBIPCgd1c2Vy",
-            "X2lkGAEgASgJIocBChNSZXNlcnZhdGlvblJlc3BvbnNlEgoKAmlkGAEgASgJ",
-            "Eg8KB2l0ZW1faWQYAiABKAkSDwoHdXNlcl9pZBgDIAEoCRIoCgtpdGVtX2Zv",
-            "cm1hdBgEIAEoDjITLnJlc2VydmF0aW9uLkZvcm1hdBIYChBleHBpcnlfdGlt",
-            "ZV91bml4GAUgASgJIkkKD1JldHJpdmVSZXNwb25zZRI2CgxyZXNlcnZhdGlv",
-            "bnMYASADKAsyIC5yZXNlcnZhdGlvbi5SZXNlcnZhdGlvblJlc3BvbnNlKicK",
-            "BkZvcm1hdBIICgROVUxMEAASCAoEQk9PSxABEgkKBVZJTllMEAIy5wIKD1Jl",
-            "c2VydmF0aW9uR3JwYxJRChFDcmVhdGVSZXNlcnZhdGlvbhIaLnJlc2VydmF0",
-            "aW9uLkNyZWF0ZVJlcWV1c3QaIC5yZXNlcnZhdGlvbi5SZXNlcnZhdGlvblJl",
-            "c3BvbnNlElEKEUNhbmNlbFJlc2VydmF0aW9uEhoucmVzZXJ2YXRpb24uQ2hh",
-            "bmdlUmVxZXVzdBogLnJlc2VydmF0aW9uLlJlc2VydmF0aW9uUmVzcG9uc2US",
-            "UwoTQ29tcGxldGVSZXNlcnZhdGlvbhIaLnJlc2VydmF0aW9uLkNoYW5nZVJl",
-            "cWV1c3QaIC5yZXNlcnZhdGlvbi5SZXNlcnZhdGlvblJlc3BvbnNlElkKGFJl",
-            "dHJpdmVVc2Vyc1Jlc2VydmF0aW9ucxIbLnJlc2VydmF0aW9uLlJldHJpdmVS",
-            "ZXF1ZXN0GiAucmVzZXJ2YXRpb24uUmVzZXJ2YXRpb25SZXNwb25zZUIVqgIS",
-            "UmVzZXJ2YXRpb24uUHJvdG9zYgZwcm90bzM="));
+            "ChFyZXNlcnZhdGlvbi5wcm90bxILcmVzZXJ2YXRpb24iMQoNQ3JlYXRlUmVx",
+            "ZXVzdBIPCgdpdGVtX2lkGAEgASgJEg8KB3VzZXJfaWQYAiABKAkiGwoNQ2hh",
+            "bmdlUmVxZXVzdBIKCgJpZBgBIAEoCSIhCg5SZXRyaXZlUmVxdWVzdBIPCgd1",
+            "c2VyX2lkGAEgASgJIl0KE1Jlc2VydmF0aW9uUmVzcG9uc2USCgoCaWQYASAB",
+            "KAkSDwoHaXRlbV9pZBgCIAEoCRIPCgd1c2VyX2lkGAMgASgJEhgKEGV4cGly",
+            "eV90aW1lX3VuaXgYBCABKAMiSQoPUmV0cml2ZVJlc3BvbnNlEjYKDHJlc2Vy",
+            "dmF0aW9ucxgBIAMoCzIgLnJlc2VydmF0aW9uLlJlc2VydmF0aW9uUmVzcG9u",
+            "c2Uy5wIKD1Jlc2VydmF0aW9uR3JwYxJRChFDcmVhdGVSZXNlcnZhdGlvbhIa",
+            "LnJlc2VydmF0aW9uLkNyZWF0ZVJlcWV1c3QaIC5yZXNlcnZhdGlvbi5SZXNl",
+            "cnZhdGlvblJlc3BvbnNlElEKEUNhbmNlbFJlc2VydmF0aW9uEhoucmVzZXJ2",
+            "YXRpb24uQ2hhbmdlUmVxZXVzdBogLnJlc2VydmF0aW9uLlJlc2VydmF0aW9u",
+            "UmVzcG9uc2USUwoTQ29tcGxldGVSZXNlcnZhdGlvbhIaLnJlc2VydmF0aW9u",
+            "LkNoYW5nZVJlcWV1c3QaIC5yZXNlcnZhdGlvbi5SZXNlcnZhdGlvblJlc3Bv",
+            "bnNlElkKGFJldHJpdmVVc2Vyc1Jlc2VydmF0aW9ucxIbLnJlc2VydmF0aW9u",
+            "LlJldHJpdmVSZXF1ZXN0GiAucmVzZXJ2YXRpb24uUmVzZXJ2YXRpb25SZXNw",
+            "b25zZUIVqgISUmVzZXJ2YXRpb24uUHJvdG9zYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Reservation.Protos.Format), }, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.CreateReqeust), global::Reservation.Protos.CreateReqeust.Parser, new[]{ "ItemId", "UserId", "ItemFormat" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.CreateReqeust), global::Reservation.Protos.CreateReqeust.Parser, new[]{ "ItemId", "UserId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.ChangeReqeust), global::Reservation.Protos.ChangeReqeust.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.RetriveRequest), global::Reservation.Protos.RetriveRequest.Parser, new[]{ "UserId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.ReservationResponse), global::Reservation.Protos.ReservationResponse.Parser, new[]{ "Id", "ItemId", "UserId", "ItemFormat", "ExpiryTimeUnix" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.ReservationResponse), global::Reservation.Protos.ReservationResponse.Parser, new[]{ "Id", "ItemId", "UserId", "ExpiryTimeUnix" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.RetriveResponse), global::Reservation.Protos.RetriveResponse.Parser, new[]{ "Reservations" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
-  #region Enums
-  public enum Format {
-    [pbr::OriginalName("NULL")] Null = 0,
-    [pbr::OriginalName("BOOK")] Book = 1,
-    [pbr::OriginalName("VINYL")] Vinyl = 2,
-  }
-
-  #endregion
-
   #region Messages
   public sealed partial class CreateReqeust : pb::IMessage<CreateReqeust>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
@@ -97,7 +85,6 @@ namespace Reservation.Protos {
     public CreateReqeust(CreateReqeust other) : this() {
       itemId_ = other.itemId_;
       userId_ = other.userId_;
-      itemFormat_ = other.itemFormat_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -128,17 +115,6 @@ namespace Reservation.Protos {
       }
     }
 
-    /// <summary>Field number for the "item_format" field.</summary>
-    public const int ItemFormatFieldNumber = 3;
-    private global::Reservation.Protos.Format itemFormat_ = global::Reservation.Protos.Format.Null;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Reservation.Protos.Format ItemFormat {
-      get { return itemFormat_; }
-      set {
-        itemFormat_ = value;
-      }
-    }
-
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as CreateReqeust);
@@ -154,7 +130,6 @@ namespace Reservation.Protos {
       }
       if (ItemId != other.ItemId) return false;
       if (UserId != other.UserId) return false;
-      if (ItemFormat != other.ItemFormat) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -163,7 +138,6 @@ namespace Reservation.Protos {
       int hash = 1;
       if (ItemId.Length != 0) hash ^= ItemId.GetHashCode();
       if (UserId.Length != 0) hash ^= UserId.GetHashCode();
-      if (ItemFormat != global::Reservation.Protos.Format.Null) hash ^= ItemFormat.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -188,10 +162,6 @@ namespace Reservation.Protos {
         output.WriteRawTag(18);
         output.WriteString(UserId);
       }
-      if (ItemFormat != global::Reservation.Protos.Format.Null) {
-        output.WriteRawTag(24);
-        output.WriteEnum((int) ItemFormat);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -209,10 +179,6 @@ namespace Reservation.Protos {
         output.WriteRawTag(18);
         output.WriteString(UserId);
       }
-      if (ItemFormat != global::Reservation.Protos.Format.Null) {
-        output.WriteRawTag(24);
-        output.WriteEnum((int) ItemFormat);
-      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -227,9 +193,6 @@ namespace Reservation.Protos {
       }
       if (UserId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(UserId);
-      }
-      if (ItemFormat != global::Reservation.Protos.Format.Null) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ItemFormat);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -247,9 +210,6 @@ namespace Reservation.Protos {
       }
       if (other.UserId.Length != 0) {
         UserId = other.UserId;
-      }
-      if (other.ItemFormat != global::Reservation.Protos.Format.Null) {
-        ItemFormat = other.ItemFormat;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -273,10 +233,6 @@ namespace Reservation.Protos {
             UserId = input.ReadString();
             break;
           }
-          case 24: {
-            ItemFormat = (global::Reservation.Protos.Format) input.ReadEnum();
-            break;
-          }
         }
       }
     #endif
@@ -297,10 +253,6 @@ namespace Reservation.Protos {
           }
           case 18: {
             UserId = input.ReadString();
-            break;
-          }
-          case 24: {
-            ItemFormat = (global::Reservation.Protos.Format) input.ReadEnum();
             break;
           }
         }
@@ -686,7 +638,6 @@ namespace Reservation.Protos {
       id_ = other.id_;
       itemId_ = other.itemId_;
       userId_ = other.userId_;
-      itemFormat_ = other.itemFormat_;
       expiryTimeUnix_ = other.expiryTimeUnix_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -729,25 +680,14 @@ namespace Reservation.Protos {
       }
     }
 
-    /// <summary>Field number for the "item_format" field.</summary>
-    public const int ItemFormatFieldNumber = 4;
-    private global::Reservation.Protos.Format itemFormat_ = global::Reservation.Protos.Format.Null;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Reservation.Protos.Format ItemFormat {
-      get { return itemFormat_; }
-      set {
-        itemFormat_ = value;
-      }
-    }
-
     /// <summary>Field number for the "expiry_time_unix" field.</summary>
-    public const int ExpiryTimeUnixFieldNumber = 5;
-    private string expiryTimeUnix_ = "";
+    public const int ExpiryTimeUnixFieldNumber = 4;
+    private long expiryTimeUnix_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string ExpiryTimeUnix {
+    public long ExpiryTimeUnix {
       get { return expiryTimeUnix_; }
       set {
-        expiryTimeUnix_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        expiryTimeUnix_ = value;
       }
     }
 
@@ -767,7 +707,6 @@ namespace Reservation.Protos {
       if (Id != other.Id) return false;
       if (ItemId != other.ItemId) return false;
       if (UserId != other.UserId) return false;
-      if (ItemFormat != other.ItemFormat) return false;
       if (ExpiryTimeUnix != other.ExpiryTimeUnix) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -778,8 +717,7 @@ namespace Reservation.Protos {
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (ItemId.Length != 0) hash ^= ItemId.GetHashCode();
       if (UserId.Length != 0) hash ^= UserId.GetHashCode();
-      if (ItemFormat != global::Reservation.Protos.Format.Null) hash ^= ItemFormat.GetHashCode();
-      if (ExpiryTimeUnix.Length != 0) hash ^= ExpiryTimeUnix.GetHashCode();
+      if (ExpiryTimeUnix != 0L) hash ^= ExpiryTimeUnix.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -808,13 +746,9 @@ namespace Reservation.Protos {
         output.WriteRawTag(26);
         output.WriteString(UserId);
       }
-      if (ItemFormat != global::Reservation.Protos.Format.Null) {
+      if (ExpiryTimeUnix != 0L) {
         output.WriteRawTag(32);
-        output.WriteEnum((int) ItemFormat);
-      }
-      if (ExpiryTimeUnix.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(ExpiryTimeUnix);
+        output.WriteInt64(ExpiryTimeUnix);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -837,13 +771,9 @@ namespace Reservation.Protos {
         output.WriteRawTag(26);
         output.WriteString(UserId);
       }
-      if (ItemFormat != global::Reservation.Protos.Format.Null) {
+      if (ExpiryTimeUnix != 0L) {
         output.WriteRawTag(32);
-        output.WriteEnum((int) ItemFormat);
-      }
-      if (ExpiryTimeUnix.Length != 0) {
-        output.WriteRawTag(42);
-        output.WriteString(ExpiryTimeUnix);
+        output.WriteInt64(ExpiryTimeUnix);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -863,11 +793,8 @@ namespace Reservation.Protos {
       if (UserId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(UserId);
       }
-      if (ItemFormat != global::Reservation.Protos.Format.Null) {
-        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ItemFormat);
-      }
-      if (ExpiryTimeUnix.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ExpiryTimeUnix);
+      if (ExpiryTimeUnix != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ExpiryTimeUnix);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -889,10 +816,7 @@ namespace Reservation.Protos {
       if (other.UserId.Length != 0) {
         UserId = other.UserId;
       }
-      if (other.ItemFormat != global::Reservation.Protos.Format.Null) {
-        ItemFormat = other.ItemFormat;
-      }
-      if (other.ExpiryTimeUnix.Length != 0) {
+      if (other.ExpiryTimeUnix != 0L) {
         ExpiryTimeUnix = other.ExpiryTimeUnix;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -922,11 +846,7 @@ namespace Reservation.Protos {
             break;
           }
           case 32: {
-            ItemFormat = (global::Reservation.Protos.Format) input.ReadEnum();
-            break;
-          }
-          case 42: {
-            ExpiryTimeUnix = input.ReadString();
+            ExpiryTimeUnix = input.ReadInt64();
             break;
           }
         }
@@ -956,11 +876,7 @@ namespace Reservation.Protos {
             break;
           }
           case 32: {
-            ItemFormat = (global::Reservation.Protos.Format) input.ReadEnum();
-            break;
-          }
-          case 42: {
-            ExpiryTimeUnix = input.ReadString();
+            ExpiryTimeUnix = input.ReadInt64();
             break;
           }
         }

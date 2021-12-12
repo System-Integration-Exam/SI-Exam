@@ -17,8 +17,17 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
 
     public override Task<ReservationResponse> CreateReservation(CreateReqeust request, ServerCallContext context)
     {
+        ReservationResponse reservation = new()
+        {
+            Id = Guid.NewGuid().ToString(),
+            ItemId = request.ItemId,
+            UserId = request.UserId,
+            ExpiryTimeUnix = DateTimeOffset.Now.ToUnixTimeSeconds()
+        };
+
         _kafkaService.ReservationCreatedEvent(request.ItemId);
-        _logger.LogInformation($"Reservation created for: {request.ItemId}");
-        return Task.FromResult(new ReservationResponse());
+
+        _logger.LogInformation("New reservation created: {reservation}", reservation);
+        return Task.FromResult(reservation);
     }
 }

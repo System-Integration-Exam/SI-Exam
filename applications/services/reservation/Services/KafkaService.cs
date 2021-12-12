@@ -19,13 +19,13 @@ public class KafkaService
         _builder = new ProducerBuilder<Null, string>(config);
     }
 
-    public void ReservationCreatedEvent(string bookId)
+    public void ReservationCreatedEvent(string itemId)
     {
         using IProducer<Null, string> producer = _builder.Build();
 
         Message<Null, string> message = new()
         {
-            Value = bookId
+            Value = itemId.ToString()
         };
 
         producer.Produce(_topic, message);
