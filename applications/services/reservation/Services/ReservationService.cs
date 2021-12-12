@@ -1,6 +1,6 @@
-using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using Reservation.Protos;
+using Reservation.Persistency;
 
 namespace Reservation.Services;
 
@@ -8,24 +8,20 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
 {
     private readonly ILogger<ReservationService> _logger;
     private readonly KafkaService _kafkaService;
+    private readonly IReservationRepository _repository;
 
-    public ReservationService(ILogger<ReservationService> logger, KafkaService kafkaService)
+    public ReservationService(ILogger<ReservationService> logger, KafkaService kafkaService, IReservationRepository repository)
     {
         _logger = logger;
         _kafkaService = kafkaService;
+        _repository = repository;
     }
 
     public override Task<ReservationResponse> CreateReservation(CreateReqeust request, ServerCallContext context)
     {
-        ReservationResponse reservation = new()
-        {
-            Id = Guid.NewGuid().ToString(),
-            ItemId = request.ItemId,
-            UserId = request.UserId,
-            ExpiryTimeUnix = DateTimeOffset.Now.ToUnixTimeSeconds()
-        };
+        ReservationResponse reservation = _repository.Create(request.ItemId, request.UserId);
 
-        _kafkaService.ReservationCreatedEvent(request.ItemId);
+        _kafkaService.ReservationCreatedEvent(reservation.ItemId);
 
         _logger.LogInformation("New reservation created: {reservation}", reservation);
         return Task.FromResult(reservation);
