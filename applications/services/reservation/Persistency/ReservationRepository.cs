@@ -24,7 +24,8 @@ public class ReservationRepository: IReservationRepository
             {
                 Id = x.Id.ToString(), 
                 ItemId = x.ItemId, 
-                UserId = x.UserId
+                UserId = x.UserId,
+                Status = (ReservationResponse.Types.Status)x.Status
             });
 
     public ReservationResponse Create(string itemId, string userId)
@@ -41,7 +42,8 @@ public class ReservationRepository: IReservationRepository
         {
             Id = reservation.Id.ToString(),
             ItemId = reservation.ItemId,
-            UserId = reservation.UserId
+            UserId = reservation.UserId,
+            Status = (ReservationResponse.Types.Status)reservation.Status
         };
     }
 
@@ -49,15 +51,17 @@ public class ReservationRepository: IReservationRepository
     {
         Reservation reservation = _context.Reservations.First(x => x.Id.ToString() == id);
         if(reservation.Status == ReservationStatus.Reserved)
+        {
             reservation.Status = status;
-
-        _context.SaveChanges();
+            _context.SaveChanges();
+        }
 
         return new()
         {
             Id = reservation.Id.ToString(),
             ItemId = reservation.ItemId,
-            UserId = reservation.UserId
+            UserId = reservation.UserId,
+            Status = (ReservationResponse.Types.Status)reservation.Status
         };
     }
 }

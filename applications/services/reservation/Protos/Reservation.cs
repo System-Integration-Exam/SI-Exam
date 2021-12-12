@@ -27,26 +27,28 @@ namespace Reservation.Protos {
             "ChFyZXNlcnZhdGlvbi5wcm90bxILcmVzZXJ2YXRpb24iMQoNQ3JlYXRlUmVx",
             "ZXVzdBIPCgdpdGVtX2lkGAEgASgJEg8KB3VzZXJfaWQYAiABKAkiGwoNQ2hh",
             "bmdlUmVxZXVzdBIKCgJpZBgBIAEoCSIhCg5SZXRyaXZlUmVxdWVzdBIPCgd1",
-            "c2VyX2lkGAEgASgJIl0KE1Jlc2VydmF0aW9uUmVzcG9uc2USCgoCaWQYASAB",
-            "KAkSDwoHaXRlbV9pZBgCIAEoCRIPCgd1c2VyX2lkGAMgASgJEhgKEGV4cGly",
-            "eV90aW1lX3VuaXgYBCABKAMiSQoPUmV0cml2ZVJlc3BvbnNlEjYKDHJlc2Vy",
-            "dmF0aW9ucxgBIAMoCzIgLnJlc2VydmF0aW9uLlJlc2VydmF0aW9uUmVzcG9u",
-            "c2Uy4wIKD1Jlc2VydmF0aW9uR3JwYxJRChFDcmVhdGVSZXNlcnZhdGlvbhIa",
-            "LnJlc2VydmF0aW9uLkNyZWF0ZVJlcWV1c3QaIC5yZXNlcnZhdGlvbi5SZXNl",
-            "cnZhdGlvblJlc3BvbnNlElEKEUNhbmNlbFJlc2VydmF0aW9uEhoucmVzZXJ2",
-            "YXRpb24uQ2hhbmdlUmVxZXVzdBogLnJlc2VydmF0aW9uLlJlc2VydmF0aW9u",
-            "UmVzcG9uc2USUwoTQ29tcGxldGVSZXNlcnZhdGlvbhIaLnJlc2VydmF0aW9u",
-            "LkNoYW5nZVJlcWV1c3QaIC5yZXNlcnZhdGlvbi5SZXNlcnZhdGlvblJlc3Bv",
-            "bnNlElUKGFJldHJpdmVVc2Vyc1Jlc2VydmF0aW9ucxIbLnJlc2VydmF0aW9u",
-            "LlJldHJpdmVSZXF1ZXN0GhwucmVzZXJ2YXRpb24uUmV0cml2ZVJlc3BvbnNl",
-            "QhWqAhJSZXNlcnZhdGlvbi5Qcm90b3NiBnByb3RvMw=="));
+            "c2VyX2lkGAEgASgJIrIBChNSZXNlcnZhdGlvblJlc3BvbnNlEgoKAmlkGAEg",
+            "ASgJEg8KB2l0ZW1faWQYAiABKAkSDwoHdXNlcl9pZBgDIAEoCRI3CgZzdGF0",
+            "dXMYBCABKA4yJy5yZXNlcnZhdGlvbi5SZXNlcnZhdGlvblJlc3BvbnNlLlN0",
+            "YXR1cyI0CgZTdGF0dXMSDAoIUkVTRVJWRUQQABINCglGVUxGSUxMRUQQARIN",
+            "CglDQU5DRUxMRUQQAiJJCg9SZXRyaXZlUmVzcG9uc2USNgoMcmVzZXJ2YXRp",
+            "b25zGAEgAygLMiAucmVzZXJ2YXRpb24uUmVzZXJ2YXRpb25SZXNwb25zZTLj",
+            "AgoPUmVzZXJ2YXRpb25HcnBjElEKEUNyZWF0ZVJlc2VydmF0aW9uEhoucmVz",
+            "ZXJ2YXRpb24uQ3JlYXRlUmVxZXVzdBogLnJlc2VydmF0aW9uLlJlc2VydmF0",
+            "aW9uUmVzcG9uc2USUQoRQ2FuY2VsUmVzZXJ2YXRpb24SGi5yZXNlcnZhdGlv",
+            "bi5DaGFuZ2VSZXFldXN0GiAucmVzZXJ2YXRpb24uUmVzZXJ2YXRpb25SZXNw",
+            "b25zZRJTChNDb21wbGV0ZVJlc2VydmF0aW9uEhoucmVzZXJ2YXRpb24uQ2hh",
+            "bmdlUmVxZXVzdBogLnJlc2VydmF0aW9uLlJlc2VydmF0aW9uUmVzcG9uc2US",
+            "VQoYUmV0cml2ZVVzZXJzUmVzZXJ2YXRpb25zEhsucmVzZXJ2YXRpb24uUmV0",
+            "cml2ZVJlcXVlc3QaHC5yZXNlcnZhdGlvbi5SZXRyaXZlUmVzcG9uc2VCFaoC",
+            "ElJlc2VydmF0aW9uLlByb3Rvc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.CreateReqeust), global::Reservation.Protos.CreateReqeust.Parser, new[]{ "ItemId", "UserId" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.ChangeReqeust), global::Reservation.Protos.ChangeReqeust.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.RetriveRequest), global::Reservation.Protos.RetriveRequest.Parser, new[]{ "UserId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.ReservationResponse), global::Reservation.Protos.ReservationResponse.Parser, new[]{ "Id", "ItemId", "UserId", "ExpiryTimeUnix" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.ReservationResponse), global::Reservation.Protos.ReservationResponse.Parser, new[]{ "Id", "ItemId", "UserId", "Status" }, null, new[]{ typeof(global::Reservation.Protos.ReservationResponse.Types.Status) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.RetriveResponse), global::Reservation.Protos.RetriveResponse.Parser, new[]{ "Reservations" }, null, null, null, null)
           }));
     }
@@ -638,7 +640,7 @@ namespace Reservation.Protos {
       id_ = other.id_;
       itemId_ = other.itemId_;
       userId_ = other.userId_;
-      expiryTimeUnix_ = other.expiryTimeUnix_;
+      status_ = other.status_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -680,14 +682,14 @@ namespace Reservation.Protos {
       }
     }
 
-    /// <summary>Field number for the "expiry_time_unix" field.</summary>
-    public const int ExpiryTimeUnixFieldNumber = 4;
-    private long expiryTimeUnix_;
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 4;
+    private global::Reservation.Protos.ReservationResponse.Types.Status status_ = global::Reservation.Protos.ReservationResponse.Types.Status.Reserved;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long ExpiryTimeUnix {
-      get { return expiryTimeUnix_; }
+    public global::Reservation.Protos.ReservationResponse.Types.Status Status {
+      get { return status_; }
       set {
-        expiryTimeUnix_ = value;
+        status_ = value;
       }
     }
 
@@ -707,7 +709,7 @@ namespace Reservation.Protos {
       if (Id != other.Id) return false;
       if (ItemId != other.ItemId) return false;
       if (UserId != other.UserId) return false;
-      if (ExpiryTimeUnix != other.ExpiryTimeUnix) return false;
+      if (Status != other.Status) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -717,7 +719,7 @@ namespace Reservation.Protos {
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (ItemId.Length != 0) hash ^= ItemId.GetHashCode();
       if (UserId.Length != 0) hash ^= UserId.GetHashCode();
-      if (ExpiryTimeUnix != 0L) hash ^= ExpiryTimeUnix.GetHashCode();
+      if (Status != global::Reservation.Protos.ReservationResponse.Types.Status.Reserved) hash ^= Status.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -746,9 +748,9 @@ namespace Reservation.Protos {
         output.WriteRawTag(26);
         output.WriteString(UserId);
       }
-      if (ExpiryTimeUnix != 0L) {
+      if (Status != global::Reservation.Protos.ReservationResponse.Types.Status.Reserved) {
         output.WriteRawTag(32);
-        output.WriteInt64(ExpiryTimeUnix);
+        output.WriteEnum((int) Status);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -771,9 +773,9 @@ namespace Reservation.Protos {
         output.WriteRawTag(26);
         output.WriteString(UserId);
       }
-      if (ExpiryTimeUnix != 0L) {
+      if (Status != global::Reservation.Protos.ReservationResponse.Types.Status.Reserved) {
         output.WriteRawTag(32);
-        output.WriteInt64(ExpiryTimeUnix);
+        output.WriteEnum((int) Status);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -793,8 +795,8 @@ namespace Reservation.Protos {
       if (UserId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(UserId);
       }
-      if (ExpiryTimeUnix != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ExpiryTimeUnix);
+      if (Status != global::Reservation.Protos.ReservationResponse.Types.Status.Reserved) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -816,8 +818,8 @@ namespace Reservation.Protos {
       if (other.UserId.Length != 0) {
         UserId = other.UserId;
       }
-      if (other.ExpiryTimeUnix != 0L) {
-        ExpiryTimeUnix = other.ExpiryTimeUnix;
+      if (other.Status != global::Reservation.Protos.ReservationResponse.Types.Status.Reserved) {
+        Status = other.Status;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -846,7 +848,7 @@ namespace Reservation.Protos {
             break;
           }
           case 32: {
-            ExpiryTimeUnix = input.ReadInt64();
+            Status = (global::Reservation.Protos.ReservationResponse.Types.Status) input.ReadEnum();
             break;
           }
         }
@@ -876,13 +878,26 @@ namespace Reservation.Protos {
             break;
           }
           case 32: {
-            ExpiryTimeUnix = input.ReadInt64();
+            Status = (global::Reservation.Protos.ReservationResponse.Types.Status) input.ReadEnum();
             break;
           }
         }
       }
     }
     #endif
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the ReservationResponse message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public enum Status {
+        [pbr::OriginalName("RESERVED")] Reserved = 0,
+        [pbr::OriginalName("FULFILLED")] Fulfilled = 1,
+        [pbr::OriginalName("CANCELLED")] Cancelled = 2,
+      }
+
+    }
+    #endregion
 
   }
 

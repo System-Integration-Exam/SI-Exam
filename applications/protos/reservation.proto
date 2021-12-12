@@ -27,7 +27,13 @@ message ReservationResponse {
     string id = 1;
     string item_id = 2;
     string user_id = 3;
-    int64 expiry_time_unix = 4;
+    Status status = 4;
+
+    enum Status {
+        RESERVED = 0;
+        FULFILLED = 1;
+        CANCELLED = 2;
+    }
 }
 
 message RetriveResponse {
