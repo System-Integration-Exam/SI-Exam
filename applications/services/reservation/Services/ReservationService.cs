@@ -29,9 +29,24 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
 
     public override Task<RetriveResponse> RetriveUsersReservations(RetriveRequest request, ServerCallContext context)
     {
-        IEnumerable<ReservationResponse> reservations = _repository.GetAll(request.UserId);
+        List<ReservationResponse> reservations = _repository.GetAll(request.UserId).ToList();
+        _logger.LogInformation("Retrived: {count}, reservations for user id: {userId}", reservations.Count, request.UserId);
         RetriveResponse retriveResponse = new();
         retriveResponse.Reservations.AddRange(reservations);
         return Task.FromResult(retriveResponse);
+    }
+
+    public override Task<ReservationResponse> CancelReservation(ChangeReqeust request, ServerCallContext context)
+    {
+        ReservationResponse response = _repository.UpdateStatus(request.Id, ReservationStatus.Cancelled);
+        _logger.LogInformation("Cancelled reservation for: {reservation}", response);
+        return Task.FromResult(response);
+    }
+
+    public override Task<ReservationResponse> CompleteReservation(ChangeReqeust request, ServerCallContext context)
+    {
+        ReservationResponse response = _repository.UpdateStatus(request.Id, ReservationStatus.Fulfilled);
+        _logger.LogInformation("Completed reservation for: {reservation}", response);
+        return Task.FromResult(response);
     }
 }
