@@ -10,11 +10,10 @@ jobs:
         with:
           toolchain: stable
       - run: |
-          sudo docker-compose up --build -d
+          sudo docker-compose -f docker-compose.dev.yml up --build -d
           cd applications
           cd services
           cd warehouse
-          cargo r > redirection &
           sleep 30
           sudo chmod +x ./reset_and_test.sh
           ./reset_and_test.sh
