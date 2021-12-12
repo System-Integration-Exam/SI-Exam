@@ -9,7 +9,6 @@ pub async fn create(
 ) -> anyhow::Result<store::CreateStoreResponse> {
     let pool = get_db_pool().await?;
 
-
     match sqlx::query(
         r#"
         INSERT INTO store (address, phone_number, email)
@@ -54,11 +53,37 @@ pub async fn read(request: store::ReadStoreRequest) -> anyhow::Result<store::Rea
     Ok(store.to_read_response())
 }
 
+pub async fn read_store_by_address(
+    request: store::ReadStoreByAddressRequest,
+) -> anyhow::Result<store::ReadStoreByAddressResponse> {
+    let pool = get_db_pool().await?;
+    let store = sqlx::query_as::<_, store::StoreConverter>(
+        r#"
+        SELECT * FROM store 
+        WHERE address = $1
+        "#,
+    )
+    .bind(request.address)
+    .fetch_one(&pool)
+    .await
+    .expect("Could not read store");
+    pool.close().await;
+
+    Ok(store::ReadStoreByAddressResponse {
+        store: Some(store::StoreObject {
+            address: store.address,
+            phone_number: store.phone_number,
+            email: store.email,
+            created_at: store.created_at.unwrap().to_string(),
+            updated_at: store.updated_at.unwrap().to_string(),
+        }),
+    })
+}
+
 pub async fn update(
     request: store::UpdateStoreRequest,
 ) -> anyhow::Result<store::UpdateStoreResponse> {
     let pool = get_db_pool().await?;
-    let update_store = request.store.expect("Error in store request object");
 
     match sqlx::query(
         r#"
@@ -66,9 +91,9 @@ pub async fn update(
         WHERE ID = $4
         "#,
     )
-    .bind(update_store.address)
-    .bind(update_store.phone_number)
-    .bind(update_store.email)
+    .bind(request.address)
+    .bind(request.phone_number)
+    .bind(request.email)
     .bind(request.id)
     .execute(&pool)
     .await
@@ -82,6 +107,39 @@ pub async fn update(
         Err(_) => {
             pool.close().await;
             Ok(store::UpdateStoreResponse {
+                msg: "500".to_owned().to_owned(),
+            })
+        }
+    }
+}
+
+pub async fn update_store_by_address(
+    request: store::UpdateStoreByAddressRequest,
+) -> anyhow::Result<store::UpdateStoreByAddressResponse> {
+    let pool = get_db_pool().await?;
+
+    match sqlx::query(
+        r#"
+        UPDATE store SET (address, phone_number, email) = ( $1, $2, $3)
+        WHERE address = $4
+        "#,
+    )
+    .bind(request.address_update)
+    .bind(request.phone_number)
+    .bind(request.email)
+    .bind(request.address_match)
+    .execute(&pool)
+    .await
+    {
+        Ok(_) => {
+            pool.close().await;
+            Ok(store::UpdateStoreByAddressResponse {
+                msg: "204".to_owned(),
+            })
+        }
+        Err(_) => {
+            pool.close().await;
+            Ok(store::UpdateStoreByAddressResponse {
                 msg: "500".to_owned().to_owned(),
             })
         }
@@ -151,15 +209,18 @@ pub async fn add_book_to_store(
     {
         Ok(_) => {
             pool.close().await;
-            Ok(store::AddBookToStoreResponse { msg: "200".to_owned() })
+            Ok(store::AddBookToStoreResponse {
+                msg: "200".to_owned(),
+            })
         }
         Err(_) => {
             pool.close().await;
-            Ok(store::AddBookToStoreResponse { msg: "500".to_owned() })
+            Ok(store::AddBookToStoreResponse {
+                msg: "500".to_owned(),
+            })
         }
     }
 }
-
 
 pub async fn remove_book_to_store(
     request: store::RemoveBookFromStoreRequest,
@@ -179,36 +240,39 @@ pub async fn remove_book_to_store(
     {
         Ok(_) => {
             pool.close().await;
-            Ok(store::RemoveBookFromStoreResponse { msg: "200".to_owned() })
+            Ok(store::RemoveBookFromStoreResponse {
+                msg: "200".to_owned(),
+            })
         }
         Err(_) => {
             pool.close().await;
-            Ok(store::RemoveBookFromStoreResponse { msg: "500".to_owned() })
+            Ok(store::RemoveBookFromStoreResponse {
+                msg: "500".to_owned(),
+            })
         }
     }
 }
 
 pub async fn get_amount_of_specific_book_from_store(
-    request: store::GetAmountOfSpecificBookFromStoreRequest 
-) -> anyhow::Result<store::GetAmountOfSpecificBookFromStoreResponse>{
+    request: store::GetAmountOfSpecificBookFromStoreRequest,
+) -> anyhow::Result<store::GetAmountOfSpecificBookFromStoreResponse> {
     let pool = get_db_pool().await?;
 
-    let matches = sqlx::query_as::<_,StoreManyToManyBook>(
+    let matches = sqlx::query_as::<_, StoreManyToManyBook>(
         r#"
         SELECT * FROM store_m2m_book 
         WHERE store_id = $1 AND book_id = $2
-        "#
+        "#,
     )
     .bind(request.store_id)
     .bind(request.book_id)
     .fetch_all(&pool)
     .await?;
 
-    Ok(store::GetAmountOfSpecificBookFromStoreResponse{
-        amount: matches.len() as i32
+    Ok(store::GetAmountOfSpecificBookFromStoreResponse {
+        amount: matches.len() as i32,
     })
 }
-
 
 pub async fn add_vinyl_to_store(
     request: store::AddVinylToStoreRequest,
@@ -227,15 +291,18 @@ pub async fn add_vinyl_to_store(
     {
         Ok(_) => {
             pool.close().await;
-            Ok(store::AddVinylToStoreResponse { msg: "200".to_owned() })
+            Ok(store::AddVinylToStoreResponse {
+                msg: "200".to_owned(),
+            })
         }
         Err(_) => {
             pool.close().await;
-            Ok(store::AddVinylToStoreResponse { msg: "500".to_owned() })
+            Ok(store::AddVinylToStoreResponse {
+                msg: "500".to_owned(),
+            })
         }
     }
 }
-
 
 pub async fn remove_vinyl_from_store(
     request: store::RemoveVinylFromStoreRequest,
@@ -255,32 +322,36 @@ pub async fn remove_vinyl_from_store(
     {
         Ok(_) => {
             pool.close().await;
-            Ok(store::RemoveVinylFromStoreResponse { msg: "200".to_owned() })
+            Ok(store::RemoveVinylFromStoreResponse {
+                msg: "200".to_owned(),
+            })
         }
         Err(_) => {
             pool.close().await;
-            Ok(store::RemoveVinylFromStoreResponse { msg: "500".to_owned() })
+            Ok(store::RemoveVinylFromStoreResponse {
+                msg: "500".to_owned(),
+            })
         }
     }
 }
 
 pub async fn get_amount_of_specific_vinyl_from_store(
-    request: store::GetAmountOfSpecificVinylFromStoreRequest 
-) -> anyhow::Result<store::GetAmountOfSpecificVinylFromStoreResponse>{
+    request: store::GetAmountOfSpecificVinylFromStoreRequest,
+) -> anyhow::Result<store::GetAmountOfSpecificVinylFromStoreResponse> {
     let pool = get_db_pool().await?;
 
-    let matches = sqlx::query_as::<_,StoreManyToManyVinyl>(
+    let matches = sqlx::query_as::<_, StoreManyToManyVinyl>(
         r#"
         SELECT * FROM store_m2m_vinyl 
         WHERE store_id = $1 AND vinyl_id = $2
-        "#
+        "#,
     )
     .bind(request.store_id)
     .bind(request.vinyl_id)
     .fetch_all(&pool)
     .await?;
 
-    Ok(store::GetAmountOfSpecificVinylFromStoreResponse{
-        amount: matches.len() as i32
+    Ok(store::GetAmountOfSpecificVinylFromStoreResponse {
+        amount: matches.len() as i32,
     })
 }
