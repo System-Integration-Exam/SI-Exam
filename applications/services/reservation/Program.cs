@@ -5,6 +5,9 @@ using Reservation.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Logging.ClearProviders();
+builder.Logging.AddSimpleConsole();
+
 builder.Services.AddGrpc();
 builder.Services.AddOptions<AppSettings>().BindConfiguration("AppSettings");
 builder.Services.AddSingleton<KafkaService>();
