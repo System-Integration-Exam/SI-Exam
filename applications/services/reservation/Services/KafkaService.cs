@@ -1,9 +1,6 @@
 ﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using Confluent.Kafka;
-using Microsoft.Extensions.Options;
-using Reservation.Configuration;
-using Reservation.Persistency;
 
 namespace Reservation.Services;
 

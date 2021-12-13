@@ -39,7 +39,7 @@ spec:
         - name: KAFKA_LISTENERS
           value: "INTERNAL://:9092,EXTERNAL://:9094"
         - name: KAFKA_CREATE_TOPICS
-          value: "reservation-created:1:1"
+          value: "reservation-event:1:1"
 ---
 
 #Kafka sevice
