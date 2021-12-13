@@ -20,8 +20,7 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
     public override Task<ReservationResponse> CreateReservation(CreateRequest request, ServerCallContext context)
     {
         ReservationResponse reservation = _repository.Create(request.ItemId, request.UserId, request.StoreId);
-
-        _kafkaService.ReservationCreatedEvent(reservation.ItemId);
+        _kafkaService.ReservationCreatedEvent(reservation.ItemId, reservation.StoreId, ReservationStatus.Reserved);
 
         _logger.LogInformation("New reservation created: {reservation}", reservation);
         return Task.FromResult(reservation);
@@ -39,6 +38,8 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
     public override Task<ReservationResponse> CancelReservation(ChangeRequest request, ServerCallContext context)
     {
         ReservationResponse response = _repository.UpdateStatus(request.Id, ReservationStatus.Cancelled);
+        _kafkaService.ReservationCreatedEvent(response.ItemId, response.StoreId, ReservationStatus.Cancelled);
+
         _logger.LogInformation("Cancelled reservation for: {reservation}", response);
         return Task.FromResult(response);
     }
@@ -46,6 +47,8 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
     public override Task<ReservationResponse> CompleteReservation(ChangeRequest request, ServerCallContext context)
     {
         ReservationResponse response = _repository.UpdateStatus(request.Id, ReservationStatus.Fulfilled);
+        _kafkaService.ReservationCreatedEvent(response.ItemId, response.StoreId, ReservationStatus.Fulfilled);
+
         _logger.LogInformation("Completed reservation for: {reservation}", response);
         return Task.FromResult(response);
     }
