@@ -1,15 +1,61 @@
 syntax = "proto3";
 
-message SongRequest {
-    string id = 1;
+//Song servicer
+//Only has CRUD methods, as it is only used for meta data
+service Song {
+    //CreateSong - Creates and persist new Song
+    rpc createSong(CreateSongRequest) returns (CreateSongResponse) {}
+    //GetSongById - Returns Song based on ID
+    rpc getSongById(GetSongByIdRequest) returns (GetSongByIdResponse) {}
+    //UpdateSong - Updates info on existing Song
+    rpc updateSong(UpdateSongRequest) returns (UpdateSongResponse) {}
+    //DeleteSong - Deletes Song based on ID
+    rpc deleteSongById(DeleteSongByIdRequest) returns (DeleteSongByIdResponse) {}
 }
 
-message SongResponse {
+//Takes in a Song object and returns a status message (success/error)
+//Request message for createSong()
+message CreateSongRequest {
+    string id = 1;
+    string title = 2;
+    int32 duration_sec = 3;
+}
+//Response message for createSong()
+message CreateSongResponse {
+    string statusMessage = 1;
+}
+
+//Takes in an ID value and returns a Song object
+//Request message for getSongById()
+message GetSongByIdRequest {
+    string id = 1;
+}
+//Response message for getSongById()
+message GetSongByIdResponse {
     string id = 1;
     string title = 2;
     int32 duration_sec = 3;
 }
 
-service Song {
-    rpc getSongInfo(SongRequest) returns (SongResponse);
+//Takes in a Song object and returns status message
+//Request for updateSong()
+message UpdateSongRequest {
+    string id = 1;
+    string title = 2;
+    int32 duration_sec = 3;
 }
+//Response message for createSong()
+message UpdateSongResponse {
+    string statusMessage = 1;
+}
+
+//Takes in an ID value and returns status message
+//Request for deleteSongById()
+message DeleteSongByIdRequest {
+    string id = 1;
+}
+//Response for deleteSongById()
+message DeleteSongByIdResponse {
+    string statusMessage = 1;
+}
+

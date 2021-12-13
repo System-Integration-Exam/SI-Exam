@@ -1,15 +1,61 @@
 syntax = "proto3";
 
-message VinylRequest {
-    string id = 1;
+//Vinyl servicer
+//Only has CRUD methods, as it is only used for meta data
+service Vinyl {
+    //CreateVinyl - Creates and persist new vinyl
+    rpc createVinyl(CreateVinylRequest) returns (CreateVinylResponse) {}
+    //GetVinylById - Returns Vinyl based on ID
+    rpc getVinylById(GetVinylByIdRequest) returns (GetVinylByIdResponse) {}
+    //UpdateVinyl - Updates info on existing Vinyl
+    rpc updateVinyl(UpdateVinylRequest) returns (UpdateVinylResponse) {}
+    //DeleteVinyl - Deletes Vinyl based on ID
+    rpc deleteVinylById(DeleteVinylByIdRequest) returns (DeleteVinylByIdResponse) {}
 }
 
-message VinylResponse {
+//Takes in a Vinyl object and returns a status message (success/error)
+//Request message for createVinyl()
+message CreateVinylRequest {
+    string id = 1;
+    string artist = 2;
+    string genre = 3;
+}
+//Response message for createVinyl()
+message CreateVinylResponse {
+    string statusMessage = 1;
+}
+
+//Takes in an ID value and returns a Vinyl object
+//Request message for getVinylById()
+message GetVinylByIdRequest {
+    string id = 1;
+}
+//Response message for getVinylById()
+message GetVinylByIdResponse {
     string id = 1;
     string artist = 2;
     string genre = 3;
 }
 
-service Vinyl {
-    rpc getVinylInfo(VinylRequest) returns (VinylResponse);
+//Takes in a Vinyl object and returns status message
+//Request for updateVinyl()
+message UpdateVinylRequest {
+    string id = 1;
+    string artist = 2;
+    string genre = 3;
 }
+//Response message for createVinyl()
+message UpdateVinylResponse {
+    string statusMessage = 1;
+}
+
+//Takes in an ID value and returns status message
+//Request for deleteVinylById()
+message DeleteVinylByIdRequest {
+    string id = 1;
+}
+//Response for deleteVinylById()
+message DeleteVinylByIdResponse {
+    string statusMessage = 1;
+}
+
