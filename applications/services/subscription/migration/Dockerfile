@@ -2,6 +2,7 @@ FROM python:3.9.4-slim
 
 WORKDIR /usr/src/app
 RUN ls
+
 RUN apt-get update && apt-get install -y --no-install-recommends netcat
 RUN apt-get install sqlite3 -y
 
@@ -13,11 +14,7 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
-RUN ./init_db.sh
-WORKDIR /usr/src/app/migration
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-RUN python src/main.py
-WORKDIR /usr/src/app
+RUN mkdir data
+RUN sqlite3 data/store.db ".backup main backup:Sqlite"
 
-CMD [ "python src/server.py" ]
+CMD ["python", "src/main.py"]

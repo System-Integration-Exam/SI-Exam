@@ -13,5 +13,5 @@ cd to this directory
 
 > python src/server.py
 
-Whenever changse to .proto files are made:
+Whenever change to .proto files are made:
 > ./protogen.sh
