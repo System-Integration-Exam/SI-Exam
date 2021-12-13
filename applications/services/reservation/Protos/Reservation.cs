@@ -24,29 +24,32 @@ namespace Reservation.Protos {
     static ReservationReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFyZXNlcnZhdGlvbi5wcm90bxILcmVzZXJ2YXRpb24iMQoNQ3JlYXRlUmVx",
-            "ZXVzdBIPCgdpdGVtX2lkGAEgASgJEg8KB3VzZXJfaWQYAiABKAkiGwoNQ2hh",
-            "bmdlUmVxZXVzdBIKCgJpZBgBIAEoCSIhCg5SZXRyaXZlUmVxdWVzdBIPCgd1",
-            "c2VyX2lkGAEgASgJIl0KE1Jlc2VydmF0aW9uUmVzcG9uc2USCgoCaWQYASAB",
-            "KAkSDwoHaXRlbV9pZBgCIAEoCRIPCgd1c2VyX2lkGAMgASgJEhgKEGV4cGly",
-            "eV90aW1lX3VuaXgYBCABKAMiSQoPUmV0cml2ZVJlc3BvbnNlEjYKDHJlc2Vy",
-            "dmF0aW9ucxgBIAMoCzIgLnJlc2VydmF0aW9uLlJlc2VydmF0aW9uUmVzcG9u",
-            "c2Uy5wIKD1Jlc2VydmF0aW9uR3JwYxJRChFDcmVhdGVSZXNlcnZhdGlvbhIa",
-            "LnJlc2VydmF0aW9uLkNyZWF0ZVJlcWV1c3QaIC5yZXNlcnZhdGlvbi5SZXNl",
-            "cnZhdGlvblJlc3BvbnNlElEKEUNhbmNlbFJlc2VydmF0aW9uEhoucmVzZXJ2",
-            "YXRpb24uQ2hhbmdlUmVxZXVzdBogLnJlc2VydmF0aW9uLlJlc2VydmF0aW9u",
-            "UmVzcG9uc2USUwoTQ29tcGxldGVSZXNlcnZhdGlvbhIaLnJlc2VydmF0aW9u",
-            "LkNoYW5nZVJlcWV1c3QaIC5yZXNlcnZhdGlvbi5SZXNlcnZhdGlvblJlc3Bv",
-            "bnNlElkKGFJldHJpdmVVc2Vyc1Jlc2VydmF0aW9ucxIbLnJlc2VydmF0aW9u",
-            "LlJldHJpdmVSZXF1ZXN0GiAucmVzZXJ2YXRpb24uUmVzZXJ2YXRpb25SZXNw",
-            "b25zZUIVqgISUmVzZXJ2YXRpb24uUHJvdG9zYgZwcm90bzM="));
+            "ChFyZXNlcnZhdGlvbi5wcm90bxILcmVzZXJ2YXRpb24iQwoNQ3JlYXRlUmVx",
+            "dWVzdBIPCgdpdGVtX2lkGAEgASgJEg8KB3VzZXJfaWQYAiABKAkSEAoIc3Rv",
+            "cmVfaWQYAyABKAUiGwoNQ2hhbmdlUmVxdWVzdBIKCgJpZBgBIAEoCSIhCg5S",
+            "ZXRyaXZlUmVxdWVzdBIPCgd1c2VyX2lkGAEgASgJIsQBChNSZXNlcnZhdGlv",
+            "blJlc3BvbnNlEgoKAmlkGAEgASgJEg8KB2l0ZW1faWQYAiABKAkSDwoHdXNl",
+            "cl9pZBgDIAEoCRI3CgZzdGF0dXMYBCABKA4yJy5yZXNlcnZhdGlvbi5SZXNl",
+            "cnZhdGlvblJlc3BvbnNlLlN0YXR1cxIQCghzdG9yZV9pZBgFIAEoBSI0CgZT",
+            "dGF0dXMSDAoIUkVTRVJWRUQQABINCglGVUxGSUxMRUQQARINCglDQU5DRUxM",
+            "RUQQAiJJCg9SZXRyaXZlUmVzcG9uc2USNgoMcmVzZXJ2YXRpb25zGAEgAygL",
+            "MiAucmVzZXJ2YXRpb24uUmVzZXJ2YXRpb25SZXNwb25zZTLjAgoPUmVzZXJ2",
+            "YXRpb25HcnBjElEKEUNyZWF0ZVJlc2VydmF0aW9uEhoucmVzZXJ2YXRpb24u",
+            "Q3JlYXRlUmVxdWVzdBogLnJlc2VydmF0aW9uLlJlc2VydmF0aW9uUmVzcG9u",
+            "c2USUQoRQ2FuY2VsUmVzZXJ2YXRpb24SGi5yZXNlcnZhdGlvbi5DaGFuZ2VS",
+            "ZXF1ZXN0GiAucmVzZXJ2YXRpb24uUmVzZXJ2YXRpb25SZXNwb25zZRJTChND",
+            "b21wbGV0ZVJlc2VydmF0aW9uEhoucmVzZXJ2YXRpb24uQ2hhbmdlUmVxdWVz",
+            "dBogLnJlc2VydmF0aW9uLlJlc2VydmF0aW9uUmVzcG9uc2USVQoYUmV0cml2",
+            "ZVVzZXJzUmVzZXJ2YXRpb25zEhsucmVzZXJ2YXRpb24uUmV0cml2ZVJlcXVl",
+            "c3QaHC5yZXNlcnZhdGlvbi5SZXRyaXZlUmVzcG9uc2VCFaoCElJlc2VydmF0",
+            "aW9uLlByb3Rvc2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.CreateReqeust), global::Reservation.Protos.CreateReqeust.Parser, new[]{ "ItemId", "UserId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.ChangeReqeust), global::Reservation.Protos.ChangeReqeust.Parser, new[]{ "Id" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.CreateRequest), global::Reservation.Protos.CreateRequest.Parser, new[]{ "ItemId", "UserId", "StoreId" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.ChangeRequest), global::Reservation.Protos.ChangeRequest.Parser, new[]{ "Id" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.RetriveRequest), global::Reservation.Protos.RetriveRequest.Parser, new[]{ "UserId" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.ReservationResponse), global::Reservation.Protos.ReservationResponse.Parser, new[]{ "Id", "ItemId", "UserId", "ExpiryTimeUnix" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.ReservationResponse), global::Reservation.Protos.ReservationResponse.Parser, new[]{ "Id", "ItemId", "UserId", "Status", "StoreId" }, null, new[]{ typeof(global::Reservation.Protos.ReservationResponse.Types.Status) }, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Reservation.Protos.RetriveResponse), global::Reservation.Protos.RetriveResponse.Parser, new[]{ "Reservations" }, null, null, null, null)
           }));
     }
@@ -54,15 +57,15 @@ namespace Reservation.Protos {
 
   }
   #region Messages
-  public sealed partial class CreateReqeust : pb::IMessage<CreateReqeust>
+  public sealed partial class CreateRequest : pb::IMessage<CreateRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<CreateReqeust> _parser = new pb::MessageParser<CreateReqeust>(() => new CreateReqeust());
+    private static readonly pb::MessageParser<CreateRequest> _parser = new pb::MessageParser<CreateRequest>(() => new CreateRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<CreateReqeust> Parser { get { return _parser; } }
+    public static pb::MessageParser<CreateRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -75,22 +78,23 @@ namespace Reservation.Protos {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateReqeust() {
+    public CreateRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateReqeust(CreateReqeust other) : this() {
+    public CreateRequest(CreateRequest other) : this() {
       itemId_ = other.itemId_;
       userId_ = other.userId_;
+      storeId_ = other.storeId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public CreateReqeust Clone() {
-      return new CreateReqeust(this);
+    public CreateRequest Clone() {
+      return new CreateRequest(this);
     }
 
     /// <summary>Field number for the "item_id" field.</summary>
@@ -115,13 +119,24 @@ namespace Reservation.Protos {
       }
     }
 
+    /// <summary>Field number for the "store_id" field.</summary>
+    public const int StoreIdFieldNumber = 3;
+    private int storeId_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as CreateReqeust);
+    public int StoreId {
+      get { return storeId_; }
+      set {
+        storeId_ = value;
+      }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(CreateReqeust other) {
+    public override bool Equals(object other) {
+      return Equals(other as CreateRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(CreateRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -130,6 +145,7 @@ namespace Reservation.Protos {
       }
       if (ItemId != other.ItemId) return false;
       if (UserId != other.UserId) return false;
+      if (StoreId != other.StoreId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -138,6 +154,7 @@ namespace Reservation.Protos {
       int hash = 1;
       if (ItemId.Length != 0) hash ^= ItemId.GetHashCode();
       if (UserId.Length != 0) hash ^= UserId.GetHashCode();
+      if (StoreId != 0) hash ^= StoreId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -162,6 +179,10 @@ namespace Reservation.Protos {
         output.WriteRawTag(18);
         output.WriteString(UserId);
       }
+      if (StoreId != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(StoreId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -179,6 +200,10 @@ namespace Reservation.Protos {
         output.WriteRawTag(18);
         output.WriteString(UserId);
       }
+      if (StoreId != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(StoreId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -194,6 +219,9 @@ namespace Reservation.Protos {
       if (UserId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(UserId);
       }
+      if (StoreId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(StoreId);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -201,7 +229,7 @@ namespace Reservation.Protos {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(CreateReqeust other) {
+    public void MergeFrom(CreateRequest other) {
       if (other == null) {
         return;
       }
@@ -210,6 +238,9 @@ namespace Reservation.Protos {
       }
       if (other.UserId.Length != 0) {
         UserId = other.UserId;
+      }
+      if (other.StoreId != 0) {
+        StoreId = other.StoreId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -231,6 +262,10 @@ namespace Reservation.Protos {
           }
           case 18: {
             UserId = input.ReadString();
+            break;
+          }
+          case 24: {
+            StoreId = input.ReadInt32();
             break;
           }
         }
@@ -255,6 +290,10 @@ namespace Reservation.Protos {
             UserId = input.ReadString();
             break;
           }
+          case 24: {
+            StoreId = input.ReadInt32();
+            break;
+          }
         }
       }
     }
@@ -262,15 +301,15 @@ namespace Reservation.Protos {
 
   }
 
-  public sealed partial class ChangeReqeust : pb::IMessage<ChangeReqeust>
+  public sealed partial class ChangeRequest : pb::IMessage<ChangeRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<ChangeReqeust> _parser = new pb::MessageParser<ChangeReqeust>(() => new ChangeReqeust());
+    private static readonly pb::MessageParser<ChangeRequest> _parser = new pb::MessageParser<ChangeRequest>(() => new ChangeRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ChangeReqeust> Parser { get { return _parser; } }
+    public static pb::MessageParser<ChangeRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -283,21 +322,21 @@ namespace Reservation.Protos {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChangeReqeust() {
+    public ChangeRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChangeReqeust(ChangeReqeust other) : this() {
+    public ChangeRequest(ChangeRequest other) : this() {
       id_ = other.id_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChangeReqeust Clone() {
-      return new ChangeReqeust(this);
+    public ChangeRequest Clone() {
+      return new ChangeRequest(this);
     }
 
     /// <summary>Field number for the "id" field.</summary>
@@ -313,11 +352,11 @@ namespace Reservation.Protos {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as ChangeReqeust);
+      return Equals(other as ChangeRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ChangeReqeust other) {
+    public bool Equals(ChangeRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -384,7 +423,7 @@ namespace Reservation.Protos {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ChangeReqeust other) {
+    public void MergeFrom(ChangeRequest other) {
       if (other == null) {
         return;
       }
@@ -638,7 +677,8 @@ namespace Reservation.Protos {
       id_ = other.id_;
       itemId_ = other.itemId_;
       userId_ = other.userId_;
-      expiryTimeUnix_ = other.expiryTimeUnix_;
+      status_ = other.status_;
+      storeId_ = other.storeId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -680,14 +720,25 @@ namespace Reservation.Protos {
       }
     }
 
-    /// <summary>Field number for the "expiry_time_unix" field.</summary>
-    public const int ExpiryTimeUnixFieldNumber = 4;
-    private long expiryTimeUnix_;
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 4;
+    private global::Reservation.Protos.ReservationResponse.Types.Status status_ = global::Reservation.Protos.ReservationResponse.Types.Status.Reserved;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long ExpiryTimeUnix {
-      get { return expiryTimeUnix_; }
+    public global::Reservation.Protos.ReservationResponse.Types.Status Status {
+      get { return status_; }
       set {
-        expiryTimeUnix_ = value;
+        status_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "store_id" field.</summary>
+    public const int StoreIdFieldNumber = 5;
+    private int storeId_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int StoreId {
+      get { return storeId_; }
+      set {
+        storeId_ = value;
       }
     }
 
@@ -707,7 +758,8 @@ namespace Reservation.Protos {
       if (Id != other.Id) return false;
       if (ItemId != other.ItemId) return false;
       if (UserId != other.UserId) return false;
-      if (ExpiryTimeUnix != other.ExpiryTimeUnix) return false;
+      if (Status != other.Status) return false;
+      if (StoreId != other.StoreId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -717,7 +769,8 @@ namespace Reservation.Protos {
       if (Id.Length != 0) hash ^= Id.GetHashCode();
       if (ItemId.Length != 0) hash ^= ItemId.GetHashCode();
       if (UserId.Length != 0) hash ^= UserId.GetHashCode();
-      if (ExpiryTimeUnix != 0L) hash ^= ExpiryTimeUnix.GetHashCode();
+      if (Status != global::Reservation.Protos.ReservationResponse.Types.Status.Reserved) hash ^= Status.GetHashCode();
+      if (StoreId != 0) hash ^= StoreId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -746,9 +799,13 @@ namespace Reservation.Protos {
         output.WriteRawTag(26);
         output.WriteString(UserId);
       }
-      if (ExpiryTimeUnix != 0L) {
+      if (Status != global::Reservation.Protos.ReservationResponse.Types.Status.Reserved) {
         output.WriteRawTag(32);
-        output.WriteInt64(ExpiryTimeUnix);
+        output.WriteEnum((int) Status);
+      }
+      if (StoreId != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(StoreId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -771,9 +828,13 @@ namespace Reservation.Protos {
         output.WriteRawTag(26);
         output.WriteString(UserId);
       }
-      if (ExpiryTimeUnix != 0L) {
+      if (Status != global::Reservation.Protos.ReservationResponse.Types.Status.Reserved) {
         output.WriteRawTag(32);
-        output.WriteInt64(ExpiryTimeUnix);
+        output.WriteEnum((int) Status);
+      }
+      if (StoreId != 0) {
+        output.WriteRawTag(40);
+        output.WriteInt32(StoreId);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -793,8 +854,11 @@ namespace Reservation.Protos {
       if (UserId.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(UserId);
       }
-      if (ExpiryTimeUnix != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(ExpiryTimeUnix);
+      if (Status != global::Reservation.Protos.ReservationResponse.Types.Status.Reserved) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
+      }
+      if (StoreId != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(StoreId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -816,8 +880,11 @@ namespace Reservation.Protos {
       if (other.UserId.Length != 0) {
         UserId = other.UserId;
       }
-      if (other.ExpiryTimeUnix != 0L) {
-        ExpiryTimeUnix = other.ExpiryTimeUnix;
+      if (other.Status != global::Reservation.Protos.ReservationResponse.Types.Status.Reserved) {
+        Status = other.Status;
+      }
+      if (other.StoreId != 0) {
+        StoreId = other.StoreId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -846,7 +913,11 @@ namespace Reservation.Protos {
             break;
           }
           case 32: {
-            ExpiryTimeUnix = input.ReadInt64();
+            Status = (global::Reservation.Protos.ReservationResponse.Types.Status) input.ReadEnum();
+            break;
+          }
+          case 40: {
+            StoreId = input.ReadInt32();
             break;
           }
         }
@@ -876,13 +947,30 @@ namespace Reservation.Protos {
             break;
           }
           case 32: {
-            ExpiryTimeUnix = input.ReadInt64();
+            Status = (global::Reservation.Protos.ReservationResponse.Types.Status) input.ReadEnum();
+            break;
+          }
+          case 40: {
+            StoreId = input.ReadInt32();
             break;
           }
         }
       }
     }
     #endif
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the ReservationResponse message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public enum Status {
+        [pbr::OriginalName("RESERVED")] Reserved = 0,
+        [pbr::OriginalName("FULFILLED")] Fulfilled = 1,
+        [pbr::OriginalName("CANCELLED")] Cancelled = 2,
+      }
+
+    }
+    #endregion
 
   }
 

@@ -4,18 +4,19 @@ package reservation;
 option csharp_namespace = "Reservation.Protos";
 
 service ReservationGrpc {
-    rpc CreateReservation (CreateReqeust) returns (ReservationResponse);
-    rpc CancelReservation (ChangeReqeust) returns (ReservationResponse);
-    rpc CompleteReservation (ChangeReqeust) returns (ReservationResponse);
-    rpc RetriveUsersReservations (RetriveRequest) returns (ReservationResponse);
+    rpc CreateReservation (CreateRequest) returns (ReservationResponse);
+    rpc CancelReservation (ChangeRequest) returns (ReservationResponse);
+    rpc CompleteReservation (ChangeRequest) returns (ReservationResponse);
+    rpc RetriveUsersReservations (RetriveRequest) returns (RetriveResponse);
 }
 
-message CreateReqeust {
+message CreateRequest {
     string item_id = 1;
     string user_id = 2;
+    int32 store_id = 3;
 }
 
-message ChangeReqeust {
+message ChangeRequest {
     string id = 1;
 }
 
@@ -27,7 +28,14 @@ message ReservationResponse {
     string id = 1;
     string item_id = 2;
     string user_id = 3;
-    int64 expiry_time_unix = 4;
+    Status status = 4;
+    int32 store_id = 5;
+
+    enum Status {
+        RESERVED = 0;
+        FULFILLED = 1;
+        CANCELLED = 2;
+    }
 }
 
 message RetriveResponse {

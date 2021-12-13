@@ -1,12 +1,15 @@
-﻿using Confluent.Kafka;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using Confluent.Kafka;
 using Microsoft.Extensions.Options;
 using Reservation.Configuration;
+using Reservation.Persistency;
 
 namespace Reservation.Services;
 
 public class KafkaService
 {
-    private readonly ProducerBuilder<Null, string> _builder;
+    private readonly ProducerBuilder<string, string> _builder;
     private readonly string _topic;
 
     public KafkaService(IOptionsMonitor<AppSettings> options)
@@ -16,19 +19,23 @@ public class KafkaService
         {
             BootstrapServers = options.CurrentValue.KafkaBrokers
         };
-        _builder = new ProducerBuilder<Null, string>(config);
+        _builder = new ProducerBuilder<string, string>(config);
     }
 
-    public void ReservationCreatedEvent(string itemId)
+    public void ReservationCreatedEvent(string itemId, int storeId, ReservationStatus status)
     {
-        using IProducer<Null, string> producer = _builder.Build();
+        ReservationKafkaEvent reservation = new(itemId, storeId, status);
+        using IProducer<string, string> producer = _builder.Build();
 
-        Message<Null, string> message = new()
+        Message<string, string> message = new()
         {
-            Value = itemId.ToString()
+            Key = reservation.ItemId,
+            Value = JsonSerializer.Serialize(reservation, new JsonSerializerOptions { Converters = { new JsonStringEnumConverter() } })
         };
 
         producer.Produce(_topic, message);
         producer.Flush();
     }
+
+    private record ReservationKafkaEvent(string ItemId, int StoreId, ReservationStatus StatusCommand);
 }
