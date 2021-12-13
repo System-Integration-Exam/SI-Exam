@@ -1,10 +1,9 @@
-
 from dataclasses import dataclass
 
 @dataclass
 class Book:
     """Class for book-metadata"""
-    id: int
+    id: str
     title: str
     author: str
     rating: int

@@ -2,11 +2,13 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from protogen import song_pb2 as protos_dot_song__pb2
+import protogen.song_pb2 as song__pb2
 
 
 class SongStub(object):
-    """Missing associated documentation comment in .proto file."""
+    """Song servicer
+    Only has CRUD methods, as it is only used for meta data
+    """
 
     def __init__(self, channel):
         """Constructor.
@@ -14,18 +16,57 @@ class SongStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.getSongInfo = channel.unary_unary(
-                '/Song/getSongInfo',
-                request_serializer=protos_dot_song__pb2.SongRequest.SerializeToString,
-                response_deserializer=protos_dot_song__pb2.SongResponse.FromString,
+        self.createSong = channel.unary_unary(
+                '/Song/createSong',
+                request_serializer=song__pb2.CreateSongRequest.SerializeToString,
+                response_deserializer=song__pb2.CreateSongResponse.FromString,
+                )
+        self.getSongById = channel.unary_unary(
+                '/Song/getSongById',
+                request_serializer=song__pb2.GetSongByIdRequest.SerializeToString,
+                response_deserializer=song__pb2.GetSongByIdResponse.FromString,
+                )
+        self.updateSong = channel.unary_unary(
+                '/Song/updateSong',
+                request_serializer=song__pb2.UpdateSongRequest.SerializeToString,
+                response_deserializer=song__pb2.UpdateSongResponse.FromString,
+                )
+        self.deleteSongById = channel.unary_unary(
+                '/Song/deleteSongById',
+                request_serializer=song__pb2.DeleteSongByIdRequest.SerializeToString,
+                response_deserializer=song__pb2.DeleteSongByIdResponse.FromString,
                 )
 
 
 class SongServicer(object):
-    """Missing associated documentation comment in .proto file."""
+    """Song servicer
+    Only has CRUD methods, as it is only used for meta data
+    """
 
-    def getSongInfo(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+    def createSong(self, request, context):
+        """CreateSong - Creates and persist new song
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getSongById(self, request, context):
+        """GetSongById - Returns song based on ID
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def updateSong(self, request, context):
+        """UpdateSong - Updates info on existing song
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def deleteSongById(self, request, context):
+        """DeleteSong - Deletes song based on ID
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -33,10 +74,25 @@ class SongServicer(object):
 
 def add_SongServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'getSongInfo': grpc.unary_unary_rpc_method_handler(
-                    servicer.getSongInfo,
-                    request_deserializer=protos_dot_song__pb2.SongRequest.FromString,
-                    response_serializer=protos_dot_song__pb2.SongResponse.SerializeToString,
+            'createSong': grpc.unary_unary_rpc_method_handler(
+                    servicer.createSong,
+                    request_deserializer=song__pb2.CreateSongRequest.FromString,
+                    response_serializer=song__pb2.CreateSongResponse.SerializeToString,
+            ),
+            'getSongById': grpc.unary_unary_rpc_method_handler(
+                    servicer.getSongById,
+                    request_deserializer=song__pb2.GetSongByIdRequest.FromString,
+                    response_serializer=song__pb2.GetSongByIdResponse.SerializeToString,
+            ),
+            'updateSong': grpc.unary_unary_rpc_method_handler(
+                    servicer.updateSong,
+                    request_deserializer=song__pb2.UpdateSongRequest.FromString,
+                    response_serializer=song__pb2.UpdateSongResponse.SerializeToString,
+            ),
+            'deleteSongById': grpc.unary_unary_rpc_method_handler(
+                    servicer.deleteSongById,
+                    request_deserializer=song__pb2.DeleteSongByIdRequest.FromString,
+                    response_serializer=song__pb2.DeleteSongByIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -46,10 +102,12 @@ def add_SongServicer_to_server(servicer, server):
 
  # This class is part of an EXPERIMENTAL API.
 class Song(object):
-    """Missing associated documentation comment in .proto file."""
+    """Song servicer
+    Only has CRUD methods, as it is only used for meta data
+    """
 
     @staticmethod
-    def getSongInfo(request,
+    def createSong(request,
             target,
             options=(),
             channel_credentials=None,
@@ -59,8 +117,59 @@ class Song(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Song/getSongInfo',
-            protos_dot_song__pb2.SongRequest.SerializeToString,
-            protos_dot_song__pb2.SongResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/Song/createSong',
+            song__pb2.CreateSongRequest.SerializeToString,
+            song__pb2.CreateSongResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getSongById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Song/getSongById',
+            song__pb2.GetSongByIdRequest.SerializeToString,
+            song__pb2.GetSongByIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def updateSong(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Song/updateSong',
+            song__pb2.UpdateSongRequest.SerializeToString,
+            song__pb2.UpdateSongResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def deleteSongById(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Song/deleteSongById',
+            song__pb2.DeleteSongByIdRequest.SerializeToString,
+            song__pb2.DeleteSongByIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
