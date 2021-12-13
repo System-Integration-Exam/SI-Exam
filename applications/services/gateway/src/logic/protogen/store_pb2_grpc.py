@@ -29,15 +29,30 @@ class StoreStub(object):
                 request_serializer=store__pb2.UpdateStoreRequest.SerializeToString,
                 response_deserializer=store__pb2.UpdateStoreResponse.FromString,
                 )
+        self.UpdateStoreByAddress = channel.unary_unary(
+                '/store.Store/UpdateStoreByAddress',
+                request_serializer=store__pb2.UpdateStoreByAddressRequest.SerializeToString,
+                response_deserializer=store__pb2.UpdateStoreByAddressResponse.FromString,
+                )
         self.DeleteStore = channel.unary_unary(
                 '/store.Store/DeleteStore',
                 request_serializer=store__pb2.DeleteStoreRequest.SerializeToString,
                 response_deserializer=store__pb2.DeleteStoreResponse.FromString,
                 )
+        self.DeleteStoreByAddress = channel.unary_unary(
+                '/store.Store/DeleteStoreByAddress',
+                request_serializer=store__pb2.DeleteStoreByAddressRequest.SerializeToString,
+                response_deserializer=store__pb2.DeleteStoreByAddressResponse.FromString,
+                )
         self.ReadStoreList = channel.unary_unary(
                 '/store.Store/ReadStoreList',
                 request_serializer=store__pb2.ReadStoreListRequest.SerializeToString,
                 response_deserializer=store__pb2.ReadStoreListResponse.FromString,
+                )
+        self.ReadStoreByAddress = channel.unary_unary(
+                '/store.Store/ReadStoreByAddress',
+                request_serializer=store__pb2.ReadStoreByAddressRequest.SerializeToString,
+                response_deserializer=store__pb2.ReadStoreByAddressResponse.FromString,
                 )
         self.AddBookToStore = channel.unary_unary(
                 '/store.Store/AddBookToStore',
@@ -92,13 +107,31 @@ class StoreServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def UpdateStoreByAddress(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def DeleteStore(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DeleteStoreByAddress(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def ReadStoreList(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def ReadStoreByAddress(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -160,15 +193,30 @@ def add_StoreServicer_to_server(servicer, server):
                     request_deserializer=store__pb2.UpdateStoreRequest.FromString,
                     response_serializer=store__pb2.UpdateStoreResponse.SerializeToString,
             ),
+            'UpdateStoreByAddress': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateStoreByAddress,
+                    request_deserializer=store__pb2.UpdateStoreByAddressRequest.FromString,
+                    response_serializer=store__pb2.UpdateStoreByAddressResponse.SerializeToString,
+            ),
             'DeleteStore': grpc.unary_unary_rpc_method_handler(
                     servicer.DeleteStore,
                     request_deserializer=store__pb2.DeleteStoreRequest.FromString,
                     response_serializer=store__pb2.DeleteStoreResponse.SerializeToString,
             ),
+            'DeleteStoreByAddress': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteStoreByAddress,
+                    request_deserializer=store__pb2.DeleteStoreByAddressRequest.FromString,
+                    response_serializer=store__pb2.DeleteStoreByAddressResponse.SerializeToString,
+            ),
             'ReadStoreList': grpc.unary_unary_rpc_method_handler(
                     servicer.ReadStoreList,
                     request_deserializer=store__pb2.ReadStoreListRequest.FromString,
                     response_serializer=store__pb2.ReadStoreListResponse.SerializeToString,
+            ),
+            'ReadStoreByAddress': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadStoreByAddress,
+                    request_deserializer=store__pb2.ReadStoreByAddressRequest.FromString,
+                    response_serializer=store__pb2.ReadStoreByAddressResponse.SerializeToString,
             ),
             'AddBookToStore': grpc.unary_unary_rpc_method_handler(
                     servicer.AddBookToStore,
@@ -262,6 +310,23 @@ class Store(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def UpdateStoreByAddress(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/UpdateStoreByAddress',
+            store__pb2.UpdateStoreByAddressRequest.SerializeToString,
+            store__pb2.UpdateStoreByAddressResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def DeleteStore(request,
             target,
             options=(),
@@ -279,6 +344,23 @@ class Store(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
+    def DeleteStoreByAddress(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/DeleteStoreByAddress',
+            store__pb2.DeleteStoreByAddressRequest.SerializeToString,
+            store__pb2.DeleteStoreByAddressResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
     def ReadStoreList(request,
             target,
             options=(),
@@ -292,6 +374,23 @@ class Store(object):
         return grpc.experimental.unary_unary(request, target, '/store.Store/ReadStoreList',
             store__pb2.ReadStoreListRequest.SerializeToString,
             store__pb2.ReadStoreListResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ReadStoreByAddress(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/ReadStoreByAddress',
+            store__pb2.ReadStoreByAddressRequest.SerializeToString,
+            store__pb2.ReadStoreByAddressResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

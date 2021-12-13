@@ -3,13 +3,15 @@ from utils.config import CONFIG
 from flask import Flask
 
 
-from server.routes.warehouse import store_routes
-from server.routes import basic_routes
+from routes.warehouse import store_routes
+from routes.subscription import customer_routes
+from routes import basic_routes
 
 app = Flask(__name__)
 
 basic_routes.collect_routes(app)
 store_routes.collect_routes(app)
+customer_routes.collect_routes(app)
 
 
 def main() -> None:

@@ -1,66 +1,66 @@
-from clients import warehouse
+from clients import warehouse_routes
 from flask import request
 
 
 def create_store():
     try:
-        return warehouse.create_store(request.json)
+        return warehouse_routes.create_store(request.json)
     except Exception as e:
         print(e)
         return "500"
     
 def read_store(id):
     try:
-        return warehouse.read_store(id)
+        return warehouse_routes.read_store(id)
     except Exception as e:
         print(e)
         return "500"
     
 def update_store(id):
     try:
-        return warehouse.update_store(id, request.json)
+        return warehouse_routes.update_store(id, request.json)
     except Exception as e:
         print(e)
         return "500"
     
 def delete_store(id):
     try:
-        return warehouse.delete_store(id)
+        return warehouse_routes.delete_store(id)
     except Exception as e:
         print(e)
         return "500"
     
 def read_store_list():
     try:
-        return warehouse.read_store_list()
+        return warehouse_routes.read_store_list()
     except Exception as e:
         print(e)
         return "500"
     
 def add_book_to_store(store_id, book_id):
     try:
-        return warehouse.add_book_to_store(store_id, book_id)
+        return warehouse_routes.add_book_to_store(store_id, book_id)
     except Exception as e:
         print(e)
         return "500"
     
 def remove_book_from_store(store_id, book_id):
     try:
-        return warehouse.remove_book_from_store(store_id,book_id)
+        return warehouse_routes.remove_book_from_store(store_id,book_id)
     except Exception as e:
         print(e)
         return "500"
     
 def get_amount_of_specific_book_from_store(store_id, book_id):
     try:
-        return warehouse.get_amount_of_specific_book_from_store(store_id,book_id)
+        return warehouse_routes.get_amount_of_specific_book_from_store(store_id,book_id)
     except Exception as e:
         print(e)
         return "500"
 
 def add_vinyl_to_store(store_id, vinyl_id):
     try:
-        return warehouse.add_vinyl_to_store(store_id,vinyl_id)
+        return warehouse_routes.add_vinyl_to_store(store_id,vinyl_id)
     except Exception as e:
         print(e)
         return "500"
@@ -68,14 +68,14 @@ def add_vinyl_to_store(store_id, vinyl_id):
     
 def remove_vinyl_from_store(store_id, vinyl_id):
     try:
-        return warehouse.remove_vinyl_from_store(store_id,vinyl_id)
+        return warehouse_routes.remove_vinyl_from_store(store_id,vinyl_id)
     except Exception as e:
         print(e)
         return "500"
     
 def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
     try:
-        return warehouse.get_amount_of_specific_vinyl_from_store(store_id, vinyl_id)
+        return warehouse_routes.get_amount_of_specific_vinyl_from_store(store_id, vinyl_id)
     except Exception as e:
         print(e)
         return "500"
