@@ -1,6 +1,4 @@
 using Grpc.Core;
-using Reservation.Protos;
-using Reservation.Persistency;
 
 namespace Reservation.Services;
 

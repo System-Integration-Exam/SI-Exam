@@ -1,6 +1,4 @@
-﻿using Reservation.Protos;
-
-namespace Reservation.Persistency;
+﻿namespace Reservation.Persistency;
 
 public interface IReservationRepository
 {

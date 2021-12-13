@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Reservation.Persistency;
+﻿namespace Reservation.Persistency;
 
 public class Reservation
 {
