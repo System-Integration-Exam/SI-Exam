@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: reservation
 spec:
+  replicas: 3
   selector:
     matchLabels:
       app: reservation
