@@ -23,6 +23,15 @@ jobs:
       image_path: "applications/services/warehouse"
     secrets:
       ghcr_token: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
+      
+  call-build-and-publish-subscription:
+    name: Build & Publish Subscription Service
+    uses: System-Integration-Exam/SI-Exam/.github/workflows/build_publish_image.yml@main
+    with:
+      image_name: subscription-service
+      image_path: "applications/services/subscription"
+    secrets:
+      ghcr_token: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
 
   call-build-and-publish-metadata:
     name: Build & Publish Metadata Service

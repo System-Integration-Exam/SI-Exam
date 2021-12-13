@@ -5,13 +5,13 @@ import random
 
 
 def populate() -> None:
-    fake = Faker()
+    faker = Faker()
     
     for _ in range(20):
-        Customer(fake.first_name(), fake.last_name(), faker.email(), faker.phone_number())
+        Customer(faker.first_name(), faker.last_name(), faker.email(), faker.phone_number())
         
     for _ in range(10):
-        subscription(random.choice([True, False]), faker.date_time)
+        Subscription(random.choice([True, False]), faker.date_time)
         
         
 
