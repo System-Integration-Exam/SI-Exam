@@ -17,7 +17,7 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
         _repository = repository;
     }
 
-    public override Task<ReservationResponse> CreateReservation(CreateReqeust request, ServerCallContext context)
+    public override Task<ReservationResponse> CreateReservation(CreateRequest request, ServerCallContext context)
     {
         ReservationResponse reservation = _repository.Create(request.ItemId, request.UserId);
 
@@ -36,14 +36,14 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
         return Task.FromResult(retriveResponse);
     }
 
-    public override Task<ReservationResponse> CancelReservation(ChangeReqeust request, ServerCallContext context)
+    public override Task<ReservationResponse> CancelReservation(ChangeRequest request, ServerCallContext context)
     {
         ReservationResponse response = _repository.UpdateStatus(request.Id, ReservationStatus.Cancelled);
         _logger.LogInformation("Cancelled reservation for: {reservation}", response);
         return Task.FromResult(response);
     }
 
-    public override Task<ReservationResponse> CompleteReservation(ChangeReqeust request, ServerCallContext context)
+    public override Task<ReservationResponse> CompleteReservation(ChangeRequest request, ServerCallContext context)
     {
         ReservationResponse response = _repository.UpdateStatus(request.Id, ReservationStatus.Fulfilled);
         _logger.LogInformation("Completed reservation for: {reservation}", response);
