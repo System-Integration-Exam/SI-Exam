@@ -1,19 +1,5 @@
 from dataclasses import dataclass
 from entities.link import Link
-
-@dataclass
-class NewStore():
-    address: str
-    phone_number: str
-    email: str
-        
-    @staticmethod
-    def from_json(data):
-        return NewStore(
-            address = data.get('address'),
-            phone_number= data.get('phone_number'),
-            email = data.get('email'),
-        )
     
 @dataclass    
 class Store():

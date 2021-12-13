@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bstore.proto\x12\x05store\"k\n\x0bStoreObject\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x14\n\x0cphone_number\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\ncreated_at\x18\x04 \x01(\t\x12\x12\n\nupdated_at\x18\x05 \x01(\t\"J\n\x12\x43reateStoreRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x14\n\x0cphone_number\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\"C\n\x12UpdateStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12!\n\x05store\x18\x02 \x01(\x0b\x32\x12.store.StoreObject\" \n\x12\x44\x65leteStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\x1e\n\x10ReadStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"\x16\n\x14ReadStoreListRequest\":\n\x15\x41\x64\x64\x42ookToStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"?\n\x1aRemoveBookFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"L\n\'GetAmountOfSpecificBookFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"<\n\x16\x41\x64\x64VinylToStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"A\n\x1bRemoveVinylFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"N\n(GetAmountOfSpecificVinylFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"\"\n\x13\x43reateStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"6\n\x11ReadStoreResponse\x12!\n\x05store\x18\x01 \x01(\x0b\x32\x12.store.StoreObject\"\"\n\x13UpdateStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"\"\n\x13\x44\x65leteStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"?\n\x15ReadStoreListResponse\x12&\n\nstore_list\x18\x01 \x03(\x0b\x32\x12.store.StoreObject\"%\n\x16\x41\x64\x64\x42ookToStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"*\n\x1bRemoveBookFromStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\":\n(GetAmountOfSpecificBookFromStoreResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x05\"&\n\x17\x41\x64\x64VinylToStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"+\n\x1cRemoveVinylFromStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\";\n)GetAmountOfSpecificVinylFromStoreResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x05\x32\xea\x07\n\x05Store\x12\x46\n\x0b\x43reateStore\x12\x19.store.CreateStoreRequest\x1a\x1a.store.CreateStoreResponse\"\x00\x12@\n\tReadStore\x12\x17.store.ReadStoreRequest\x1a\x18.store.ReadStoreResponse\"\x00\x12\x46\n\x0bUpdateStore\x12\x19.store.UpdateStoreRequest\x1a\x1a.store.UpdateStoreResponse\"\x00\x12\x46\n\x0b\x44\x65leteStore\x12\x19.store.DeleteStoreRequest\x1a\x1a.store.DeleteStoreResponse\"\x00\x12L\n\rReadStoreList\x12\x1b.store.ReadStoreListRequest\x1a\x1c.store.ReadStoreListResponse\"\x00\x12O\n\x0e\x41\x64\x64\x42ookToStore\x12\x1c.store.AddBookToStoreRequest\x1a\x1d.store.AddBookToStoreResponse\"\x00\x12^\n\x13RemoveBookFromStore\x12!.store.RemoveBookFromStoreRequest\x1a\".store.RemoveBookFromStoreResponse\"\x00\x12\x85\x01\n GetAmountOfSpecificBookFromStore\x12..store.GetAmountOfSpecificBookFromStoreRequest\x1a/.store.GetAmountOfSpecificBookFromStoreResponse\"\x00\x12R\n\x0f\x41\x64\x64VinylToStore\x12\x1d.store.AddVinylToStoreRequest\x1a\x1e.store.AddVinylToStoreResponse\"\x00\x12\x61\n\x14RemoveVinylFromStore\x12\".store.RemoveVinylFromStoreRequest\x1a#.store.RemoveVinylFromStoreResponse\"\x00\x12\x88\x01\n!GetAmountOfSpecificVinylFromStore\x12/.store.GetAmountOfSpecificVinylFromStoreRequest\x1a\x30.store.GetAmountOfSpecificVinylFromStoreResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0bstore.proto\x12\x05store\"k\n\x0bStoreObject\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x14\n\x0cphone_number\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\ncreated_at\x18\x04 \x01(\t\x12\x12\n\nupdated_at\x18\x05 \x01(\t\"J\n\x12\x43reateStoreRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x14\n\x0cphone_number\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\"V\n\x12UpdateStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0f\n\x07\x61\x64\x64ress\x18\x02 \x01(\t\x12\x14\n\x0cphone_number\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\"q\n\x1bUpdateStoreByAddressRequest\x12\x15\n\raddress_match\x18\x01 \x01(\t\x12\x16\n\x0e\x61\x64\x64ress_update\x18\x02 \x01(\t\x12\x14\n\x0cphone_number\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\" \n\x12\x44\x65leteStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\".\n\x1b\x44\x65leteStoreByAddressRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\"\x1e\n\x10ReadStoreRequest\x12\n\n\x02id\x18\x01 \x01(\x05\",\n\x19ReadStoreByAddressRequest\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\"\x16\n\x14ReadStoreListRequest\":\n\x15\x41\x64\x64\x42ookToStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"?\n\x1aRemoveBookFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"L\n\'GetAmountOfSpecificBookFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x0f\n\x07\x62ook_id\x18\x02 \x01(\x05\"<\n\x16\x41\x64\x64VinylToStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"A\n\x1bRemoveVinylFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"N\n(GetAmountOfSpecificVinylFromStoreRequest\x12\x10\n\x08store_id\x18\x01 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x02 \x01(\x05\"\"\n\x13\x43reateStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"6\n\x11ReadStoreResponse\x12!\n\x05store\x18\x01 \x01(\x0b\x32\x12.store.StoreObject\"\"\n\x13UpdateStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"+\n\x1cUpdateStoreByAddressResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"\"\n\x13\x44\x65leteStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"+\n\x1c\x44\x65leteStoreByAddressResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"?\n\x15ReadStoreListResponse\x12&\n\nstore_list\x18\x01 \x03(\x0b\x32\x12.store.StoreObject\"?\n\x1aReadStoreByAddressResponse\x12!\n\x05store\x18\x01 \x01(\x0b\x32\x12.store.StoreObject\"%\n\x16\x41\x64\x64\x42ookToStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"*\n\x1bRemoveBookFromStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\":\n(GetAmountOfSpecificBookFromStoreResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x05\"&\n\x17\x41\x64\x64VinylToStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\"+\n\x1cRemoveVinylFromStoreResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t\";\n)GetAmountOfSpecificVinylFromStoreResponse\x12\x0e\n\x06\x61mount\x18\x01 \x01(\x05\x32\x8d\n\n\x05Store\x12\x46\n\x0b\x43reateStore\x12\x19.store.CreateStoreRequest\x1a\x1a.store.CreateStoreResponse\"\x00\x12@\n\tReadStore\x12\x17.store.ReadStoreRequest\x1a\x18.store.ReadStoreResponse\"\x00\x12\x46\n\x0bUpdateStore\x12\x19.store.UpdateStoreRequest\x1a\x1a.store.UpdateStoreResponse\"\x00\x12\x61\n\x14UpdateStoreByAddress\x12\".store.UpdateStoreByAddressRequest\x1a#.store.UpdateStoreByAddressResponse\"\x00\x12\x46\n\x0b\x44\x65leteStore\x12\x19.store.DeleteStoreRequest\x1a\x1a.store.DeleteStoreResponse\"\x00\x12\x61\n\x14\x44\x65leteStoreByAddress\x12\".store.DeleteStoreByAddressRequest\x1a#.store.DeleteStoreByAddressResponse\"\x00\x12L\n\rReadStoreList\x12\x1b.store.ReadStoreListRequest\x1a\x1c.store.ReadStoreListResponse\"\x00\x12[\n\x12ReadStoreByAddress\x12 .store.ReadStoreByAddressRequest\x1a!.store.ReadStoreByAddressResponse\"\x00\x12O\n\x0e\x41\x64\x64\x42ookToStore\x12\x1c.store.AddBookToStoreRequest\x1a\x1d.store.AddBookToStoreResponse\"\x00\x12^\n\x13RemoveBookFromStore\x12!.store.RemoveBookFromStoreRequest\x1a\".store.RemoveBookFromStoreResponse\"\x00\x12\x85\x01\n GetAmountOfSpecificBookFromStore\x12..store.GetAmountOfSpecificBookFromStoreRequest\x1a/.store.GetAmountOfSpecificBookFromStoreResponse\"\x00\x12R\n\x0f\x41\x64\x64VinylToStore\x12\x1d.store.AddVinylToStoreRequest\x1a\x1e.store.AddVinylToStoreResponse\"\x00\x12\x61\n\x14RemoveVinylFromStore\x12\".store.RemoveVinylFromStoreRequest\x1a#.store.RemoveVinylFromStoreResponse\"\x00\x12\x88\x01\n!GetAmountOfSpecificVinylFromStore\x12/.store.GetAmountOfSpecificVinylFromStoreRequest\x1a\x30.store.GetAmountOfSpecificVinylFromStoreResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -147,9 +147,23 @@ _UPDATESTOREREQUEST = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='store', full_name='store.UpdateStoreRequest.store', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
+      name='address', full_name='store.UpdateStoreRequest.address', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='phone_number', full_name='store.UpdateStoreRequest.phone_number', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='email', full_name='store.UpdateStoreRequest.email', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
@@ -166,7 +180,60 @@ _UPDATESTOREREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=207,
-  serialized_end=274,
+  serialized_end=293,
+)
+
+
+_UPDATESTOREBYADDRESSREQUEST = _descriptor.Descriptor(
+  name='UpdateStoreByAddressRequest',
+  full_name='store.UpdateStoreByAddressRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='address_match', full_name='store.UpdateStoreByAddressRequest.address_match', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='address_update', full_name='store.UpdateStoreByAddressRequest.address_update', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='phone_number', full_name='store.UpdateStoreByAddressRequest.phone_number', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='email', full_name='store.UpdateStoreByAddressRequest.email', index=3,
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=295,
+  serialized_end=408,
 )
 
 
@@ -197,8 +264,40 @@ _DELETESTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=276,
-  serialized_end=308,
+  serialized_start=410,
+  serialized_end=442,
+)
+
+
+_DELETESTOREBYADDRESSREQUEST = _descriptor.Descriptor(
+  name='DeleteStoreByAddressRequest',
+  full_name='store.DeleteStoreByAddressRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='address', full_name='store.DeleteStoreByAddressRequest.address', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=444,
+  serialized_end=490,
 )
 
 
@@ -229,8 +328,40 @@ _READSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=310,
-  serialized_end=340,
+  serialized_start=492,
+  serialized_end=522,
+)
+
+
+_READSTOREBYADDRESSREQUEST = _descriptor.Descriptor(
+  name='ReadStoreByAddressRequest',
+  full_name='store.ReadStoreByAddressRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='address', full_name='store.ReadStoreByAddressRequest.address', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=524,
+  serialized_end=568,
 )
 
 
@@ -254,8 +385,8 @@ _READSTORELISTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=342,
-  serialized_end=364,
+  serialized_start=570,
+  serialized_end=592,
 )
 
 
@@ -293,8 +424,8 @@ _ADDBOOKTOSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=366,
-  serialized_end=424,
+  serialized_start=594,
+  serialized_end=652,
 )
 
 
@@ -332,8 +463,8 @@ _REMOVEBOOKFROMSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=426,
-  serialized_end=489,
+  serialized_start=654,
+  serialized_end=717,
 )
 
 
@@ -371,8 +502,8 @@ _GETAMOUNTOFSPECIFICBOOKFROMSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=491,
-  serialized_end=567,
+  serialized_start=719,
+  serialized_end=795,
 )
 
 
@@ -410,8 +541,8 @@ _ADDVINYLTOSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=569,
-  serialized_end=629,
+  serialized_start=797,
+  serialized_end=857,
 )
 
 
@@ -449,8 +580,8 @@ _REMOVEVINYLFROMSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=631,
-  serialized_end=696,
+  serialized_start=859,
+  serialized_end=924,
 )
 
 
@@ -488,8 +619,8 @@ _GETAMOUNTOFSPECIFICVINYLFROMSTOREREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=698,
-  serialized_end=776,
+  serialized_start=926,
+  serialized_end=1004,
 )
 
 
@@ -520,8 +651,8 @@ _CREATESTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=778,
-  serialized_end=812,
+  serialized_start=1006,
+  serialized_end=1040,
 )
 
 
@@ -552,8 +683,8 @@ _READSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=814,
-  serialized_end=868,
+  serialized_start=1042,
+  serialized_end=1096,
 )
 
 
@@ -584,8 +715,40 @@ _UPDATESTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=870,
-  serialized_end=904,
+  serialized_start=1098,
+  serialized_end=1132,
+)
+
+
+_UPDATESTOREBYADDRESSRESPONSE = _descriptor.Descriptor(
+  name='UpdateStoreByAddressResponse',
+  full_name='store.UpdateStoreByAddressResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='msg', full_name='store.UpdateStoreByAddressResponse.msg', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1134,
+  serialized_end=1177,
 )
 
 
@@ -616,8 +779,40 @@ _DELETESTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=906,
-  serialized_end=940,
+  serialized_start=1179,
+  serialized_end=1213,
+)
+
+
+_DELETESTOREBYADDRESSRESPONSE = _descriptor.Descriptor(
+  name='DeleteStoreByAddressResponse',
+  full_name='store.DeleteStoreByAddressResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='msg', full_name='store.DeleteStoreByAddressResponse.msg', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1215,
+  serialized_end=1258,
 )
 
 
@@ -648,8 +843,40 @@ _READSTORELISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=942,
-  serialized_end=1005,
+  serialized_start=1260,
+  serialized_end=1323,
+)
+
+
+_READSTOREBYADDRESSRESPONSE = _descriptor.Descriptor(
+  name='ReadStoreByAddressResponse',
+  full_name='store.ReadStoreByAddressResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='store', full_name='store.ReadStoreByAddressResponse.store', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1325,
+  serialized_end=1388,
 )
 
 
@@ -680,8 +907,8 @@ _ADDBOOKTOSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1007,
-  serialized_end=1044,
+  serialized_start=1390,
+  serialized_end=1427,
 )
 
 
@@ -712,8 +939,8 @@ _REMOVEBOOKFROMSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1046,
-  serialized_end=1088,
+  serialized_start=1429,
+  serialized_end=1471,
 )
 
 
@@ -744,8 +971,8 @@ _GETAMOUNTOFSPECIFICBOOKFROMSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1090,
-  serialized_end=1148,
+  serialized_start=1473,
+  serialized_end=1531,
 )
 
 
@@ -776,8 +1003,8 @@ _ADDVINYLTOSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1150,
-  serialized_end=1188,
+  serialized_start=1533,
+  serialized_end=1571,
 )
 
 
@@ -808,8 +1035,8 @@ _REMOVEVINYLFROMSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1190,
-  serialized_end=1233,
+  serialized_start=1573,
+  serialized_end=1616,
 )
 
 
@@ -840,18 +1067,21 @@ _GETAMOUNTOFSPECIFICVINYLFROMSTORERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1235,
-  serialized_end=1294,
+  serialized_start=1618,
+  serialized_end=1677,
 )
 
-_UPDATESTOREREQUEST.fields_by_name['store'].message_type = _STOREOBJECT
 _READSTORERESPONSE.fields_by_name['store'].message_type = _STOREOBJECT
 _READSTORELISTRESPONSE.fields_by_name['store_list'].message_type = _STOREOBJECT
+_READSTOREBYADDRESSRESPONSE.fields_by_name['store'].message_type = _STOREOBJECT
 DESCRIPTOR.message_types_by_name['StoreObject'] = _STOREOBJECT
 DESCRIPTOR.message_types_by_name['CreateStoreRequest'] = _CREATESTOREREQUEST
 DESCRIPTOR.message_types_by_name['UpdateStoreRequest'] = _UPDATESTOREREQUEST
+DESCRIPTOR.message_types_by_name['UpdateStoreByAddressRequest'] = _UPDATESTOREBYADDRESSREQUEST
 DESCRIPTOR.message_types_by_name['DeleteStoreRequest'] = _DELETESTOREREQUEST
+DESCRIPTOR.message_types_by_name['DeleteStoreByAddressRequest'] = _DELETESTOREBYADDRESSREQUEST
 DESCRIPTOR.message_types_by_name['ReadStoreRequest'] = _READSTOREREQUEST
+DESCRIPTOR.message_types_by_name['ReadStoreByAddressRequest'] = _READSTOREBYADDRESSREQUEST
 DESCRIPTOR.message_types_by_name['ReadStoreListRequest'] = _READSTORELISTREQUEST
 DESCRIPTOR.message_types_by_name['AddBookToStoreRequest'] = _ADDBOOKTOSTOREREQUEST
 DESCRIPTOR.message_types_by_name['RemoveBookFromStoreRequest'] = _REMOVEBOOKFROMSTOREREQUEST
@@ -862,8 +1092,11 @@ DESCRIPTOR.message_types_by_name['GetAmountOfSpecificVinylFromStoreRequest'] = _
 DESCRIPTOR.message_types_by_name['CreateStoreResponse'] = _CREATESTORERESPONSE
 DESCRIPTOR.message_types_by_name['ReadStoreResponse'] = _READSTORERESPONSE
 DESCRIPTOR.message_types_by_name['UpdateStoreResponse'] = _UPDATESTORERESPONSE
+DESCRIPTOR.message_types_by_name['UpdateStoreByAddressResponse'] = _UPDATESTOREBYADDRESSRESPONSE
 DESCRIPTOR.message_types_by_name['DeleteStoreResponse'] = _DELETESTORERESPONSE
+DESCRIPTOR.message_types_by_name['DeleteStoreByAddressResponse'] = _DELETESTOREBYADDRESSRESPONSE
 DESCRIPTOR.message_types_by_name['ReadStoreListResponse'] = _READSTORELISTRESPONSE
+DESCRIPTOR.message_types_by_name['ReadStoreByAddressResponse'] = _READSTOREBYADDRESSRESPONSE
 DESCRIPTOR.message_types_by_name['AddBookToStoreResponse'] = _ADDBOOKTOSTORERESPONSE
 DESCRIPTOR.message_types_by_name['RemoveBookFromStoreResponse'] = _REMOVEBOOKFROMSTORERESPONSE
 DESCRIPTOR.message_types_by_name['GetAmountOfSpecificBookFromStoreResponse'] = _GETAMOUNTOFSPECIFICBOOKFROMSTORERESPONSE
@@ -893,6 +1126,13 @@ UpdateStoreRequest = _reflection.GeneratedProtocolMessageType('UpdateStoreReques
   })
 _sym_db.RegisterMessage(UpdateStoreRequest)
 
+UpdateStoreByAddressRequest = _reflection.GeneratedProtocolMessageType('UpdateStoreByAddressRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATESTOREBYADDRESSREQUEST,
+  '__module__' : 'store_pb2'
+  # @@protoc_insertion_point(class_scope:store.UpdateStoreByAddressRequest)
+  })
+_sym_db.RegisterMessage(UpdateStoreByAddressRequest)
+
 DeleteStoreRequest = _reflection.GeneratedProtocolMessageType('DeleteStoreRequest', (_message.Message,), {
   'DESCRIPTOR' : _DELETESTOREREQUEST,
   '__module__' : 'store_pb2'
@@ -900,12 +1140,26 @@ DeleteStoreRequest = _reflection.GeneratedProtocolMessageType('DeleteStoreReques
   })
 _sym_db.RegisterMessage(DeleteStoreRequest)
 
+DeleteStoreByAddressRequest = _reflection.GeneratedProtocolMessageType('DeleteStoreByAddressRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETESTOREBYADDRESSREQUEST,
+  '__module__' : 'store_pb2'
+  # @@protoc_insertion_point(class_scope:store.DeleteStoreByAddressRequest)
+  })
+_sym_db.RegisterMessage(DeleteStoreByAddressRequest)
+
 ReadStoreRequest = _reflection.GeneratedProtocolMessageType('ReadStoreRequest', (_message.Message,), {
   'DESCRIPTOR' : _READSTOREREQUEST,
   '__module__' : 'store_pb2'
   # @@protoc_insertion_point(class_scope:store.ReadStoreRequest)
   })
 _sym_db.RegisterMessage(ReadStoreRequest)
+
+ReadStoreByAddressRequest = _reflection.GeneratedProtocolMessageType('ReadStoreByAddressRequest', (_message.Message,), {
+  'DESCRIPTOR' : _READSTOREBYADDRESSREQUEST,
+  '__module__' : 'store_pb2'
+  # @@protoc_insertion_point(class_scope:store.ReadStoreByAddressRequest)
+  })
+_sym_db.RegisterMessage(ReadStoreByAddressRequest)
 
 ReadStoreListRequest = _reflection.GeneratedProtocolMessageType('ReadStoreListRequest', (_message.Message,), {
   'DESCRIPTOR' : _READSTORELISTREQUEST,
@@ -977,6 +1231,13 @@ UpdateStoreResponse = _reflection.GeneratedProtocolMessageType('UpdateStoreRespo
   })
 _sym_db.RegisterMessage(UpdateStoreResponse)
 
+UpdateStoreByAddressResponse = _reflection.GeneratedProtocolMessageType('UpdateStoreByAddressResponse', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATESTOREBYADDRESSRESPONSE,
+  '__module__' : 'store_pb2'
+  # @@protoc_insertion_point(class_scope:store.UpdateStoreByAddressResponse)
+  })
+_sym_db.RegisterMessage(UpdateStoreByAddressResponse)
+
 DeleteStoreResponse = _reflection.GeneratedProtocolMessageType('DeleteStoreResponse', (_message.Message,), {
   'DESCRIPTOR' : _DELETESTORERESPONSE,
   '__module__' : 'store_pb2'
@@ -984,12 +1245,26 @@ DeleteStoreResponse = _reflection.GeneratedProtocolMessageType('DeleteStoreRespo
   })
 _sym_db.RegisterMessage(DeleteStoreResponse)
 
+DeleteStoreByAddressResponse = _reflection.GeneratedProtocolMessageType('DeleteStoreByAddressResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DELETESTOREBYADDRESSRESPONSE,
+  '__module__' : 'store_pb2'
+  # @@protoc_insertion_point(class_scope:store.DeleteStoreByAddressResponse)
+  })
+_sym_db.RegisterMessage(DeleteStoreByAddressResponse)
+
 ReadStoreListResponse = _reflection.GeneratedProtocolMessageType('ReadStoreListResponse', (_message.Message,), {
   'DESCRIPTOR' : _READSTORELISTRESPONSE,
   '__module__' : 'store_pb2'
   # @@protoc_insertion_point(class_scope:store.ReadStoreListResponse)
   })
 _sym_db.RegisterMessage(ReadStoreListResponse)
+
+ReadStoreByAddressResponse = _reflection.GeneratedProtocolMessageType('ReadStoreByAddressResponse', (_message.Message,), {
+  'DESCRIPTOR' : _READSTOREBYADDRESSRESPONSE,
+  '__module__' : 'store_pb2'
+  # @@protoc_insertion_point(class_scope:store.ReadStoreByAddressResponse)
+  })
+_sym_db.RegisterMessage(ReadStoreByAddressResponse)
 
 AddBookToStoreResponse = _reflection.GeneratedProtocolMessageType('AddBookToStoreResponse', (_message.Message,), {
   'DESCRIPTOR' : _ADDBOOKTOSTORERESPONSE,
@@ -1042,8 +1317,8 @@ _STORE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=1297,
-  serialized_end=2299,
+  serialized_start=1680,
+  serialized_end=2973,
   methods=[
   _descriptor.MethodDescriptor(
     name='CreateStore',
@@ -1076,9 +1351,19 @@ _STORE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='UpdateStoreByAddress',
+    full_name='store.Store.UpdateStoreByAddress',
+    index=3,
+    containing_service=None,
+    input_type=_UPDATESTOREBYADDRESSREQUEST,
+    output_type=_UPDATESTOREBYADDRESSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='DeleteStore',
     full_name='store.Store.DeleteStore',
-    index=3,
+    index=4,
     containing_service=None,
     input_type=_DELETESTOREREQUEST,
     output_type=_DELETESTORERESPONSE,
@@ -1086,9 +1371,19 @@ _STORE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='DeleteStoreByAddress',
+    full_name='store.Store.DeleteStoreByAddress',
+    index=5,
+    containing_service=None,
+    input_type=_DELETESTOREBYADDRESSREQUEST,
+    output_type=_DELETESTOREBYADDRESSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='ReadStoreList',
     full_name='store.Store.ReadStoreList',
-    index=4,
+    index=6,
     containing_service=None,
     input_type=_READSTORELISTREQUEST,
     output_type=_READSTORELISTRESPONSE,
@@ -1096,9 +1391,19 @@ _STORE = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='ReadStoreByAddress',
+    full_name='store.Store.ReadStoreByAddress',
+    index=7,
+    containing_service=None,
+    input_type=_READSTOREBYADDRESSREQUEST,
+    output_type=_READSTOREBYADDRESSRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='AddBookToStore',
     full_name='store.Store.AddBookToStore',
-    index=5,
+    index=8,
     containing_service=None,
     input_type=_ADDBOOKTOSTOREREQUEST,
     output_type=_ADDBOOKTOSTORERESPONSE,
@@ -1108,7 +1413,7 @@ _STORE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='RemoveBookFromStore',
     full_name='store.Store.RemoveBookFromStore',
-    index=6,
+    index=9,
     containing_service=None,
     input_type=_REMOVEBOOKFROMSTOREREQUEST,
     output_type=_REMOVEBOOKFROMSTORERESPONSE,
@@ -1118,7 +1423,7 @@ _STORE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetAmountOfSpecificBookFromStore',
     full_name='store.Store.GetAmountOfSpecificBookFromStore',
-    index=7,
+    index=10,
     containing_service=None,
     input_type=_GETAMOUNTOFSPECIFICBOOKFROMSTOREREQUEST,
     output_type=_GETAMOUNTOFSPECIFICBOOKFROMSTORERESPONSE,
@@ -1128,7 +1433,7 @@ _STORE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='AddVinylToStore',
     full_name='store.Store.AddVinylToStore',
-    index=8,
+    index=11,
     containing_service=None,
     input_type=_ADDVINYLTOSTOREREQUEST,
     output_type=_ADDVINYLTOSTORERESPONSE,
@@ -1138,7 +1443,7 @@ _STORE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='RemoveVinylFromStore',
     full_name='store.Store.RemoveVinylFromStore',
-    index=9,
+    index=12,
     containing_service=None,
     input_type=_REMOVEVINYLFROMSTOREREQUEST,
     output_type=_REMOVEVINYLFROMSTORERESPONSE,
@@ -1148,7 +1453,7 @@ _STORE = _descriptor.ServiceDescriptor(
   _descriptor.MethodDescriptor(
     name='GetAmountOfSpecificVinylFromStore',
     full_name='store.Store.GetAmountOfSpecificVinylFromStore',
-    index=10,
+    index=13,
     containing_service=None,
     input_type=_GETAMOUNTOFSPECIFICVINYLFROMSTOREREQUEST,
     output_type=_GETAMOUNTOFSPECIFICVINYLFROMSTORERESPONSE,
