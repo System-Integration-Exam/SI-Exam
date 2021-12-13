@@ -1,1 +1,3 @@
-pub mod grpc_store_tests;
+pub mod grpc_store_test;
+
+

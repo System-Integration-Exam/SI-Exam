@@ -2,7 +2,7 @@ use rdkafka::util::get_rdkafka_version;
 use store::store_server::{Store, StoreServer};
 use store::{CreateStoreRequest, CreateStoreResponse};
 use tonic::{transport::Server, Request, Response, Status};
-use log::{info, warn};
+use log::{info};
 
 #[macro_use]
 extern crate lazy_static;
@@ -52,6 +52,19 @@ impl Store for StoreCon {
         ))
     }
 
+    async fn read_store_by_address(
+        &self,
+        request: tonic::Request<store::ReadStoreByAddressRequest>,
+    ) -> Result<tonic::Response<store::ReadStoreByAddressResponse>, tonic::Status> {
+        println!("Got a request from {:?}", request.remote_addr());
+
+        Ok(Response::new(
+            store_handler::read_store_by_address(request.into_inner())
+                .await
+                .expect("Store Read failed"),
+        ))
+    }
+
     async fn update_store(
         &self,
         request: tonic::Request<store::UpdateStoreRequest>,
@@ -65,6 +78,19 @@ impl Store for StoreCon {
         ))
     }
 
+    async fn update_store_by_address(
+        &self,
+        request: tonic::Request<store::UpdateStoreByAddressRequest>,
+    ) -> Result<tonic::Response<store::UpdateStoreByAddressResponse>, tonic::Status> {
+        println!("Got a request from {:?}", request.remote_addr());
+
+        Ok(Response::new(
+            store_handler::update_store_by_address(request.into_inner())
+                .await
+                .expect("Store Update failed"),
+        ))
+    }
+
     async fn delete_store(
         &self,
         request: tonic::Request<store::DeleteStoreRequest>,
@@ -73,6 +99,19 @@ impl Store for StoreCon {
 
         Ok(Response::new(
             store_handler::delete(request.into_inner())
+                .await
+                .expect("Store Delete failed"),
+        ))
+    }
+
+    async fn delete_store_by_address(
+        &self,
+        request: tonic::Request<store::DeleteStoreByAddressRequest>,
+    ) -> Result<tonic::Response<store::DeleteStoreByAddressResponse>, tonic::Status> {
+        println!("Got a request from {:?}", request.remote_addr());
+
+        Ok(Response::new(
+            store_handler::delete_store_by_address(request.into_inner())
                 .await
                 .expect("Store Delete failed"),
         ))

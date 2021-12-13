@@ -13,7 +13,6 @@ services:
     container_name: "si-exam-warehouse"
     ports:
       - 20080:20080
-
     
 # Kafka
   zookeeper:

@@ -2,9 +2,34 @@ syntax = "proto3";
 package reservation;
 
 option csharp_namespace = "Reservation.Protos";
-import "google/protobuf/wrappers.proto";
-import "google/protobuf/empty.proto";
 
 service ReservationGrpc {
-    rpc CreateReservation (google.protobuf.StringValue) returns (google.protobuf.Empty);
+    rpc CreateReservation (CreateReqeust) returns (ReservationResponse);
+    rpc CancelReservation (ChangeReqeust) returns (ReservationResponse);
+    rpc CompleteReservation (ChangeReqeust) returns (ReservationResponse);
+    rpc RetriveUsersReservations (RetriveRequest) returns (ReservationResponse);
+}
+
+message CreateReqeust {
+    string item_id = 1;
+    string user_id = 2;
+}
+
+message ChangeReqeust {
+    string id = 1;
+}
+
+message RetriveRequest {
+    string user_id = 1;
+}
+
+message ReservationResponse {
+    string id = 1;
+    string item_id = 2;
+    string user_id = 3;
+    int64 expiry_time_unix = 4;
+}
+
+message RetriveResponse {
+    repeated ReservationResponse reservations = 1;
 }

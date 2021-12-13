@@ -6,7 +6,6 @@ RUN pip install gunicorn
 
 COPY . /app
 WORKDIR /app
-RUN chmod +x ./run_flask.sh
 WORKDIR /app/src
 
 CMD ["gunicorn"  , "-b", "0.0.0.0:20090", "main:app"]

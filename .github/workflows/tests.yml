@@ -1,0 +1,24 @@
+on: [push]
+
+jobs:
+  warehouse_tests:
+    name: Warehouse Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: |
+          sudo docker-compose -f docker-compose.dev.yml up --build -d
+          cd applications
+          cd services
+          cd warehouse
+          cd migration
+          pip install --no-cache-dir -r requirements.txt
+          cd ..
+          cargo r > redirection &
+          sudo chmod +x ./reset_and_test.sh
+          ./reset_and_test.sh
+          
+          

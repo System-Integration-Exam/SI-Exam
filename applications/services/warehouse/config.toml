@@ -19,4 +19,4 @@ enable_partition_eof = "false"
 enable_auto_commit = "true"
 session_timeout_ms = "6000"
 log_conf = "true"
-topics = ["reservation"]
+topics = ["reservation-created"]

@@ -11,7 +11,6 @@ pub struct StoreConverter {
     pub address: String,
     pub phone_number: String,
     pub email: String,
-    pub role: String,
     pub created_at: Option<NaiveDateTime>,
     pub updated_at: Option<NaiveDateTime>,
 }

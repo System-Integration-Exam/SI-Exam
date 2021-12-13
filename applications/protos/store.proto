@@ -5,8 +5,13 @@ service Store {
   rpc CreateStore(CreateStoreRequest) returns (CreateStoreResponse) {}
   rpc ReadStore(ReadStoreRequest) returns (ReadStoreResponse) {}
   rpc UpdateStore(UpdateStoreRequest) returns (UpdateStoreResponse) {}
+  rpc UpdateStoreByAddress(UpdateStoreByAddressRequest)
+      returns (UpdateStoreByAddressResponse) {}
   rpc DeleteStore(DeleteStoreRequest) returns (DeleteStoreResponse) {}
+  rpc DeleteStoreByAddress(DeleteStoreByAddressRequest) returns (DeleteStoreByAddressResponse) {}
   rpc ReadStoreList(ReadStoreListRequest) returns (ReadStoreListResponse) {}
+  rpc ReadStoreByAddress(ReadStoreByAddressRequest)
+      returns (ReadStoreByAddressResponse) {}
   //
   rpc AddBookToStore(AddBookToStoreRequest) returns (AddBookToStoreResponse) {}
   rpc RemoveBookFromStore(RemoveBookFromStoreRequest)
@@ -18,7 +23,8 @@ service Store {
       returns (AddVinylToStoreResponse) {}
   rpc RemoveVinylFromStore(RemoveVinylFromStoreRequest)
       returns (RemoveVinylFromStoreResponse) {}
-  rpc GetAmountOfSpecificVinylFromStore(GetAmountOfSpecificVinylFromStoreRequest)
+  rpc GetAmountOfSpecificVinylFromStore(
+      GetAmountOfSpecificVinylFromStoreRequest)
       returns (GetAmountOfSpecificVinylFromStoreResponse) {}
 }
 
@@ -31,17 +37,29 @@ message StoreObject {
 }
 
 // ######## Request ########
-message CreateStoreRequest { 
-    string address = 1; 
-    string phone_number = 2;
-    string email = 3;
+message CreateStoreRequest {
+  string address = 1;
+  string phone_number = 2;
+  string email = 3;
 }
 message UpdateStoreRequest {
   int32 id = 1;
-  StoreObject store = 2;
+  string address = 2;
+  string phone_number = 3;
+  string email = 4;
 }
+
+message UpdateStoreByAddressRequest {
+    string address_match = 1;
+    string address_update = 2;
+    string phone_number = 3;
+    string email = 4;
+}
+
 message DeleteStoreRequest { int32 id = 1; }
+message DeleteStoreByAddressRequest { string address = 1; }
 message ReadStoreRequest { int32 id = 1; }
+message ReadStoreByAddressRequest { string address = 1; }
 message ReadStoreListRequest {}
 
 message AddBookToStoreRequest {
@@ -74,8 +92,11 @@ message GetAmountOfSpecificVinylFromStoreRequest {
 message CreateStoreResponse { string msg = 1; }
 message ReadStoreResponse { StoreObject store = 1; }
 message UpdateStoreResponse { string msg = 1; }
+message UpdateStoreByAddressResponse { string msg = 1; }
 message DeleteStoreResponse { string msg = 1; }
+message DeleteStoreByAddressResponse { string msg = 1;}
 message ReadStoreListResponse { repeated StoreObject store_list = 1; }
+message ReadStoreByAddressResponse { StoreObject store = 1; }
 
 message AddBookToStoreResponse { string msg = 1; }
 message RemoveBookFromStoreResponse { string msg = 1; }
