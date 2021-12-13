@@ -1,17 +1,63 @@
 syntax = "proto3";
 
-message BookRequest {
-    int32 id = 1;
+//Book servicer
+//Only has CRUD methods, as it is only used for meta data
+service Book {
+    //CreateBook - Creates and persist new book
+    rpc createBook(CreateBookRequest) returns (CreateBookResponse) {}
+    //GetBookById - Returns book based on ID
+    rpc getBookById(GetBookByIdRequest) returns (GetBookByIdResponse) {}
+    //UpdateBook - Updates info on existing book
+    rpc updateBook(UpdateBookRequest) returns (UpdateBookResponse) {}
+    //DeleteBook - Deletes book based on ID
+    rpc deleteBookById(DeleteBookByIdRequest) returns (DeleteBookByIdResponse) {}
 }
 
-message BookResponse {
-    int32 id = 1;
+//Takes in a book object and returns a status message (success/error)
+//Request message for createBook()
+message CreateBookRequest {
+    string id = 1;
+    string title = 2;
+    string author = 3;
+    int32 rating = 4;
+}
+//Response message for createBook()
+message CreateBookResponse {
+    string statusMessage = 1;
+}
+
+//Takes in an ID value and returns a book object
+//Request message for getBookById()
+message GetBookByIdRequest {
+    string id = 1;
+}
+//Response message for getBookById()
+message GetBookByIdResponse {
+    string id = 1;
     string title = 2;
     string author = 3;
     int32 rating = 4;
 }
 
-service Book {
-    rpc getBookInfo(BookRequest) returns (BookResponse) {}
-    
+//Takes in a book object and returns status message
+//Request for updateBook()
+message UpdateBookRequest {
+    string id = 1;
+    string title = 2;
+    string author = 3;
+    int32 rating = 4;
+}
+//Response message for createBook()
+message UpdateBookResponse {
+    string statusMessage = 1;
+}
+
+//Takes in an ID value and returns status message
+//Request for deleteBookById()
+message DeleteBookByIdRequest {
+    string id = 1;
+}
+//Response for deleteBookById()
+message DeleteBookByIdResponse {
+    string statusMessage = 1;
 }

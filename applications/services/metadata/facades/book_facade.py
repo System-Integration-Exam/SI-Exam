@@ -1,25 +1,31 @@
 
 from entities.book import Book
 
-def getBookInfo(x):
+
+def createBook(book):
+    #todo persist to database
+
+    statusMessage = "200 ok"
+    return statusMessage
+
+
+def getBookById(id):
     #todo get from database
     #fixed value for now
-    book = Book(10, "title", "author", 10) 
+    book = Book(id, "title", "author", 10) 
 
     return book
 
 
-def create():
-    return 0
+def updateBook(book):
+    #todo persist updates to database
 
-def read():
-    return 0
-
-def update():
-    return 0
+    statusMessage = "200 ok"
+    return statusMessage
     
-def delete():
-    return 0
 
-
-print(getBookInfo(10))
+def deleteBookById(id):
+    #todo remove persisted data
+    
+    statusMessage = "200 ok"
+    return statusMessage
