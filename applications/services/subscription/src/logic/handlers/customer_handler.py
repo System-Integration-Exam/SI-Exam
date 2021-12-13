@@ -1,4 +1,4 @@
-from sqlite_connection import execute_query, fetch_one
+from connection.sqlite_connection import execute_query, fetch_one
 from logic.protogen import customer_pb2
 
 
