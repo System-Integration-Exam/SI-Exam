@@ -4,7 +4,7 @@ namespace Reservation.Persistency;
 
 public interface IReservationRepository
 {
-    IEnumerable<ReservationResponse> GetAll(string userId);
+    List<ReservationResponse> GetAll(string userId);
     ReservationResponse Create(string itemId, string userId);
     ReservationResponse UpdateStatus(string id, ReservationStatus status);
 }
@@ -17,16 +17,21 @@ public class ReservationRepository: IReservationRepository
     {
         _context = context;
     }
-    public IEnumerable<ReservationResponse> GetAll(string userId)
-        => _context.Reservations
+    public List<ReservationResponse> GetAll(string userId)
+    {
+        List<Reservation> reservations = _context.Reservations
             .Where(x => x.UserId == userId)
-            .Select(x => new ReservationResponse
+            .ToList();
+
+        return reservations
+            .Select(r => new ReservationResponse
             {
-                Id = x.Id.ToString(), 
-                ItemId = x.ItemId, 
-                UserId = x.UserId,
-                Status = (ReservationResponse.Types.Status)x.Status
-            });
+                Id = r.Id.ToString(), 
+                ItemId = r.ItemId, 
+                UserId = r.UserId, 
+                Status = (ReservationResponse.Types.Status)r.Status
+            }).ToList();
+    }
 
     public ReservationResponse Create(string itemId, string userId)
     {
@@ -49,7 +54,8 @@ public class ReservationRepository: IReservationRepository
 
     public ReservationResponse UpdateStatus(string id, ReservationStatus status)
     {
-        Reservation reservation = _context.Reservations.First(x => x.Id.ToString() == id);
+        Guid requestId = Guid.Parse(id);
+        Reservation reservation = _context.Reservations.First(x => x.Id == requestId);
         if(reservation.Status == ReservationStatus.Reserved)
         {
             reservation.Status = status;

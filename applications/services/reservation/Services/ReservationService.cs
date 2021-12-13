@@ -29,7 +29,7 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
 
     public override Task<RetriveResponse> RetriveUsersReservations(RetriveRequest request, ServerCallContext context)
     {
-        List<ReservationResponse> reservations = _repository.GetAll(request.UserId).ToList();
+        List<ReservationResponse> reservations = _repository.GetAll(request.UserId);
         _logger.LogInformation("Retrived: {count}, reservations for user id: {userId}", reservations.Count, request.UserId);
         RetriveResponse retriveResponse = new();
         retriveResponse.Reservations.AddRange(reservations);
