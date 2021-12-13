@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+service Subscription {
+  rpc CreateSubscription(CreateSubscriptionRequest) returns (
+      CreateSubscriptionResponse) {}
+    rpc ReadSubscription(ReadSubscriptionRequest) returns (ReadSubscriptionResponse){}
+}
+
+// #### Requests ####
+message CreateSubscriptionRequest {
+  bool is_active = 1;
+  string expiration_date = 2;
+}
+
+message ReadSubscriptionRequest {
+    int32 id = 1;
+}
+
+// #### Response ####
+message CreateSubscriptionResponse { string msg = 1; }
+message ReadSubscriptionResponse {
+    int32 id = 1;
+    bool is_active = 2;
+    string expiration_date = 3;
+}
+

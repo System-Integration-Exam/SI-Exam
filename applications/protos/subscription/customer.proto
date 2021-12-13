@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+service Customer {
+  rpc CreateCustomer(CreateCustomerRequest) returns (CreateCustomerResponse) {}
+  rpc ReadCustomer(ReadCustomerRequest) returns (ReadCustomerResponse) {}
+  rpc ReadCustomerList(ReadCustomerListRequest)
+      returns (ReadCustomerListResponse) {}
+}
+
+// #### Requests ####
+message CreateCustomerRequest {
+  string first_name = 1;
+  string last_name = 2;
+  string email = 3;
+  string phone_number = 4;
+}
+
+message ReadCustomerRequest { int32 id = 1; }
+
+message ReadCustomerListRequest {}
+
+// #### Response ####
+message CreateCustomerResponse { string msg = 1; }
+message ReadCustomerResponse {
+  int32 id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string email = 4;
+  string phone_number = 5;
+}
+message ReadCustomerListResponse {
+  message CustomerObject {
+    int32 id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string email = 4;
+    string phone_number = 5;
+  }
+  repeated CustomerObject customer_list = 1;
+}
