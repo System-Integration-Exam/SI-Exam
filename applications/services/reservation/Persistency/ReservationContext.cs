@@ -22,6 +22,8 @@ public class ReservationContext: DbContext
                 .IsRequired();
             entity.Property(r => r.CreatedAt)
                 .IsRequired();
+            entity.Property(r => r.StoreId)
+                .IsRequired();
         });
     }
 }

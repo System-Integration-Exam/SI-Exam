@@ -5,7 +5,7 @@ namespace Reservation.Persistency;
 public interface IReservationRepository
 {
     List<ReservationResponse> GetAll(string userId);
-    ReservationResponse Create(string itemId, string userId);
+    ReservationResponse Create(string itemId, string userId, int storeId);
     ReservationResponse UpdateStatus(string id, ReservationStatus status);
 }
 
@@ -29,16 +29,18 @@ public class ReservationRepository: IReservationRepository
                 Id = r.Id.ToString(), 
                 ItemId = r.ItemId, 
                 UserId = r.UserId, 
-                Status = (ReservationResponse.Types.Status)r.Status
+                Status = (ReservationResponse.Types.Status)r.Status,
+                StoreId = r.StoreId
             }).ToList();
     }
 
-    public ReservationResponse Create(string itemId, string userId)
+    public ReservationResponse Create(string itemId, string userId, int storeId)
     {
         Reservation reservation = new(itemId, userId)
         {
             CreatedAt = DateTime.UtcNow,
-            Status = ReservationStatus.Reserved
+            Status = ReservationStatus.Reserved,
+            StoreId = storeId
         };
         _context.Reservations.Add(reservation);
         _context.SaveChanges();
@@ -48,7 +50,8 @@ public class ReservationRepository: IReservationRepository
             Id = reservation.Id.ToString(),
             ItemId = reservation.ItemId,
             UserId = reservation.UserId,
-            Status = (ReservationResponse.Types.Status)reservation.Status
+            Status = (ReservationResponse.Types.Status)reservation.Status,
+            StoreId = reservation.StoreId
         };
     }
 
@@ -67,7 +70,8 @@ public class ReservationRepository: IReservationRepository
             Id = reservation.Id.ToString(),
             ItemId = reservation.ItemId,
             UserId = reservation.UserId,
-            Status = (ReservationResponse.Types.Status)reservation.Status
+            Status = (ReservationResponse.Types.Status)reservation.Status,
+            StoreId = reservation.StoreId
         };
     }
 }

@@ -19,7 +19,7 @@ public class ReservationService : ReservationGrpc.ReservationGrpcBase
 
     public override Task<ReservationResponse> CreateReservation(CreateRequest request, ServerCallContext context)
     {
-        ReservationResponse reservation = _repository.Create(request.ItemId, request.UserId);
+        ReservationResponse reservation = _repository.Create(request.ItemId, request.UserId, request.StoreId);
 
         _kafkaService.ReservationCreatedEvent(reservation.ItemId);
 
