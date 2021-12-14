@@ -2,7 +2,9 @@
 
 ### Installation
 poetry https://python-poetry.org/docs/#installation
+
 (windows) git bash 
+
 python 3.9 or higher
 
 ### Usage

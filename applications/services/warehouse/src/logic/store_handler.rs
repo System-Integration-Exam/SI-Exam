@@ -1,6 +1,8 @@
 #![allow(dead_code, unused_imports)]
 
-use crate::entities::{store, store::StoreManyToManyBook, store::StoreManyToManyVinyl};
+use crate::entities::{
+    stock_info::StockInfo, store, store::StoreManyToManyBook, store::StoreManyToManyVinyl,
+};
 use crate::{connection::sqlite_connection::get_db_pool, entities::store::StoreConverter};
 use serde_derive::{Deserialize, Serialize};
 
@@ -382,4 +384,157 @@ pub async fn get_amount_of_specific_vinyl_from_store(
     Ok(store::GetAmountOfSpecificVinylFromStoreResponse {
         amount: matches.len() as i32,
     })
+}
+
+pub async fn add_to_stock_info(
+    request: store::AddToStockInfoRequest,
+) -> anyhow::Result<store::AddToStockInfoResponse> {
+    let pool = get_db_pool().await?;
+    match sqlx::query(
+        r#"
+        INSERT INTO store_id(uuid, store_id, total_count, reserved_count)
+        VALUES($1, $2, $3, $4)
+    "#,
+    )
+    .bind(request.uuid)
+    .bind(request.store_id)
+    .bind(request.total_count)
+    .bind(request.reserved_count)
+    .execute(&pool)
+    .await
+    {
+        Ok(_) => {
+            pool.close().await;
+            Ok(store::AddToStockInfoResponse {
+                msg: "200".to_owned(),
+            })
+        }
+        Err(_) => {
+            pool.close().await;
+            Ok(store::AddToStockInfoResponse {
+                msg: "500".to_owned(),
+            })
+        }
+    }
+}
+
+pub async fn remove_from_stock_info(
+    request: store::RemoveFromStockInfoRequest,
+) -> anyhow::Result<store::RemoveFromStockInfoResponse> {
+    let pool = get_db_pool().await?;
+
+    match sqlx::query(
+        r#"
+        DELETE FROM stock_info 
+        WHERE uuid = $1 AND store_id = $2
+    "#,
+    )
+    .bind(request.uuid)
+    .bind(request.store_id)
+    .execute(&pool)
+    .await
+    {
+        Ok(_) => {
+            pool.close().await;
+            Ok(store::RemoveFromStockInfoResponse {
+                msg: "200".to_owned(),
+            })
+        }
+        Err(_) => {
+            pool.close().await;
+            Ok(store::RemoveFromStockInfoResponse {
+                msg: "500".to_owned(),
+            })
+        }
+    }
+}
+
+pub async fn read_stock_info(
+    request: store::ReadStockInfoRequest,
+) -> anyhow::Result<store::ReadStockInfoResponse> {
+    let pool = get_db_pool().await?;
+
+    let stock_info = sqlx::query_as::<_, StockInfo>(
+        r#"
+        SELECT * FROM store_m2m_vinyl 
+        WHERE uuid = $1 AND store_id = $2
+        "#,
+    )
+    .bind(request.uuid)
+    .bind(request.store_id)
+    .fetch_one(&pool)
+    .await?;
+
+    Ok(store::ReadStockInfoResponse {
+        uuid: stock_info.uuid,
+        store_id: stock_info.store_id,
+        total_count: stock_info.total_count,
+        reserved_count: stock_info.reserved_count,
+        created_at: stock_info.created_at.unwrap().to_string(),
+        updated_at: stock_info.updated_at.unwrap().to_string(),
+    })
+}
+
+pub async fn increment_reserved_stock_info(
+    request: store::IncrementReservedStockInfoRequest,
+) -> anyhow::Result<store::IncrementReservedStockInfoResponse> {
+    let pool = get_db_pool().await?;
+
+    match sqlx::query(
+        r#"
+        UPDATE stock_info
+        SET reserved_count = reserved_count + 1
+        WHERE uuid = $1 AND store_info = $2
+    "#,
+    )
+    .bind(request.uuid)
+    .bind(request.store_id)
+    .execute(&pool)
+    .await
+    {
+        Ok(_) => {
+            pool.close().await;
+            Ok(store::IncrementReservedStockInfoResponse {
+                msg: "200".to_owned(),
+            })
+        }
+        Err(_) => {
+            pool.close().await;
+            Ok(store::IncrementReservedStockInfoResponse {
+                msg: "500".to_owned(),
+            })
+        }
+    }
+}
+
+pub async fn decrement_reserved_stock_info(
+    request: store::DecrementReservedStockInfoRequest,
+) -> anyhow::Result<store::DecrementReservedStockInfoResponse> {
+    let pool = get_db_pool().await?;
+
+    match sqlx::query(
+        r#"
+        UPDATE stock_info
+        SET reserved_count = reserved_count - 1
+        WHERE uuid = $1 AND store_info = $2
+    "#,
+    )
+    .bind(request.uuid)
+    .bind(request.store_id)
+    .execute(&pool)
+    .await
+    {
+        Ok(_) => {
+            pool.close().await;
+            Ok(store::DecrementReservedStockInfoResponse {
+                msg: "200".to_owned(),
+            })
+        }
+        Err(_) => {
+            pool.close().await;
+            Ok(store::DecrementReservedStockInfoResponse {
+                msg: "500".to_owned(),
+            })
+        }
+    }
 }

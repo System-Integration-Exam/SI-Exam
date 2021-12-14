@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS stock_info(
+    uuid VARCHAR(255) PRIMARY KEY UNIQUE NOT NULL,
+    store_id INTEGER NOT NULL,
+    total_count INTEGER NOT NULL,
+    reserved_count INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(store_id) REFERENCES store(id)
+);
+
+

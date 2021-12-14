@@ -1,6 +1,7 @@
 from entities.store import Store
 from entities.store_m2m_book import StoreM2MBook
 from entities.store_m2m_vinyl import StoreM2MVinyl
+from entities.stock_info import StockInfo
 
 
 
@@ -39,6 +40,16 @@ def populate() -> None:
         StoreM2MVinyl(2,1),
     ]:
         store_m2m_vinyl.insert_query()
+        
+    for stock_info in [
+        StockInfo("AOSIJCOAasd12aS",1,3,1),
+        StockInfo("AAOSdijcocais",2,9,3),
+        StockInfo("Qoisjdfov",1,7,2),
+        StockInfo("zPsojovzixnvo",1,9,4),
+        StockInfo("lASOdijozx",2,2,0),
+        StockInfo("pajsudbiduQ",1,19,5),
+    ]:
+        stock_info.insert_query()
         
         
     

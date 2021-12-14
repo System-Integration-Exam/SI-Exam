@@ -9,6 +9,6 @@ def migrate_down() -> None:
 
 
 def migrate_up() -> None:
-    for _ in range(2):
+    for _ in range(3):
         for script in get_all_up_scripts():
             execute_query(script)

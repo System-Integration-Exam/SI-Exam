@@ -209,6 +209,73 @@ impl Store for StoreCon {
                 .expect("Store Read List failed"),
         ))
     }
+
+    async fn add_to_stock_info(
+        &self,
+        request: tonic::Request<store::AddToStockInfoRequest>,
+    ) -> Result<tonic::Response<store::AddToStockInfoResponse>, tonic::Status> {
+        println!("Got a request from {:?}", request.remote_addr());
+
+        Ok(Response::new(
+            store_handler::add_to_stock_info(request.into_inner())
+                .await
+                .expect("Store Read List failed"),
+        ))
+    }
+
+    async fn remove_from_stock_info(
+        &self,
+        request: tonic::Request<store::RemoveFromStockInfoRequest>,
+    ) -> Result<tonic::Response<store::RemoveFromStockInfoResponse>, tonic::Status> {
+        println!("Got a request from {:?}", request.remote_addr());
+
+        Ok(Response::new(
+            store_handler::remove_from_stock_info(request.into_inner())
+                .await
+                .expect("Store Read List failed"),
+        ))
+    }
+
+    async fn read_stock_info(
+        &self,
+        request: tonic::Request<store::ReadStockInfoRequest>,
+    ) -> Result<tonic::Response<store::ReadStockInfoResponse>, tonic::Status>
+    {
+        println!("Got a request from {:?}", request.remote_addr());
+
+        Ok(Response::new(
+            store_handler::read_stock_info(request.into_inner())
+                .await
+                .expect("Store Read List failed"),
+        ))
+    }
+
+    async fn increment_reserved_stock_info(
+        &self,
+        request: tonic::Request<store::IncrementReservedStockInfoRequest>,
+    ) -> Result<tonic::Response<store::IncrementReservedStockInfoResponse>, tonic::Status> {
+        println!("Got a request from {:?}", request.remote_addr());
+
+        Ok(Response::new(
+            store_handler::increment_reserved_stock_info(request.into_inner())
+                .await
+                .expect("Store Read List failed"),
+        ))
+    }
+
+    async fn decrement_reserved_stock_info(
+        &self,
+        request: tonic::Request<store::DecrementReservedStockInfoRequest>,
+    ) -> Result<tonic::Response<store::DecrementReservedStockInfoResponse>, tonic::Status>
+    {
+        println!("Got a request from {:?}", request.remote_addr());
+
+        Ok(Response::new(
+            store_handler::decrement_reserved_stock_info(request.into_inner())
+                .await
+                .expect("Store Read List failed"),
+        ))
+    }
 }
 
 #[tokio::main]
@@ -229,7 +296,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     
         let topics = CONFIG.kafka.consumer.topics.to_owned();
         let half_owned_topics: Vec<_> = topics.iter().map(String::as_str).collect();
-        let group_id = "reservation".to_owned();
+        let group_id = "reservation-created".to_owned();
     
         consume_and_print(group_id.as_str(), &half_owned_topics).await
     });
