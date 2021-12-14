@@ -10,10 +10,12 @@ def create_customer():
         return "500"
     
 def read_customer(id):
+    
+    print("aaaaaah")
     try:
         return customer_client.read_customer(id)
     except Exception as e:
-        print(e)
+        print(f"Error: {e}")
         return "500"
 
 

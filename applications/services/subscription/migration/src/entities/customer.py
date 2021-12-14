@@ -1,5 +1,4 @@
 from connection.sqlite_connection import execute_query
-import datetime
 from dataclasses import dataclass
 
 @dataclass
@@ -10,5 +9,5 @@ class Customer():
     phone_number: str
 
     def insert_query(self) -> None:
-        query = f"INSERT INTO store (first_name, last_name, email, phone_number) VALUES ('{self.first_name}', '{self.last_name}', '{self.email}', {self.phone_number})"
+        query = f"INSERT INTO customer (first_name, last_name, email, phone_number) VALUES ('{self.first_name}', '{self.last_name}', '{self.email}', '{self.phone_number}')"
         execute_query(query)

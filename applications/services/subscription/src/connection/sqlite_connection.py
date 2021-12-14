@@ -3,10 +3,10 @@ import sqlite3
 # utils.environment swaps environment variables on import
 from utils.config import CONFIG
 
-CONFIG["database"]["name"]
+DATABASE = CONFIG["database"]["name"]
 
 def _make_sqlite_connection():
-    return sqlite3.connect(f"{DATABASE}.db")
+    return sqlite3.connect(f"./data/{DATABASE}.db")
 
 def execute_query(query):
     conn = _make_sqlite_connection()

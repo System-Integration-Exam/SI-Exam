@@ -7,11 +7,12 @@ import random
 def populate() -> None:
     faker = Faker()
     
-    for _ in range(20):
-        Customer(faker.first_name(), faker.last_name(), faker.email(), faker.phone_number())
+    for customer in range(20):
+        Customer(faker.first_name(), faker.last_name(), faker.email(), faker.phone_number()).insert_query()
+
         
     for _ in range(10):
-        Subscription(random.choice([True, False]), faker.date_time)
+        Subscription(random.choice([True, False]), faker.date_time).insert_query()
         
         
 
