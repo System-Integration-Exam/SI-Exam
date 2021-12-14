@@ -5,8 +5,10 @@ from utils.config import CONFIG
 
 DATABASE = CONFIG["database"]["name"]
 
+
 def _make_sqlite_connection():
     return sqlite3.connect(f"./data/{DATABASE}.db")
+
 
 def execute_query(query):
     conn = _make_sqlite_connection()
@@ -19,6 +21,7 @@ def execute_query(query):
     finally:
         cursor.close()
         conn.close()
+
 
 def fetch_one(query):
     conn = _make_sqlite_connection()
@@ -35,8 +38,9 @@ def fetch_one(query):
         conn.close()
     return obj
 
+
 def fetch_all(query):
-    
+
     conn = _make_sqlite_connection()
     cursor = conn.cursor()
     obj_list = None

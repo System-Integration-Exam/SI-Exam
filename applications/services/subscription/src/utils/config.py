@@ -16,7 +16,7 @@ with open(_filename) as f:
 
 CONFIG = toml.loads(_content)
 
-if os.getenv('PRODUCTION'):
+if os.getenv("PRODUCTION"):
     CONFIG = toml.loads(_content)["production"]
 else:
     print("********************************")
@@ -25,5 +25,3 @@ else:
     print("********************************")
     print("********************************")
     CONFIG = toml.loads(_content)["development"]
-
-

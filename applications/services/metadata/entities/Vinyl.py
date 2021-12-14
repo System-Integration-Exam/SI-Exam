@@ -1,8 +1,10 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class Vinyl:
     """Class for book-metadata"""
+
     id: str
     artist: str
     genre: str
@@ -11,4 +13,3 @@ class Vinyl:
         self.id = id
         self.artist = artist
         self.genre = genre
-

@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 
 @dataclass
-class StockInfo():
+class StockInfo:
     uuid: str
     store_id: int
     total_count: int
