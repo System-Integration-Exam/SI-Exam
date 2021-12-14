@@ -20,4 +20,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN python src/main.py
 WORKDIR /usr/src/app
 
+LABEL org.opencontainers.image.source https://github.com/System-Integration-Exam/SI-Exam
+
 CMD [ "python src/server.py" ]
