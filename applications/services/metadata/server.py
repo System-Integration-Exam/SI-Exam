@@ -28,7 +28,6 @@ class BookServicer(book_pb2_grpc.BookServicer):
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with creating the book")
-            return response
         return response
 
     # takes in an ID value and returns a book object
@@ -40,22 +39,20 @@ class BookServicer(book_pb2_grpc.BookServicer):
             response.title = book.title
             response.author = book.author
             response.rating = book.rating
-            return response
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with getting the book")
-            return response        
+        return response        
 
     # takes in a book object and returns status message
     def updateBook(self, request, context):
         response = book_pb2.UpdateBookResponse()
         try:
             response.statusMessage = BF.updateBook(request)
-            return response
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with updating the book")
-            return response
+        return response
 
     # takes in an ID value and returns status message
     def deleteBookById(self, request, context):
@@ -66,8 +63,9 @@ class BookServicer(book_pb2_grpc.BookServicer):
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with updating the book")
-            return response
+        return response
 
+    # takes no parameter and returns list of book objects
     def getAllBooks(self, request, context):
         response = book_pb2.GetAllBooksResponse()
         try:
@@ -75,39 +73,54 @@ class BookServicer(book_pb2_grpc.BookServicer):
             for x in allBooks:
                 bookmsg = book_pb2.BookMessage(id=x.id, title=x.title, author=x.author, rating=x.rating)
                 response.books.append(bookmsg)
-            return response
         except Exception as e:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with retrieving the data")
-            return response
+        return response
 
 # Song Servicer
 class SongServicer(song_pb2_grpc.SongServicer):
     # takes in a song object and returns a status message (success/error)
     def createSong(self, request, context):
         response = song_pb2.CreateSongResponse()
-        response.statusMessage = SF.createSong(request)
+        try:
+            response.statusMessage = SF.createSong(request)
+        except Exception:
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details("Something went wrong with creating the book")
         return response
 
     # takes in an ID value and returns a song object
     def getSongById(self, request, context):
         response = song_pb2.GetSongByIdResponse()
-        song = SF.getSongById(request.id)
-        response.id = song.id
-        response.title = song.title
-        response.duration_sec = song.duration_sec
-        return response
+        try:
+            song = SF.getSongById(request.id)
+            response.id = song.id
+            response.title = song.title
+            response.duration_sec = song.duration_sec
+        except Exception:
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details("Something went wrong with getting the book")
+        return response  
 
     # takes in a song object and returns status message
     def updateSong(self, request, context):
         response = song_pb2.UpdateSongResponse()
-        response.statusMessage = SF.updateSong(request)
+        try:
+            response.statusMessage = SF.updateSong(request)
+        except Exception:
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details("Something went wrong with updating the book")
         return response
 
     # takes in an ID value and returns status message
     def deleteSongById(self, request, context):
         response = song_pb2.DeleteSongByIdResponse()
-        response.statusMessage = SF.deleteSongById(request.id)
+        try:
+            response.statusMessage = SF.deleteSongById(request.id)
+        except Exception:
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details("Something went wrong with updating the book")
         return response
 
 # Vinyl Servicer

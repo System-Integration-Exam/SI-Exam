@@ -12,34 +12,20 @@ def populate() -> None:
     ]:
         book.insert_query()
     
+    for vinyl in [
+        Vinyl("Bon Iver", "Classic Modern")
+    ]:
+        vinyl.insert_query()
 
-    # for store_m2m_book in [
-    #     StoreM2MBook(1,2),
-    #     StoreM2MBook(1,3),
-    #     StoreM2MBook(1,4),
-    #     StoreM2MBook(1,5),
-    #     StoreM2MBook(1,6),
-    #     StoreM2MBook(2,2),
-    #     StoreM2MBook(2,2),
-    #     StoreM2MBook(2,2),
-    #     StoreM2MBook(2,4),
-    #     StoreM2MBook(2,7),
+    #todo, get bon iver vinyl_id
+
+    # for song in [
+    #     Song("Perth", 124),
+    #     Song("Minnesota, WI", 352),
+    #     Song("Michicant", 458,)
     # ]:
-    #     store_m2m_book.insert_query()
-    
-    # for store_m2m_vinyl in [
-    #     StoreM2MVinyl(1,3),
-    #     StoreM2MVinyl(1,5),
-    #     StoreM2MVinyl(1,7),
-    #     StoreM2MVinyl(1,4),
-    #     StoreM2MVinyl(1,1),
-    #     StoreM2MVinyl(2,3),
-    #     StoreM2MVinyl(2,5),
-    #     StoreM2MVinyl(2,4),
-    #     StoreM2MVinyl(2,4),
-    #     StoreM2MVinyl(2,1),
-    # ]:
-    #     store_m2m_vinyl.insert_query()
+    #     song.insert_query()
+        
         
         
     
