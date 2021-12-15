@@ -23,30 +23,52 @@ class BookServicer(book_pb2_grpc.BookServicer):
     # takes in a book object and returns a status message (success/error)
     def createBook(self, request, context):
         response = book_pb2.CreateBookResponse()
-        response.statusMessage = BF.createBook(request)
+        try:
+            response.statusMessage = BF.createBook(request)
+        except Exception:
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details("Something went wrong with creating the book")
+            return response
         return response
 
     # takes in an ID value and returns a book object
     def getBookById(self, request, context):
         response = book_pb2.GetBookByIdResponse()
-        book = BF.getBookById(request.id)
-        response.id = book.id
-        response.title = book.title
-        response.author = book.author
-        response.rating = book.rating
-        return response
+        try:
+            book = BF.getBookById(request.id)
+            response.id = book.id
+            response.title = book.title
+            response.author = book.author
+            response.rating = book.rating
+            return response
+        except Exception:
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details("Something went wrong with getting the book")
+            return response
+
+        
 
     # takes in a book object and returns status message
     def updateBook(self, request, context):
         response = book_pb2.UpdateBookResponse()
-        response.statusMessage = BF.updateBookInfo(request)
-        return response
+        try:
+            response.statusMessage = BF.updateBook(request)
+            return response
+        except Exception:
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details("Something went wrong with updating the book")
+            return response
 
     # takes in an ID value and returns status message
     def deleteBookById(self, request, context):
         response = book_pb2.DeleteBookByIdResponse()
-        response.statusMessage = BF.deleteBookById(request.id)
-        return response
+        try:
+            response.statusMessage = BF.deleteBookById(request.id)
+            return response
+        except Exception:
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details("Something went wrong with updating the book")
+            return response
 
 # Song Servicer
 class SongServicer(song_pb2_grpc.SongServicer):
@@ -118,7 +140,7 @@ vinyl_pb2_grpc.add_VinylServicer_to_server(VinylServicer(), server)
 
 # listen on port 50051
 print('Starting server. Listening on port 50051.')
-server.add_insecure_port('[::]:50051')
+server.add_insecure_port('localhost:50051')
 server.start()
 
 

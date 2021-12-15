@@ -13,9 +13,6 @@ WORKDIR /app/src/migrations
 
 RUN pip install --no-cache-dir -r requirements.txt
 
+EXPOSE 50051
+
 ENTRYPOINT [ "/app/src/init.sh" ]
-#RUN python src/sqlite3_setup.py
-
-#WORKDIR /app/src
-
-#CMD ["python", "./server.py"]
