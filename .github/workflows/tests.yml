@@ -18,7 +18,6 @@ jobs:
           pip install --no-cache-dir -r requirements.txt
           cd ..
           cargo r > redirection &
-          wait 30
           sudo chmod +x ./reset_and_test.sh
           ./reset_and_test.sh
           
