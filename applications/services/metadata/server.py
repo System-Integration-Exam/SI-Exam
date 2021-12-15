@@ -44,9 +44,7 @@ class BookServicer(book_pb2_grpc.BookServicer):
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with getting the book")
-            return response
-
-        
+            return response        
 
     # takes in a book object and returns status message
     def updateBook(self, request, context):
@@ -68,6 +66,20 @@ class BookServicer(book_pb2_grpc.BookServicer):
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with updating the book")
+            return response
+
+    def getAllBooks(self, request, context):
+        response = book_pb2.GetAllBooksResponse()
+        try:
+            allBooks = BF.getAllBooks()
+            for x in allBooks:
+                bookmsg = book_pb2.BookMessage(id=x.id, title=x.title, author=x.author, rating=x.rating)
+                response.books.append(bookmsg)
+            return response
+        except Exception as e:
+            print(e)
+            context.set_code(grpc.StatusCode.INTERNAL)
+            context.set_details("Something went wrong with retrieving the data")
             return response
 
 # Song Servicer
@@ -140,7 +152,7 @@ vinyl_pb2_grpc.add_VinylServicer_to_server(VinylServicer(), server)
 
 # listen on port 50051
 print('Starting server. Listening on port 50051.')
-server.add_insecure_port('localhost:50051')
+server.add_insecure_port('0.0.0.0:50051')
 server.start()
 
 

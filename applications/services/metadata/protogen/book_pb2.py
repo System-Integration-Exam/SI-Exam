@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\nbook.proto\"N\n\x11\x43reateBookRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x61uthor\x18\x03 \x01(\t\x12\x0e\n\x06rating\x18\x04 \x01(\x05\"+\n\x12\x43reateBookResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\" \n\x12GetBookByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"P\n\x13GetBookByIdResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x61uthor\x18\x03 \x01(\t\x12\x0e\n\x06rating\x18\x04 \x01(\x05\"N\n\x11UpdateBookRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x61uthor\x18\x03 \x01(\t\x12\x0e\n\x06rating\x18\x04 \x01(\x05\"+\n\x12UpdateBookResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"#\n\x15\x44\x65leteBookByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"/\n\x16\x44\x65leteBookByIdResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t2\xf9\x01\n\x04\x42ook\x12\x37\n\ncreateBook\x12\x12.CreateBookRequest\x1a\x13.CreateBookResponse\"\x00\x12:\n\x0bgetBookById\x12\x13.GetBookByIdRequest\x1a\x14.GetBookByIdResponse\"\x00\x12\x37\n\nupdateBook\x12\x12.UpdateBookRequest\x1a\x13.UpdateBookResponse\"\x00\x12\x43\n\x0e\x64\x65leteBookById\x12\x16.DeleteBookByIdRequest\x1a\x17.DeleteBookByIdResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\nbook.proto\"N\n\x11\x43reateBookRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x61uthor\x18\x03 \x01(\t\x12\x0e\n\x06rating\x18\x04 \x01(\x05\"+\n\x12\x43reateBookResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\" \n\x12GetBookByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"P\n\x13GetBookByIdResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x61uthor\x18\x03 \x01(\t\x12\x0e\n\x06rating\x18\x04 \x01(\x05\"N\n\x11UpdateBookRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x61uthor\x18\x03 \x01(\t\x12\x0e\n\x06rating\x18\x04 \x01(\x05\"+\n\x12UpdateBookResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"#\n\x15\x44\x65leteBookByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"/\n\x16\x44\x65leteBookByIdResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"\x14\n\x12GetAllBooksRequest\"2\n\x13GetAllBooksResponse\x12\x1b\n\x05\x62ooks\x18\x01 \x03(\x0b\x32\x0c.BookMessage\"H\n\x0b\x42ookMessage\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x0e\n\x06\x61uthor\x18\x03 \x01(\t\x12\x0e\n\x06rating\x18\x04 \x01(\x05\x32\xb5\x02\n\x04\x42ook\x12\x37\n\ncreateBook\x12\x12.CreateBookRequest\x1a\x13.CreateBookResponse\"\x00\x12:\n\x0bgetBookById\x12\x13.GetBookByIdRequest\x1a\x14.GetBookByIdResponse\"\x00\x12\x37\n\nupdateBook\x12\x12.UpdateBookRequest\x1a\x13.UpdateBookResponse\"\x00\x12\x43\n\x0e\x64\x65leteBookById\x12\x16.DeleteBookByIdRequest\x1a\x17.DeleteBookByIdResponse\"\x00\x12:\n\x0bgetAllBooks\x12\x13.GetAllBooksRequest\x1a\x14.GetAllBooksResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -343,6 +343,117 @@ _DELETEBOOKBYIDRESPONSE = _descriptor.Descriptor(
   serialized_end=464,
 )
 
+
+_GETALLBOOKSREQUEST = _descriptor.Descriptor(
+  name='GetAllBooksRequest',
+  full_name='GetAllBooksRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=466,
+  serialized_end=486,
+)
+
+
+_GETALLBOOKSRESPONSE = _descriptor.Descriptor(
+  name='GetAllBooksResponse',
+  full_name='GetAllBooksResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='books', full_name='GetAllBooksResponse.books', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=488,
+  serialized_end=538,
+)
+
+
+_BOOKMESSAGE = _descriptor.Descriptor(
+  name='BookMessage',
+  full_name='BookMessage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='BookMessage.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='title', full_name='BookMessage.title', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='author', full_name='BookMessage.author', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='rating', full_name='BookMessage.rating', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=540,
+  serialized_end=612,
+)
+
+_GETALLBOOKSRESPONSE.fields_by_name['books'].message_type = _BOOKMESSAGE
 DESCRIPTOR.message_types_by_name['CreateBookRequest'] = _CREATEBOOKREQUEST
 DESCRIPTOR.message_types_by_name['CreateBookResponse'] = _CREATEBOOKRESPONSE
 DESCRIPTOR.message_types_by_name['GetBookByIdRequest'] = _GETBOOKBYIDREQUEST
@@ -351,6 +462,9 @@ DESCRIPTOR.message_types_by_name['UpdateBookRequest'] = _UPDATEBOOKREQUEST
 DESCRIPTOR.message_types_by_name['UpdateBookResponse'] = _UPDATEBOOKRESPONSE
 DESCRIPTOR.message_types_by_name['DeleteBookByIdRequest'] = _DELETEBOOKBYIDREQUEST
 DESCRIPTOR.message_types_by_name['DeleteBookByIdResponse'] = _DELETEBOOKBYIDRESPONSE
+DESCRIPTOR.message_types_by_name['GetAllBooksRequest'] = _GETALLBOOKSREQUEST
+DESCRIPTOR.message_types_by_name['GetAllBooksResponse'] = _GETALLBOOKSRESPONSE
+DESCRIPTOR.message_types_by_name['BookMessage'] = _BOOKMESSAGE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateBookRequest = _reflection.GeneratedProtocolMessageType('CreateBookRequest', (_message.Message,), {
@@ -409,6 +523,27 @@ DeleteBookByIdResponse = _reflection.GeneratedProtocolMessageType('DeleteBookByI
   })
 _sym_db.RegisterMessage(DeleteBookByIdResponse)
 
+GetAllBooksRequest = _reflection.GeneratedProtocolMessageType('GetAllBooksRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETALLBOOKSREQUEST,
+  '__module__' : 'book_pb2'
+  # @@protoc_insertion_point(class_scope:GetAllBooksRequest)
+  })
+_sym_db.RegisterMessage(GetAllBooksRequest)
+
+GetAllBooksResponse = _reflection.GeneratedProtocolMessageType('GetAllBooksResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETALLBOOKSRESPONSE,
+  '__module__' : 'book_pb2'
+  # @@protoc_insertion_point(class_scope:GetAllBooksResponse)
+  })
+_sym_db.RegisterMessage(GetAllBooksResponse)
+
+BookMessage = _reflection.GeneratedProtocolMessageType('BookMessage', (_message.Message,), {
+  'DESCRIPTOR' : _BOOKMESSAGE,
+  '__module__' : 'book_pb2'
+  # @@protoc_insertion_point(class_scope:BookMessage)
+  })
+_sym_db.RegisterMessage(BookMessage)
+
 
 
 _BOOK = _descriptor.ServiceDescriptor(
@@ -418,8 +553,8 @@ _BOOK = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=467,
-  serialized_end=716,
+  serialized_start=615,
+  serialized_end=924,
   methods=[
   _descriptor.MethodDescriptor(
     name='createBook',
@@ -458,6 +593,16 @@ _BOOK = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_DELETEBOOKBYIDREQUEST,
     output_type=_DELETEBOOKBYIDRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getAllBooks',
+    full_name='Book.getAllBooks',
+    index=4,
+    containing_service=None,
+    input_type=_GETALLBOOKSREQUEST,
+    output_type=_GETALLBOOKSRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

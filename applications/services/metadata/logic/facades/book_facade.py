@@ -17,7 +17,6 @@ def createBook(book):
         conn.close()
 
 
-
 def getBookById(id):
     conn = sqlite3.connect("./data/metadata.db")
     c = conn.cursor()
@@ -52,6 +51,22 @@ def deleteBookById(id):
         conn.commit()
         statusMessage = "Book with given ID has been removed."
         return statusMessage
+    finally:
+        c.close()
+        conn.close()
+
+
+def getAllBooks():
+    conn = sqlite3.connect("./data/metadata.db")
+    c = conn.cursor()
+    try:
+        c.execute("SELECT * FROM book")
+        row = c.fetchall()
+        result = []
+        for x in row:
+            book = Book(x[0], x[1], x[2], x[3])
+            result.append(book)
+        return result
     finally:
         c.close()
         conn.close()
