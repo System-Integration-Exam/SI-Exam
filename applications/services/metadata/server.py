@@ -13,9 +13,9 @@ import protogen.vinyl_pb2_grpc as vinyl_pb2_grpc
 
 
 # import the facades
-import facades.book_facade as BF
-import facades.song_facade as SF
-import facades.vinyl_facade as VF
+import logic.facades.book_facade as BF
+import logic.facades.song_facade as SF
+import logic.facades.vinyl_facade as VF
 
 
 # Book Servicer

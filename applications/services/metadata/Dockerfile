@@ -9,4 +9,13 @@ COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "./server.py"]
+WORKDIR /app/src/migrations
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+ENTRYPOINT [ "/app/src/init.sh" ]
+#RUN python src/sqlite3_setup.py
+
+#WORKDIR /app/src
+
+#CMD ["python", "./server.py"]

@@ -1,29 +1,29 @@
-from entities.song import Song
+from entities.Vinyl import Vinyl
 
 
-def createSong(song):
+def createVinyl(vinyl):
     #todo persist to database
 
     statusMessage = "200 ok"
     return statusMessage
 
 
-def getSongById(id):
+def getVinylById(id):
     #todo get from database
     #fixed value for now
-    song = Song(id, "title", 120) 
+    vinyl = Vinyl(id, "artist", "genre") 
 
-    return song
+    return vinyl
 
 
-def updateSong(song):
+def updateVinyl(vinyl):
     #todo persist updates to database
 
     statusMessage = "200 ok"
     return statusMessage
     
 
-def deleteSongById(id):
+def deleteVinylById(id):
     #todo remove persisted data
     
     statusMessage = "200 ok"
