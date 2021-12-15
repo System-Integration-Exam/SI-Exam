@@ -21,6 +21,10 @@ spec:
         ports:
         - containerPort: 20080
 
+        env:
+        - name: PRODUCTION
+          value: "true"
+
 ---
 
 apiVersion: v1
@@ -33,6 +37,3 @@ spec:
   type: ClusterIP
   ports:
   - port: 20080
-  env:
-  - name: PRODUCTION
-  value: "true"
