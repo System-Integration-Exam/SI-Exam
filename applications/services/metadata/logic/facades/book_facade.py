@@ -1,5 +1,4 @@
 import sqlite3
-from sqlite3.dbapi2 import Error
 from entities.book import Book
 
 

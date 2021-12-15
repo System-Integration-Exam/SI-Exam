@@ -1,30 +1,70 @@
+import sqlite3
 from entities.Song import Song
 
 
 def createSong(song):
-    #todo persist to database
-
-    statusMessage = "200 ok"
-    return statusMessage
+    conn = sqlite3.connect("./data/metadata.db")
+    c = conn.cursor()
+    try:
+        c.execute("INSERT INTO song (title, duration_sec, vinyl_id) VALUES (:title, :duration_sec, :vinyl_id)", {'title': song.title, 'duration_sec': song.duration_sec, 'vinyl_id': song.vinyl_id})
+        conn.commit()
+        statusMessage = "Song successfully created."
+        return statusMessage
+    finally:
+        c.close()
+        conn.close()
 
 
 def getSongById(id):
-    #todo get from database
-    #fixed value for now
-    song = Song(id, "title", 120) 
-
-    return song
+    conn = sqlite3.connect("./data/metadata.db")
+    c = conn.cursor()
+    try:
+        c.execute("SELECT * FROM song WHERE id = :id", {'id': id})
+        row = c.fetchone()
+        song = Song(row[0], row[1], row[2], row[3])
+        return song
+    finally:
+        c.close()
+        conn.close()
 
 
 def updateSong(song):
-    #todo persist updates to database
-
-    statusMessage = "200 ok"
-    return statusMessage
+    conn = sqlite3.connect("./data/metadata.db")
+    c = conn.cursor()
+    try:
+        c.execute("UPDATE book SET title = :title, duration_sec = :duration_sec, vinyl_id = :vinyl_id", {'title': song.title, 'duration_sec': song.duration_sec, 'vinyl_id': song.vinyl_id})
+        conn.commit()
+        statusMessage = "Song successfully created."
+        return statusMessage
+    finally:
+        c.close()
+        conn.close()
     
 
 def deleteSongById(id):
-    #todo remove persisted data
-    
-    statusMessage = "200 ok"
-    return statusMessage
+    conn = sqlite3.connect("./data/metadata.db")
+    c = conn.cursor()
+    try:
+        c.execute("DELETE FROM song WHERE id = :id", {'id': id})
+        conn.commit()
+        statusMessage = "Song with given ID has been removed."
+        return statusMessage
+    finally:
+        c.close()
+        conn.close()
+
+        
+def getAllSong():
+    conn = sqlite3.connect("./data/metadata.db")
+    c = conn.cursor()
+    try:
+        c.execute("SELECT * FROM song")
+        row = c.fetchall()
+        result = []
+        for x in row:
+            song = Song(x[0], x[1], x[2], x[3])
+            result.append(song)
+        return result
+    finally:
+        c.close()
+        conn.close()

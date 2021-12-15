@@ -11,6 +11,8 @@ service Song {
     rpc updateSong(UpdateSongRequest) returns (UpdateSongResponse) {}
     //DeleteSong - Deletes Song based on ID
     rpc deleteSongById(DeleteSongByIdRequest) returns (DeleteSongByIdResponse) {}
+    //GetAllSongs - Retrieves all songs from DB
+    rpc getAllSongs(GetAllSongsRequest) returns (GetAllSongsResponse) {}
 }
 
 //Takes in a Song object and returns a status message (success/error)
@@ -59,3 +61,19 @@ message DeleteSongByIdResponse {
     string statusMessage = 1;
 }
 
+//Doesn't accept parameters
+//Request for getAllSongssRequest()
+message GetAllSongsRequest {
+
+}
+//Response for getAllSongsRequest()
+message GetAllSongsResponse {
+    repeated SongMessage song = 1;
+}
+
+message SongMessage {
+    string id = 1;
+    string title = 2;
+    string duration_sec = 3;
+    int32 vinyl_id = 4;
+}

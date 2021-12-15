@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\nsong.proto\"D\n\x11\x43reateSongRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x03 \x01(\x05\"+\n\x12\x43reateSongResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\" \n\x12GetSongByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"F\n\x13GetSongByIdResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x03 \x01(\x05\"D\n\x11UpdateSongRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x03 \x01(\x05\"+\n\x12UpdateSongResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"#\n\x15\x44\x65leteSongByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"/\n\x16\x44\x65leteSongByIdResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t2\xf9\x01\n\x04Song\x12\x37\n\ncreateSong\x12\x12.CreateSongRequest\x1a\x13.CreateSongResponse\"\x00\x12:\n\x0bgetSongById\x12\x13.GetSongByIdRequest\x1a\x14.GetSongByIdResponse\"\x00\x12\x37\n\nupdateSong\x12\x12.UpdateSongRequest\x1a\x13.UpdateSongResponse\"\x00\x12\x43\n\x0e\x64\x65leteSongById\x12\x16.DeleteSongByIdRequest\x1a\x17.DeleteSongByIdResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\nsong.proto\"D\n\x11\x43reateSongRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x03 \x01(\x05\"+\n\x12\x43reateSongResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\" \n\x12GetSongByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"F\n\x13GetSongByIdResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x03 \x01(\x05\"D\n\x11UpdateSongRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x03 \x01(\x05\"+\n\x12UpdateSongResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"#\n\x15\x44\x65leteSongByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"/\n\x16\x44\x65leteSongByIdResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"\x14\n\x12GetAllSongsRequest\"1\n\x13GetAllSongsResponse\x12\x1a\n\x04song\x18\x01 \x03(\x0b\x32\x0c.SongMessage\"P\n\x0bSongMessage\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x03 \x01(\t\x12\x10\n\x08vinyl_id\x18\x04 \x01(\x05\x32\xb5\x02\n\x04Song\x12\x37\n\ncreateSong\x12\x12.CreateSongRequest\x1a\x13.CreateSongResponse\"\x00\x12:\n\x0bgetSongById\x12\x13.GetSongByIdRequest\x1a\x14.GetSongByIdResponse\"\x00\x12\x37\n\nupdateSong\x12\x12.UpdateSongRequest\x1a\x13.UpdateSongResponse\"\x00\x12\x43\n\x0e\x64\x65leteSongById\x12\x16.DeleteSongByIdRequest\x1a\x17.DeleteSongByIdResponse\"\x00\x12:\n\x0bgetAllSongs\x12\x13.GetAllSongsRequest\x1a\x14.GetAllSongsResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -322,6 +322,117 @@ _DELETESONGBYIDRESPONSE = _descriptor.Descriptor(
   serialized_end=434,
 )
 
+
+_GETALLSONGSREQUEST = _descriptor.Descriptor(
+  name='GetAllSongsRequest',
+  full_name='GetAllSongsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=436,
+  serialized_end=456,
+)
+
+
+_GETALLSONGSRESPONSE = _descriptor.Descriptor(
+  name='GetAllSongsResponse',
+  full_name='GetAllSongsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='song', full_name='GetAllSongsResponse.song', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=458,
+  serialized_end=507,
+)
+
+
+_SONGMESSAGE = _descriptor.Descriptor(
+  name='SongMessage',
+  full_name='SongMessage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='SongMessage.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='title', full_name='SongMessage.title', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='duration_sec', full_name='SongMessage.duration_sec', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='vinyl_id', full_name='SongMessage.vinyl_id', index=3,
+      number=4, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=509,
+  serialized_end=589,
+)
+
+_GETALLSONGSRESPONSE.fields_by_name['song'].message_type = _SONGMESSAGE
 DESCRIPTOR.message_types_by_name['CreateSongRequest'] = _CREATESONGREQUEST
 DESCRIPTOR.message_types_by_name['CreateSongResponse'] = _CREATESONGRESPONSE
 DESCRIPTOR.message_types_by_name['GetSongByIdRequest'] = _GETSONGBYIDREQUEST
@@ -330,6 +441,9 @@ DESCRIPTOR.message_types_by_name['UpdateSongRequest'] = _UPDATESONGREQUEST
 DESCRIPTOR.message_types_by_name['UpdateSongResponse'] = _UPDATESONGRESPONSE
 DESCRIPTOR.message_types_by_name['DeleteSongByIdRequest'] = _DELETESONGBYIDREQUEST
 DESCRIPTOR.message_types_by_name['DeleteSongByIdResponse'] = _DELETESONGBYIDRESPONSE
+DESCRIPTOR.message_types_by_name['GetAllSongsRequest'] = _GETALLSONGSREQUEST
+DESCRIPTOR.message_types_by_name['GetAllSongsResponse'] = _GETALLSONGSRESPONSE
+DESCRIPTOR.message_types_by_name['SongMessage'] = _SONGMESSAGE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateSongRequest = _reflection.GeneratedProtocolMessageType('CreateSongRequest', (_message.Message,), {
@@ -388,6 +502,27 @@ DeleteSongByIdResponse = _reflection.GeneratedProtocolMessageType('DeleteSongByI
   })
 _sym_db.RegisterMessage(DeleteSongByIdResponse)
 
+GetAllSongsRequest = _reflection.GeneratedProtocolMessageType('GetAllSongsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETALLSONGSREQUEST,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:GetAllSongsRequest)
+  })
+_sym_db.RegisterMessage(GetAllSongsRequest)
+
+GetAllSongsResponse = _reflection.GeneratedProtocolMessageType('GetAllSongsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETALLSONGSRESPONSE,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:GetAllSongsResponse)
+  })
+_sym_db.RegisterMessage(GetAllSongsResponse)
+
+SongMessage = _reflection.GeneratedProtocolMessageType('SongMessage', (_message.Message,), {
+  'DESCRIPTOR' : _SONGMESSAGE,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:SongMessage)
+  })
+_sym_db.RegisterMessage(SongMessage)
+
 
 
 _SONG = _descriptor.ServiceDescriptor(
@@ -397,8 +532,8 @@ _SONG = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=437,
-  serialized_end=686,
+  serialized_start=592,
+  serialized_end=901,
   methods=[
   _descriptor.MethodDescriptor(
     name='createSong',
@@ -437,6 +572,16 @@ _SONG = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_DELETESONGBYIDREQUEST,
     output_type=_DELETESONGBYIDRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getAllSongs',
+    full_name='Song.getAllSongs',
+    index=4,
+    containing_service=None,
+    input_type=_GETALLSONGSREQUEST,
+    output_type=_GETALLSONGSRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

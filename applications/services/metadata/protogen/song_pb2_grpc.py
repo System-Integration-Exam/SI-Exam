@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import protogen.song_pb2 as song__pb2
+import song_pb2 as song__pb2
 
 
 class SongStub(object):
@@ -36,6 +36,11 @@ class SongStub(object):
                 request_serializer=song__pb2.DeleteSongByIdRequest.SerializeToString,
                 response_deserializer=song__pb2.DeleteSongByIdResponse.FromString,
                 )
+        self.getAllSongs = channel.unary_unary(
+                '/Song/getAllSongs',
+                request_serializer=song__pb2.GetAllSongsRequest.SerializeToString,
+                response_deserializer=song__pb2.GetAllSongsResponse.FromString,
+                )
 
 
 class SongServicer(object):
@@ -44,28 +49,35 @@ class SongServicer(object):
     """
 
     def createSong(self, request, context):
-        """CreateSong - Creates and persist new song
+        """CreateSong - Creates and persist new Song
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def getSongById(self, request, context):
-        """GetSongById - Returns song based on ID
+        """GetSongById - Returns Song based on ID
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def updateSong(self, request, context):
-        """UpdateSong - Updates info on existing song
+        """UpdateSong - Updates info on existing Song
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def deleteSongById(self, request, context):
-        """DeleteSong - Deletes song based on ID
+        """DeleteSong - Deletes Song based on ID
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getAllSongs(self, request, context):
+        """GetAllSongs - Retrieves all songs from DB
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -93,6 +105,11 @@ def add_SongServicer_to_server(servicer, server):
                     servicer.deleteSongById,
                     request_deserializer=song__pb2.DeleteSongByIdRequest.FromString,
                     response_serializer=song__pb2.DeleteSongByIdResponse.SerializeToString,
+            ),
+            'getAllSongs': grpc.unary_unary_rpc_method_handler(
+                    servicer.getAllSongs,
+                    request_deserializer=song__pb2.GetAllSongsRequest.FromString,
+                    response_serializer=song__pb2.GetAllSongsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -171,5 +188,22 @@ class Song(object):
         return grpc.experimental.unary_unary(request, target, '/Song/deleteSongById',
             song__pb2.DeleteSongByIdRequest.SerializeToString,
             song__pb2.DeleteSongByIdResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getAllSongs(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Song/getAllSongs',
+            song__pb2.GetAllSongsRequest.SerializeToString,
+            song__pb2.GetAllSongsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

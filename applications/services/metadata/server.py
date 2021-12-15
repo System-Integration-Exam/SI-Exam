@@ -77,7 +77,6 @@ class BookServicer(book_pb2_grpc.BookServicer):
                 response.books.append(bookmsg)
             return response
         except Exception as e:
-            print(e)
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with retrieving the data")
             return response
