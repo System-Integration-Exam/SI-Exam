@@ -63,3 +63,21 @@ def update_customer(
     except Exception as e:
         print(e)
         return customer_pb2.UpdateCustomerResponse(msg="Err: Could not execute query")
+
+
+def delete_customer(
+    request: customer_pb2.DeleteCustomerRequest,
+) -> customer_pb2.DeleteCustomerResponse:
+    try:
+        res = fetch_one(
+            f"""
+                      DELETE * FROM customer
+                      WHERE id = {int(request.id)}
+                      """
+        )
+        return "Customer deleted"
+    except Exception as e:
+        print(e)
+        return "an error occurred. please try again"
+            
+        

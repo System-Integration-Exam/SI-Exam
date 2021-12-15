@@ -11,3 +11,6 @@ class CustomerRouter(CustomerServicer):
 
     def UpdateCustomer(self, request, _) -> None:
         return customer_handler.update_customer(request)
+    
+    def DeleteCustomer(self, request, _) -> None:
+        return customer_handler.delete_customer(request)

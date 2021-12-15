@@ -5,8 +5,8 @@ service Customer {
   rpc ReadCustomer(ReadCustomerRequest) returns (ReadCustomerResponse) {}
   rpc ReadCustomerList(ReadCustomerListRequest)
       returns (ReadCustomerListResponse) {}
-	
   rpc UpdateCustomer(UpdateCustomerRequest) returns (UpdateCustomerResponse) {}
+  rpc DeleteCustomer(DeleteCustomerRequest) returns (DeleteCustomerResponse) {}
 }
 
 // #### Requests ####
@@ -19,6 +19,8 @@ message CreateCustomerRequest {
 
 message ReadCustomerRequest { int32 id = 1; }
 
+message ReadCustomerListRequest {}
+
 message UpdateCustomerRequest {
 
   int32 id = 1;
@@ -28,20 +30,19 @@ message UpdateCustomerRequest {
   string phone_number = 5;
 }
 
-message ReadCustomerListRequest {}
+message DeleteCustomerResponse { int32 id = 1; }
+
+
 
 // #### Response ####
 message CreateCustomerResponse { string msg = 1; }
+
 message ReadCustomerResponse {
   int32 id = 1;
   string first_name = 2;
   string last_name = 3;
   string email = 4;
   string phone_number = 5;
-}
-
-message UpdateCustomerResponse {
-  string msg = 1;
 }
 
 message ReadCustomerListResponse {
@@ -53,4 +54,12 @@ message ReadCustomerListResponse {
     string phone_number = 5;
   }
   repeated CustomerObject customer_list = 1;
+}
+
+message UpdateCustomerResponse {
+  string msg = 1;
+}
+
+message DeleteCustomerResponse {
+  string msg = 1;
 }
