@@ -36,6 +36,9 @@ service Store {
       returns (IncrementReservedStockInfoResponse) {}
   rpc DecrementReservedStockInfo(DecrementReservedStockInfoRequest)
       returns (DecrementReservedStockInfoResponse) {}
+
+  rpc ReturnItemStockInfo(ReturnItemStockInfoRequest)
+      returns (ReturnItemStockInfoResponse) {}
 }
 
 message StoreObject {
@@ -102,7 +105,8 @@ message AddToStockInfoRequest {
   string uuid = 1;
   int32 store_id = 2;
   int32 total_count = 3;
-  int32 reserved_count = 4;
+  int32 in_stock = 4;
+  int32 reserved_count = 5;
 }
 message RemoveFromStockInfoRequest {
   string uuid = 1;
@@ -117,6 +121,11 @@ message IncrementReservedStockInfoRequest {
   int32 store_id = 2;
 }
 message DecrementReservedStockInfoRequest {
+  string uuid = 1;
+  int32 store_id = 2;
+}
+
+message ReturnItemStockInfoRequest {
   string uuid = 1;
   int32 store_id = 2;
 }
@@ -146,9 +155,11 @@ message ReadStockInfoResponse {
   string uuid = 1;
   int32 store_id = 2;
   int32 total_count = 3;
-  int32 reserved_count = 4;
-  string created_at = 5;
-  string updated_at = 6;
+  int32 in_stock = 4;
+  int32 reserved_count = 5;
+  string created_at = 6;
+  string updated_at = 7;
 }
 message IncrementReservedStockInfoResponse { string msg = 1; }
 message DecrementReservedStockInfoResponse { string msg = 1; }
+message ReturnItemStockInfoResponse { string msg = 1; }

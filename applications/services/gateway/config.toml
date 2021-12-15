@@ -33,19 +33,19 @@ port = 20090
 
 [production.clients]
 [production.clients.warehouse]
-host = "warehouse"
-port = 80
+host = "warehouse-service"
+port = 20080
 
 
 [production.clients.metadata]
-host = "metadata"
-port = 80
+host = "metadata-service"
+port = 20070
 
 
 [production.clients.subscription]
-host = "subscription"
-port = 80
+host = "subscription-service"
+port = 20060
 
 [production.clients.reservation]
-host = "reservation"
-port = 80
+host = "reservation-service"
+port = 20050

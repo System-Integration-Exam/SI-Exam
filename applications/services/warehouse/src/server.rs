@@ -276,6 +276,20 @@ impl Store for StoreCon {
                 .expect("Store Read List failed"),
         ))
     }
+
+    async fn return_item_stock_info(
+        &self,
+        request: tonic::Request<store::ReturnItemStockInfoRequest>,
+    ) -> Result<tonic::Response<store::ReturnItemStockInfoResponse>, tonic::Status>
+    {
+        println!("Got a request from {:?}", request.remote_addr());
+
+        Ok(Response::new(
+            store_handler::return_item_stock_info(request.into_inner())
+                .await
+                .expect("Store Read List failed"),
+        ))
+    }
 }
 
 #[tokio::main]

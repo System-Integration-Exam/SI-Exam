@@ -8,6 +8,11 @@ pub struct ReservationMessage {
     store_id: String,
 }
 
+// Reserve(Reserved) => reserve +1
+// Collect(Fulfilled) => reserve -1, in stock - 1
+// Cancel(Cancelled) => reserve -1
+
+
 impl ReservationMessage {
     pub fn from_payload(payload: String) -> Self {
         let re = Regex::new(r"[ {}\x22]").unwrap();
@@ -22,8 +27,9 @@ impl ReservationMessage {
     }
     pub async fn and_resolve(&self) -> anyhow::Result<()> {
         match self.status_command.as_str() {
-            "ADD" => self.increment().await,
-            "REMOVE" => self.decrement().await,
+            "Reserved" => self.increment().await,
+            "Fulfilled" => self.collect().await,
+            "Cancelled" => self.decrement().await,
             _ => self.unknown_message().await,
         };
         Ok(())
@@ -31,8 +37,6 @@ impl ReservationMessage {
 
     async fn increment(&self) {
         let pool = get_db_pool().await.unwrap();
-
-        println!("item id = {}", self.item_id);
 
         sqlx::query(
             r#"
@@ -57,6 +61,25 @@ impl ReservationMessage {
             r#"
             UPDATE stock_info
             SET reserved_count = reserved_count - 1
+            WHERE uuid = $1 AND store_id = $2
+        "#,
+        )
+        .bind(&self.item_id)
+        .bind(&self.store_id)
+        .execute(&pool)
+        .await
+        .expect("Could not decrement reserved count");
+
+        pool.close().await;
+    }
+
+    async fn collect(&self) {
+        let pool = get_db_pool().await.unwrap();
+
+        sqlx::query(
+            r#"
+            UPDATE stock_info
+            SET (reserved_count, in_stock) = (reserved_count - 1, in_stock - 1)
             WHERE uuid = $1 AND store_id = $2
         "#,
         )

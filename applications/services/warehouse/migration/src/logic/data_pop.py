@@ -41,11 +41,11 @@ def populate() -> None:
         store_m2m_vinyl.insert_query()
 
     for stock_info in [
-        StockInfo("AOSIJCOAasd12aS", 1, 3, 1),
-        StockInfo("AAOSdijcocais", 2, 9, 3),
-        StockInfo("Qoisjdfov", 1, 7, 2),
-        StockInfo("zPsojovzixnvo", 1, 9, 4),
-        StockInfo("lASOdijozx", 2, 2, 0),
-        StockInfo("pajsudbiduQ", 1, 19, 5),
+        StockInfo("AOSIJCOAasd12aS", 1, 3, 1, 1),
+        StockInfo("AAOSdijcocais", 2, 9, 1, 3),
+        StockInfo("Qoisjdfov", 1, 7, 3, 2),
+        StockInfo("zPsojovzixnvo", 1, 9, 4, 4),
+        StockInfo("lASOdijozx", 2, 2, 1, 0),
+        StockInfo("pajsudbiduQ", 1, 19, 5, 5),
     ]:
         stock_info.insert_query()

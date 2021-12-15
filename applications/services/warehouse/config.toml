@@ -1,6 +1,4 @@
 
-
-
 [server]
 port=20080
 host="0.0.0.0"
@@ -13,7 +11,7 @@ db ="migration/data/store"
 [kafka.development]
 bootstrap_servers = "localhost:9094"
 [kafka.production]
-bootstrap_servers = "localhost:9094"
+bootstrap_servers = "kafka-service:9092"
 
 [kafka.producer]
 message_timeout_ms = "5000"

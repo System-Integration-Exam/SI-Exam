@@ -1,6 +1,6 @@
 use serde_derive::Deserialize;
 use std::error::Error;
-use std::{fs, env};
+use std::{env, fs};
 
 lazy_static! {
     static ref CONFIG_PATH: &'static str = "config.toml";
@@ -35,15 +35,14 @@ pub struct Kafka {
 }
 
 #[derive(Deserialize)]
-pub struct Production{
+pub struct Production {
     pub bootstrap_servers: String,
 }
 
 #[derive(Deserialize)]
-pub struct Development{
+pub struct Development {
     pub bootstrap_servers: String,
 }
-
 
 #[derive(Deserialize)]
 pub struct Producer {
@@ -66,7 +65,6 @@ fn read_config_file(path: &str) -> Result<Config, Box<dyn Error>> {
     Ok(config)
 }
 
-
 #[allow(dead_code)]
 pub fn is_production_mode() -> bool {
     match env::var_os("PRODUCTION") {
@@ -74,4 +72,3 @@ pub fn is_production_mode() -> bool {
         None => false,
     }
 }
-

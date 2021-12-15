@@ -94,6 +94,16 @@ def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
         return "500"
 
 
+def return_item_stock_info(uuid, store_id):
+    try:
+        return warehouse_routes.return_item_stock_info(
+            uuid, store_id
+        )
+    except Exception as e:
+        print(e)
+        return "500"
+
+
 def collect_routes(app):
     app.add_url_rule("/store", view_func=create_store, methods=["POST"])
     app.add_url_rule("/store/<int:id>", view_func=read_store, methods=["GET"])
@@ -129,5 +139,10 @@ def collect_routes(app):
     app.add_url_rule(
         "/store/total=<int:store_id>&<int:vinyl_id>",
         view_func=get_amount_of_specific_vinyl_from_store,
+        methods=["GET"],
+    )
+    app.add_url_rule(
+        "/store/return=<string:uuid>&<int:store_id>",
+        view_func=return_item_stock_info,
         methods=["GET"],
     )

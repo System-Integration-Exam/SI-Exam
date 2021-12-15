@@ -15,15 +15,15 @@ class SubscriptionStub(object):
             channel: A grpc.Channel.
         """
         self.CreateSubscription = channel.unary_unary(
-            "/Subscription/CreateSubscription",
-            request_serializer=subscription__pb2.CreateSubscriptionRequest.SerializeToString,
-            response_deserializer=subscription__pb2.CreateSubscriptionResponse.FromString,
-        )
+                '/Subscription/CreateSubscription',
+                request_serializer=subscription__pb2.CreateSubscriptionRequest.SerializeToString,
+                response_deserializer=subscription__pb2.CreateSubscriptionResponse.FromString,
+                )
         self.ReadSubscription = channel.unary_unary(
-            "/Subscription/ReadSubscription",
-            request_serializer=subscription__pb2.ReadSubscriptionRequest.SerializeToString,
-            response_deserializer=subscription__pb2.ReadSubscriptionResponse.FromString,
-        )
+                '/Subscription/ReadSubscription',
+                request_serializer=subscription__pb2.ReadSubscriptionRequest.SerializeToString,
+                response_deserializer=subscription__pb2.ReadSubscriptionResponse.FromString,
+                )
 
 
 class SubscriptionServicer(object):
@@ -32,93 +32,68 @@ class SubscriptionServicer(object):
     def CreateSubscription(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ReadSubscription(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
 
 def add_SubscriptionServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "CreateSubscription": grpc.unary_unary_rpc_method_handler(
-            servicer.CreateSubscription,
-            request_deserializer=subscription__pb2.CreateSubscriptionRequest.FromString,
-            response_serializer=subscription__pb2.CreateSubscriptionResponse.SerializeToString,
-        ),
-        "ReadSubscription": grpc.unary_unary_rpc_method_handler(
-            servicer.ReadSubscription,
-            request_deserializer=subscription__pb2.ReadSubscriptionRequest.FromString,
-            response_serializer=subscription__pb2.ReadSubscriptionResponse.SerializeToString,
-        ),
+            'CreateSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateSubscription,
+                    request_deserializer=subscription__pb2.CreateSubscriptionRequest.FromString,
+                    response_serializer=subscription__pb2.CreateSubscriptionResponse.SerializeToString,
+            ),
+            'ReadSubscription': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadSubscription,
+                    request_deserializer=subscription__pb2.ReadSubscriptionRequest.FromString,
+                    response_serializer=subscription__pb2.ReadSubscriptionResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        "Subscription", rpc_method_handlers
-    )
+            'Subscription', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
-# This class is part of an EXPERIMENTAL API.
+ # This class is part of an EXPERIMENTAL API.
 class Subscription(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def CreateSubscription(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def CreateSubscription(request,
             target,
-            "/Subscription/CreateSubscription",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Subscription/CreateSubscription',
             subscription__pb2.CreateSubscriptionRequest.SerializeToString,
             subscription__pb2.CreateSubscriptionResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ReadSubscription(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ReadSubscription(request,
             target,
-            "/Subscription/ReadSubscription",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Subscription/ReadSubscription',
             subscription__pb2.ReadSubscriptionRequest.SerializeToString,
             subscription__pb2.ReadSubscriptionResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

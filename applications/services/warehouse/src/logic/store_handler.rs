@@ -392,13 +392,14 @@ pub async fn add_to_stock_info(
     let pool = get_db_pool().await?;
     match sqlx::query(
         r#"
-        INSERT INTO store_id(uuid, store_id, total_count, reserved_count)
+        INSERT INTO store_id(uuid, store_id, total_count, in_stock, reserved_count)
         VALUES($1, $2, $3, $4)
     "#,
     )
     .bind(request.uuid)
     .bind(request.store_id)
     .bind(request.total_count)
+    .bind(request.in_stock)
     .bind(request.reserved_count)
     .execute(&pool)
     .await
@@ -469,6 +470,7 @@ pub async fn read_stock_info(
         uuid: stock_info.uuid,
         store_id: stock_info.store_id,
         total_count: stock_info.total_count,
+        in_stock: stock_info.in_stock,
         reserved_count: stock_info.reserved_count,
         created_at: stock_info.created_at.unwrap().to_string(),
         updated_at: stock_info.updated_at.unwrap().to_string(),
@@ -533,6 +535,38 @@ pub async fn decrement_reserved_stock_info(
         Err(_) => {
             pool.close().await;
             Ok(store::DecrementReservedStockInfoResponse {
+                msg: "500".to_owned(),
+            })
+        }
+    }
+}
+
+pub async fn return_item_stock_info(
+    request: store::ReturnItemStockInfoRequest,
+) -> anyhow::Result<store::ReturnItemStockInfoResponse> {
+    let pool = get_db_pool().await?;
+
+    match sqlx::query(
+        r#"
+        UPDATE stock_info
+        SET in_stock = in_stock + 1
+        WHERE uuid = $1 AND store_info = $2
+    "#,
+    )
+    .bind(request.uuid)
+    .bind(request.store_id)
+    .execute(&pool)
+    .await
+    {
+        Ok(_) => {
+            pool.close().await;
+            Ok(store::ReturnItemStockInfoResponse {
+                msg: "200".to_owned(),
+            })
+        }
+        Err(_) => {
+            pool.close().await;
+            Ok(store::ReturnItemStockInfoResponse {
                 msg: "500".to_owned(),
             })
         }
