@@ -10,6 +10,7 @@ db ="migration/data/store"
 [kafka]
 [kafka.development]
 bootstrap_servers = "localhost:9094"
+
 [kafka.production]
 bootstrap_servers = "kafka-service:9092"
 

@@ -150,10 +150,10 @@ mod tests {
             .await
             .expect("Could not create client in store tests")
             .read_store_by_address(tonic::Request::new(store::ReadStoreByAddressRequest {
-                address: "address_to_delete".to_owned(),
+                address: "address_to_read".to_owned(),
             }))
             .await
-            .expect("Could not delete store")
+            .expect("Could not read store")
             .into_inner();
 
         let phone_number = msg.store.unwrap().phone_number;
