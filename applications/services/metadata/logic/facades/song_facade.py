@@ -32,7 +32,7 @@ def updateSong(song):
     conn = sqlite3.connect("./data/metadata.db")
     c = conn.cursor()
     try:
-        c.execute("UPDATE book SET title = :title, duration_sec = :duration_sec, vinyl_id = :vinyl_id", {'title': song.title, 'duration_sec': song.duration_sec, 'vinyl_id': song.vinyl_id})
+        c.execute("UPDATE song SET title = :title, duration_sec = :duration_sec, vinyl_id = :vinyl_id", {'title': song.title, 'duration_sec': song.duration_sec, 'vinyl_id': song.vinyl_id})
         conn.commit()
         statusMessage = "Song successfully created."
         return statusMessage
@@ -54,7 +54,7 @@ def deleteSongById(id):
         conn.close()
 
         
-def getAllSong():
+def getAllSongs():
     conn = sqlite3.connect("./data/metadata.db")
     c = conn.cursor()
     try:

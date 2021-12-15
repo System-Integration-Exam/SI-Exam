@@ -63,12 +63,11 @@ message DeleteSongByIdResponse {
 
 //Doesn't accept parameters
 //Request for getAllSongssRequest()
-message GetAllSongsRequest {
+message GetAllSongsRequest {}
 
-}
 //Response for getAllSongsRequest()
 message GetAllSongsResponse {
-    repeated SongMessage song = 1;
+    repeated SongMessage songs = 1;
 }
 
 message SongMessage {

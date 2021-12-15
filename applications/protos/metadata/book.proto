@@ -66,9 +66,8 @@ message DeleteBookByIdResponse {
 
 //Doesn't accept parameters
 //Request for getAllBooksRequest()
-message GetAllBooksRequest {
-
-}
+message GetAllBooksRequest {}
+ 
 //Response for getAllBooksRequest()
 message GetAllBooksResponse {
     repeated BookMessage books = 1;

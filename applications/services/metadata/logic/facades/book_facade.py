@@ -2,7 +2,6 @@ import sqlite3
 from entities.book import Book
 
 
-
 def createBook(book):
     conn = sqlite3.connect("./data/metadata.db")
     c = conn.cursor()
