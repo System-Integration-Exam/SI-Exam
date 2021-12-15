@@ -18,19 +18,38 @@ def _create_stub():
 
 
 def create_customer(new_customer_json):
-    return _create_stub().CreateCustomer(
-        customer_pb2.CreateCustomerRequest(
-            first_name=new_customer_json["first_name"],
-            last_name=new_customer_json["last_name"],
-            email=new_customer_json["email"],
-            phone_number=new_customer_json["phone_number"],
+    return (
+        _create_stub()
+        .CreateCustomer(
+            customer_pb2.CreateCustomerRequest(
+                first_name=new_customer_json["first_name"],
+                last_name=new_customer_json["last_name"],
+                email=new_customer_json["email"],
+                phone_number=new_customer_json["phone_number"],
+            )
         )
-    ).msg
+        .msg
+    )
+
 
 def read_customer(customer_id):
-    response =  _create_stub().ReadCustomer(
-        customer_pb2.ReadCustomerRequest(
-            id=customer_id
-        )
+    response = _create_stub().ReadCustomer(
+        customer_pb2.ReadCustomerRequest(id=customer_id)
     )
     return MessageToJson(response)
+
+
+def update_customer(update_customer_json, id):
+    return (
+        _create_stub()
+        .UpdateCustomer(
+            customer_pb2.UpdateCustomerRequest(
+                id=id,
+                first_name=update_customer_json["first_name"],
+                last_name=update_customer_json["last_name"],
+                email=update_customer_json["email"],
+                phone_number=update_customer_json["phone_number"],
+            )
+        )
+        .msg
+    )

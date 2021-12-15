@@ -8,10 +8,9 @@ def create_customer():
     except Exception as e:
         print(e)
         return "500"
-    
+
+
 def read_customer(id):
-    
-    print("aaaaaah")
     try:
         return customer_client.read_customer(id)
     except Exception as e:
@@ -19,6 +18,15 @@ def read_customer(id):
         return "500"
 
 
+def update_customer(id):
+    try:
+        return customer_client.update_customer(request.json, id)
+    except Exception as e:
+        print(e)
+        return "500"
+
+
 def collect_routes(app):
     app.add_url_rule("/customer", view_func=create_customer, methods=["POST"])
     app.add_url_rule("/customer/<int:id>", view_func=read_customer, methods=["GET"])
+    app.add_url_rule("/customer/<int:id>", view_func=update_customer, methods=["PUT"])

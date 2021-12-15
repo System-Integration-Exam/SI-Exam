@@ -2,8 +2,9 @@ from connection.sqlite_connection import execute_query
 import datetime
 from dataclasses import dataclass
 
+
 @dataclass
-class Subscription():
+class Subscription:
     is_active: bool
     expiration_date: datetime.datetime
 

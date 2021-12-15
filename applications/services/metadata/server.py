@@ -48,6 +48,7 @@ class BookServicer(book_pb2_grpc.BookServicer):
         response.statusMessage = BF.deleteBookById(request.id)
         return response
 
+
 # Song Servicer
 class SongServicer(song_pb2_grpc.SongServicer):
     # takes in a song object and returns a status message (success/error)
@@ -76,6 +77,7 @@ class SongServicer(song_pb2_grpc.SongServicer):
         response = song_pb2.DeleteSongByIdResponse()
         response.statusMessage = SF.deleteSongById(request.id)
         return response
+
 
 # Vinyl Servicer
 class VinylServicer(vinyl_pb2_grpc.VinylServicer):
@@ -106,6 +108,7 @@ class VinylServicer(vinyl_pb2_grpc.VinylServicer):
         response.statusMessage = VF.deleteVinylById(request.id)
         return response
 
+
 # create gRPC server
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
 
@@ -117,8 +120,8 @@ song_pb2_grpc.add_SongServicer_to_server(SongServicer(), server)
 vinyl_pb2_grpc.add_VinylServicer_to_server(VinylServicer(), server)
 
 # listen on port 50051
-print('Starting server. Listening on port 50051.')
-server.add_insecure_port('[::]:50051')
+print("Starting server. Listening on port 50051.")
+server.add_insecure_port("[::]:50051")
 server.start()
 
 

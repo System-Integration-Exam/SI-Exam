@@ -2,8 +2,9 @@ from connection.sqlite_connection import execute_query
 import datetime
 from dataclasses import dataclass
 
+
 @dataclass
-class StoreM2MBook():
+class StoreM2MBook:
     store_id: int
     book_id: int
 

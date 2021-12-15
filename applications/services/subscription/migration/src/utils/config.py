@@ -1,7 +1,7 @@
 import os
 import toml
 
-# This file is a utility for conversion of the toml file. 
+# This file is a utility for conversion of the toml file.
 # Keep it minimal
 # Use config.toml instead.
 
@@ -18,7 +18,7 @@ with open(_filename) as f:
 
 with open(_filename) as f:
     _content = f.read()
-    
+
 CONFIG = toml.loads(_content)
 if os.getenv("CONTAINERIZED", None):
     DATABASE_CONFIG = CONFIG["containerized"]["database"]
