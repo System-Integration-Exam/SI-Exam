@@ -33,3 +33,6 @@ spec:
   type: ClusterIP
   ports:
   - port: 20080
+  env:
+  - name: PRODUCTION
+  value: "true"

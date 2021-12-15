@@ -1,4 +1,6 @@
 
+
+
 [server]
 port=20080
 host="0.0.0.0"
@@ -8,6 +10,9 @@ db ="migration/data/store"
 
 
 [kafka]
+[kafka.development]
+bootstrap_servers = "localhost:9094"
+[kafka.production]
 bootstrap_servers = "localhost:9094"
 
 [kafka.producer]
