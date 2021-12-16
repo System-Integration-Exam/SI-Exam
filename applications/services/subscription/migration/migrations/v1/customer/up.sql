@@ -8,5 +8,5 @@ CREATE TABLE IF NOT EXISTS customer(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY(subscription_id) REFERENCES subscription(id)
-    UNIQUE(email)
+    
 );
