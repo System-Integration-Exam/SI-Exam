@@ -8,9 +8,8 @@ echo resetting database data and populating with dummy data ..
 
 python src/main.py
 
-cd .. 
 cd ..
 
 echo server started.
-
-echo resetting database data and populating with dummy data ..
+python server.py
+echo shutting down...
