@@ -1,9 +1,12 @@
 syntax = "proto3";
 
 service Subscription {
-  rpc CreateSubscription(CreateSubscriptionRequest) returns (
-      CreateSubscriptionResponse) {}
-    rpc ReadSubscription(ReadSubscriptionRequest) returns (ReadSubscriptionResponse){}
+  rpc CreateSubscription(CreateSubscriptionRequest) returns (CreateSubscriptionResponse) {}
+  rpc ReadSubscription(ReadSubscriptionRequest) returns (ReadSubscriptionResponse) {}
+  rpc ReadSubscriptionList(ReadSubscriptionListRequest)
+      returns (ReadSubscriptionListResponse) {}
+  rpc UpdateSubscription(UpdateSubscriptionRequest) returns (UpdateSubscriptionResponse) {}
+  rpc DeleteSubscription(DeleteSubscriptionRequest) returns (DeleteSubscriptionResponse) {}
 }
 
 // #### Requests ####
@@ -12,15 +15,47 @@ message CreateSubscriptionRequest {
   string expiration_date = 2;
 }
 
-message ReadSubscriptionRequest {
-    int32 id = 1;
+message ReadSubscriptionRequest { int32 id = 1; }
+
+message ReadSubscriptionListRequest {}
+
+message UpdateSubscriptionRequest {
+
+  int32 id = 1;
+  bool is_active = 2;
+  string expiration_date = 3;
 }
+
+message DeleteSubscriptionRequest { int32 id = 1; }
+
+
 
 // #### Response ####
 message CreateSubscriptionResponse { string msg = 1; }
+
 message ReadSubscriptionResponse {
+  int32 id = 1;
+  bool is_active = 2;
+  string expiration_date = 3;
+  string created_at = 4;
+  string updated_at = 5;
+}
+
+message ReadSubscriptionListResponse {
+  message SubscriptionObject {
     int32 id = 1;
     bool is_active = 2;
     string expiration_date = 3;
+    string created_at = 4;
+    string updated_at = 5;
+  }
+  repeated SubscriptionObject subscription_list = 1;
 }
 
+message UpdateSubscriptionResponse {
+  string msg = 1;
+}
+
+message DeleteSubscriptionResponse {
+  string msg = 1;
+}
