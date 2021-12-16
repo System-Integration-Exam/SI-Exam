@@ -2,9 +2,9 @@
 
 echo creating database ..
 
-python src/sqlite3_setup.py
-
 echo resetting database data and populating with dummy data ..
+
+mkdir ../data
 
 python src/main.py
 
