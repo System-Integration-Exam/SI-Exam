@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 20070
 
-ENTRYPOINT [ "/app/src/init.sh" ]
+ENTRYPOINT [ "/app/src/docker_entrypoint.sh" ]
