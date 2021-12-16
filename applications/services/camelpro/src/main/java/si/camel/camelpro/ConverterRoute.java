@@ -16,16 +16,17 @@ public class ConverterRoute {
                     csvDataFormat.setHeaderDisabled(true);
                     csvDataFormat.setDelimiter(',');
                     csvDataFormat.setQuoteDisabled(true);
-                    from("file:src/main/resources/csvdata/?noop=true").
-                            unmarshal().
-                            csv().
-                            marshal().
-                            json(JsonLibrary.Jackson).
-                            log("${body}").
-                    to("kafka:subscriptionserviceuserlistupdate-topic?brokers=localhost:9094").
-                            end();
+                    from("file:src/main/resources/csvdata/?noop=true")
+                        .unmarshal()
+                        .csv()
+                        .marshal()
+                        .json(JsonLibrary.Jackson)
+                        .log("${body}")
+                        .to("kafka:subscriptionserviceuserlistupdate-topic?brokers=localhost:9094")
+                        .end();
                 } catch (Exception e) {
                     e.printStackTrace();
+                    throw e;
                 }
             }
         });

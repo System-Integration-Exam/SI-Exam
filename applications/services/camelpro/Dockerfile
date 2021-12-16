@@ -1,11 +1,12 @@
 # Build stage
 FROM maven:3-openjdk-17-slim AS build
-COPY src /home/app/src
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml clean package
+WORKDIR /app
+COPY src src
+COPY pom.xml .
+RUN mvn -f pom.xml clean package
 
 # Package stage
 FROM openjdk:17.0.1-slim
-COPY --from=build /home/app/target/camelpro-0.0.1-SNAPSHOT.jar /usr/local/lib/camelpro.jar
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","/usr/local/lib/camelpro.jar"]
+WORKDIR /app
+COPY --from=build /app/target/camelpro-1.0.0.jar camelpro.jar
+ENTRYPOINT ["java","-jar","camelpro.jar"]
