@@ -19,7 +19,7 @@
       <bpmn:incoming>Flow_03iulsa</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_03iulsa" sourceRef="Activity_1kbasrr" targetRef="Event_07ph6up" />
-    <bpmn:userTask id="Activity_1rlso0u" name="Make new contract with publisher" camunda:candidateUsers="demo">
+    <bpmn:userTask id="Activity_1rlso0u" name="Make new contract with publisher" camunda:formRef="contractForm" camunda:formRefBinding="latest" camunda:candidateUsers="demo">
       <bpmn:incoming>Flow_1g5hec0</bpmn:incoming>
       <bpmn:outgoing>Flow_0k6zynv</bpmn:outgoing>
     </bpmn:userTask>
@@ -62,7 +62,7 @@
     <bpmn:sequenceFlow id="Flow_022h617" name="No" sourceRef="Gateway_1erhqjx" targetRef="Event_08lk3ss">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!validationResult.isApproved}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="Activity_1kbasrr" name="Order additional stock">
+    <bpmn:userTask id="Activity_1kbasrr" name="Order additional stock" camunda:formRef="buyForm" camunda:formRefBinding="latest">
       <bpmn:incoming>Flow_0ebl9tj</bpmn:incoming>
       <bpmn:incoming>Flow_0znv02x</bpmn:incoming>
       <bpmn:outgoing>Flow_03iulsa</bpmn:outgoing>
