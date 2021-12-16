@@ -25,17 +25,17 @@ namespace Restock.Protos {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cg1yZXN0b2NrLnByb3RvEgdyZXN0b2NrGhtnb29nbGUvcHJvdG9idWYvZW1w",
-            "dHkucHJvdG8ipgEKDlJlc3RvY2tSZXF1ZXN0EhMKC3JlcXVlc3RUZXh0GAEg",
+            "dHkucHJvdG8itgEKDlJlc3RvY2tSZXF1ZXN0EhMKC3JlcXVlc3RUZXh0GAEg",
             "ASgJEjIKCGl0ZW1UeXBlGAIgASgOMiAucmVzdG9jay5SZXN0b2NrUmVxdWVz",
             "dC5JdGVtVHlwZRIZChFleGlzdGluZ0l0ZW1Db3VudBgDIAEoBRIPCgdzdG9y",
-            "ZUlkGAQgASgFIh8KCEl0ZW1UeXBlEggKBEJPT0sQABIJCgVWSU5ZTBABMlAK",
-            "C1Jlc3RvY2tHcnBjEkEKDlJlcXVlc3RSZXN0b2NrEhcucmVzdG9jay5SZXN0",
-            "b2NrUmVxdWVzdBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eUIRqgIOUmVzdG9j",
-            "ay5Qcm90b3NiBnByb3RvMw=="));
+            "ZUlkGAQgASgFEg4KBml0ZW1JZBgFIAEoCSIfCghJdGVtVHlwZRIICgRCT09L",
+            "EAASCQoFVklOWUwQATJQCgtSZXN0b2NrR3JwYxJBCg5SZXF1ZXN0UmVzdG9j",
+            "axIXLnJlc3RvY2suUmVzdG9ja1JlcXVlc3QaFi5nb29nbGUucHJvdG9idWYu",
+            "RW1wdHlCEaoCDlJlc3RvY2suUHJvdG9zYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Restock.Protos.RestockRequest), global::Restock.Protos.RestockRequest.Parser, new[]{ "RequestText", "ItemType", "ExistingItemCount", "StoreId" }, null, new[]{ typeof(global::Restock.Protos.RestockRequest.Types.ItemType) }, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Restock.Protos.RestockRequest), global::Restock.Protos.RestockRequest.Parser, new[]{ "RequestText", "ItemType", "ExistingItemCount", "StoreId", "ItemId" }, null, new[]{ typeof(global::Restock.Protos.RestockRequest.Types.ItemType) }, null, null)
           }));
     }
     #endregion
@@ -75,6 +75,7 @@ namespace Restock.Protos {
       itemType_ = other.itemType_;
       existingItemCount_ = other.existingItemCount_;
       storeId_ = other.storeId_;
+      itemId_ = other.itemId_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -127,6 +128,17 @@ namespace Restock.Protos {
       }
     }
 
+    /// <summary>Field number for the "itemId" field.</summary>
+    public const int ItemIdFieldNumber = 5;
+    private string itemId_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ItemId {
+      get { return itemId_; }
+      set {
+        itemId_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as RestockRequest);
@@ -144,6 +156,7 @@ namespace Restock.Protos {
       if (ItemType != other.ItemType) return false;
       if (ExistingItemCount != other.ExistingItemCount) return false;
       if (StoreId != other.StoreId) return false;
+      if (ItemId != other.ItemId) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -154,6 +167,7 @@ namespace Restock.Protos {
       if (ItemType != global::Restock.Protos.RestockRequest.Types.ItemType.Book) hash ^= ItemType.GetHashCode();
       if (ExistingItemCount != 0) hash ^= ExistingItemCount.GetHashCode();
       if (StoreId != 0) hash ^= StoreId.GetHashCode();
+      if (ItemId.Length != 0) hash ^= ItemId.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -186,6 +200,10 @@ namespace Restock.Protos {
         output.WriteRawTag(32);
         output.WriteInt32(StoreId);
       }
+      if (ItemId.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(ItemId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -211,6 +229,10 @@ namespace Restock.Protos {
         output.WriteRawTag(32);
         output.WriteInt32(StoreId);
       }
+      if (ItemId.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(ItemId);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -231,6 +253,9 @@ namespace Restock.Protos {
       }
       if (StoreId != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(StoreId);
+      }
+      if (ItemId.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ItemId);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -254,6 +279,9 @@ namespace Restock.Protos {
       }
       if (other.StoreId != 0) {
         StoreId = other.StoreId;
+      }
+      if (other.ItemId.Length != 0) {
+        ItemId = other.ItemId;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -285,6 +313,10 @@ namespace Restock.Protos {
             StoreId = input.ReadInt32();
             break;
           }
+          case 42: {
+            ItemId = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -313,6 +345,10 @@ namespace Restock.Protos {
           }
           case 32: {
             StoreId = input.ReadInt32();
+            break;
+          }
+          case 42: {
+            ItemId = input.ReadString();
             break;
           }
         }

@@ -14,6 +14,7 @@ message RestockRequest {
   ItemType itemType = 2;
   int32 existingItemCount = 3;
   int32 storeId = 4;
+  string itemId = 5;
 
   enum ItemType {
 	  BOOK = 0;
