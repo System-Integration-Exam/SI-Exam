@@ -6,10 +6,11 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
-
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
+
+
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,6 +21,8 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   create_key=_descriptor._internal_create_key,
   serialized_pb=b'\n\nsong.proto\"J\n\x11\x43reateSongRequest\x12\r\n\x05title\x18\x01 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x02 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x03 \x01(\t\"+\n\x12\x43reateSongResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\" \n\x12GetSongByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"X\n\x13GetSongByIdResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x03 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x04 \x01(\t\"V\n\x11UpdateSongRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x03 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x04 \x01(\t\"+\n\x12UpdateSongResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"#\n\x15\x44\x65leteSongByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"/\n\x16\x44\x65leteSongByIdResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"\x14\n\x12GetAllSongsRequest\"2\n\x13GetAllSongsResponse\x12\x1b\n\x05songs\x18\x01 \x03(\x0b\x32\x0c.SongMessage\"P\n\x0bSongMessage\x12\n\n\x02id\x18\x01 \x01(\t\x12\r\n\x05title\x18\x02 \x01(\t\x12\x14\n\x0c\x64uration_sec\x18\x03 \x01(\x05\x12\x10\n\x08vinyl_id\x18\x04 \x01(\t2\xb5\x02\n\x04Song\x12\x37\n\ncreateSong\x12\x12.CreateSongRequest\x1a\x13.CreateSongResponse\"\x00\x12:\n\x0bgetSongById\x12\x13.GetSongByIdRequest\x1a\x14.GetSongByIdResponse\"\x00\x12\x37\n\nupdateSong\x12\x12.UpdateSongRequest\x1a\x13.UpdateSongResponse\"\x00\x12\x43\n\x0e\x64\x65leteSongById\x12\x16.DeleteSongByIdRequest\x1a\x17.DeleteSongByIdResponse\"\x00\x12:\n\x0bgetAllSongs\x12\x13.GetAllSongsRequest\x1a\x14.GetAllSongsResponse\"\x00\x62\x06proto3'
 )
+
+
 
 
 _CREATESONGREQUEST = _descriptor.Descriptor(
@@ -457,92 +460,60 @@ DESCRIPTOR.message_types_by_name['GetAllSongsResponse'] = _GETALLSONGSRESPONSE
 DESCRIPTOR.message_types_by_name['SongMessage'] = _SONGMESSAGE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-CreateSongRequest = _reflection.GeneratedProtocolMessageType(
-    "CreateSongRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _CREATESONGREQUEST,
-        "__module__": "song_pb2"
-        # @@protoc_insertion_point(class_scope:CreateSongRequest)
-    },
-)
+CreateSongRequest = _reflection.GeneratedProtocolMessageType('CreateSongRequest', (_message.Message,), {
+  'DESCRIPTOR' : _CREATESONGREQUEST,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:CreateSongRequest)
+  })
 _sym_db.RegisterMessage(CreateSongRequest)
 
-CreateSongResponse = _reflection.GeneratedProtocolMessageType(
-    "CreateSongResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _CREATESONGRESPONSE,
-        "__module__": "song_pb2"
-        # @@protoc_insertion_point(class_scope:CreateSongResponse)
-    },
-)
+CreateSongResponse = _reflection.GeneratedProtocolMessageType('CreateSongResponse', (_message.Message,), {
+  'DESCRIPTOR' : _CREATESONGRESPONSE,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:CreateSongResponse)
+  })
 _sym_db.RegisterMessage(CreateSongResponse)
 
-GetSongByIdRequest = _reflection.GeneratedProtocolMessageType(
-    "GetSongByIdRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _GETSONGBYIDREQUEST,
-        "__module__": "song_pb2"
-        # @@protoc_insertion_point(class_scope:GetSongByIdRequest)
-    },
-)
+GetSongByIdRequest = _reflection.GeneratedProtocolMessageType('GetSongByIdRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETSONGBYIDREQUEST,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:GetSongByIdRequest)
+  })
 _sym_db.RegisterMessage(GetSongByIdRequest)
 
-GetSongByIdResponse = _reflection.GeneratedProtocolMessageType(
-    "GetSongByIdResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _GETSONGBYIDRESPONSE,
-        "__module__": "song_pb2"
-        # @@protoc_insertion_point(class_scope:GetSongByIdResponse)
-    },
-)
+GetSongByIdResponse = _reflection.GeneratedProtocolMessageType('GetSongByIdResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETSONGBYIDRESPONSE,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:GetSongByIdResponse)
+  })
 _sym_db.RegisterMessage(GetSongByIdResponse)
 
-UpdateSongRequest = _reflection.GeneratedProtocolMessageType(
-    "UpdateSongRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _UPDATESONGREQUEST,
-        "__module__": "song_pb2"
-        # @@protoc_insertion_point(class_scope:UpdateSongRequest)
-    },
-)
+UpdateSongRequest = _reflection.GeneratedProtocolMessageType('UpdateSongRequest', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATESONGREQUEST,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:UpdateSongRequest)
+  })
 _sym_db.RegisterMessage(UpdateSongRequest)
 
-UpdateSongResponse = _reflection.GeneratedProtocolMessageType(
-    "UpdateSongResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _UPDATESONGRESPONSE,
-        "__module__": "song_pb2"
-        # @@protoc_insertion_point(class_scope:UpdateSongResponse)
-    },
-)
+UpdateSongResponse = _reflection.GeneratedProtocolMessageType('UpdateSongResponse', (_message.Message,), {
+  'DESCRIPTOR' : _UPDATESONGRESPONSE,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:UpdateSongResponse)
+  })
 _sym_db.RegisterMessage(UpdateSongResponse)
 
-DeleteSongByIdRequest = _reflection.GeneratedProtocolMessageType(
-    "DeleteSongByIdRequest",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _DELETESONGBYIDREQUEST,
-        "__module__": "song_pb2"
-        # @@protoc_insertion_point(class_scope:DeleteSongByIdRequest)
-    },
-)
+DeleteSongByIdRequest = _reflection.GeneratedProtocolMessageType('DeleteSongByIdRequest', (_message.Message,), {
+  'DESCRIPTOR' : _DELETESONGBYIDREQUEST,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:DeleteSongByIdRequest)
+  })
 _sym_db.RegisterMessage(DeleteSongByIdRequest)
 
-DeleteSongByIdResponse = _reflection.GeneratedProtocolMessageType(
-    "DeleteSongByIdResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _DELETESONGBYIDRESPONSE,
-        "__module__": "song_pb2"
-        # @@protoc_insertion_point(class_scope:DeleteSongByIdResponse)
-    },
-)
+DeleteSongByIdResponse = _reflection.GeneratedProtocolMessageType('DeleteSongByIdResponse', (_message.Message,), {
+  'DESCRIPTOR' : _DELETESONGBYIDRESPONSE,
+  '__module__' : 'song_pb2'
+  # @@protoc_insertion_point(class_scope:DeleteSongByIdResponse)
+  })
 _sym_db.RegisterMessage(DeleteSongByIdResponse)
 
 GetAllSongsRequest = _reflection.GeneratedProtocolMessageType('GetAllSongsRequest', (_message.Message,), {
@@ -567,6 +538,7 @@ SongMessage = _reflection.GeneratedProtocolMessageType('SongMessage', (_message.
 _sym_db.RegisterMessage(SongMessage)
 
 
+
 _SONG = _descriptor.ServiceDescriptor(
   name='Song',
   full_name='Song',
@@ -581,6 +553,9 @@ _SONG = _descriptor.ServiceDescriptor(
     name='createSong',
     full_name='Song.createSong',
     index=0,
+    containing_service=None,
+    input_type=_CREATESONGREQUEST,
+    output_type=_CREATESONGRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -627,6 +602,6 @@ _SONG = _descriptor.ServiceDescriptor(
 ])
 _sym_db.RegisterServiceDescriptor(_SONG)
 
-DESCRIPTOR.services_by_name["Song"] = _SONG
+DESCRIPTOR.services_by_name['Song'] = _SONG
 
 # @@protoc_insertion_point(module_scope)

@@ -17,20 +17,20 @@ class BookStub(object):
             channel: A grpc.Channel.
         """
         self.createBook = channel.unary_unary(
-            "/Book/createBook",
-            request_serializer=book__pb2.CreateBookRequest.SerializeToString,
-            response_deserializer=book__pb2.CreateBookResponse.FromString,
-        )
+                '/Book/createBook',
+                request_serializer=book__pb2.CreateBookRequest.SerializeToString,
+                response_deserializer=book__pb2.CreateBookResponse.FromString,
+                )
         self.getBookById = channel.unary_unary(
-            "/Book/getBookById",
-            request_serializer=book__pb2.GetBookByIdRequest.SerializeToString,
-            response_deserializer=book__pb2.GetBookByIdResponse.FromString,
-        )
+                '/Book/getBookById',
+                request_serializer=book__pb2.GetBookByIdRequest.SerializeToString,
+                response_deserializer=book__pb2.GetBookByIdResponse.FromString,
+                )
         self.updateBook = channel.unary_unary(
-            "/Book/updateBook",
-            request_serializer=book__pb2.UpdateBookRequest.SerializeToString,
-            response_deserializer=book__pb2.UpdateBookResponse.FromString,
-        )
+                '/Book/updateBook',
+                request_serializer=book__pb2.UpdateBookRequest.SerializeToString,
+                response_deserializer=book__pb2.UpdateBookResponse.FromString,
+                )
         self.deleteBookById = channel.unary_unary(
                 '/Book/deleteBookById',
                 request_serializer=book__pb2.DeleteBookByIdRequest.SerializeToString,
@@ -49,28 +49,32 @@ class BookServicer(object):
     """
 
     def createBook(self, request, context):
-        """CreateBook - Creates and persist new book"""
+        """CreateBook - Creates and persist new book
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def getBookById(self, request, context):
-        """GetBookById - Returns book based on ID"""
+        """GetBookById - Returns book based on ID
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def updateBook(self, request, context):
-        """UpdateBook - Updates info on existing book"""
+        """UpdateBook - Updates info on existing book
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def deleteBookById(self, request, context):
-        """DeleteBook - Deletes book based on ID"""
+        """DeleteBook - Deletes book based on ID
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def getAllBooks(self, request, context):
         """GetAllBooks - Retrieves all books from DB
@@ -108,120 +112,80 @@ def add_BookServicer_to_server(servicer, server):
                     response_serializer=book__pb2.GetAllBooksResponse.SerializeToString,
             ),
     }
-    generic_handler = grpc.method_handlers_generic_handler("Book", rpc_method_handlers)
+    generic_handler = grpc.method_handlers_generic_handler(
+            'Book', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
-# This class is part of an EXPERIMENTAL API.
+ # This class is part of an EXPERIMENTAL API.
 class Book(object):
     """Book servicer
     Only has CRUD methods, as it is only used for meta data
     """
 
     @staticmethod
-    def createBook(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def createBook(request,
             target,
-            "/Book/createBook",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Book/createBook',
             book__pb2.CreateBookRequest.SerializeToString,
             book__pb2.CreateBookResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def getBookById(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def getBookById(request,
             target,
-            "/Book/getBookById",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Book/getBookById',
             book__pb2.GetBookByIdRequest.SerializeToString,
             book__pb2.GetBookByIdResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def updateBook(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def updateBook(request,
             target,
-            "/Book/updateBook",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Book/updateBook',
             book__pb2.UpdateBookRequest.SerializeToString,
             book__pb2.UpdateBookResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def deleteBookById(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def deleteBookById(request,
             target,
-            "/Book/deleteBookById",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Book/deleteBookById',
             book__pb2.DeleteBookByIdRequest.SerializeToString,
             book__pb2.DeleteBookByIdResponse.FromString,
             options, channel_credentials,

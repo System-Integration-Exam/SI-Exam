@@ -18,10 +18,9 @@ service Book {
 //Takes in a book object and returns a status message (success/error)
 //Request message for createBook()
 message CreateBookRequest {
-    string id = 1;
-    string title = 2;
-    string author = 3;
-    int32 rating = 4;
+    string title = 1;
+    string author = 2;
+    int32 rating = 3;
 }
 //Response message for createBook()
 message CreateBookResponse {

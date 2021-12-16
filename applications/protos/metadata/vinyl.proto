@@ -18,9 +18,8 @@ service Vinyl {
 //Takes in a Vinyl object and returns a status message (success/error)
 //Request message for createVinyl()
 message CreateVinylRequest {
-    string id = 1;
-    string artist = 2;
-    string genre = 3;
+    string artist = 1;
+    string genre = 2;
 }
 //Response message for createVinyl()
 message CreateVinylResponse {
