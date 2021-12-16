@@ -3,7 +3,7 @@ from connection.sqlite_connection import execute_query, fetch_all, fetch_one
 from logic.protogen import customer_pb2
 
 
-def camel_populate_customer(data):
+def camel_populate_customer(data) -> None:
     try:
         execute_query(
             f"""
