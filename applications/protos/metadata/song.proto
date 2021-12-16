@@ -25,7 +25,7 @@ message CreateSongRequest {
 }
 //Response message for createSong()
 message CreateSongResponse {
-    string statusMessage = 1;
+    SongMessage song = 1;
 }
 
 //Takes in an ID value and returns a Song object

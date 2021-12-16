@@ -4,13 +4,9 @@ mkdir data
 
 echo creating database ..
 
-python src/sqlite3_setup.py
-
-echo resetting database data and populating with dummy data ..
-
+cd migrations
 python src/main.py
-
-cd .. 
+cd ..
 
 echo server started.
 

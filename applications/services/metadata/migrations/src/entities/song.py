@@ -2,8 +2,9 @@ from connection.sqlite_connection import execute_query
 import datetime
 from dataclasses import dataclass
 
+
 @dataclass
-class Song():
+class Song:
     title: str
     duration_sec: int
     vinyl_id: str

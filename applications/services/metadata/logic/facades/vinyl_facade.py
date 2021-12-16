@@ -6,10 +6,16 @@ def createVinyl(vinyl):
     conn = sqlite3.connect("./data/metadata.db")
     c = conn.cursor()
     try:
-        c.execute("INSERT INTO vinyl (artist, genre) VALUES (:artist, :genre)", {'artist': vinyl.artist, 'genre': vinyl.genre})
+        vinyl = c.execute(
+            """
+            INSERT INTO vinyl (artist, genre)
+            VALUES (:artist, :genre)
+            RETURNING *
+            """,
+            {"artist": vinyl.artist, "genre": vinyl.genre},
+        ).fetchall()[::-1][0]
         conn.commit()
-        statusMessage = "Vinyl successfully created."
-        return statusMessage
+        return vinyl
     finally:
         c.close()
         conn.close()
@@ -19,7 +25,7 @@ def getVinylById(id):
     conn = sqlite3.connect("./data/metadata.db")
     c = conn.cursor()
     try:
-        c.execute("SELECT * FROM vinyl WHERE id = :id", {'id': id})
+        c.execute("SELECT * FROM vinyl WHERE id = :id", {"id": id})
         row = c.fetchone()
         vinyl = Vinyl(row[0], row[1], row[2])
         return vinyl
@@ -32,20 +38,23 @@ def updateVinyl(vinyl):
     conn = sqlite3.connect("./data/metadata.db")
     c = conn.cursor()
     try:
-        c.execute("UPDATE vinyl SET artist = :artist, genre = :genre WHERE id = :id", {'id': vinyl.id, 'artist': vinyl.artist, 'genre': vinyl.genre})
+        c.execute(
+            "UPDATE vinyl SET artist = :artist, genre = :genre WHERE id = :id",
+            {"id": vinyl.id, "artist": vinyl.artist, "genre": vinyl.genre},
+        )
         conn.commit()
         statusMessage = "Vinyl successfully created."
         return statusMessage
     finally:
         c.close()
         conn.close()
-    
+
 
 def deleteVinylById(id):
     conn = sqlite3.connect("./data/metadata.db")
     c = conn.cursor()
     try:
-        c.execute("DELETE FROM vinyl WHERE id = :id", {'id': id})
+        c.execute("DELETE FROM vinyl WHERE id = :id", {"id": id})
         conn.commit()
         statusMessage = "Vinyl with given ID has been removed."
         return statusMessage
