@@ -32,10 +32,15 @@ class VinylStub(object):
             response_deserializer=vinyl__pb2.UpdateVinylResponse.FromString,
         )
         self.deleteVinylById = channel.unary_unary(
-            "/Vinyl/deleteVinylById",
-            request_serializer=vinyl__pb2.DeleteVinylByIdRequest.SerializeToString,
-            response_deserializer=vinyl__pb2.DeleteVinylByIdResponse.FromString,
-        )
+                '/Vinyl/deleteVinylById',
+                request_serializer=vinyl__pb2.DeleteVinylByIdRequest.SerializeToString,
+                response_deserializer=vinyl__pb2.DeleteVinylByIdResponse.FromString,
+                )
+        self.getAllVinyl = channel.unary_unary(
+                '/Vinyl/getAllVinyl',
+                request_serializer=vinyl__pb2.GetAllVinylRequest.SerializeToString,
+                response_deserializer=vinyl__pb2.GetAllVinylResponse.FromString,
+                )
 
 
 class VinylServicer(object):
@@ -67,29 +72,41 @@ class VinylServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def getAllVinyl(self, request, context):
+        """GetAllVinyl - Retrieves all Vinyl from database
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_VinylServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "createVinyl": grpc.unary_unary_rpc_method_handler(
-            servicer.createVinyl,
-            request_deserializer=vinyl__pb2.CreateVinylRequest.FromString,
-            response_serializer=vinyl__pb2.CreateVinylResponse.SerializeToString,
-        ),
-        "getVinylById": grpc.unary_unary_rpc_method_handler(
-            servicer.getVinylById,
-            request_deserializer=vinyl__pb2.GetVinylByIdRequest.FromString,
-            response_serializer=vinyl__pb2.GetVinylByIdResponse.SerializeToString,
-        ),
-        "updateVinyl": grpc.unary_unary_rpc_method_handler(
-            servicer.updateVinyl,
-            request_deserializer=vinyl__pb2.UpdateVinylRequest.FromString,
-            response_serializer=vinyl__pb2.UpdateVinylResponse.SerializeToString,
-        ),
-        "deleteVinylById": grpc.unary_unary_rpc_method_handler(
-            servicer.deleteVinylById,
-            request_deserializer=vinyl__pb2.DeleteVinylByIdRequest.FromString,
-            response_serializer=vinyl__pb2.DeleteVinylByIdResponse.SerializeToString,
-        ),
+            'createVinyl': grpc.unary_unary_rpc_method_handler(
+                    servicer.createVinyl,
+                    request_deserializer=vinyl__pb2.CreateVinylRequest.FromString,
+                    response_serializer=vinyl__pb2.CreateVinylResponse.SerializeToString,
+            ),
+            'getVinylById': grpc.unary_unary_rpc_method_handler(
+                    servicer.getVinylById,
+                    request_deserializer=vinyl__pb2.GetVinylByIdRequest.FromString,
+                    response_serializer=vinyl__pb2.GetVinylByIdResponse.SerializeToString,
+            ),
+            'updateVinyl': grpc.unary_unary_rpc_method_handler(
+                    servicer.updateVinyl,
+                    request_deserializer=vinyl__pb2.UpdateVinylRequest.FromString,
+                    response_serializer=vinyl__pb2.UpdateVinylResponse.SerializeToString,
+            ),
+            'deleteVinylById': grpc.unary_unary_rpc_method_handler(
+                    servicer.deleteVinylById,
+                    request_deserializer=vinyl__pb2.DeleteVinylByIdRequest.FromString,
+                    response_serializer=vinyl__pb2.DeleteVinylByIdResponse.SerializeToString,
+            ),
+            'getAllVinyl': grpc.unary_unary_rpc_method_handler(
+                    servicer.getAllVinyl,
+                    request_deserializer=vinyl__pb2.GetAllVinylRequest.FromString,
+                    response_serializer=vinyl__pb2.GetAllVinylResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler("Vinyl", rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
@@ -207,12 +224,22 @@ class Vinyl(object):
             "/Vinyl/deleteVinylById",
             vinyl__pb2.DeleteVinylByIdRequest.SerializeToString,
             vinyl__pb2.DeleteVinylByIdResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getAllVinyl(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Vinyl/getAllVinyl',
+            vinyl__pb2.GetAllVinylRequest.SerializeToString,
+            vinyl__pb2.GetAllVinylResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

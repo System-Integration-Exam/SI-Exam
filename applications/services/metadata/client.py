@@ -17,7 +17,7 @@ songStub = song_pb2_grpc.SongStub(channel)
 vinylStub = vinyl_pb2_grpc.VinylStub(channel)
 
 # create a valid request message
-bookId = book_pb2.GetBookByIdRequest(id="asbsabbdabs-asdoaoisdoi-asidoajsodi-asjdaosd")
+bookId = book_pb2.GetBookByIdRequest(id="263333b1-1ead-44c6-a12e-34c3708817a3")
 songId = song_pb2.GetSongByIdRequest(id="asbsabbdabs-asdoaoisdoi-asidoajsodi-asjdaosd")
 vinylId = vinyl_pb2.GetVinylByIdRequest(
     id="asbsabbdabs-asdoaoisdoi-asidoajsodi-asjdaosd"

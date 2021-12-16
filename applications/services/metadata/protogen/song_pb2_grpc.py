@@ -32,10 +32,15 @@ class SongStub(object):
             response_deserializer=song__pb2.UpdateSongResponse.FromString,
         )
         self.deleteSongById = channel.unary_unary(
-            "/Song/deleteSongById",
-            request_serializer=song__pb2.DeleteSongByIdRequest.SerializeToString,
-            response_deserializer=song__pb2.DeleteSongByIdResponse.FromString,
-        )
+                '/Song/deleteSongById',
+                request_serializer=song__pb2.DeleteSongByIdRequest.SerializeToString,
+                response_deserializer=song__pb2.DeleteSongByIdResponse.FromString,
+                )
+        self.getAllSongs = channel.unary_unary(
+                '/Song/getAllSongs',
+                request_serializer=song__pb2.GetAllSongsRequest.SerializeToString,
+                response_deserializer=song__pb2.GetAllSongsResponse.FromString,
+                )
 
 
 class SongServicer(object):
@@ -44,25 +49,36 @@ class SongServicer(object):
     """
 
     def createSong(self, request, context):
-        """CreateSong - Creates and persist new song"""
+        """CreateSong - Creates and persist new Song
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def getSongById(self, request, context):
-        """GetSongById - Returns song based on ID"""
+        """GetSongById - Returns Song based on ID
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def updateSong(self, request, context):
-        """UpdateSong - Updates info on existing song"""
+        """UpdateSong - Updates info on existing Song
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def deleteSongById(self, request, context):
-        """DeleteSong - Deletes song based on ID"""
+        """DeleteSong - Deletes Song based on ID
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def getAllSongs(self, request, context):
+        """GetAllSongs - Retrieves all songs from DB
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
@@ -70,26 +86,31 @@ class SongServicer(object):
 
 def add_SongServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "createSong": grpc.unary_unary_rpc_method_handler(
-            servicer.createSong,
-            request_deserializer=song__pb2.CreateSongRequest.FromString,
-            response_serializer=song__pb2.CreateSongResponse.SerializeToString,
-        ),
-        "getSongById": grpc.unary_unary_rpc_method_handler(
-            servicer.getSongById,
-            request_deserializer=song__pb2.GetSongByIdRequest.FromString,
-            response_serializer=song__pb2.GetSongByIdResponse.SerializeToString,
-        ),
-        "updateSong": grpc.unary_unary_rpc_method_handler(
-            servicer.updateSong,
-            request_deserializer=song__pb2.UpdateSongRequest.FromString,
-            response_serializer=song__pb2.UpdateSongResponse.SerializeToString,
-        ),
-        "deleteSongById": grpc.unary_unary_rpc_method_handler(
-            servicer.deleteSongById,
-            request_deserializer=song__pb2.DeleteSongByIdRequest.FromString,
-            response_serializer=song__pb2.DeleteSongByIdResponse.SerializeToString,
-        ),
+            'createSong': grpc.unary_unary_rpc_method_handler(
+                    servicer.createSong,
+                    request_deserializer=song__pb2.CreateSongRequest.FromString,
+                    response_serializer=song__pb2.CreateSongResponse.SerializeToString,
+            ),
+            'getSongById': grpc.unary_unary_rpc_method_handler(
+                    servicer.getSongById,
+                    request_deserializer=song__pb2.GetSongByIdRequest.FromString,
+                    response_serializer=song__pb2.GetSongByIdResponse.SerializeToString,
+            ),
+            'updateSong': grpc.unary_unary_rpc_method_handler(
+                    servicer.updateSong,
+                    request_deserializer=song__pb2.UpdateSongRequest.FromString,
+                    response_serializer=song__pb2.UpdateSongResponse.SerializeToString,
+            ),
+            'deleteSongById': grpc.unary_unary_rpc_method_handler(
+                    servicer.deleteSongById,
+                    request_deserializer=song__pb2.DeleteSongByIdRequest.FromString,
+                    response_serializer=song__pb2.DeleteSongByIdResponse.SerializeToString,
+            ),
+            'getAllSongs': grpc.unary_unary_rpc_method_handler(
+                    servicer.getAllSongs,
+                    request_deserializer=song__pb2.GetAllSongsRequest.FromString,
+                    response_serializer=song__pb2.GetAllSongsResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler("Song", rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
@@ -207,12 +228,22 @@ class Song(object):
             "/Song/deleteSongById",
             song__pb2.DeleteSongByIdRequest.SerializeToString,
             song__pb2.DeleteSongByIdResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getAllSongs(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Song/getAllSongs',
+            song__pb2.GetAllSongsRequest.SerializeToString,
+            song__pb2.GetAllSongsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

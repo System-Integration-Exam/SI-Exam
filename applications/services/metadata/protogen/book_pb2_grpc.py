@@ -32,10 +32,15 @@ class BookStub(object):
             response_deserializer=book__pb2.UpdateBookResponse.FromString,
         )
         self.deleteBookById = channel.unary_unary(
-            "/Book/deleteBookById",
-            request_serializer=book__pb2.DeleteBookByIdRequest.SerializeToString,
-            response_deserializer=book__pb2.DeleteBookByIdResponse.FromString,
-        )
+                '/Book/deleteBookById',
+                request_serializer=book__pb2.DeleteBookByIdRequest.SerializeToString,
+                response_deserializer=book__pb2.DeleteBookByIdResponse.FromString,
+                )
+        self.getAllBooks = channel.unary_unary(
+                '/Book/getAllBooks',
+                request_serializer=book__pb2.GetAllBooksRequest.SerializeToString,
+                response_deserializer=book__pb2.GetAllBooksResponse.FromString,
+                )
 
 
 class BookServicer(object):
@@ -67,29 +72,41 @@ class BookServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def getAllBooks(self, request, context):
+        """GetAllBooks - Retrieves all books from DB
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_BookServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "createBook": grpc.unary_unary_rpc_method_handler(
-            servicer.createBook,
-            request_deserializer=book__pb2.CreateBookRequest.FromString,
-            response_serializer=book__pb2.CreateBookResponse.SerializeToString,
-        ),
-        "getBookById": grpc.unary_unary_rpc_method_handler(
-            servicer.getBookById,
-            request_deserializer=book__pb2.GetBookByIdRequest.FromString,
-            response_serializer=book__pb2.GetBookByIdResponse.SerializeToString,
-        ),
-        "updateBook": grpc.unary_unary_rpc_method_handler(
-            servicer.updateBook,
-            request_deserializer=book__pb2.UpdateBookRequest.FromString,
-            response_serializer=book__pb2.UpdateBookResponse.SerializeToString,
-        ),
-        "deleteBookById": grpc.unary_unary_rpc_method_handler(
-            servicer.deleteBookById,
-            request_deserializer=book__pb2.DeleteBookByIdRequest.FromString,
-            response_serializer=book__pb2.DeleteBookByIdResponse.SerializeToString,
-        ),
+            'createBook': grpc.unary_unary_rpc_method_handler(
+                    servicer.createBook,
+                    request_deserializer=book__pb2.CreateBookRequest.FromString,
+                    response_serializer=book__pb2.CreateBookResponse.SerializeToString,
+            ),
+            'getBookById': grpc.unary_unary_rpc_method_handler(
+                    servicer.getBookById,
+                    request_deserializer=book__pb2.GetBookByIdRequest.FromString,
+                    response_serializer=book__pb2.GetBookByIdResponse.SerializeToString,
+            ),
+            'updateBook': grpc.unary_unary_rpc_method_handler(
+                    servicer.updateBook,
+                    request_deserializer=book__pb2.UpdateBookRequest.FromString,
+                    response_serializer=book__pb2.UpdateBookResponse.SerializeToString,
+            ),
+            'deleteBookById': grpc.unary_unary_rpc_method_handler(
+                    servicer.deleteBookById,
+                    request_deserializer=book__pb2.DeleteBookByIdRequest.FromString,
+                    response_serializer=book__pb2.DeleteBookByIdResponse.SerializeToString,
+            ),
+            'getAllBooks': grpc.unary_unary_rpc_method_handler(
+                    servicer.getAllBooks,
+                    request_deserializer=book__pb2.GetAllBooksRequest.FromString,
+                    response_serializer=book__pb2.GetAllBooksResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler("Book", rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
@@ -207,12 +224,22 @@ class Book(object):
             "/Book/deleteBookById",
             book__pb2.DeleteBookByIdRequest.SerializeToString,
             book__pb2.DeleteBookByIdResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def getAllBooks(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Book/getAllBooks',
+            book__pb2.GetAllBooksRequest.SerializeToString,
+            book__pb2.GetAllBooksResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

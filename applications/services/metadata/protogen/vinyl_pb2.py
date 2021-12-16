@@ -13,12 +13,12 @@ _sym_db = _symbol_database.Default()
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
-    name="vinyl.proto",
-    package="",
-    syntax="proto3",
-    serialized_options=None,
-    create_key=_descriptor._internal_create_key,
-    serialized_pb=b'\n\x0bvinyl.proto"?\n\x12\x43reateVinylRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61rtist\x18\x02 \x01(\t\x12\r\n\x05genre\x18\x03 \x01(\t",\n\x13\x43reateVinylResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t"!\n\x13GetVinylByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t"A\n\x14GetVinylByIdResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61rtist\x18\x02 \x01(\t\x12\r\n\x05genre\x18\x03 \x01(\t"?\n\x12UpdateVinylRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61rtist\x18\x02 \x01(\t\x12\r\n\x05genre\x18\x03 \x01(\t",\n\x13UpdateVinylResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t"$\n\x16\x44\x65leteVinylByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t"0\n\x17\x44\x65leteVinylByIdResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t2\x86\x02\n\x05Vinyl\x12:\n\x0b\x63reateVinyl\x12\x13.CreateVinylRequest\x1a\x14.CreateVinylResponse"\x00\x12=\n\x0cgetVinylById\x12\x14.GetVinylByIdRequest\x1a\x15.GetVinylByIdResponse"\x00\x12:\n\x0bupdateVinyl\x12\x13.UpdateVinylRequest\x1a\x14.UpdateVinylResponse"\x00\x12\x46\n\x0f\x64\x65leteVinylById\x12\x17.DeleteVinylByIdRequest\x1a\x18.DeleteVinylByIdResponse"\x00\x62\x06proto3',
+  name='vinyl.proto',
+  package='',
+  syntax='proto3',
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b'\n\x0bvinyl.proto\"?\n\x12\x43reateVinylRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61rtist\x18\x02 \x01(\t\x12\r\n\x05genre\x18\x03 \x01(\t\",\n\x13\x43reateVinylResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"!\n\x13GetVinylByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"A\n\x14GetVinylByIdResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61rtist\x18\x02 \x01(\t\x12\r\n\x05genre\x18\x03 \x01(\t\"?\n\x12UpdateVinylRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61rtist\x18\x02 \x01(\t\x12\r\n\x05genre\x18\x03 \x01(\t\",\n\x13UpdateVinylResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"$\n\x16\x44\x65leteVinylByIdRequest\x12\n\n\x02id\x18\x01 \x01(\t\"0\n\x17\x44\x65leteVinylByIdResponse\x12\x15\n\rstatusMessage\x18\x01 \x01(\t\"\x14\n\x12GetAllVinylRequest\"4\n\x13GetAllVinylResponse\x12\x1d\n\x06vinyls\x18\x01 \x03(\x0b\x32\r.VinylMessage\"9\n\x0cVinylMessage\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0e\n\x06\x61rtist\x18\x02 \x01(\t\x12\r\n\x05genre\x18\x03 \x01(\t2\xc2\x02\n\x05Vinyl\x12:\n\x0b\x63reateVinyl\x12\x13.CreateVinylRequest\x1a\x14.CreateVinylResponse\"\x00\x12=\n\x0cgetVinylById\x12\x14.GetVinylByIdRequest\x1a\x15.GetVinylByIdResponse\"\x00\x12:\n\x0bupdateVinyl\x12\x13.UpdateVinylRequest\x1a\x14.UpdateVinylResponse\"\x00\x12\x46\n\x0f\x64\x65leteVinylById\x12\x17.DeleteVinylByIdRequest\x1a\x18.DeleteVinylByIdResponse\"\x00\x12:\n\x0bgetAllVinyl\x12\x13.GetAllVinylRequest\x1a\x14.GetAllVinylResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -463,14 +463,121 @@ _DELETEVINYLBYIDRESPONSE = _descriptor.Descriptor(
     serialized_end=425,
 )
 
-DESCRIPTOR.message_types_by_name["CreateVinylRequest"] = _CREATEVINYLREQUEST
-DESCRIPTOR.message_types_by_name["CreateVinylResponse"] = _CREATEVINYLRESPONSE
-DESCRIPTOR.message_types_by_name["GetVinylByIdRequest"] = _GETVINYLBYIDREQUEST
-DESCRIPTOR.message_types_by_name["GetVinylByIdResponse"] = _GETVINYLBYIDRESPONSE
-DESCRIPTOR.message_types_by_name["UpdateVinylRequest"] = _UPDATEVINYLREQUEST
-DESCRIPTOR.message_types_by_name["UpdateVinylResponse"] = _UPDATEVINYLRESPONSE
-DESCRIPTOR.message_types_by_name["DeleteVinylByIdRequest"] = _DELETEVINYLBYIDREQUEST
-DESCRIPTOR.message_types_by_name["DeleteVinylByIdResponse"] = _DELETEVINYLBYIDRESPONSE
+
+_GETALLVINYLREQUEST = _descriptor.Descriptor(
+  name='GetAllVinylRequest',
+  full_name='GetAllVinylRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=427,
+  serialized_end=447,
+)
+
+
+_GETALLVINYLRESPONSE = _descriptor.Descriptor(
+  name='GetAllVinylResponse',
+  full_name='GetAllVinylResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='vinyls', full_name='GetAllVinylResponse.vinyls', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=449,
+  serialized_end=501,
+)
+
+
+_VINYLMESSAGE = _descriptor.Descriptor(
+  name='VinylMessage',
+  full_name='VinylMessage',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='VinylMessage.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='artist', full_name='VinylMessage.artist', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='genre', full_name='VinylMessage.genre', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=503,
+  serialized_end=560,
+)
+
+_GETALLVINYLRESPONSE.fields_by_name['vinyls'].message_type = _VINYLMESSAGE
+DESCRIPTOR.message_types_by_name['CreateVinylRequest'] = _CREATEVINYLREQUEST
+DESCRIPTOR.message_types_by_name['CreateVinylResponse'] = _CREATEVINYLRESPONSE
+DESCRIPTOR.message_types_by_name['GetVinylByIdRequest'] = _GETVINYLBYIDREQUEST
+DESCRIPTOR.message_types_by_name['GetVinylByIdResponse'] = _GETVINYLBYIDRESPONSE
+DESCRIPTOR.message_types_by_name['UpdateVinylRequest'] = _UPDATEVINYLREQUEST
+DESCRIPTOR.message_types_by_name['UpdateVinylResponse'] = _UPDATEVINYLRESPONSE
+DESCRIPTOR.message_types_by_name['DeleteVinylByIdRequest'] = _DELETEVINYLBYIDREQUEST
+DESCRIPTOR.message_types_by_name['DeleteVinylByIdResponse'] = _DELETEVINYLBYIDRESPONSE
+DESCRIPTOR.message_types_by_name['GetAllVinylRequest'] = _GETALLVINYLREQUEST
+DESCRIPTOR.message_types_by_name['GetAllVinylResponse'] = _GETALLVINYLRESPONSE
+DESCRIPTOR.message_types_by_name['VinylMessage'] = _VINYLMESSAGE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateVinylRequest = _reflection.GeneratedProtocolMessageType(
@@ -561,59 +668,86 @@ DeleteVinylByIdResponse = _reflection.GeneratedProtocolMessageType(
 )
 _sym_db.RegisterMessage(DeleteVinylByIdResponse)
 
+GetAllVinylRequest = _reflection.GeneratedProtocolMessageType('GetAllVinylRequest', (_message.Message,), {
+  'DESCRIPTOR' : _GETALLVINYLREQUEST,
+  '__module__' : 'vinyl_pb2'
+  # @@protoc_insertion_point(class_scope:GetAllVinylRequest)
+  })
+_sym_db.RegisterMessage(GetAllVinylRequest)
+
+GetAllVinylResponse = _reflection.GeneratedProtocolMessageType('GetAllVinylResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETALLVINYLRESPONSE,
+  '__module__' : 'vinyl_pb2'
+  # @@protoc_insertion_point(class_scope:GetAllVinylResponse)
+  })
+_sym_db.RegisterMessage(GetAllVinylResponse)
+
+VinylMessage = _reflection.GeneratedProtocolMessageType('VinylMessage', (_message.Message,), {
+  'DESCRIPTOR' : _VINYLMESSAGE,
+  '__module__' : 'vinyl_pb2'
+  # @@protoc_insertion_point(class_scope:VinylMessage)
+  })
+_sym_db.RegisterMessage(VinylMessage)
+
 
 _VINYL = _descriptor.ServiceDescriptor(
-    name="Vinyl",
-    full_name="Vinyl",
-    file=DESCRIPTOR,
+  name='Vinyl',
+  full_name='Vinyl',
+  file=DESCRIPTOR,
+  index=0,
+  serialized_options=None,
+  create_key=_descriptor._internal_create_key,
+  serialized_start=563,
+  serialized_end=885,
+  methods=[
+  _descriptor.MethodDescriptor(
+    name='createVinyl',
+    full_name='Vinyl.createVinyl',
     index=0,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-    serialized_start=428,
-    serialized_end=690,
-    methods=[
-        _descriptor.MethodDescriptor(
-            name="createVinyl",
-            full_name="Vinyl.createVinyl",
-            index=0,
-            containing_service=None,
-            input_type=_CREATEVINYLREQUEST,
-            output_type=_CREATEVINYLRESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.MethodDescriptor(
-            name="getVinylById",
-            full_name="Vinyl.getVinylById",
-            index=1,
-            containing_service=None,
-            input_type=_GETVINYLBYIDREQUEST,
-            output_type=_GETVINYLBYIDRESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.MethodDescriptor(
-            name="updateVinyl",
-            full_name="Vinyl.updateVinyl",
-            index=2,
-            containing_service=None,
-            input_type=_UPDATEVINYLREQUEST,
-            output_type=_UPDATEVINYLRESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.MethodDescriptor(
-            name="deleteVinylById",
-            full_name="Vinyl.deleteVinylById",
-            index=3,
-            containing_service=None,
-            input_type=_DELETEVINYLBYIDREQUEST,
-            output_type=_DELETEVINYLBYIDRESPONSE,
-            serialized_options=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-)
+  ),
+  _descriptor.MethodDescriptor(
+    name='getVinylById',
+    full_name='Vinyl.getVinylById',
+    index=1,
+    containing_service=None,
+    input_type=_GETVINYLBYIDREQUEST,
+    output_type=_GETVINYLBYIDRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='updateVinyl',
+    full_name='Vinyl.updateVinyl',
+    index=2,
+    containing_service=None,
+    input_type=_UPDATEVINYLREQUEST,
+    output_type=_UPDATEVINYLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='deleteVinylById',
+    full_name='Vinyl.deleteVinylById',
+    index=3,
+    containing_service=None,
+    input_type=_DELETEVINYLBYIDREQUEST,
+    output_type=_DELETEVINYLBYIDRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='getAllVinyl',
+    full_name='Vinyl.getAllVinyl',
+    index=4,
+    containing_service=None,
+    input_type=_GETALLVINYLREQUEST,
+    output_type=_GETALLVINYLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+])
 _sym_db.RegisterServiceDescriptor(_VINYL)
 
 DESCRIPTOR.services_by_name["Vinyl"] = _VINYL

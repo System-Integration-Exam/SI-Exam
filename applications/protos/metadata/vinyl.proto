@@ -11,6 +11,8 @@ service Vinyl {
     rpc updateVinyl(UpdateVinylRequest) returns (UpdateVinylResponse) {}
     //DeleteVinyl - Deletes Vinyl based on ID
     rpc deleteVinylById(DeleteVinylByIdRequest) returns (DeleteVinylByIdResponse) {}
+    //GetAllVinyl - Retrieves all Vinyl from database
+    rpc getAllVinyl(GetAllVinylRequest) returns (GetAllVinylResponse) {}
 }
 
 //Takes in a Vinyl object and returns a status message (success/error)
@@ -59,3 +61,17 @@ message DeleteVinylByIdResponse {
     string statusMessage = 1;
 }
 
+//Doesn't accept parameters
+//Request for getAllVinylRequest()
+message GetAllVinylRequest {}
+
+//Response for getAllVinylRequest()
+message GetAllVinylResponse {
+    repeated VinylMessage vinyls = 1;
+}
+
+message VinylMessage {
+    string id = 1;
+    string artist = 2;
+    string genre = 3;
+}

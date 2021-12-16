@@ -9,4 +9,10 @@ COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "./server.py"]
+WORKDIR /app/src/migrations
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 50051
+
+ENTRYPOINT [ "/app/src/init.sh" ]

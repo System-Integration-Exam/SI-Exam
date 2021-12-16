@@ -1,0 +1,14 @@
+
+[development]
+[development.database]
+db ="../data/metadata"
+
+[containerized]
+[containerized.database]
+db ="data/metadata"
+
+
+
+# From root of project. See utils/aliases.py
+[misc]
+migration_directory="/migrations"
