@@ -25,12 +25,13 @@ namespace Restock.Protos {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "Cg1yZXN0b2NrLnByb3RvEgdyZXN0b2NrGhtnb29nbGUvcHJvdG9idWYvZW1w",
-            "dHkucHJvdG8ihAEKDlJlc3RvY2tSZXF1ZXN0EhMKC3JlcXVlc3RUZXh0GAEg",
-            "ASgJEhAKCGl0ZW1UeXBlGAIgASgJEhkKEWV4aXN0aW5nSXRlbUNvdW50GAMg",
-            "ASgFEg8KB3N0b3JlSWQYBCABKAUiHwoISXRlbVR5cGUSCAoEQk9PSxAAEgkK",
-            "BVZJTllMEAEyUAoLUmVzdG9ja0dycGMSQQoOUmVxdWVzdFJlc3RvY2sSFy5y",
-            "ZXN0b2NrLlJlc3RvY2tSZXF1ZXN0GhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5",
-            "QhGqAg5SZXN0b2NrLlByb3Rvc2IGcHJvdG8z"));
+            "dHkucHJvdG8ipgEKDlJlc3RvY2tSZXF1ZXN0EhMKC3JlcXVlc3RUZXh0GAEg",
+            "ASgJEjIKCGl0ZW1UeXBlGAIgASgOMiAucmVzdG9jay5SZXN0b2NrUmVxdWVz",
+            "dC5JdGVtVHlwZRIZChFleGlzdGluZ0l0ZW1Db3VudBgDIAEoBRIPCgdzdG9y",
+            "ZUlkGAQgASgFIh8KCEl0ZW1UeXBlEggKBEJPT0sQABIJCgVWSU5ZTBABMlAK",
+            "C1Jlc3RvY2tHcnBjEkEKDlJlcXVlc3RSZXN0b2NrEhcucmVzdG9jay5SZXN0",
+            "b2NrUmVxdWVzdBoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eUIRqgIOUmVzdG9j",
+            "ay5Qcm90b3NiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -95,12 +96,12 @@ namespace Restock.Protos {
 
     /// <summary>Field number for the "itemType" field.</summary>
     public const int ItemTypeFieldNumber = 2;
-    private string itemType_ = "";
+    private global::Restock.Protos.RestockRequest.Types.ItemType itemType_ = global::Restock.Protos.RestockRequest.Types.ItemType.Book;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string ItemType {
+    public global::Restock.Protos.RestockRequest.Types.ItemType ItemType {
       get { return itemType_; }
       set {
-        itemType_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        itemType_ = value;
       }
     }
 
@@ -150,7 +151,7 @@ namespace Restock.Protos {
     public override int GetHashCode() {
       int hash = 1;
       if (RequestText.Length != 0) hash ^= RequestText.GetHashCode();
-      if (ItemType.Length != 0) hash ^= ItemType.GetHashCode();
+      if (ItemType != global::Restock.Protos.RestockRequest.Types.ItemType.Book) hash ^= ItemType.GetHashCode();
       if (ExistingItemCount != 0) hash ^= ExistingItemCount.GetHashCode();
       if (StoreId != 0) hash ^= StoreId.GetHashCode();
       if (_unknownFields != null) {
@@ -173,9 +174,9 @@ namespace Restock.Protos {
         output.WriteRawTag(10);
         output.WriteString(RequestText);
       }
-      if (ItemType.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(ItemType);
+      if (ItemType != global::Restock.Protos.RestockRequest.Types.ItemType.Book) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) ItemType);
       }
       if (ExistingItemCount != 0) {
         output.WriteRawTag(24);
@@ -198,9 +199,9 @@ namespace Restock.Protos {
         output.WriteRawTag(10);
         output.WriteString(RequestText);
       }
-      if (ItemType.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(ItemType);
+      if (ItemType != global::Restock.Protos.RestockRequest.Types.ItemType.Book) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) ItemType);
       }
       if (ExistingItemCount != 0) {
         output.WriteRawTag(24);
@@ -222,8 +223,8 @@ namespace Restock.Protos {
       if (RequestText.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(RequestText);
       }
-      if (ItemType.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(ItemType);
+      if (ItemType != global::Restock.Protos.RestockRequest.Types.ItemType.Book) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ItemType);
       }
       if (ExistingItemCount != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(ExistingItemCount);
@@ -245,7 +246,7 @@ namespace Restock.Protos {
       if (other.RequestText.Length != 0) {
         RequestText = other.RequestText;
       }
-      if (other.ItemType.Length != 0) {
+      if (other.ItemType != global::Restock.Protos.RestockRequest.Types.ItemType.Book) {
         ItemType = other.ItemType;
       }
       if (other.ExistingItemCount != 0) {
@@ -272,8 +273,8 @@ namespace Restock.Protos {
             RequestText = input.ReadString();
             break;
           }
-          case 18: {
-            ItemType = input.ReadString();
+          case 16: {
+            ItemType = (global::Restock.Protos.RestockRequest.Types.ItemType) input.ReadEnum();
             break;
           }
           case 24: {
@@ -302,8 +303,8 @@ namespace Restock.Protos {
             RequestText = input.ReadString();
             break;
           }
-          case 18: {
-            ItemType = input.ReadString();
+          case 16: {
+            ItemType = (global::Restock.Protos.RestockRequest.Types.ItemType) input.ReadEnum();
             break;
           }
           case 24: {

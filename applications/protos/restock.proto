@@ -11,7 +11,7 @@ service RestockGrpc {
 
 message RestockRequest {
   string requestText = 1;
-  string itemType = 2;
+  ItemType itemType = 2;
   int32 existingItemCount = 3;
   int32 storeId = 4;
 
