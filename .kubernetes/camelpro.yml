@@ -1,0 +1,23 @@
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: camelpro-job
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      volumes:
+      - name: csv-root
+        hostPath:
+          path: /srv/camel/csv
+          type: DirectoryOrCreate
+      containers:
+      - name: camelpro
+        image: camelpro:latest
+        imagePullPolicy: Never
+        volumeMounts:
+        - name: csv-root
+          mountPath: /app/src/main/resources/csvdata
+      restartPolicy: Never
+

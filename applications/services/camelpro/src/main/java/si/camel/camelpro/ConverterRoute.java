@@ -22,7 +22,7 @@ public class ConverterRoute {
                         .marshal()
                         .json(JsonLibrary.Jackson)
                         .log("${body}")
-                        .to("kafka:subscriptionserviceuserlistupdate-topic?brokers=localhost:9094")
+                        .to("kafka:subscriptionserviceuserlistupdate-topic?brokers=kafka-service:9092")
                         .end();
                 } catch (Exception e) {
                     e.printStackTrace();
