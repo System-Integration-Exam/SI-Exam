@@ -1,8 +1,9 @@
 from connection.sqlite_connection import execute_query
 from dataclasses import dataclass
 
+
 @dataclass
-class Book():
+class Book:
     title: str
     author: str
     rating: int

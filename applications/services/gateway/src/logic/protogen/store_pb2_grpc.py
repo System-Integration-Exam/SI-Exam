@@ -15,105 +15,105 @@ class StoreStub(object):
             channel: A grpc.Channel.
         """
         self.CreateStore = channel.unary_unary(
-            "/store.Store/CreateStore",
-            request_serializer=store__pb2.CreateStoreRequest.SerializeToString,
-            response_deserializer=store__pb2.CreateStoreResponse.FromString,
-        )
+                '/store.Store/CreateStore',
+                request_serializer=store__pb2.CreateStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.CreateStoreResponse.FromString,
+                )
         self.ReadStore = channel.unary_unary(
-            "/store.Store/ReadStore",
-            request_serializer=store__pb2.ReadStoreRequest.SerializeToString,
-            response_deserializer=store__pb2.ReadStoreResponse.FromString,
-        )
+                '/store.Store/ReadStore',
+                request_serializer=store__pb2.ReadStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.ReadStoreResponse.FromString,
+                )
         self.UpdateStore = channel.unary_unary(
-            "/store.Store/UpdateStore",
-            request_serializer=store__pb2.UpdateStoreRequest.SerializeToString,
-            response_deserializer=store__pb2.UpdateStoreResponse.FromString,
-        )
+                '/store.Store/UpdateStore',
+                request_serializer=store__pb2.UpdateStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.UpdateStoreResponse.FromString,
+                )
         self.UpdateStoreByAddress = channel.unary_unary(
-            "/store.Store/UpdateStoreByAddress",
-            request_serializer=store__pb2.UpdateStoreByAddressRequest.SerializeToString,
-            response_deserializer=store__pb2.UpdateStoreByAddressResponse.FromString,
-        )
+                '/store.Store/UpdateStoreByAddress',
+                request_serializer=store__pb2.UpdateStoreByAddressRequest.SerializeToString,
+                response_deserializer=store__pb2.UpdateStoreByAddressResponse.FromString,
+                )
         self.DeleteStore = channel.unary_unary(
-            "/store.Store/DeleteStore",
-            request_serializer=store__pb2.DeleteStoreRequest.SerializeToString,
-            response_deserializer=store__pb2.DeleteStoreResponse.FromString,
-        )
+                '/store.Store/DeleteStore',
+                request_serializer=store__pb2.DeleteStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.DeleteStoreResponse.FromString,
+                )
         self.DeleteStoreByAddress = channel.unary_unary(
-            "/store.Store/DeleteStoreByAddress",
-            request_serializer=store__pb2.DeleteStoreByAddressRequest.SerializeToString,
-            response_deserializer=store__pb2.DeleteStoreByAddressResponse.FromString,
-        )
+                '/store.Store/DeleteStoreByAddress',
+                request_serializer=store__pb2.DeleteStoreByAddressRequest.SerializeToString,
+                response_deserializer=store__pb2.DeleteStoreByAddressResponse.FromString,
+                )
         self.ReadStoreList = channel.unary_unary(
-            "/store.Store/ReadStoreList",
-            request_serializer=store__pb2.ReadStoreListRequest.SerializeToString,
-            response_deserializer=store__pb2.ReadStoreListResponse.FromString,
-        )
+                '/store.Store/ReadStoreList',
+                request_serializer=store__pb2.ReadStoreListRequest.SerializeToString,
+                response_deserializer=store__pb2.ReadStoreListResponse.FromString,
+                )
         self.ReadStoreByAddress = channel.unary_unary(
-            "/store.Store/ReadStoreByAddress",
-            request_serializer=store__pb2.ReadStoreByAddressRequest.SerializeToString,
-            response_deserializer=store__pb2.ReadStoreByAddressResponse.FromString,
-        )
+                '/store.Store/ReadStoreByAddress',
+                request_serializer=store__pb2.ReadStoreByAddressRequest.SerializeToString,
+                response_deserializer=store__pb2.ReadStoreByAddressResponse.FromString,
+                )
         self.AddBookToStore = channel.unary_unary(
-            "/store.Store/AddBookToStore",
-            request_serializer=store__pb2.AddBookToStoreRequest.SerializeToString,
-            response_deserializer=store__pb2.AddBookToStoreResponse.FromString,
-        )
+                '/store.Store/AddBookToStore',
+                request_serializer=store__pb2.AddBookToStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.AddBookToStoreResponse.FromString,
+                )
         self.RemoveBookFromStore = channel.unary_unary(
-            "/store.Store/RemoveBookFromStore",
-            request_serializer=store__pb2.RemoveBookFromStoreRequest.SerializeToString,
-            response_deserializer=store__pb2.RemoveBookFromStoreResponse.FromString,
-        )
+                '/store.Store/RemoveBookFromStore',
+                request_serializer=store__pb2.RemoveBookFromStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.RemoveBookFromStoreResponse.FromString,
+                )
         self.GetAmountOfSpecificBookFromStore = channel.unary_unary(
-            "/store.Store/GetAmountOfSpecificBookFromStore",
-            request_serializer=store__pb2.GetAmountOfSpecificBookFromStoreRequest.SerializeToString,
-            response_deserializer=store__pb2.GetAmountOfSpecificBookFromStoreResponse.FromString,
-        )
+                '/store.Store/GetAmountOfSpecificBookFromStore',
+                request_serializer=store__pb2.GetAmountOfSpecificBookFromStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.GetAmountOfSpecificBookFromStoreResponse.FromString,
+                )
         self.AddVinylToStore = channel.unary_unary(
-            "/store.Store/AddVinylToStore",
-            request_serializer=store__pb2.AddVinylToStoreRequest.SerializeToString,
-            response_deserializer=store__pb2.AddVinylToStoreResponse.FromString,
-        )
+                '/store.Store/AddVinylToStore',
+                request_serializer=store__pb2.AddVinylToStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.AddVinylToStoreResponse.FromString,
+                )
         self.RemoveVinylFromStore = channel.unary_unary(
-            "/store.Store/RemoveVinylFromStore",
-            request_serializer=store__pb2.RemoveVinylFromStoreRequest.SerializeToString,
-            response_deserializer=store__pb2.RemoveVinylFromStoreResponse.FromString,
-        )
+                '/store.Store/RemoveVinylFromStore',
+                request_serializer=store__pb2.RemoveVinylFromStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.RemoveVinylFromStoreResponse.FromString,
+                )
         self.GetAmountOfSpecificVinylFromStore = channel.unary_unary(
-            "/store.Store/GetAmountOfSpecificVinylFromStore",
-            request_serializer=store__pb2.GetAmountOfSpecificVinylFromStoreRequest.SerializeToString,
-            response_deserializer=store__pb2.GetAmountOfSpecificVinylFromStoreResponse.FromString,
-        )
+                '/store.Store/GetAmountOfSpecificVinylFromStore',
+                request_serializer=store__pb2.GetAmountOfSpecificVinylFromStoreRequest.SerializeToString,
+                response_deserializer=store__pb2.GetAmountOfSpecificVinylFromStoreResponse.FromString,
+                )
         self.AddToStockInfo = channel.unary_unary(
-            "/store.Store/AddToStockInfo",
-            request_serializer=store__pb2.AddToStockInfoRequest.SerializeToString,
-            response_deserializer=store__pb2.AddToStockInfoResponse.FromString,
-        )
+                '/store.Store/AddToStockInfo',
+                request_serializer=store__pb2.AddToStockInfoRequest.SerializeToString,
+                response_deserializer=store__pb2.AddToStockInfoResponse.FromString,
+                )
         self.RemoveFromStockInfo = channel.unary_unary(
-            "/store.Store/RemoveFromStockInfo",
-            request_serializer=store__pb2.RemoveFromStockInfoRequest.SerializeToString,
-            response_deserializer=store__pb2.RemoveFromStockInfoResponse.FromString,
-        )
+                '/store.Store/RemoveFromStockInfo',
+                request_serializer=store__pb2.RemoveFromStockInfoRequest.SerializeToString,
+                response_deserializer=store__pb2.RemoveFromStockInfoResponse.FromString,
+                )
         self.ReadStockInfo = channel.unary_unary(
-            "/store.Store/ReadStockInfo",
-            request_serializer=store__pb2.ReadStockInfoRequest.SerializeToString,
-            response_deserializer=store__pb2.ReadStockInfoResponse.FromString,
-        )
+                '/store.Store/ReadStockInfo',
+                request_serializer=store__pb2.ReadStockInfoRequest.SerializeToString,
+                response_deserializer=store__pb2.ReadStockInfoResponse.FromString,
+                )
         self.IncrementReservedStockInfo = channel.unary_unary(
-            "/store.Store/IncrementReservedStockInfo",
-            request_serializer=store__pb2.IncrementReservedStockInfoRequest.SerializeToString,
-            response_deserializer=store__pb2.IncrementReservedStockInfoResponse.FromString,
-        )
+                '/store.Store/IncrementReservedStockInfo',
+                request_serializer=store__pb2.IncrementReservedStockInfoRequest.SerializeToString,
+                response_deserializer=store__pb2.IncrementReservedStockInfoResponse.FromString,
+                )
         self.DecrementReservedStockInfo = channel.unary_unary(
-            "/store.Store/DecrementReservedStockInfo",
-            request_serializer=store__pb2.DecrementReservedStockInfoRequest.SerializeToString,
-            response_deserializer=store__pb2.DecrementReservedStockInfoResponse.FromString,
-        )
+                '/store.Store/DecrementReservedStockInfo',
+                request_serializer=store__pb2.DecrementReservedStockInfoRequest.SerializeToString,
+                response_deserializer=store__pb2.DecrementReservedStockInfoResponse.FromString,
+                )
         self.ReturnItemStockInfo = channel.unary_unary(
-            "/store.Store/ReturnItemStockInfo",
-            request_serializer=store__pb2.ReturnItemStockInfoRequest.SerializeToString,
-            response_deserializer=store__pb2.ReturnItemStockInfoResponse.FromString,
-        )
+                '/store.Store/ReturnItemStockInfo',
+                request_serializer=store__pb2.ReturnItemStockInfoRequest.SerializeToString,
+                response_deserializer=store__pb2.ReturnItemStockInfoResponse.FromString,
+                )
 
 
 class StoreServicer(object):
@@ -122,813 +122,574 @@ class StoreServicer(object):
     def CreateStore(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ReadStore(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def UpdateStore(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def UpdateStoreByAddress(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def DeleteStore(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def DeleteStoreByAddress(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ReadStoreList(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ReadStoreByAddress(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def AddBookToStore(self, request, context):
-        """ """
+        """
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def RemoveBookFromStore(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def GetAmountOfSpecificBookFromStore(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def AddVinylToStore(self, request, context):
-        """ """
+        """
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def RemoveVinylFromStore(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def GetAmountOfSpecificVinylFromStore(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def AddToStockInfo(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def RemoveFromStockInfo(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ReadStockInfo(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def IncrementReservedStockInfo(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def DecrementReservedStockInfo(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ReturnItemStockInfo(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
 
 def add_StoreServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "CreateStore": grpc.unary_unary_rpc_method_handler(
-            servicer.CreateStore,
-            request_deserializer=store__pb2.CreateStoreRequest.FromString,
-            response_serializer=store__pb2.CreateStoreResponse.SerializeToString,
-        ),
-        "ReadStore": grpc.unary_unary_rpc_method_handler(
-            servicer.ReadStore,
-            request_deserializer=store__pb2.ReadStoreRequest.FromString,
-            response_serializer=store__pb2.ReadStoreResponse.SerializeToString,
-        ),
-        "UpdateStore": grpc.unary_unary_rpc_method_handler(
-            servicer.UpdateStore,
-            request_deserializer=store__pb2.UpdateStoreRequest.FromString,
-            response_serializer=store__pb2.UpdateStoreResponse.SerializeToString,
-        ),
-        "UpdateStoreByAddress": grpc.unary_unary_rpc_method_handler(
-            servicer.UpdateStoreByAddress,
-            request_deserializer=store__pb2.UpdateStoreByAddressRequest.FromString,
-            response_serializer=store__pb2.UpdateStoreByAddressResponse.SerializeToString,
-        ),
-        "DeleteStore": grpc.unary_unary_rpc_method_handler(
-            servicer.DeleteStore,
-            request_deserializer=store__pb2.DeleteStoreRequest.FromString,
-            response_serializer=store__pb2.DeleteStoreResponse.SerializeToString,
-        ),
-        "DeleteStoreByAddress": grpc.unary_unary_rpc_method_handler(
-            servicer.DeleteStoreByAddress,
-            request_deserializer=store__pb2.DeleteStoreByAddressRequest.FromString,
-            response_serializer=store__pb2.DeleteStoreByAddressResponse.SerializeToString,
-        ),
-        "ReadStoreList": grpc.unary_unary_rpc_method_handler(
-            servicer.ReadStoreList,
-            request_deserializer=store__pb2.ReadStoreListRequest.FromString,
-            response_serializer=store__pb2.ReadStoreListResponse.SerializeToString,
-        ),
-        "ReadStoreByAddress": grpc.unary_unary_rpc_method_handler(
-            servicer.ReadStoreByAddress,
-            request_deserializer=store__pb2.ReadStoreByAddressRequest.FromString,
-            response_serializer=store__pb2.ReadStoreByAddressResponse.SerializeToString,
-        ),
-        "AddBookToStore": grpc.unary_unary_rpc_method_handler(
-            servicer.AddBookToStore,
-            request_deserializer=store__pb2.AddBookToStoreRequest.FromString,
-            response_serializer=store__pb2.AddBookToStoreResponse.SerializeToString,
-        ),
-        "RemoveBookFromStore": grpc.unary_unary_rpc_method_handler(
-            servicer.RemoveBookFromStore,
-            request_deserializer=store__pb2.RemoveBookFromStoreRequest.FromString,
-            response_serializer=store__pb2.RemoveBookFromStoreResponse.SerializeToString,
-        ),
-        "GetAmountOfSpecificBookFromStore": grpc.unary_unary_rpc_method_handler(
-            servicer.GetAmountOfSpecificBookFromStore,
-            request_deserializer=store__pb2.GetAmountOfSpecificBookFromStoreRequest.FromString,
-            response_serializer=store__pb2.GetAmountOfSpecificBookFromStoreResponse.SerializeToString,
-        ),
-        "AddVinylToStore": grpc.unary_unary_rpc_method_handler(
-            servicer.AddVinylToStore,
-            request_deserializer=store__pb2.AddVinylToStoreRequest.FromString,
-            response_serializer=store__pb2.AddVinylToStoreResponse.SerializeToString,
-        ),
-        "RemoveVinylFromStore": grpc.unary_unary_rpc_method_handler(
-            servicer.RemoveVinylFromStore,
-            request_deserializer=store__pb2.RemoveVinylFromStoreRequest.FromString,
-            response_serializer=store__pb2.RemoveVinylFromStoreResponse.SerializeToString,
-        ),
-        "GetAmountOfSpecificVinylFromStore": grpc.unary_unary_rpc_method_handler(
-            servicer.GetAmountOfSpecificVinylFromStore,
-            request_deserializer=store__pb2.GetAmountOfSpecificVinylFromStoreRequest.FromString,
-            response_serializer=store__pb2.GetAmountOfSpecificVinylFromStoreResponse.SerializeToString,
-        ),
-        "AddToStockInfo": grpc.unary_unary_rpc_method_handler(
-            servicer.AddToStockInfo,
-            request_deserializer=store__pb2.AddToStockInfoRequest.FromString,
-            response_serializer=store__pb2.AddToStockInfoResponse.SerializeToString,
-        ),
-        "RemoveFromStockInfo": grpc.unary_unary_rpc_method_handler(
-            servicer.RemoveFromStockInfo,
-            request_deserializer=store__pb2.RemoveFromStockInfoRequest.FromString,
-            response_serializer=store__pb2.RemoveFromStockInfoResponse.SerializeToString,
-        ),
-        "ReadStockInfo": grpc.unary_unary_rpc_method_handler(
-            servicer.ReadStockInfo,
-            request_deserializer=store__pb2.ReadStockInfoRequest.FromString,
-            response_serializer=store__pb2.ReadStockInfoResponse.SerializeToString,
-        ),
-        "IncrementReservedStockInfo": grpc.unary_unary_rpc_method_handler(
-            servicer.IncrementReservedStockInfo,
-            request_deserializer=store__pb2.IncrementReservedStockInfoRequest.FromString,
-            response_serializer=store__pb2.IncrementReservedStockInfoResponse.SerializeToString,
-        ),
-        "DecrementReservedStockInfo": grpc.unary_unary_rpc_method_handler(
-            servicer.DecrementReservedStockInfo,
-            request_deserializer=store__pb2.DecrementReservedStockInfoRequest.FromString,
-            response_serializer=store__pb2.DecrementReservedStockInfoResponse.SerializeToString,
-        ),
-        "ReturnItemStockInfo": grpc.unary_unary_rpc_method_handler(
-            servicer.ReturnItemStockInfo,
-            request_deserializer=store__pb2.ReturnItemStockInfoRequest.FromString,
-            response_serializer=store__pb2.ReturnItemStockInfoResponse.SerializeToString,
-        ),
+            'CreateStore': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateStore,
+                    request_deserializer=store__pb2.CreateStoreRequest.FromString,
+                    response_serializer=store__pb2.CreateStoreResponse.SerializeToString,
+            ),
+            'ReadStore': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadStore,
+                    request_deserializer=store__pb2.ReadStoreRequest.FromString,
+                    response_serializer=store__pb2.ReadStoreResponse.SerializeToString,
+            ),
+            'UpdateStore': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateStore,
+                    request_deserializer=store__pb2.UpdateStoreRequest.FromString,
+                    response_serializer=store__pb2.UpdateStoreResponse.SerializeToString,
+            ),
+            'UpdateStoreByAddress': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateStoreByAddress,
+                    request_deserializer=store__pb2.UpdateStoreByAddressRequest.FromString,
+                    response_serializer=store__pb2.UpdateStoreByAddressResponse.SerializeToString,
+            ),
+            'DeleteStore': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteStore,
+                    request_deserializer=store__pb2.DeleteStoreRequest.FromString,
+                    response_serializer=store__pb2.DeleteStoreResponse.SerializeToString,
+            ),
+            'DeleteStoreByAddress': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteStoreByAddress,
+                    request_deserializer=store__pb2.DeleteStoreByAddressRequest.FromString,
+                    response_serializer=store__pb2.DeleteStoreByAddressResponse.SerializeToString,
+            ),
+            'ReadStoreList': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadStoreList,
+                    request_deserializer=store__pb2.ReadStoreListRequest.FromString,
+                    response_serializer=store__pb2.ReadStoreListResponse.SerializeToString,
+            ),
+            'ReadStoreByAddress': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadStoreByAddress,
+                    request_deserializer=store__pb2.ReadStoreByAddressRequest.FromString,
+                    response_serializer=store__pb2.ReadStoreByAddressResponse.SerializeToString,
+            ),
+            'AddBookToStore': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddBookToStore,
+                    request_deserializer=store__pb2.AddBookToStoreRequest.FromString,
+                    response_serializer=store__pb2.AddBookToStoreResponse.SerializeToString,
+            ),
+            'RemoveBookFromStore': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveBookFromStore,
+                    request_deserializer=store__pb2.RemoveBookFromStoreRequest.FromString,
+                    response_serializer=store__pb2.RemoveBookFromStoreResponse.SerializeToString,
+            ),
+            'GetAmountOfSpecificBookFromStore': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAmountOfSpecificBookFromStore,
+                    request_deserializer=store__pb2.GetAmountOfSpecificBookFromStoreRequest.FromString,
+                    response_serializer=store__pb2.GetAmountOfSpecificBookFromStoreResponse.SerializeToString,
+            ),
+            'AddVinylToStore': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddVinylToStore,
+                    request_deserializer=store__pb2.AddVinylToStoreRequest.FromString,
+                    response_serializer=store__pb2.AddVinylToStoreResponse.SerializeToString,
+            ),
+            'RemoveVinylFromStore': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveVinylFromStore,
+                    request_deserializer=store__pb2.RemoveVinylFromStoreRequest.FromString,
+                    response_serializer=store__pb2.RemoveVinylFromStoreResponse.SerializeToString,
+            ),
+            'GetAmountOfSpecificVinylFromStore': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetAmountOfSpecificVinylFromStore,
+                    request_deserializer=store__pb2.GetAmountOfSpecificVinylFromStoreRequest.FromString,
+                    response_serializer=store__pb2.GetAmountOfSpecificVinylFromStoreResponse.SerializeToString,
+            ),
+            'AddToStockInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.AddToStockInfo,
+                    request_deserializer=store__pb2.AddToStockInfoRequest.FromString,
+                    response_serializer=store__pb2.AddToStockInfoResponse.SerializeToString,
+            ),
+            'RemoveFromStockInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.RemoveFromStockInfo,
+                    request_deserializer=store__pb2.RemoveFromStockInfoRequest.FromString,
+                    response_serializer=store__pb2.RemoveFromStockInfoResponse.SerializeToString,
+            ),
+            'ReadStockInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadStockInfo,
+                    request_deserializer=store__pb2.ReadStockInfoRequest.FromString,
+                    response_serializer=store__pb2.ReadStockInfoResponse.SerializeToString,
+            ),
+            'IncrementReservedStockInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.IncrementReservedStockInfo,
+                    request_deserializer=store__pb2.IncrementReservedStockInfoRequest.FromString,
+                    response_serializer=store__pb2.IncrementReservedStockInfoResponse.SerializeToString,
+            ),
+            'DecrementReservedStockInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.DecrementReservedStockInfo,
+                    request_deserializer=store__pb2.DecrementReservedStockInfoRequest.FromString,
+                    response_serializer=store__pb2.DecrementReservedStockInfoResponse.SerializeToString,
+            ),
+            'ReturnItemStockInfo': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReturnItemStockInfo,
+                    request_deserializer=store__pb2.ReturnItemStockInfoRequest.FromString,
+                    response_serializer=store__pb2.ReturnItemStockInfoResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        "store.Store", rpc_method_handlers
-    )
+            'store.Store', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
-# This class is part of an EXPERIMENTAL API.
+ # This class is part of an EXPERIMENTAL API.
 class Store(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def CreateStore(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def CreateStore(request,
             target,
-            "/store.Store/CreateStore",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/CreateStore',
             store__pb2.CreateStoreRequest.SerializeToString,
             store__pb2.CreateStoreResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ReadStore(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ReadStore(request,
             target,
-            "/store.Store/ReadStore",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/ReadStore',
             store__pb2.ReadStoreRequest.SerializeToString,
             store__pb2.ReadStoreResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateStore(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def UpdateStore(request,
             target,
-            "/store.Store/UpdateStore",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/UpdateStore',
             store__pb2.UpdateStoreRequest.SerializeToString,
             store__pb2.UpdateStoreResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateStoreByAddress(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def UpdateStoreByAddress(request,
             target,
-            "/store.Store/UpdateStoreByAddress",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/UpdateStoreByAddress',
             store__pb2.UpdateStoreByAddressRequest.SerializeToString,
             store__pb2.UpdateStoreByAddressResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteStore(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def DeleteStore(request,
             target,
-            "/store.Store/DeleteStore",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/DeleteStore',
             store__pb2.DeleteStoreRequest.SerializeToString,
             store__pb2.DeleteStoreResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DeleteStoreByAddress(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def DeleteStoreByAddress(request,
             target,
-            "/store.Store/DeleteStoreByAddress",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/DeleteStoreByAddress',
             store__pb2.DeleteStoreByAddressRequest.SerializeToString,
             store__pb2.DeleteStoreByAddressResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ReadStoreList(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ReadStoreList(request,
             target,
-            "/store.Store/ReadStoreList",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/ReadStoreList',
             store__pb2.ReadStoreListRequest.SerializeToString,
             store__pb2.ReadStoreListResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ReadStoreByAddress(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ReadStoreByAddress(request,
             target,
-            "/store.Store/ReadStoreByAddress",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/ReadStoreByAddress',
             store__pb2.ReadStoreByAddressRequest.SerializeToString,
             store__pb2.ReadStoreByAddressResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def AddBookToStore(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def AddBookToStore(request,
             target,
-            "/store.Store/AddBookToStore",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/AddBookToStore',
             store__pb2.AddBookToStoreRequest.SerializeToString,
             store__pb2.AddBookToStoreResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def RemoveBookFromStore(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def RemoveBookFromStore(request,
             target,
-            "/store.Store/RemoveBookFromStore",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/RemoveBookFromStore',
             store__pb2.RemoveBookFromStoreRequest.SerializeToString,
             store__pb2.RemoveBookFromStoreResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetAmountOfSpecificBookFromStore(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def GetAmountOfSpecificBookFromStore(request,
             target,
-            "/store.Store/GetAmountOfSpecificBookFromStore",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/GetAmountOfSpecificBookFromStore',
             store__pb2.GetAmountOfSpecificBookFromStoreRequest.SerializeToString,
             store__pb2.GetAmountOfSpecificBookFromStoreResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def AddVinylToStore(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def AddVinylToStore(request,
             target,
-            "/store.Store/AddVinylToStore",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/AddVinylToStore',
             store__pb2.AddVinylToStoreRequest.SerializeToString,
             store__pb2.AddVinylToStoreResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def RemoveVinylFromStore(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def RemoveVinylFromStore(request,
             target,
-            "/store.Store/RemoveVinylFromStore",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/RemoveVinylFromStore',
             store__pb2.RemoveVinylFromStoreRequest.SerializeToString,
             store__pb2.RemoveVinylFromStoreResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetAmountOfSpecificVinylFromStore(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def GetAmountOfSpecificVinylFromStore(request,
             target,
-            "/store.Store/GetAmountOfSpecificVinylFromStore",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/GetAmountOfSpecificVinylFromStore',
             store__pb2.GetAmountOfSpecificVinylFromStoreRequest.SerializeToString,
             store__pb2.GetAmountOfSpecificVinylFromStoreResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def AddToStockInfo(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def AddToStockInfo(request,
             target,
-            "/store.Store/AddToStockInfo",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/AddToStockInfo',
             store__pb2.AddToStockInfoRequest.SerializeToString,
             store__pb2.AddToStockInfoResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def RemoveFromStockInfo(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def RemoveFromStockInfo(request,
             target,
-            "/store.Store/RemoveFromStockInfo",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/RemoveFromStockInfo',
             store__pb2.RemoveFromStockInfoRequest.SerializeToString,
             store__pb2.RemoveFromStockInfoResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ReadStockInfo(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ReadStockInfo(request,
             target,
-            "/store.Store/ReadStockInfo",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/ReadStockInfo',
             store__pb2.ReadStockInfoRequest.SerializeToString,
             store__pb2.ReadStockInfoResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def IncrementReservedStockInfo(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def IncrementReservedStockInfo(request,
             target,
-            "/store.Store/IncrementReservedStockInfo",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/IncrementReservedStockInfo',
             store__pb2.IncrementReservedStockInfoRequest.SerializeToString,
             store__pb2.IncrementReservedStockInfoResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def DecrementReservedStockInfo(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def DecrementReservedStockInfo(request,
             target,
-            "/store.Store/DecrementReservedStockInfo",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/DecrementReservedStockInfo',
             store__pb2.DecrementReservedStockInfoRequest.SerializeToString,
             store__pb2.DecrementReservedStockInfoResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ReturnItemStockInfo(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ReturnItemStockInfo(request,
             target,
-            "/store.Store/ReturnItemStockInfo",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/store.Store/ReturnItemStockInfo',
             store__pb2.ReturnItemStockInfoRequest.SerializeToString,
             store__pb2.ReturnItemStockInfoResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

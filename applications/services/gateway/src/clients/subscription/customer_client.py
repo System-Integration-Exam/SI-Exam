@@ -22,6 +22,7 @@ def create_customer(new_customer_json):
         _create_stub()
         .CreateCustomer(
             customer_pb2.CreateCustomerRequest(
+                subscription_id=new_customer_json["subscription_id"],
                 first_name=new_customer_json["first_name"],
                 last_name=new_customer_json["last_name"],
                 email=new_customer_json["email"],
@@ -39,6 +40,25 @@ def read_customer(customer_id):
     return MessageToJson(response)
 
 
+def read_customer_list():
+    response = _create_stub().ReadCustomerList(customer_pb2.ReadCustomerListRequest())
+    customers = []
+    for cus in response.customer_list:
+        obj = {
+            "id": cus.id,
+            "subscription_id": cus.subscription_id,
+            "first_name": cus.first_name,
+            "last_name": cus.last_name,
+            "email": cus.email,
+            "phone_number": cus.phone_number,
+            "created_at": cus.created_at,
+            "updated_at": cus.updated_at,
+        }
+        customers.append(obj)
+
+    return JSON.dumps(customers)
+
+
 def update_customer(update_customer_json, id):
     return (
         _create_stub()
@@ -53,3 +73,10 @@ def update_customer(update_customer_json, id):
         )
         .msg
     )
+
+
+def delete_customer(customer_id):
+    response = _create_stub().DeleteCustomer(
+        customer_pb2.DeleteCustomerRequest(id=customer_id)
+    )
+    return MessageToJson(response)

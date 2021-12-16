@@ -5,9 +5,9 @@ from utils.config import DATABASE_CONFIG
 
 DATABASE = DATABASE_CONFIG["db"]
 
+
 def _make_sqlite_connection():
     return sqlite3.connect(f"{DATABASE}.db")
-
 
 
 def execute_query(query):
@@ -21,5 +21,3 @@ def execute_query(query):
     finally:
         cursor.close()
         conn.close()
-        
-        

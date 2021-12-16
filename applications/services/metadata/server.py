@@ -22,10 +22,19 @@ import logic.facades.vinyl_facade as VF
 class BookServicer(book_pb2_grpc.BookServicer):
     # takes in a book object and returns a status message (success/error)
     def createBook(self, request, context):
-        response = book_pb2.CreateBookResponse()
+        response = None
         try:
-            response.statusMessage = BF.createBook(request)
-        except Exception:
+            book = BF.createBook(request)
+            response = book_pb2.CreateBookResponse(
+                book=book_pb2.BookMessage(
+                    id=book[0],
+                    title=book[1],
+                    author=book[2],
+                    rating=book[3],
+                )
+            )
+        except Exception as e:
+            print(e)
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with creating the book")
         return response
@@ -42,7 +51,7 @@ class BookServicer(book_pb2_grpc.BookServicer):
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with getting the book")
-        return response        
+        return response
 
     # takes in a book object and returns status message
     def updateBook(self, request, context):
@@ -71,7 +80,9 @@ class BookServicer(book_pb2_grpc.BookServicer):
         try:
             allBooks = BF.getAllBooks()
             for x in allBooks:
-                bookmsg = book_pb2.BookMessage(id=x.id, title=x.title, author=x.author, rating=x.rating)
+                bookmsg = book_pb2.BookMessage(
+                    id=x.id, title=x.title, author=x.author, rating=x.rating
+                )
                 response.books.append(bookmsg)
         except Exception as e:
             context.set_code(grpc.StatusCode.INTERNAL)
@@ -83,10 +94,20 @@ class BookServicer(book_pb2_grpc.BookServicer):
 class SongServicer(song_pb2_grpc.SongServicer):
     # takes in a song object and returns a status message (success/error)
     def createSong(self, request, context):
-        response = song_pb2.CreateSongResponse()
-        try:            
-            response.statusMessage = SF.createSong(request)
-        except Exception:
+        # response = song_pb2.CreateSongResponse()
+        response = None
+        try:
+            song = SF.createSong(request)
+            response = song_pb2.CreateSongResponse(
+                song=song_pb2.SongMessage(
+                    id=song[0],
+                    title=song[1],
+                    duration_sec=song[2],
+                    vinyl_id=song[3],
+                )
+            )
+        except Exception as e:
+            print(e)
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with creating the song")
         return response
@@ -103,7 +124,7 @@ class SongServicer(song_pb2_grpc.SongServicer):
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with getting the book")
-        return response  
+        return response
 
     # takes in a song object and returns status message
     def updateSong(self, request, context):
@@ -131,7 +152,12 @@ class SongServicer(song_pb2_grpc.SongServicer):
         try:
             allSongs = SF.getAllSongs()
             for x in allSongs:
-                songmsg = song_pb2.SongMessage(id=x.id, title=x.title, duration_sec=x.duration_sec, vinyl_id=x.vinyl_id)
+                songmsg = song_pb2.SongMessage(
+                    id=x.id,
+                    title=x.title,
+                    duration_sec=x.duration_sec,
+                    vinyl_id=x.vinyl_id,
+                )
                 response.songs.append(songmsg)
         except Exception as e:
             context.set_code(grpc.StatusCode.INTERNAL)
@@ -143,10 +169,20 @@ class SongServicer(song_pb2_grpc.SongServicer):
 class VinylServicer(vinyl_pb2_grpc.VinylServicer):
     # takes in a vinyl object and returns a status message (success/error)
     def createVinyl(self, request, context):
+        response = None
         try:
-            response = vinyl_pb2.CreateVinylResponse()
-            response.statusMessage = VF.createVinyl(request)
-        except Exception:
+            #response = vinyl_pb2.CreateVinylResponse()
+            #response.statusMessage = VF.createVinyl(request)
+            vinyl = VF.createVinyl(request)
+            response = vinyl_pb2.CreateVinylResponse(
+                vinyl=vinyl_pb2.VinylMessage(
+                    id=vinyl[0],
+                    artist=vinyl[1],
+                    genre=vinyl[2],
+                )
+            )
+        except Exception as e:
+            print(e)
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with creating the vinyl")
         return response
@@ -162,7 +198,7 @@ class VinylServicer(vinyl_pb2_grpc.VinylServicer):
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with getting the vinyl")
-        return response 
+        return response
 
     # takes in a vinyl object and returns status message
     def updateVinyl(self, request, context):
@@ -184,15 +220,17 @@ class VinylServicer(vinyl_pb2_grpc.VinylServicer):
             context.set_details("Something went wrong with updating the vinyl")
         return response
 
-            # takes no parameter and returns list of song objects
-    
+        # takes no parameter and returns list of song objects
+
     # takes no parameter and returns list of vinyl objects
     def getAllVinyl(self, request, context):
         response = vinyl_pb2.GetAllVinylResponse()
         try:
             allVinyls = VF.getAllVinyl()
             for x in allVinyls:
-                vinylmsg = vinyl_pb2.VinylMessage(id=x.id, artist=x.artist, genre=x.genre)
+                vinylmsg = vinyl_pb2.VinylMessage(
+                    id=x.id, artist=x.artist, genre=x.genre
+                )
                 response.vinyls.append(vinylmsg)
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
@@ -210,9 +248,9 @@ book_pb2_grpc.add_BookServicer_to_server(BookServicer(), server)
 song_pb2_grpc.add_SongServicer_to_server(SongServicer(), server)
 vinyl_pb2_grpc.add_VinylServicer_to_server(VinylServicer(), server)
 
-# listen on port 50051
-print('Starting server. Listening on port 50051.')
-server.add_insecure_port('0.0.0.0:50051')
+# listen on port 20070
+print("Starting server. Listening on port 20070.")
+server.add_insecure_port("0.0.0.0:20070")
 server.start()
 
 

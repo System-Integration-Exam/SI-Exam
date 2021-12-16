@@ -67,6 +67,17 @@ grpcio = ">=1.42.0"
 protobuf = ">=3.5.0.post1,<4.0dev"
 
 [[package]]
+name = "kafka-python"
+version = "2.0.2"
+description = "Pure Python client for Apache Kafka"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+crc32c = ["crc32c"]
+
+[[package]]
 name = "more-itertools"
 version = "8.12.0"
 description = "More routines for operating on iterables, beyond itertools"
@@ -191,7 +202,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "6f53a2e072b7c2a4f833cd4e1d3535e58e82a14eff5a69cef4cadb2ef234f0cb"
+content-hash = "1744dd16547d66aad7cc6d8fb87ef6a192f6bed88213c114200c23f42fcbc9e4"
 
 [metadata.files]
 atomicwrites = [
@@ -301,6 +312,10 @@ grpcio-tools = [
     {file = "grpcio_tools-1.42.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d934077076018ce3a2a7a6597ee50275cf0cbe0d3d59098e5ca5c3f239f6c5d8"},
     {file = "grpcio_tools-1.42.0-cp39-cp39-win32.whl", hash = "sha256:840559ea51d97b8d27db6ea632183b800af7c04ae451bf59262a9204617ea981"},
     {file = "grpcio_tools-1.42.0-cp39-cp39-win_amd64.whl", hash = "sha256:8df874b9f3d28343baf713a227ae801102cc0a14fc41696cdba89462835df6a1"},
+]
+kafka-python = [
+    {file = "kafka-python-2.0.2.tar.gz", hash = "sha256:04dfe7fea2b63726cd6f3e79a2d86e709d608d74406638c5da33a01d45a9d7e3"},
+    {file = "kafka_python-2.0.2-py2.py3-none-any.whl", hash = "sha256:2d92418c7cb1c298fa6c7f0fb3519b520d0d7526ac6cb7ae2a4fc65a51a94b6e"},
 ]
 more-itertools = [
     {file = "more-itertools-8.12.0.tar.gz", hash = "sha256:7dc6ad46f05f545f900dd59e8dfb4e84a4827b97b3cfecb175ea0c7d247f6064"},
