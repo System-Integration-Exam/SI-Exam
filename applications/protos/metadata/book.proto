@@ -1,4 +1,5 @@
 syntax = "proto3";
+option csharp_namespace = "Metadata.Protos";
 
 //Book servicer
 //Only has CRUD methods, as it is only used for meta data
