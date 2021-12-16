@@ -1,4 +1,5 @@
 syntax = "proto3";
+option csharp_namespace = "Metadata.Protos";
 
 //Vinyl servicer
 //Only has CRUD methods, as it is only used for meta data
@@ -23,7 +24,7 @@ message CreateVinylRequest {
 }
 //Response message for createVinyl()
 message CreateVinylResponse {
-    string statusMessage = 1;
+    VinylMessage vinyl = 1;
 }
 
 //Takes in an ID value and returns a Vinyl object

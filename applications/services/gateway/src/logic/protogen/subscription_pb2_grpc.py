@@ -24,6 +24,21 @@ class SubscriptionStub(object):
             request_serializer=subscription__pb2.ReadSubscriptionRequest.SerializeToString,
             response_deserializer=subscription__pb2.ReadSubscriptionResponse.FromString,
         )
+        self.ReadSubscriptionList = channel.unary_unary(
+            "/Subscription/ReadSubscriptionList",
+            request_serializer=subscription__pb2.ReadSubscriptionListRequest.SerializeToString,
+            response_deserializer=subscription__pb2.ReadSubscriptionListResponse.FromString,
+        )
+        self.UpdateSubscription = channel.unary_unary(
+            "/Subscription/UpdateSubscription",
+            request_serializer=subscription__pb2.UpdateSubscriptionRequest.SerializeToString,
+            response_deserializer=subscription__pb2.UpdateSubscriptionResponse.FromString,
+        )
+        self.DeleteSubscription = channel.unary_unary(
+            "/Subscription/DeleteSubscription",
+            request_serializer=subscription__pb2.DeleteSubscriptionRequest.SerializeToString,
+            response_deserializer=subscription__pb2.DeleteSubscriptionResponse.FromString,
+        )
 
 
 class SubscriptionServicer(object):
@@ -41,6 +56,24 @@ class SubscriptionServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def ReadSubscriptionList(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def UpdateSubscription(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def DeleteSubscription(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_SubscriptionServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -53,6 +86,21 @@ def add_SubscriptionServicer_to_server(servicer, server):
             servicer.ReadSubscription,
             request_deserializer=subscription__pb2.ReadSubscriptionRequest.FromString,
             response_serializer=subscription__pb2.ReadSubscriptionResponse.SerializeToString,
+        ),
+        "ReadSubscriptionList": grpc.unary_unary_rpc_method_handler(
+            servicer.ReadSubscriptionList,
+            request_deserializer=subscription__pb2.ReadSubscriptionListRequest.FromString,
+            response_serializer=subscription__pb2.ReadSubscriptionListResponse.SerializeToString,
+        ),
+        "UpdateSubscription": grpc.unary_unary_rpc_method_handler(
+            servicer.UpdateSubscription,
+            request_deserializer=subscription__pb2.UpdateSubscriptionRequest.FromString,
+            response_serializer=subscription__pb2.UpdateSubscriptionResponse.SerializeToString,
+        ),
+        "DeleteSubscription": grpc.unary_unary_rpc_method_handler(
+            servicer.DeleteSubscription,
+            request_deserializer=subscription__pb2.DeleteSubscriptionRequest.FromString,
+            response_serializer=subscription__pb2.DeleteSubscriptionResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -113,6 +161,93 @@ class Subscription(object):
             "/Subscription/ReadSubscription",
             subscription__pb2.ReadSubscriptionRequest.SerializeToString,
             subscription__pb2.ReadSubscriptionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def ReadSubscriptionList(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/Subscription/ReadSubscriptionList",
+            subscription__pb2.ReadSubscriptionListRequest.SerializeToString,
+            subscription__pb2.ReadSubscriptionListResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def UpdateSubscription(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/Subscription/UpdateSubscription",
+            subscription__pb2.UpdateSubscriptionRequest.SerializeToString,
+            subscription__pb2.UpdateSubscriptionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def DeleteSubscription(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/Subscription/DeleteSubscription",
+            subscription__pb2.DeleteSubscriptionRequest.SerializeToString,
+            subscription__pb2.DeleteSubscriptionResponse.FromString,
             options,
             channel_credentials,
             insecure,

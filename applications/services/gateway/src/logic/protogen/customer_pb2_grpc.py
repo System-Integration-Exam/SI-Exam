@@ -34,6 +34,11 @@ class CustomerStub(object):
             request_serializer=customer__pb2.UpdateCustomerRequest.SerializeToString,
             response_deserializer=customer__pb2.UpdateCustomerResponse.FromString,
         )
+        self.DeleteCustomer = channel.unary_unary(
+            "/Customer/DeleteCustomer",
+            request_serializer=customer__pb2.DeleteCustomerRequest.SerializeToString,
+            response_deserializer=customer__pb2.DeleteCustomerResponse.FromString,
+        )
 
 
 class CustomerServicer(object):
@@ -63,6 +68,12 @@ class CustomerServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def DeleteCustomer(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_CustomerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -85,6 +96,11 @@ def add_CustomerServicer_to_server(servicer, server):
             servicer.UpdateCustomer,
             request_deserializer=customer__pb2.UpdateCustomerRequest.FromString,
             response_serializer=customer__pb2.UpdateCustomerResponse.SerializeToString,
+        ),
+        "DeleteCustomer": grpc.unary_unary_rpc_method_handler(
+            servicer.DeleteCustomer,
+            request_deserializer=customer__pb2.DeleteCustomerRequest.FromString,
+            response_serializer=customer__pb2.DeleteCustomerResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -203,6 +219,35 @@ class Customer(object):
             "/Customer/UpdateCustomer",
             customer__pb2.UpdateCustomerRequest.SerializeToString,
             customer__pb2.UpdateCustomerResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def DeleteCustomer(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/Customer/DeleteCustomer",
+            customer__pb2.DeleteCustomerRequest.SerializeToString,
+            customer__pb2.DeleteCustomerResponse.FromString,
             options,
             channel_credentials,
             insecure,

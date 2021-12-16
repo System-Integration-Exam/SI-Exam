@@ -3,7 +3,6 @@ from entities.song import Song
 from entities.vinyl import Vinyl
 
 
-
 def populate() -> None:
     for book in [
         Book("Dune", "Frank Herbert", 4),
@@ -11,13 +10,11 @@ def populate() -> None:
         Book("The Great Gatsby", "F. Scott Fitzgerald", 5),
     ]:
         book.insert_query()
-    
-    for vinyl in [
-        Vinyl("Bon Iver", "Classic Modern")
-    ]:
+
+    for vinyl in [Vinyl("Bon Iver", "Classic Modern")]:
         vinyl.insert_query()
 
-    #todo, get bon iver vinyl_id
+    # todo, get bon iver vinyl_id
 
     # for song in [
     #     Song("Perth", 124),
@@ -25,11 +22,3 @@ def populate() -> None:
     #     Song("Michicant", 458,)
     # ]:
     #     song.insert_query()
-        
-        
-        
-    
-    
-    
-        
-

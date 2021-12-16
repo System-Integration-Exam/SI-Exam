@@ -15,4 +15,3 @@ class Song:
         self.title = title
         self.duration_sec = duration_sec
         self.vinyl_id = vinyl_id
-

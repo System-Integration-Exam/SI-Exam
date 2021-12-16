@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
     syntax="proto3",
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-    serialized_pb=b'\n\x0e\x63ustomer.proto"c\n\x15\x43reateCustomerRequest\x12\x12\n\nfirst_name\x18\x01 \x01(\t\x12\x11\n\tlast_name\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x14\n\x0cphone_number\x18\x04 \x01(\t"!\n\x13ReadCustomerRequest\x12\n\n\x02id\x18\x01 \x01(\x05"o\n\x15UpdateCustomerRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x14\n\x0cphone_number\x18\x05 \x01(\t"\x19\n\x17ReadCustomerListRequest"%\n\x16\x43reateCustomerResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t"n\n\x14ReadCustomerResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x14\n\x0cphone_number\x18\x05 \x01(\t"%\n\x16UpdateCustomerResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t"\xc5\x01\n\x18ReadCustomerListResponse\x12?\n\rcustomer_list\x18\x01 \x03(\x0b\x32(.ReadCustomerListResponse.CustomerObject\x1ah\n\x0e\x43ustomerObject\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x14\n\x0cphone_number\x18\x05 \x01(\t2\x9e\x02\n\x08\x43ustomer\x12\x43\n\x0e\x43reateCustomer\x12\x16.CreateCustomerRequest\x1a\x17.CreateCustomerResponse"\x00\x12=\n\x0cReadCustomer\x12\x14.ReadCustomerRequest\x1a\x15.ReadCustomerResponse"\x00\x12I\n\x10ReadCustomerList\x12\x18.ReadCustomerListRequest\x1a\x19.ReadCustomerListResponse"\x00\x12\x43\n\x0eUpdateCustomer\x12\x16.UpdateCustomerRequest\x1a\x17.UpdateCustomerResponse"\x00\x62\x06proto3',
+    serialized_pb=b'\n\x0e\x63ustomer.proto"\xa4\x01\n\x15\x43reateCustomerRequest\x12\x17\n\x0fsubscription_id\x18\x01 \x01(\x05\x12\x12\n\nfirst_name\x18\x02 \x01(\t\x12\x11\n\tlast_name\x18\x03 \x01(\t\x12\r\n\x05\x65mail\x18\x04 \x01(\t\x12\x14\n\x0cphone_number\x18\x05 \x01(\t\x12\x12\n\ncreated_at\x18\x06 \x01(\t\x12\x12\n\nupdated_at\x18\x07 \x01(\t"!\n\x13ReadCustomerRequest\x12\n\n\x02id\x18\x01 \x01(\x05"\x19\n\x17ReadCustomerListRequest"\x88\x01\n\x15UpdateCustomerRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x17\n\x0fsubscription_id\x18\x02 \x01(\x05\x12\x12\n\nfirst_name\x18\x03 \x01(\t\x12\x11\n\tlast_name\x18\x04 \x01(\t\x12\r\n\x05\x65mail\x18\x05 \x01(\t\x12\x14\n\x0cphone_number\x18\x06 \x01(\t"#\n\x15\x44\x65leteCustomerRequest\x12\n\n\x02id\x18\x01 \x01(\x05"%\n\x16\x43reateCustomerResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t"\xaf\x01\n\x14ReadCustomerResponse\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x17\n\x0fsubscription_id\x18\x02 \x01(\x05\x12\x12\n\nfirst_name\x18\x03 \x01(\t\x12\x11\n\tlast_name\x18\x04 \x01(\t\x12\r\n\x05\x65mail\x18\x05 \x01(\t\x12\x14\n\x0cphone_number\x18\x06 \x01(\t\x12\x12\n\ncreated_at\x18\x07 \x01(\t\x12\x12\n\nupdated_at\x18\x08 \x01(\t"\x87\x02\n\x18ReadCustomerListResponse\x12?\n\rcustomer_list\x18\x01 \x03(\x0b\x32(.ReadCustomerListResponse.CustomerObject\x1a\xa9\x01\n\x0e\x43ustomerObject\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x17\n\x0fsubscription_id\x18\x02 \x01(\x05\x12\x12\n\nfirst_name\x18\x03 \x01(\t\x12\x11\n\tlast_name\x18\x04 \x01(\t\x12\r\n\x05\x65mail\x18\x05 \x01(\t\x12\x14\n\x0cphone_number\x18\x06 \x01(\t\x12\x12\n\ncreated_at\x18\x07 \x01(\t\x12\x12\n\nupdated_at\x18\x08 \x01(\t"%\n\x16UpdateCustomerResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t"%\n\x16\x44\x65leteCustomerResponse\x12\x0b\n\x03msg\x18\x01 \x01(\t2\xe3\x02\n\x08\x43ustomer\x12\x43\n\x0e\x43reateCustomer\x12\x16.CreateCustomerRequest\x1a\x17.CreateCustomerResponse"\x00\x12=\n\x0cReadCustomer\x12\x14.ReadCustomerRequest\x1a\x15.ReadCustomerResponse"\x00\x12I\n\x10ReadCustomerList\x12\x18.ReadCustomerListRequest\x1a\x19.ReadCustomerListResponse"\x00\x12\x43\n\x0eUpdateCustomer\x12\x16.UpdateCustomerRequest\x1a\x17.UpdateCustomerResponse"\x00\x12\x43\n\x0e\x44\x65leteCustomer\x12\x16.DeleteCustomerRequest\x1a\x17.DeleteCustomerResponse"\x00\x62\x06proto3',
 )
 
 
@@ -31,15 +31,15 @@ _CREATECUSTOMERREQUEST = _descriptor.Descriptor(
     create_key=_descriptor._internal_create_key,
     fields=[
         _descriptor.FieldDescriptor(
-            name="first_name",
-            full_name="CreateCustomerRequest.first_name",
+            name="subscription_id",
+            full_name="CreateCustomerRequest.subscription_id",
             index=0,
             number=1,
-            type=9,
-            cpp_type=9,
+            type=5,
+            cpp_type=1,
             label=1,
             has_default_value=False,
-            default_value=b"".decode("utf-8"),
+            default_value=0,
             message_type=None,
             enum_type=None,
             containing_type=None,
@@ -50,8 +50,8 @@ _CREATECUSTOMERREQUEST = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="last_name",
-            full_name="CreateCustomerRequest.last_name",
+            name="first_name",
+            full_name="CreateCustomerRequest.first_name",
             index=1,
             number=2,
             type=9,
@@ -69,8 +69,8 @@ _CREATECUSTOMERREQUEST = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="email",
-            full_name="CreateCustomerRequest.email",
+            name="last_name",
+            full_name="CreateCustomerRequest.last_name",
             index=2,
             number=3,
             type=9,
@@ -88,10 +88,67 @@ _CREATECUSTOMERREQUEST = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="phone_number",
-            full_name="CreateCustomerRequest.phone_number",
+            name="email",
+            full_name="CreateCustomerRequest.email",
             index=3,
             number=4,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="phone_number",
+            full_name="CreateCustomerRequest.phone_number",
+            index=4,
+            number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="created_at",
+            full_name="CreateCustomerRequest.created_at",
+            index=5,
+            number=6,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="updated_at",
+            full_name="CreateCustomerRequest.updated_at",
+            index=6,
+            number=7,
             type=9,
             cpp_type=9,
             label=1,
@@ -115,8 +172,8 @@ _CREATECUSTOMERREQUEST = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=18,
-    serialized_end=117,
+    serialized_start=19,
+    serialized_end=183,
 )
 
 
@@ -156,8 +213,29 @@ _READCUSTOMERREQUEST = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=119,
-    serialized_end=152,
+    serialized_start=185,
+    serialized_end=218,
+)
+
+
+_READCUSTOMERLISTREQUEST = _descriptor.Descriptor(
+    name="ReadCustomerListRequest",
+    full_name="ReadCustomerListRequest",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=220,
+    serialized_end=245,
 )
 
 
@@ -189,15 +267,15 @@ _UPDATECUSTOMERREQUEST = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="first_name",
-            full_name="UpdateCustomerRequest.first_name",
+            name="subscription_id",
+            full_name="UpdateCustomerRequest.subscription_id",
             index=1,
             number=2,
-            type=9,
-            cpp_type=9,
+            type=5,
+            cpp_type=1,
             label=1,
             has_default_value=False,
-            default_value=b"".decode("utf-8"),
+            default_value=0,
             message_type=None,
             enum_type=None,
             containing_type=None,
@@ -208,8 +286,8 @@ _UPDATECUSTOMERREQUEST = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="last_name",
-            full_name="UpdateCustomerRequest.last_name",
+            name="first_name",
+            full_name="UpdateCustomerRequest.first_name",
             index=2,
             number=3,
             type=9,
@@ -227,8 +305,8 @@ _UPDATECUSTOMERREQUEST = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="email",
-            full_name="UpdateCustomerRequest.email",
+            name="last_name",
+            full_name="UpdateCustomerRequest.last_name",
             index=3,
             number=4,
             type=9,
@@ -246,10 +324,29 @@ _UPDATECUSTOMERREQUEST = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="phone_number",
-            full_name="UpdateCustomerRequest.phone_number",
+            name="email",
+            full_name="UpdateCustomerRequest.email",
             index=4,
             number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="phone_number",
+            full_name="UpdateCustomerRequest.phone_number",
+            index=5,
+            number=6,
             type=9,
             cpp_type=9,
             label=1,
@@ -273,19 +370,39 @@ _UPDATECUSTOMERREQUEST = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=154,
-    serialized_end=265,
+    serialized_start=248,
+    serialized_end=384,
 )
 
 
-_READCUSTOMERLISTREQUEST = _descriptor.Descriptor(
-    name="ReadCustomerListRequest",
-    full_name="ReadCustomerListRequest",
+_DELETECUSTOMERREQUEST = _descriptor.Descriptor(
+    name="DeleteCustomerRequest",
+    full_name="DeleteCustomerRequest",
     filename=None,
     file=DESCRIPTOR,
     containing_type=None,
     create_key=_descriptor._internal_create_key,
-    fields=[],
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="id",
+            full_name="DeleteCustomerRequest.id",
+            index=0,
+            number=1,
+            type=5,
+            cpp_type=1,
+            label=1,
+            has_default_value=False,
+            default_value=0,
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
     extensions=[],
     nested_types=[],
     enum_types=[],
@@ -294,8 +411,8 @@ _READCUSTOMERLISTREQUEST = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=267,
-    serialized_end=292,
+    serialized_start=386,
+    serialized_end=421,
 )
 
 
@@ -335,8 +452,8 @@ _CREATECUSTOMERRESPONSE = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=294,
-    serialized_end=331,
+    serialized_start=423,
+    serialized_end=460,
 )
 
 
@@ -368,15 +485,15 @@ _READCUSTOMERRESPONSE = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="first_name",
-            full_name="ReadCustomerResponse.first_name",
+            name="subscription_id",
+            full_name="ReadCustomerResponse.subscription_id",
             index=1,
             number=2,
-            type=9,
-            cpp_type=9,
+            type=5,
+            cpp_type=1,
             label=1,
             has_default_value=False,
-            default_value=b"".decode("utf-8"),
+            default_value=0,
             message_type=None,
             enum_type=None,
             containing_type=None,
@@ -387,8 +504,8 @@ _READCUSTOMERRESPONSE = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="last_name",
-            full_name="ReadCustomerResponse.last_name",
+            name="first_name",
+            full_name="ReadCustomerResponse.first_name",
             index=2,
             number=3,
             type=9,
@@ -406,8 +523,8 @@ _READCUSTOMERRESPONSE = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="email",
-            full_name="ReadCustomerResponse.email",
+            name="last_name",
+            full_name="ReadCustomerResponse.last_name",
             index=3,
             number=4,
             type=9,
@@ -425,8 +542,8 @@ _READCUSTOMERRESPONSE = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="phone_number",
-            full_name="ReadCustomerResponse.phone_number",
+            name="email",
+            full_name="ReadCustomerResponse.email",
             index=4,
             number=5,
             type=9,
@@ -443,33 +560,49 @@ _READCUSTOMERRESPONSE = _descriptor.Descriptor(
             file=DESCRIPTOR,
             create_key=_descriptor._internal_create_key,
         ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=333,
-    serialized_end=443,
-)
-
-
-_UPDATECUSTOMERRESPONSE = _descriptor.Descriptor(
-    name="UpdateCustomerResponse",
-    full_name="UpdateCustomerResponse",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
         _descriptor.FieldDescriptor(
-            name="msg",
-            full_name="UpdateCustomerResponse.msg",
-            index=0,
-            number=1,
+            name="phone_number",
+            full_name="ReadCustomerResponse.phone_number",
+            index=5,
+            number=6,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="created_at",
+            full_name="ReadCustomerResponse.created_at",
+            index=6,
+            number=7,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="updated_at",
+            full_name="ReadCustomerResponse.updated_at",
+            index=7,
+            number=8,
             type=9,
             cpp_type=9,
             label=1,
@@ -493,8 +626,8 @@ _UPDATECUSTOMERRESPONSE = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=445,
-    serialized_end=482,
+    serialized_start=463,
+    serialized_end=638,
 )
 
 
@@ -526,15 +659,15 @@ _READCUSTOMERLISTRESPONSE_CUSTOMEROBJECT = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="first_name",
-            full_name="ReadCustomerListResponse.CustomerObject.first_name",
+            name="subscription_id",
+            full_name="ReadCustomerListResponse.CustomerObject.subscription_id",
             index=1,
             number=2,
-            type=9,
-            cpp_type=9,
+            type=5,
+            cpp_type=1,
             label=1,
             has_default_value=False,
-            default_value=b"".decode("utf-8"),
+            default_value=0,
             message_type=None,
             enum_type=None,
             containing_type=None,
@@ -545,8 +678,8 @@ _READCUSTOMERLISTRESPONSE_CUSTOMEROBJECT = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="last_name",
-            full_name="ReadCustomerListResponse.CustomerObject.last_name",
+            name="first_name",
+            full_name="ReadCustomerListResponse.CustomerObject.first_name",
             index=2,
             number=3,
             type=9,
@@ -564,8 +697,8 @@ _READCUSTOMERLISTRESPONSE_CUSTOMEROBJECT = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="email",
-            full_name="ReadCustomerListResponse.CustomerObject.email",
+            name="last_name",
+            full_name="ReadCustomerListResponse.CustomerObject.last_name",
             index=3,
             number=4,
             type=9,
@@ -583,10 +716,67 @@ _READCUSTOMERLISTRESPONSE_CUSTOMEROBJECT = _descriptor.Descriptor(
             create_key=_descriptor._internal_create_key,
         ),
         _descriptor.FieldDescriptor(
-            name="phone_number",
-            full_name="ReadCustomerListResponse.CustomerObject.phone_number",
+            name="email",
+            full_name="ReadCustomerListResponse.CustomerObject.email",
             index=4,
             number=5,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="phone_number",
+            full_name="ReadCustomerListResponse.CustomerObject.phone_number",
+            index=5,
+            number=6,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="created_at",
+            full_name="ReadCustomerListResponse.CustomerObject.created_at",
+            index=6,
+            number=7,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.FieldDescriptor(
+            name="updated_at",
+            full_name="ReadCustomerListResponse.CustomerObject.updated_at",
+            index=7,
+            number=8,
             type=9,
             cpp_type=9,
             label=1,
@@ -610,8 +800,8 @@ _READCUSTOMERLISTRESPONSE_CUSTOMEROBJECT = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=578,
-    serialized_end=682,
+    serialized_start=735,
+    serialized_end=904,
 )
 
 _READCUSTOMERLISTRESPONSE = _descriptor.Descriptor(
@@ -652,8 +842,90 @@ _READCUSTOMERLISTRESPONSE = _descriptor.Descriptor(
     syntax="proto3",
     extension_ranges=[],
     oneofs=[],
-    serialized_start=485,
-    serialized_end=682,
+    serialized_start=641,
+    serialized_end=904,
+)
+
+
+_UPDATECUSTOMERRESPONSE = _descriptor.Descriptor(
+    name="UpdateCustomerResponse",
+    full_name="UpdateCustomerResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="msg",
+            full_name="UpdateCustomerResponse.msg",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=906,
+    serialized_end=943,
+)
+
+
+_DELETECUSTOMERRESPONSE = _descriptor.Descriptor(
+    name="DeleteCustomerResponse",
+    full_name="DeleteCustomerResponse",
+    filename=None,
+    file=DESCRIPTOR,
+    containing_type=None,
+    create_key=_descriptor._internal_create_key,
+    fields=[
+        _descriptor.FieldDescriptor(
+            name="msg",
+            full_name="DeleteCustomerResponse.msg",
+            index=0,
+            number=1,
+            type=9,
+            cpp_type=9,
+            label=1,
+            has_default_value=False,
+            default_value=b"".decode("utf-8"),
+            message_type=None,
+            enum_type=None,
+            containing_type=None,
+            is_extension=False,
+            extension_scope=None,
+            serialized_options=None,
+            file=DESCRIPTOR,
+            create_key=_descriptor._internal_create_key,
+        ),
+    ],
+    extensions=[],
+    nested_types=[],
+    enum_types=[],
+    serialized_options=None,
+    is_extendable=False,
+    syntax="proto3",
+    extension_ranges=[],
+    oneofs=[],
+    serialized_start=945,
+    serialized_end=982,
 )
 
 _READCUSTOMERLISTRESPONSE_CUSTOMEROBJECT.containing_type = _READCUSTOMERLISTRESPONSE
@@ -662,12 +934,14 @@ _READCUSTOMERLISTRESPONSE.fields_by_name[
 ].message_type = _READCUSTOMERLISTRESPONSE_CUSTOMEROBJECT
 DESCRIPTOR.message_types_by_name["CreateCustomerRequest"] = _CREATECUSTOMERREQUEST
 DESCRIPTOR.message_types_by_name["ReadCustomerRequest"] = _READCUSTOMERREQUEST
-DESCRIPTOR.message_types_by_name["UpdateCustomerRequest"] = _UPDATECUSTOMERREQUEST
 DESCRIPTOR.message_types_by_name["ReadCustomerListRequest"] = _READCUSTOMERLISTREQUEST
+DESCRIPTOR.message_types_by_name["UpdateCustomerRequest"] = _UPDATECUSTOMERREQUEST
+DESCRIPTOR.message_types_by_name["DeleteCustomerRequest"] = _DELETECUSTOMERREQUEST
 DESCRIPTOR.message_types_by_name["CreateCustomerResponse"] = _CREATECUSTOMERRESPONSE
 DESCRIPTOR.message_types_by_name["ReadCustomerResponse"] = _READCUSTOMERRESPONSE
-DESCRIPTOR.message_types_by_name["UpdateCustomerResponse"] = _UPDATECUSTOMERRESPONSE
 DESCRIPTOR.message_types_by_name["ReadCustomerListResponse"] = _READCUSTOMERLISTRESPONSE
+DESCRIPTOR.message_types_by_name["UpdateCustomerResponse"] = _UPDATECUSTOMERRESPONSE
+DESCRIPTOR.message_types_by_name["DeleteCustomerResponse"] = _DELETECUSTOMERRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 CreateCustomerRequest = _reflection.GeneratedProtocolMessageType(
@@ -692,6 +966,17 @@ ReadCustomerRequest = _reflection.GeneratedProtocolMessageType(
 )
 _sym_db.RegisterMessage(ReadCustomerRequest)
 
+ReadCustomerListRequest = _reflection.GeneratedProtocolMessageType(
+    "ReadCustomerListRequest",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _READCUSTOMERLISTREQUEST,
+        "__module__": "customer_pb2"
+        # @@protoc_insertion_point(class_scope:ReadCustomerListRequest)
+    },
+)
+_sym_db.RegisterMessage(ReadCustomerListRequest)
+
 UpdateCustomerRequest = _reflection.GeneratedProtocolMessageType(
     "UpdateCustomerRequest",
     (_message.Message,),
@@ -703,16 +988,16 @@ UpdateCustomerRequest = _reflection.GeneratedProtocolMessageType(
 )
 _sym_db.RegisterMessage(UpdateCustomerRequest)
 
-ReadCustomerListRequest = _reflection.GeneratedProtocolMessageType(
-    "ReadCustomerListRequest",
+DeleteCustomerRequest = _reflection.GeneratedProtocolMessageType(
+    "DeleteCustomerRequest",
     (_message.Message,),
     {
-        "DESCRIPTOR": _READCUSTOMERLISTREQUEST,
+        "DESCRIPTOR": _DELETECUSTOMERREQUEST,
         "__module__": "customer_pb2"
-        # @@protoc_insertion_point(class_scope:ReadCustomerListRequest)
+        # @@protoc_insertion_point(class_scope:DeleteCustomerRequest)
     },
 )
-_sym_db.RegisterMessage(ReadCustomerListRequest)
+_sym_db.RegisterMessage(DeleteCustomerRequest)
 
 CreateCustomerResponse = _reflection.GeneratedProtocolMessageType(
     "CreateCustomerResponse",
@@ -736,17 +1021,6 @@ ReadCustomerResponse = _reflection.GeneratedProtocolMessageType(
 )
 _sym_db.RegisterMessage(ReadCustomerResponse)
 
-UpdateCustomerResponse = _reflection.GeneratedProtocolMessageType(
-    "UpdateCustomerResponse",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _UPDATECUSTOMERRESPONSE,
-        "__module__": "customer_pb2"
-        # @@protoc_insertion_point(class_scope:UpdateCustomerResponse)
-    },
-)
-_sym_db.RegisterMessage(UpdateCustomerResponse)
-
 ReadCustomerListResponse = _reflection.GeneratedProtocolMessageType(
     "ReadCustomerListResponse",
     (_message.Message,),
@@ -768,6 +1042,28 @@ ReadCustomerListResponse = _reflection.GeneratedProtocolMessageType(
 _sym_db.RegisterMessage(ReadCustomerListResponse)
 _sym_db.RegisterMessage(ReadCustomerListResponse.CustomerObject)
 
+UpdateCustomerResponse = _reflection.GeneratedProtocolMessageType(
+    "UpdateCustomerResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _UPDATECUSTOMERRESPONSE,
+        "__module__": "customer_pb2"
+        # @@protoc_insertion_point(class_scope:UpdateCustomerResponse)
+    },
+)
+_sym_db.RegisterMessage(UpdateCustomerResponse)
+
+DeleteCustomerResponse = _reflection.GeneratedProtocolMessageType(
+    "DeleteCustomerResponse",
+    (_message.Message,),
+    {
+        "DESCRIPTOR": _DELETECUSTOMERRESPONSE,
+        "__module__": "customer_pb2"
+        # @@protoc_insertion_point(class_scope:DeleteCustomerResponse)
+    },
+)
+_sym_db.RegisterMessage(DeleteCustomerResponse)
+
 
 _CUSTOMER = _descriptor.ServiceDescriptor(
     name="Customer",
@@ -776,8 +1072,8 @@ _CUSTOMER = _descriptor.ServiceDescriptor(
     index=0,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
-    serialized_start=685,
-    serialized_end=971,
+    serialized_start=985,
+    serialized_end=1340,
     methods=[
         _descriptor.MethodDescriptor(
             name="CreateCustomer",
@@ -816,6 +1112,16 @@ _CUSTOMER = _descriptor.ServiceDescriptor(
             containing_service=None,
             input_type=_UPDATECUSTOMERREQUEST,
             output_type=_UPDATECUSTOMERRESPONSE,
+            serialized_options=None,
+            create_key=_descriptor._internal_create_key,
+        ),
+        _descriptor.MethodDescriptor(
+            name="DeleteCustomer",
+            full_name="Customer.DeleteCustomer",
+            index=4,
+            containing_service=None,
+            input_type=_DELETECUSTOMERREQUEST,
+            output_type=_DELETECUSTOMERRESPONSE,
             serialized_options=None,
             create_key=_descriptor._internal_create_key,
         ),

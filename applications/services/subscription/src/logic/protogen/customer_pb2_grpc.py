@@ -15,25 +15,30 @@ class CustomerStub(object):
             channel: A grpc.Channel.
         """
         self.CreateCustomer = channel.unary_unary(
-            "/Customer/CreateCustomer",
-            request_serializer=customer__pb2.CreateCustomerRequest.SerializeToString,
-            response_deserializer=customer__pb2.CreateCustomerResponse.FromString,
-        )
+                '/Customer/CreateCustomer',
+                request_serializer=customer__pb2.CreateCustomerRequest.SerializeToString,
+                response_deserializer=customer__pb2.CreateCustomerResponse.FromString,
+                )
         self.ReadCustomer = channel.unary_unary(
-            "/Customer/ReadCustomer",
-            request_serializer=customer__pb2.ReadCustomerRequest.SerializeToString,
-            response_deserializer=customer__pb2.ReadCustomerResponse.FromString,
-        )
+                '/Customer/ReadCustomer',
+                request_serializer=customer__pb2.ReadCustomerRequest.SerializeToString,
+                response_deserializer=customer__pb2.ReadCustomerResponse.FromString,
+                )
         self.ReadCustomerList = channel.unary_unary(
-            "/Customer/ReadCustomerList",
-            request_serializer=customer__pb2.ReadCustomerListRequest.SerializeToString,
-            response_deserializer=customer__pb2.ReadCustomerListResponse.FromString,
-        )
+                '/Customer/ReadCustomerList',
+                request_serializer=customer__pb2.ReadCustomerListRequest.SerializeToString,
+                response_deserializer=customer__pb2.ReadCustomerListResponse.FromString,
+                )
         self.UpdateCustomer = channel.unary_unary(
-            "/Customer/UpdateCustomer",
-            request_serializer=customer__pb2.UpdateCustomerRequest.SerializeToString,
-            response_deserializer=customer__pb2.UpdateCustomerResponse.FromString,
-        )
+                '/Customer/UpdateCustomer',
+                request_serializer=customer__pb2.UpdateCustomerRequest.SerializeToString,
+                response_deserializer=customer__pb2.UpdateCustomerResponse.FromString,
+                )
+        self.DeleteCustomer = channel.unary_unary(
+                '/Customer/DeleteCustomer',
+                request_serializer=customer__pb2.DeleteCustomerRequest.SerializeToString,
+                response_deserializer=customer__pb2.DeleteCustomerResponse.FromString,
+                )
 
 
 class CustomerServicer(object):
@@ -42,173 +47,152 @@ class CustomerServicer(object):
     def CreateCustomer(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ReadCustomer(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def ReadCustomerList(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def UpdateCustomer(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DeleteCustomer(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
 
 def add_CustomerServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "CreateCustomer": grpc.unary_unary_rpc_method_handler(
-            servicer.CreateCustomer,
-            request_deserializer=customer__pb2.CreateCustomerRequest.FromString,
-            response_serializer=customer__pb2.CreateCustomerResponse.SerializeToString,
-        ),
-        "ReadCustomer": grpc.unary_unary_rpc_method_handler(
-            servicer.ReadCustomer,
-            request_deserializer=customer__pb2.ReadCustomerRequest.FromString,
-            response_serializer=customer__pb2.ReadCustomerResponse.SerializeToString,
-        ),
-        "ReadCustomerList": grpc.unary_unary_rpc_method_handler(
-            servicer.ReadCustomerList,
-            request_deserializer=customer__pb2.ReadCustomerListRequest.FromString,
-            response_serializer=customer__pb2.ReadCustomerListResponse.SerializeToString,
-        ),
-        "UpdateCustomer": grpc.unary_unary_rpc_method_handler(
-            servicer.UpdateCustomer,
-            request_deserializer=customer__pb2.UpdateCustomerRequest.FromString,
-            response_serializer=customer__pb2.UpdateCustomerResponse.SerializeToString,
-        ),
+            'CreateCustomer': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateCustomer,
+                    request_deserializer=customer__pb2.CreateCustomerRequest.FromString,
+                    response_serializer=customer__pb2.CreateCustomerResponse.SerializeToString,
+            ),
+            'ReadCustomer': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadCustomer,
+                    request_deserializer=customer__pb2.ReadCustomerRequest.FromString,
+                    response_serializer=customer__pb2.ReadCustomerResponse.SerializeToString,
+            ),
+            'ReadCustomerList': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadCustomerList,
+                    request_deserializer=customer__pb2.ReadCustomerListRequest.FromString,
+                    response_serializer=customer__pb2.ReadCustomerListResponse.SerializeToString,
+            ),
+            'UpdateCustomer': grpc.unary_unary_rpc_method_handler(
+                    servicer.UpdateCustomer,
+                    request_deserializer=customer__pb2.UpdateCustomerRequest.FromString,
+                    response_serializer=customer__pb2.UpdateCustomerResponse.SerializeToString,
+            ),
+            'DeleteCustomer': grpc.unary_unary_rpc_method_handler(
+                    servicer.DeleteCustomer,
+                    request_deserializer=customer__pb2.DeleteCustomerRequest.FromString,
+                    response_serializer=customer__pb2.DeleteCustomerResponse.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        "Customer", rpc_method_handlers
-    )
+            'Customer', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
-# This class is part of an EXPERIMENTAL API.
+ # This class is part of an EXPERIMENTAL API.
 class Customer(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def CreateCustomer(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def CreateCustomer(request,
             target,
-            "/Customer/CreateCustomer",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Customer/CreateCustomer',
             customer__pb2.CreateCustomerRequest.SerializeToString,
             customer__pb2.CreateCustomerResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ReadCustomer(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ReadCustomer(request,
             target,
-            "/Customer/ReadCustomer",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Customer/ReadCustomer',
             customer__pb2.ReadCustomerRequest.SerializeToString,
             customer__pb2.ReadCustomerResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def ReadCustomerList(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def ReadCustomerList(request,
             target,
-            "/Customer/ReadCustomerList",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Customer/ReadCustomerList',
             customer__pb2.ReadCustomerListRequest.SerializeToString,
             customer__pb2.ReadCustomerListResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateCustomer(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def UpdateCustomer(request,
             target,
-            "/Customer/UpdateCustomer",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Customer/UpdateCustomer',
             customer__pb2.UpdateCustomerRequest.SerializeToString,
             customer__pb2.UpdateCustomerResponse.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DeleteCustomer(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Customer/DeleteCustomer',
+            customer__pb2.DeleteCustomerRequest.SerializeToString,
+            customer__pb2.DeleteCustomerResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

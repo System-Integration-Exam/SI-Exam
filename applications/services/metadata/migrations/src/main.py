@@ -4,7 +4,6 @@ from logic.table_exec import migrate_up, migrate_down
 from logic.data_pop import populate
 
 
-
 """
 For new entities:
 1. Insert up/down migration in migrations folder
@@ -12,6 +11,7 @@ For new entities:
 3. Put your create/drop function calls in logic/pg_table_exec
 4. (optional) Populate data in pg_data_pop
 """
+
 
 def main() -> None:
     migrate_down()

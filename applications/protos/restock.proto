@@ -1,21 +1,23 @@
 syntax = "proto3";
+package restock;
 
-option csharp_namespace = "Restock";
+option csharp_namespace = "Restock.Protos";
+import "google/protobuf/empty.proto";
 
-package greet;
 
-// The greeting service definition.
-service Greeter {
-  // Sends a greeting
-  rpc SayHello (HelloRequest) returns (HelloReply);
+service RestockGrpc {
+  rpc RequestRestock (RestockRequest) returns (google.protobuf.Empty);
 }
 
-// The request message containing the user's name.
-message HelloRequest {
-  string name = 1;
-}
+message RestockRequest {
+  string requestText = 1;
+  ItemType itemType = 2;
+  int32 existingItemCount = 3;
+  int32 storeId = 4;
+  string itemId = 5;
 
-// The response message containing the greetings.
-message HelloReply {
-  string message = 1;
+  enum ItemType {
+	  BOOK = 0;
+	  VINYL = 1;
+  }
 }
