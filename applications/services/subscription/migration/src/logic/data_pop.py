@@ -3,7 +3,6 @@ from entities.subscription import Subscription
 from faker import Faker
 import random
 
-
 def populate() -> None:
     faker = Faker()
 

@@ -1,5 +1,21 @@
+import random
 from connection.sqlite_connection import execute_query, fetch_all, fetch_one
 from logic.protogen import customer_pb2
+
+
+def camel_populate_customer(data):
+    try:
+        execute_query(
+            f"""
+                    INSERT INTO customer(subscription_id, first_name, last_name, email, phone_number)
+                    VALUES ({random.randrange(1, 10)},'{data[1]}','{data[2]}','{data[3]}', '{data[4]}')
+            """
+        )
+        return customer_pb2.CreateCustomerResponse(msg="Ok")
+    except Exception as e:
+        print(e)
+        return customer_pb2.CreateCustomerResponse(msg="Err: Could not execute query")
+
 
 
 def create_customer(
@@ -8,9 +24,9 @@ def create_customer(
     try:
         execute_query(
             f"""
-                      INSERT INTO customer(subscription_id, first_name, last_name, email, phone_number)
-                      VALUES ('{request.subscription_id}','{request.first_name}','{request.last_name}', '{request.email}', '{request.phone_number}')
-                      """
+                INSERT INTO customer(subscription_id, first_name, last_name, email, phone_number)
+                VALUES ('{request.subscription_id}','{request.first_name}','{request.last_name}', '{request.email}', '{request.phone_number}')
+            """
         )
         return customer_pb2.CreateCustomerResponse(msg="Ok")
     except Exception as e:
