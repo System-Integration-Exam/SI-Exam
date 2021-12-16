@@ -2,6 +2,18 @@
   "schemaVersion": 2,
   "components": [
     {
+      "label": "ISBN",
+      "type": "textfield",
+      "id": "Field_0ec0ijw",
+      "key": "bookISBN",
+      "description": "The ISBN for the desired book",
+      "validate": {
+        "required": true,
+        "minLength": 10,
+        "maxLength": 13
+      }
+    },
+    {
       "values": [
         {
           "label": "Yes",

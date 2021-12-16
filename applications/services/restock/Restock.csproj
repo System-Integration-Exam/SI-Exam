@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Camunda.Worker" Version="0.13.2" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
   </ItemGroup>
 
