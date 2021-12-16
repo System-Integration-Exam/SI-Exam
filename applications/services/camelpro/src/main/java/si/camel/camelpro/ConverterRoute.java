@@ -16,7 +16,7 @@ public class ConverterRoute {
                     csvDataFormat.setHeaderDisabled(true);
                     csvDataFormat.setDelimiter(',');
                     csvDataFormat.setQuoteDisabled(true);
-                    from("file:src/main/resources/csvdata/?noop=true").
+                    from("file://src/main/resources/csvdata?noop=true").
                             unmarshal().
                             csv().
                             marshal().
