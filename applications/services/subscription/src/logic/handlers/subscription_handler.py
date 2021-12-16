@@ -23,7 +23,7 @@ def create_subscription(
 def read_subscription(
     request: subscription_pb2.ReadSubscriptionRequest,
 ) -> subscription_pb2.ReadSubscriptionResponse:
-    try: 
+    try:
         res = fetch_one(
             f"""
                 SELECT *

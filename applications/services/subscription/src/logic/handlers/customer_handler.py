@@ -17,7 +17,6 @@ def camel_populate_customer(data) -> None:
         return customer_pb2.CreateCustomerResponse(msg="Err: Could not execute query")
 
 
-
 def create_customer(
     request: customer_pb2.CreateCustomerRequest,
 ) -> customer_pb2.CreateCustomerResponse:
@@ -65,7 +64,6 @@ def read_customer(
             phone_number="",
             created_at="",
             updated_at="",
-            
         )
 
 
@@ -85,7 +83,6 @@ def read_customer_list(
                 phone_number=customer[5],
                 created_at=customer[6],
                 updated_at=customer[7],
-                
             )
             customer_objects.append(cust)
 
