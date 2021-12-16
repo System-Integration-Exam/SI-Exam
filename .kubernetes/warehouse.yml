@@ -21,6 +21,10 @@ spec:
         ports:
         - containerPort: 20080
 
+        env:
+        - name: PRODUCTION
+          value: "true"
+
 ---
 
 apiVersion: v1

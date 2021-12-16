@@ -84,6 +84,36 @@ class StoreStub(object):
             request_serializer=store__pb2.GetAmountOfSpecificVinylFromStoreRequest.SerializeToString,
             response_deserializer=store__pb2.GetAmountOfSpecificVinylFromStoreResponse.FromString,
         )
+        self.AddToStockInfo = channel.unary_unary(
+            "/store.Store/AddToStockInfo",
+            request_serializer=store__pb2.AddToStockInfoRequest.SerializeToString,
+            response_deserializer=store__pb2.AddToStockInfoResponse.FromString,
+        )
+        self.RemoveFromStockInfo = channel.unary_unary(
+            "/store.Store/RemoveFromStockInfo",
+            request_serializer=store__pb2.RemoveFromStockInfoRequest.SerializeToString,
+            response_deserializer=store__pb2.RemoveFromStockInfoResponse.FromString,
+        )
+        self.ReadStockInfo = channel.unary_unary(
+            "/store.Store/ReadStockInfo",
+            request_serializer=store__pb2.ReadStockInfoRequest.SerializeToString,
+            response_deserializer=store__pb2.ReadStockInfoResponse.FromString,
+        )
+        self.IncrementReservedStockInfo = channel.unary_unary(
+            "/store.Store/IncrementReservedStockInfo",
+            request_serializer=store__pb2.IncrementReservedStockInfoRequest.SerializeToString,
+            response_deserializer=store__pb2.IncrementReservedStockInfoResponse.FromString,
+        )
+        self.DecrementReservedStockInfo = channel.unary_unary(
+            "/store.Store/DecrementReservedStockInfo",
+            request_serializer=store__pb2.DecrementReservedStockInfoRequest.SerializeToString,
+            response_deserializer=store__pb2.DecrementReservedStockInfoResponse.FromString,
+        )
+        self.ReturnItemStockInfo = channel.unary_unary(
+            "/store.Store/ReturnItemStockInfo",
+            request_serializer=store__pb2.ReturnItemStockInfoRequest.SerializeToString,
+            response_deserializer=store__pb2.ReturnItemStockInfoResponse.FromString,
+        )
 
 
 class StoreServicer(object):
@@ -173,6 +203,42 @@ class StoreServicer(object):
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
+    def AddToStockInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def RemoveFromStockInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def ReadStockInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def IncrementReservedStockInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def DecrementReservedStockInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
+    def ReturnItemStockInfo(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details("Method not implemented!")
+        raise NotImplementedError("Method not implemented!")
+
 
 def add_StoreServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -245,6 +311,36 @@ def add_StoreServicer_to_server(servicer, server):
             servicer.GetAmountOfSpecificVinylFromStore,
             request_deserializer=store__pb2.GetAmountOfSpecificVinylFromStoreRequest.FromString,
             response_serializer=store__pb2.GetAmountOfSpecificVinylFromStoreResponse.SerializeToString,
+        ),
+        "AddToStockInfo": grpc.unary_unary_rpc_method_handler(
+            servicer.AddToStockInfo,
+            request_deserializer=store__pb2.AddToStockInfoRequest.FromString,
+            response_serializer=store__pb2.AddToStockInfoResponse.SerializeToString,
+        ),
+        "RemoveFromStockInfo": grpc.unary_unary_rpc_method_handler(
+            servicer.RemoveFromStockInfo,
+            request_deserializer=store__pb2.RemoveFromStockInfoRequest.FromString,
+            response_serializer=store__pb2.RemoveFromStockInfoResponse.SerializeToString,
+        ),
+        "ReadStockInfo": grpc.unary_unary_rpc_method_handler(
+            servicer.ReadStockInfo,
+            request_deserializer=store__pb2.ReadStockInfoRequest.FromString,
+            response_serializer=store__pb2.ReadStockInfoResponse.SerializeToString,
+        ),
+        "IncrementReservedStockInfo": grpc.unary_unary_rpc_method_handler(
+            servicer.IncrementReservedStockInfo,
+            request_deserializer=store__pb2.IncrementReservedStockInfoRequest.FromString,
+            response_serializer=store__pb2.IncrementReservedStockInfoResponse.SerializeToString,
+        ),
+        "DecrementReservedStockInfo": grpc.unary_unary_rpc_method_handler(
+            servicer.DecrementReservedStockInfo,
+            request_deserializer=store__pb2.DecrementReservedStockInfoRequest.FromString,
+            response_serializer=store__pb2.DecrementReservedStockInfoResponse.SerializeToString,
+        ),
+        "ReturnItemStockInfo": grpc.unary_unary_rpc_method_handler(
+            servicer.ReturnItemStockInfo,
+            request_deserializer=store__pb2.ReturnItemStockInfoRequest.FromString,
+            response_serializer=store__pb2.ReturnItemStockInfoResponse.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -653,6 +749,180 @@ class Store(object):
             "/store.Store/GetAmountOfSpecificVinylFromStore",
             store__pb2.GetAmountOfSpecificVinylFromStoreRequest.SerializeToString,
             store__pb2.GetAmountOfSpecificVinylFromStoreResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def AddToStockInfo(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/store.Store/AddToStockInfo",
+            store__pb2.AddToStockInfoRequest.SerializeToString,
+            store__pb2.AddToStockInfoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def RemoveFromStockInfo(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/store.Store/RemoveFromStockInfo",
+            store__pb2.RemoveFromStockInfoRequest.SerializeToString,
+            store__pb2.RemoveFromStockInfoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def ReadStockInfo(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/store.Store/ReadStockInfo",
+            store__pb2.ReadStockInfoRequest.SerializeToString,
+            store__pb2.ReadStockInfoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def IncrementReservedStockInfo(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/store.Store/IncrementReservedStockInfo",
+            store__pb2.IncrementReservedStockInfoRequest.SerializeToString,
+            store__pb2.IncrementReservedStockInfoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def DecrementReservedStockInfo(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/store.Store/DecrementReservedStockInfo",
+            store__pb2.DecrementReservedStockInfoRequest.SerializeToString,
+            store__pb2.DecrementReservedStockInfoResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+        )
+
+    @staticmethod
+    def ReturnItemStockInfo(
+        request,
+        target,
+        options=(),
+        channel_credentials=None,
+        call_credentials=None,
+        insecure=False,
+        compression=None,
+        wait_for_ready=None,
+        timeout=None,
+        metadata=None,
+    ):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            "/store.Store/ReturnItemStockInfo",
+            store__pb2.ReturnItemStockInfoRequest.SerializeToString,
+            store__pb2.ReturnItemStockInfoResponse.FromString,
             options,
             channel_credentials,
             insecure,

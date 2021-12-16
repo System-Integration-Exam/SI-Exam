@@ -11,15 +11,16 @@ service Book {
     rpc updateBook(UpdateBookRequest) returns (UpdateBookResponse) {}
     //DeleteBook - Deletes book based on ID
     rpc deleteBookById(DeleteBookByIdRequest) returns (DeleteBookByIdResponse) {}
+    //GetAllBooks - Retrieves all books from DB
+    rpc getAllBooks(GetAllBooksRequest) returns (GetAllBooksResponse) {}
 }
 
 //Takes in a book object and returns a status message (success/error)
 //Request message for createBook()
 message CreateBookRequest {
-    string id = 1;
-    string title = 2;
-    string author = 3;
-    int32 rating = 4;
+    string title = 1;
+    string author = 2;
+    int32 rating = 3;
 }
 //Response message for createBook()
 message CreateBookResponse {
@@ -61,3 +62,20 @@ message DeleteBookByIdRequest {
 message DeleteBookByIdResponse {
     string statusMessage = 1;
 }
+
+//Doesn't accept parameters
+//Request for getAllBooksRequest()
+message GetAllBooksRequest {}
+ 
+//Response for getAllBooksRequest()
+message GetAllBooksResponse {
+    repeated BookMessage books = 1;
+}
+
+message BookMessage {
+    string id = 1;
+    string title = 2;
+    string author = 3;
+    int32 rating = 4;
+}
+

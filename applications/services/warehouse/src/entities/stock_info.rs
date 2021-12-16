@@ -10,6 +10,7 @@ pub struct StockInfo {
     pub uuid: String,
     pub store_id: i32,
     pub total_count: i32,
+    pub in_stock: i32,
     pub reserved_count: i32,
     pub created_at: Option<NaiveDateTime>,
     pub updated_at: Option<NaiveDateTime>,

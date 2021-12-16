@@ -1,4 +1,5 @@
-use crate::utils::config::CONFIG;
+use crate::logic::kafka::reservation_message::ReservationMessage;
+use crate::utils::config::{is_production_mode, CONFIG};
 
 use log::{info, warn};
 
@@ -7,12 +8,19 @@ use rdkafka::config::{ClientConfig, RDKafkaLogLevel};
 use rdkafka::consumer::stream_consumer::StreamConsumer;
 use rdkafka::consumer::{CommitMode, Consumer, ConsumerContext, Rebalance};
 use rdkafka::error::KafkaResult;
-use rdkafka::message::{Headers, Message};
+use rdkafka::message::Message;
 use rdkafka::topic_partition_list::TopicPartitionList;
 
-// A context can be used to change the behavior of producers and consumers by adding callbacks
-// that will be executed by librdkafka.
-// This particular context sets up custom callbacks to log rebalancing events.
+lazy_static! {
+    static ref BOOTSTRAP_SERVERS: String = {
+        if is_production_mode() {
+            CONFIG.kafka.production.bootstrap_servers.clone()
+        } else {
+            CONFIG.kafka.development.bootstrap_servers.clone()
+        }
+    };
+}
+
 struct CustomContext;
 
 impl ClientContext for CustomContext {}
@@ -41,7 +49,7 @@ pub async fn consume_and_print(group_id: &str, topics: &[&str]) {
         .set("group.id", group_id)
         .set(
             "bootstrap.servers",
-            CONFIG.kafka.bootstrap_servers.to_owned(),
+            BOOTSTRAP_SERVERS.to_owned(),
         )
         .set(
             "enable.partition.eof",
@@ -69,22 +77,17 @@ pub async fn consume_and_print(group_id: &str, topics: &[&str]) {
         match consumer.recv().await {
             Err(e) => warn!("Kafka error: {}", e),
             Ok(m) => {
-                let payload = match m.payload_view::<str>() {
-                    None => "",
-                    Some(Ok(s)) => s,
+                match m.payload_view::<str>() {
+                    None => (),
+                    Some(Ok(s)) => ReservationMessage::from_payload(s.to_owned())
+                        .and_resolve()
+                        .await
+                        .unwrap(),
                     Some(Err(e)) => {
                         warn!("Error while deserializing message payload: {:?}", e);
-                        ""
+                        println!("Error happened on payload view: {}", e)
                     }
                 };
-                info!("key: '{:?}', payload: '{}', topic: {}, partition: {}, offset: {}, timestamp: {:?}",
-                      m.key(), payload, m.topic(), m.partition(), m.offset(), m.timestamp());
-                if let Some(headers) = m.headers() {
-                    for i in 0..headers.count() {
-                        let header = headers.get(i).unwrap();
-                        info!("  Header {:#?}: {:?}", header.0, header.1);
-                    }
-                }
                 consumer.commit_message(&m, CommitMode::Async).unwrap();
             }
         };

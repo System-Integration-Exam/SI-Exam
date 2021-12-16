@@ -126,4 +126,40 @@ mod tests {
 
         assert_eq!(msg, "200")
     }
+
+    #[tokio::test]
+    async fn read_store_by_address() {
+        let request = tonic::Request::new(store::CreateStoreRequest {
+            address: "address_to_read".to_owned(),
+            phone_number: "test phone number".to_owned(),
+            email: "test_email".to_owned(),
+        });
+
+        let response = create_client()
+            .await
+            .unwrap()
+            .create_store(request)
+            .await
+            .unwrap()
+            .into_inner()
+            .msg;
+
+        assert_eq!(response, "201");
+
+        let msg = create_client()
+            .await
+            .expect("Could not create client in store tests")
+            .read_store_by_address(tonic::Request::new(store::ReadStoreByAddressRequest {
+                address: "address_to_read".to_owned(),
+            }))
+            .await
+            .expect("Could not read store")
+            .into_inner();
+
+        let phone_number = msg.store.unwrap().phone_number;
+
+
+        assert_eq!(phone_number, "test phone number")
+    }
+
 }

@@ -673,6 +673,7 @@ dependencies = [
  "log",
  "prost",
  "rdkafka",
+ "regex",
  "serde",
  "serde_derive",
  "sqlx",

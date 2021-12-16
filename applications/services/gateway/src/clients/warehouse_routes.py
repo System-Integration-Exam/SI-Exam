@@ -165,3 +165,19 @@ def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
         )
         .amount
     )
+
+
+########
+
+
+def return_item_stock_info(uuid: str, store_id: int):
+    return (
+        _create_stub()
+        .ReturnItemStockInfo(
+            store_pb2.ReturnItemStockInfoRequest(
+                uuid=uuid,
+                store_id=store_id,
+            )
+        )
+        .msg
+    )

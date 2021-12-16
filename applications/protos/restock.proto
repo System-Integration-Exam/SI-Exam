@@ -1,0 +1,22 @@
+syntax = "proto3";
+package restock;
+
+option csharp_namespace = "Restock.Protos";
+import "google/protobuf/empty.proto";
+
+
+service RestockGrpc {
+  rpc RequestRestock (RestockRequest) returns (google.protobuf.Empty);
+}
+
+message RestockRequest {
+  string requestText = 1;
+  ItemType itemType = 2;
+  int32 existingItemCount = 3;
+  int32 storeId = 4;
+
+  enum ItemType {
+	  BOOK = 0;
+	  VINYL = 1;
+  }
+}

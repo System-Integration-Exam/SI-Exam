@@ -11,14 +11,16 @@ service Song {
     rpc updateSong(UpdateSongRequest) returns (UpdateSongResponse) {}
     //DeleteSong - Deletes Song based on ID
     rpc deleteSongById(DeleteSongByIdRequest) returns (DeleteSongByIdResponse) {}
+    //GetAllSongs - Retrieves all songs from DB
+    rpc getAllSongs(GetAllSongsRequest) returns (GetAllSongsResponse) {}
 }
 
 //Takes in a Song object and returns a status message (success/error)
 //Request message for createSong()
 message CreateSongRequest {
-    string id = 1;
-    string title = 2;
-    int32 duration_sec = 3;
+    string title = 1;
+    int32 duration_sec = 2;
+    string vinyl_id = 3;
 }
 //Response message for createSong()
 message CreateSongResponse {
@@ -35,6 +37,7 @@ message GetSongByIdResponse {
     string id = 1;
     string title = 2;
     int32 duration_sec = 3;
+    string vinyl_id = 4;
 }
 
 //Takes in a Song object and returns status message
@@ -43,6 +46,7 @@ message UpdateSongRequest {
     string id = 1;
     string title = 2;
     int32 duration_sec = 3;
+    string vinyl_id = 4;
 }
 //Response message for createSong()
 message UpdateSongResponse {
@@ -59,3 +63,18 @@ message DeleteSongByIdResponse {
     string statusMessage = 1;
 }
 
+//Doesn't accept parameters
+//Request for getAllSongssRequest()
+message GetAllSongsRequest {}
+
+//Response for getAllSongsRequest()
+message GetAllSongsResponse {
+    repeated SongMessage songs = 1;
+}
+
+message SongMessage {
+    string id = 1;
+    string title = 2;
+    int32 duration_sec = 3;
+    string vinyl_id = 4;
+}
