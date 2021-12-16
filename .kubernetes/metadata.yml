@@ -11,9 +11,17 @@ spec:
       labels:
         app: metadata
     spec:
+      volumes:
+      - name: metadatadb
+        hostPath:
+          path: /srv/db/metadata
+          type: DirectoryOrCreate
       containers:
       - name: metadata
         image: ghcr.io/system-integration-exam/si-exam/metadata-service:latest
+        volumeMounts:
+        - name: metadatadb
+          mountPath: /app/src/data
         resources:
           limits:
             memory: "128Mi"
