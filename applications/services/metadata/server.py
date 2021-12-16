@@ -248,9 +248,9 @@ book_pb2_grpc.add_BookServicer_to_server(BookServicer(), server)
 song_pb2_grpc.add_SongServicer_to_server(SongServicer(), server)
 vinyl_pb2_grpc.add_VinylServicer_to_server(VinylServicer(), server)
 
-# listen on port 50051
-print("Starting server. Listening on port 50051.")
-server.add_insecure_port("0.0.0.0:50051")
+# listen on port 20070
+print("Starting server. Listening on port 20070.")
+server.add_insecure_port("0.0.0.0:20070")
 server.start()
 
 

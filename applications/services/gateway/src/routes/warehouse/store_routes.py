@@ -1,10 +1,10 @@
-from clients import warehouse_routes
+from clients import warehouse
 from flask import request
 
 
 def create_store():
     try:
-        return warehouse_routes.create_store(request.json)
+        return warehouse.create_store(request.json)
     except Exception as e:
         print(e)
         return "500"
@@ -12,7 +12,7 @@ def create_store():
 
 def read_store(id):
     try:
-        return warehouse_routes.read_store(id)
+        return warehouse.read_store(id)
     except Exception as e:
         print(e)
         return "500"
@@ -20,7 +20,7 @@ def read_store(id):
 
 def update_store(id):
     try:
-        return warehouse_routes.update_store(id, request.json)
+        return warehouse.update_store(id, request.json)
     except Exception as e:
         print(e)
         return "500"
@@ -28,7 +28,7 @@ def update_store(id):
 
 def delete_store(id):
     try:
-        return warehouse_routes.delete_store(id)
+        return warehouse.delete_store(id)
     except Exception as e:
         print(e)
         return "500"
@@ -36,7 +36,7 @@ def delete_store(id):
 
 def read_store_list():
     try:
-        return warehouse_routes.read_store_list()
+        return warehouse.read_store_list()
     except Exception as e:
         print(e)
         return "500"
@@ -44,7 +44,7 @@ def read_store_list():
 
 def add_book_to_store(store_id, book_id):
     try:
-        return warehouse_routes.add_book_to_store(store_id, book_id)
+        return warehouse.add_book_to_store(store_id, book_id)
     except Exception as e:
         print(e)
         return "500"
@@ -52,7 +52,7 @@ def add_book_to_store(store_id, book_id):
 
 def remove_book_from_store(store_id, book_id):
     try:
-        return warehouse_routes.remove_book_from_store(store_id, book_id)
+        return warehouse.remove_book_from_store(store_id, book_id)
     except Exception as e:
         print(e)
         return "500"
@@ -60,7 +60,7 @@ def remove_book_from_store(store_id, book_id):
 
 def get_amount_of_specific_book_from_store(store_id, book_id):
     try:
-        return warehouse_routes.get_amount_of_specific_book_from_store(
+        return warehouse.get_amount_of_specific_book_from_store(
             store_id, book_id
         )
     except Exception as e:
@@ -70,7 +70,7 @@ def get_amount_of_specific_book_from_store(store_id, book_id):
 
 def add_vinyl_to_store(store_id, vinyl_id):
     try:
-        return warehouse_routes.add_vinyl_to_store(store_id, vinyl_id)
+        return warehouse.add_vinyl_to_store(store_id, vinyl_id)
     except Exception as e:
         print(e)
         return "500"
@@ -78,7 +78,7 @@ def add_vinyl_to_store(store_id, vinyl_id):
 
 def remove_vinyl_from_store(store_id, vinyl_id):
     try:
-        return warehouse_routes.remove_vinyl_from_store(store_id, vinyl_id)
+        return warehouse.remove_vinyl_from_store(store_id, vinyl_id)
     except Exception as e:
         print(e)
         return "500"
@@ -86,7 +86,7 @@ def remove_vinyl_from_store(store_id, vinyl_id):
 
 def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
     try:
-        return warehouse_routes.get_amount_of_specific_vinyl_from_store(
+        return warehouse.get_amount_of_specific_vinyl_from_store(
             store_id, vinyl_id
         )
     except Exception as e:
@@ -96,7 +96,7 @@ def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
 
 def return_item_stock_info(uuid, store_id):
     try:
-        return warehouse_routes.return_item_stock_info(uuid, store_id)
+        return warehouse.return_item_stock_info(uuid, store_id)
     except Exception as e:
         print(e)
         return "500"

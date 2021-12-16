@@ -13,6 +13,6 @@ WORKDIR /app/src/migrations
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 50051
+EXPOSE 20070
 
 ENTRYPOINT [ "/app/src/init.sh" ]

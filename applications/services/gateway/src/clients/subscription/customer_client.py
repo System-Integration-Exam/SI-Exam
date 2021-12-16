@@ -41,11 +41,8 @@ def read_customer(customer_id):
 
 
 def read_customer_list():
-    response = _create_stub().ReadCustomerList(
-        customer_pb2.ReadCustomerListRequest()
-
-    )
-    customers =[]
+    response = _create_stub().ReadCustomerList(customer_pb2.ReadCustomerListRequest())
+    customers = []
     for cus in response.customer_list:
         obj = {
             "id": cus.id,

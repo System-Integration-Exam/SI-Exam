@@ -9,7 +9,7 @@ import protogen.vinyl_pb2 as vinyl_pb2
 import protogen.vinyl_pb2_grpc as vinyl_pb2_grpc
 
 # open a gRPC channel
-channel = grpc.insecure_channel("localhost:50051")
+channel = grpc.insecure_channel("localhost:20070")
 
 # create a stub (client)
 bookStub = book_pb2_grpc.BookStub(channel)

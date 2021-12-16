@@ -40,9 +40,8 @@ def read_subscription(subscription_id):
 def read_subscription_list():
     response = _create_stub().ReadSubscriptionList(
         subscription_pb2.ReadSubscriptionListRequest()
-
     )
-    subscriptions =[]
+    subscriptions = []
     for sub in response.subscription_list:
         obj = {
             "id": sub.id,
@@ -54,6 +53,7 @@ def read_subscription_list():
         subscriptions.append(obj)
 
     return JSON.dumps(subscriptions)
+
 
 def update_subscription(update_subscription_json, id):
     return (
