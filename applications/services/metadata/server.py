@@ -83,11 +83,11 @@ class SongServicer(song_pb2_grpc.SongServicer):
     # takes in a song object and returns a status message (success/error)
     def createSong(self, request, context):
         response = song_pb2.CreateSongResponse()
-        try:
+        try:            
             response.statusMessage = SF.createSong(request)
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
-            context.set_details("Something went wrong with creating the book")
+            context.set_details("Something went wrong with creating the song")
         return response
 
     # takes in an ID value and returns a song object
@@ -98,6 +98,7 @@ class SongServicer(song_pb2_grpc.SongServicer):
             response.id = song.id
             response.title = song.title
             response.duration_sec = song.duration_sec
+            response.vinyl_id = song.vinyl_id
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with getting the book")
@@ -124,7 +125,7 @@ class SongServicer(song_pb2_grpc.SongServicer):
         return response
 
     # takes no parameter and returns list of song objects
-    def getAllSong(self, request, context):
+    def getAllSongs(self, request, context):
         response = song_pb2.GetAllSongsResponse()
         try:
             allSongs = SF.getAllSongs()
@@ -145,7 +146,7 @@ class VinylServicer(vinyl_pb2_grpc.VinylServicer):
             response.statusMessage = VF.createVinyl(request)
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
-            context.set_details("Something went wrong with creating the book")
+            context.set_details("Something went wrong with creating the vinyl")
         return response
 
     # takes in an ID value and returns a vinyl object
@@ -156,7 +157,7 @@ class VinylServicer(vinyl_pb2_grpc.VinylServicer):
             response.id = vinyl.id
             response.artist = vinyl.artist
             response.genre = vinyl.genre
-        except Exception as e:
+        except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with getting the vinyl")
         return response 
@@ -168,7 +169,7 @@ class VinylServicer(vinyl_pb2_grpc.VinylServicer):
             response.statusMessage = VF.updateVinyl(request)
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
-            context.set_details("Something went wrong with updating the book")
+            context.set_details("Something went wrong with updating the vinyl")
         return response
 
     # takes in an ID value and returns status message
@@ -178,7 +179,7 @@ class VinylServicer(vinyl_pb2_grpc.VinylServicer):
             response.statusMessage = VF.deleteVinylById(request.id)
         except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
-            context.set_details("Something went wrong with updating the book")
+            context.set_details("Something went wrong with updating the vinyl")
         return response
 
             # takes no parameter and returns list of song objects
@@ -191,8 +192,7 @@ class VinylServicer(vinyl_pb2_grpc.VinylServicer):
             for x in allVinyls:
                 vinylmsg = vinyl_pb2.VinylMessage(id=x.id, artist=x.artist, genre=x.genre)
                 response.vinyls.append(vinylmsg)
-        except Exception as e:
-            print(e)
+        except Exception:
             context.set_code(grpc.StatusCode.INTERNAL)
             context.set_details("Something went wrong with retrieving the data")
         return response

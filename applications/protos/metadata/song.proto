@@ -18,9 +18,9 @@ service Song {
 //Takes in a Song object and returns a status message (success/error)
 //Request message for createSong()
 message CreateSongRequest {
-    string id = 1;
-    string title = 2;
-    int32 duration_sec = 3;
+    string title = 1;
+    int32 duration_sec = 2;
+    string vinyl_id = 3;
 }
 //Response message for createSong()
 message CreateSongResponse {
@@ -37,6 +37,7 @@ message GetSongByIdResponse {
     string id = 1;
     string title = 2;
     int32 duration_sec = 3;
+    string vinyl_id = 4;
 }
 
 //Takes in a Song object and returns status message
@@ -45,6 +46,7 @@ message UpdateSongRequest {
     string id = 1;
     string title = 2;
     int32 duration_sec = 3;
+    string vinyl_id = 4;
 }
 //Response message for createSong()
 message UpdateSongResponse {
@@ -73,6 +75,6 @@ message GetAllSongsResponse {
 message SongMessage {
     string id = 1;
     string title = 2;
-    string duration_sec = 3;
-    int32 vinyl_id = 4;
+    int32 duration_sec = 3;
+    string vinyl_id = 4;
 }
