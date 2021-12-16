@@ -41,3 +41,12 @@ jobs:
       image_path: "applications/services/metadata"
     secrets:
       ghcr_token: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
+  
+  call-build-and-publish-gateway:
+    name: Build & Publish Gateway Service
+    uses: System-Integration-Exam/SI-Exam/.github/workflows/build_publish_image.yml@main
+    with:
+      image_name: gateway-service
+      image_path: "applications/services/gateway"
+    secrets:
+      ghcr_token: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
