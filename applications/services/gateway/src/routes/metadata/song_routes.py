@@ -47,6 +47,4 @@ def collect_routes(app):
     app.add_url_rule("/song/<int:id>", view_func=read_song, methods=["GET"])
     app.add_url_rule("/song", view_func=read_song_list, methods=["GET"])
     app.add_url_rule("/song/<int:id>", view_func=update_song, methods=["PUT"])
-    app.add_url_rule(
-        "/song/<int:id>", view_func=delete_song, methods=["DELETE"]
-    )
+    app.add_url_rule("/song/<int:id>", view_func=delete_song, methods=["DELETE"])

@@ -60,9 +60,7 @@ def remove_book_from_store(store_id, book_id):
 
 def get_amount_of_specific_book_from_store(store_id, book_id):
     try:
-        return warehouse.get_amount_of_specific_book_from_store(
-            store_id, book_id
-        )
+        return warehouse.get_amount_of_specific_book_from_store(store_id, book_id)
     except Exception as e:
         print(e)
         return "500"
@@ -86,9 +84,7 @@ def remove_vinyl_from_store(store_id, vinyl_id):
 
 def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
     try:
-        return warehouse.get_amount_of_specific_vinyl_from_store(
-            store_id, vinyl_id
-        )
+        return warehouse.get_amount_of_specific_vinyl_from_store(store_id, vinyl_id)
     except Exception as e:
         print(e)
         return "500"

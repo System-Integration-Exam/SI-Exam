@@ -47,6 +47,4 @@ def collect_routes(app):
     app.add_url_rule("/book/<int:id>", view_func=read_book, methods=["GET"])
     app.add_url_rule("/book", view_func=read_book_list, methods=["GET"])
     app.add_url_rule("/book/<int:id>", view_func=update_book, methods=["PUT"])
-    app.add_url_rule(
-        "/book/<int:id>", view_func=delete_book, methods=["DELETE"]
-    )
+    app.add_url_rule("/book/<int:id>", view_func=delete_book, methods=["DELETE"])

@@ -19,7 +19,6 @@ book_routes.collect_routes(app)
 vinyl_routes.collect_routes(app)
 
 
-
 def main() -> None:
     app.run(debug=True, host=CONFIG["server"]["host"], port=CONFIG["server"]["port"])
 

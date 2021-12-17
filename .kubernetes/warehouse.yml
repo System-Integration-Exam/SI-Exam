@@ -11,9 +11,17 @@ spec:
       labels:
         app: warehouse
     spec:
+      volumes:
+        - name: warehousedb
+          hostPath:
+            path: /srv/db/warehouse
+            type: DirectoryOrCreate
       containers:
       - name: warehouse
         image: ghcr.io/system-integration-exam/si-exam/warehouse-service:latest
+        volumeMounts:
+        - name: warehousedb
+          mountPath: /app/data
         resources:
           limits:
             memory: "128Mi"

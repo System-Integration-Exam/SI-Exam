@@ -47,6 +47,4 @@ def collect_routes(app):
     app.add_url_rule("/vinyl/<int:id>", view_func=read_vinyl, methods=["GET"])
     app.add_url_rule("/vinyl", view_func=read_vinyl_list, methods=["GET"])
     app.add_url_rule("/vinyl/<int:id>", view_func=update_vinyl, methods=["PUT"])
-    app.add_url_rule(
-        "/vinyl/<int:id>", view_func=delete_vinyl, methods=["DELETE"]
-    )
+    app.add_url_rule("/vinyl/<int:id>", view_func=delete_vinyl, methods=["DELETE"])

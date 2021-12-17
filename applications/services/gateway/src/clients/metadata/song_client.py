@@ -33,7 +33,7 @@ def create_song(new_song_json):
 
     return JSON.dumps(
         {
-            "id":song.id,
+            "id": song.id,
             "title": song.title,
             "duration_sec": song.duration_sec,
             "vinyl_id": song.vinyl_id,

@@ -18,7 +18,7 @@ def _create_stub():
 
 
 def create_vinyl(new_vinyl_json):
-    
+
     vinyl = (
         _create_stub()
         .createVinyl(
@@ -29,11 +29,13 @@ def create_vinyl(new_vinyl_json):
         )
         .vinyl
     )
-    return JSON.dumps({
-        "id":vinyl.id,
-        "artist":vinyl.artist,
-        "genre": vinyl.genre,
-    })
+    return JSON.dumps(
+        {
+            "id": vinyl.id,
+            "artist": vinyl.artist,
+            "genre": vinyl.genre,
+        }
+    )
 
 
 def read_vinyl(vinyl_id):
