@@ -1,5 +1,7 @@
 using Camunda.Worker;
 using Camunda.Worker.Client;
+using Grpc.Net.Client;
+using Metadata.Protos;
 using Restock.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +11,13 @@ Action<HttpClient> clientBuilder = client => client.BaseAddress = new Uri(camund
 
 builder.Services.AddExternalTaskClient(clientBuilder);
 builder.Services.AddCamundaWorker("dotnetWorker")
-    .AddHandler<CamundaTaskHandler>();
+    .AddHandler<MetadataTaskHandler>();
 builder.Services.AddHttpClient<RestockService>(clientBuilder);
+builder.Services.AddSingleton<MetadataClientService>();
+
+string bookServiceUrl = builder.Configuration.GetValue<string>("MetadataServiceUrl");
+builder.Services.AddSingleton(services => new Book.BookClient(GrpcChannel.ForAddress(bookServiceUrl)));
+builder.Services.AddHttpClient<MetadataTaskHandler>();
 
 // Add services to the container.
 builder.Services.AddGrpc();
