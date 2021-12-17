@@ -19,6 +19,6 @@ spec:
             image: ghcr.io/system-integration-exam/si-exam/camelpro-service:latest
             volumeMounts:
             - name: csv-root
-              mountPath: /app/src/main/resources/csvdata
+              mountPath: /app/data
           restartPolicy: Never
 

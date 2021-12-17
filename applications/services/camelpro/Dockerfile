@@ -3,7 +3,7 @@ FROM maven:3-openjdk-17-slim AS build
 WORKDIR /app
 COPY src src
 COPY pom.xml .
-RUN mvn -f pom.xml clean package
+RUN mvn -f pom.xml -Pproduction clean package
 
 # Package stage
 FROM openjdk:17.0.1-slim
