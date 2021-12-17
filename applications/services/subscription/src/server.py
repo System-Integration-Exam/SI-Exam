@@ -4,8 +4,8 @@ from logic.protogen import customer_pb2_grpc, subscription_pb2_grpc
 from routes.customer_routes import CustomerRouter
 from routes.subscription_routes import SubscriptionRouter
 from logic.kafka.kafkaConsumer import kafka_consumer
-
 import grpc
+import threading
 
 URL = f"{CONFIG['server']['host']}:{CONFIG['server']['port']}"
 MAX_WORKERS = CONFIG["server"]["max_workers"]
@@ -17,9 +17,10 @@ def serve() -> None:
     subscription_pb2_grpc.add_SubscriptionServicer_to_server(
         SubscriptionRouter(), server
     )
-    kafka_consumer()
+    t = threading.Thread(target=kafka_consumer())
     server.add_insecure_port(URL)
     server.start()
+    t.start()
     server.wait_for_termination()
 
 

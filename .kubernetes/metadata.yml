@@ -11,15 +11,23 @@ spec:
       labels:
         app: metadata
     spec:
+      volumes:
+      - name: metadatadb
+        hostPath:
+          path: /srv/db/metadata
+          type: DirectoryOrCreate
       containers:
       - name: metadata
         image: ghcr.io/system-integration-exam/si-exam/metadata-service:latest
+        volumeMounts:
+        - name: metadatadb
+          mountPath: /app/src/data
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 50051
+        - containerPort: 20070
 
 ---
 
@@ -33,3 +41,4 @@ spec:
   type: ClusterIP
   ports:
   - port: 50051
+    targetPort: 20070
