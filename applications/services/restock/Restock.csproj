@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -9,6 +9,9 @@
   <ItemGroup Condition="'$(Configuration)' != 'Release'">
 	<Protobuf Include="..\..\protos\restock.proto" OutputDir="Protos" GrpcServices="Server" CompileOutputs="false">
       <Link>Protos\restock.proto</Link>
+	</Protobuf>
+	<Protobuf Include="..\..\protos\metadata\book.proto" OutputDir="Protos" GrpcServices="Client" CompileOutputs="false">
+      <Link>Protos\book.proto</Link>
 	</Protobuf>
   </ItemGroup>
 
