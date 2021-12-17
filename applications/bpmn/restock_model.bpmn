@@ -12,15 +12,21 @@
       <bpmn:outgoing>Flow_1g5hec0</bpmn:outgoing>
       <bpmn:outgoing>Flow_0ebl9tj</bpmn:outgoing>
     </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="Flow_1g5hec0" name="No" sourceRef="Gateway_1d6ot1q" targetRef="Gateway_053w87i">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!validationResult.ownItem}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1g5hec0" name="No" sourceRef="Gateway_1d6ot1q" targetRef="Gateway_09d2aru" />
     <bpmn:endEvent id="Event_07ph6up" name="Item restocked">
       <bpmn:incoming>Flow_03iulsa</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_03iulsa" sourceRef="Activity_1kbasrr" targetRef="Event_07ph6up" />
-    <bpmn:userTask id="Activity_1rlso0u" name="Make new contract with publisher" camunda:formRef="bookContractForm" camunda:formRefBinding="latest" camunda:candidateUsers="demo">
-      <bpmn:incoming>Flow_19j14s0</bpmn:incoming>
+    <bpmn:userTask id="Activity_1rlso0u" name="Make new contract with Publisher" camunda:formRef="bookContractForm" camunda:formRefBinding="latest" camunda:candidateUsers="demo">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="userRequestText">${requestText}</camunda:inputParameter>
+        </camunda:inputOutput>
+        <camunda:properties>
+          <camunda:property name="test" value="${requestText}" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1rxodxy</bpmn:incoming>
       <bpmn:outgoing>Flow_0k6zynv</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:serviceTask id="Activity_04sxj8l" name="Add metadata for item to system" camunda:type="external" camunda:topic="fetch-metadata">
@@ -69,22 +75,22 @@
       <bpmn:incoming>Flow_0znv02x</bpmn:incoming>
       <bpmn:outgoing>Flow_03iulsa</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:exclusiveGateway id="Gateway_053w87i" name="Item Iype">
-      <bpmn:incoming>Flow_1g5hec0</bpmn:incoming>
-      <bpmn:outgoing>Flow_19j14s0</bpmn:outgoing>
-      <bpmn:outgoing>Flow_105bad3</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="Flow_19j14s0" name="Book" sourceRef="Gateway_053w87i" targetRef="Activity_1rlso0u">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${itemType = book}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_105bad3" name="Vinyl" sourceRef="Gateway_053w87i" targetRef="Activity_1klxn8k">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${itemType = vinyl}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
     <bpmn:userTask id="Activity_1klxn8k" name="Make new contract with Record Lable" camunda:formRef="vinylContractForm" camunda:formRefBinding="latest">
-      <bpmn:incoming>Flow_105bad3</bpmn:incoming>
+      <bpmn:incoming>Flow_0jxkdwt</bpmn:incoming>
       <bpmn:outgoing>Flow_1hfldd4</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_1hfldd4" sourceRef="Activity_1klxn8k" targetRef="Activity_04sxj8l" />
+    <bpmn:exclusiveGateway id="Gateway_09d2aru" name="Item Type">
+      <bpmn:incoming>Flow_1g5hec0</bpmn:incoming>
+      <bpmn:outgoing>Flow_1rxodxy</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0jxkdwt</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1rxodxy" name="Book" sourceRef="Gateway_09d2aru" targetRef="Activity_1rlso0u">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${itemType == "book"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0jxkdwt" name="Vinyl" sourceRef="Gateway_09d2aru" targetRef="Activity_1klxn8k">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${itemType == "vinyl"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Restock_Process">
@@ -129,32 +135,32 @@
         <di:waypoint x="570" y="152" />
         <di:waypoint x="570" y="235" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="582" y="183" width="15" height="14" />
+          <dc:Bounds x="582" y="174" width="15" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0hqcafg_di" bpmnElement="Flow_0hqcafg">
         <di:waypoint x="178" y="127" />
         <di:waypoint x="250" y="127" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_19j14s0_di" bpmnElement="Flow_19j14s0">
+      <bpmndi:BPMNEdge id="Flow_1hfldd4_di" bpmnElement="Flow_1hfldd4">
+        <di:waypoint x="770" y="370" />
+        <di:waypoint x="880" y="370" />
+        <di:waypoint x="880" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1rxodxy_di" bpmnElement="Flow_1rxodxy">
         <di:waypoint x="595" y="260" />
         <di:waypoint x="670" y="260" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="620" y="242" width="26" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_105bad3_di" bpmnElement="Flow_105bad3">
+      <bpmndi:BPMNEdge id="Flow_0jxkdwt_di" bpmnElement="Flow_0jxkdwt">
         <di:waypoint x="570" y="285" />
         <di:waypoint x="570" y="370" />
         <di:waypoint x="670" y="370" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="621" y="353" width="24" height="14" />
+          <dc:Bounds x="608" y="353" width="24" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1hfldd4_di" bpmnElement="Flow_1hfldd4">
-        <di:waypoint x="770" y="370" />
-        <di:waypoint x="880" y="370" />
-        <di:waypoint x="880" y="300" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Gateway_1d6ot1q_di" bpmnElement="Gateway_1d6ot1q" isMarkerVisible="true">
         <dc:Bounds x="545" y="102" width="50" height="50" />
@@ -195,17 +201,17 @@
       <bpmndi:BPMNShape id="Activity_1th9we3_di" bpmnElement="Activity_1kbasrr">
         <dc:Bounds x="830" y="87" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Gateway_053w87i_di" bpmnElement="Gateway_053w87i" isMarkerVisible="true">
-        <dc:Bounds x="545" y="235" width="50" height="50" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="489" y="253" width="46" height="14" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_19w1wi4_di" bpmnElement="Activity_1rlso0u">
         <dc:Bounds x="670" y="220" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1mchnyd_di" bpmnElement="Activity_1klxn8k">
         <dc:Bounds x="670" y="330" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_09d2aru_di" bpmnElement="Gateway_09d2aru" isMarkerVisible="true">
+        <dc:Bounds x="545" y="235" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="485.5" y="253" width="49" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
