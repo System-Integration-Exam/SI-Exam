@@ -1,23 +1,24 @@
-
 apiVersion: batch/v1
-kind: Job
+kind: CronJob
 metadata:
   name: camelpro-job
 spec:
+  schedule: "0 3 * * *"
   ttlSecondsAfterFinished: 100
-  template:
+  jobTemplate:
     spec:
-      volumes:
-      - name: csv-root
-        hostPath:
-          path: /srv/camel/csv
-          type: DirectoryOrCreate
-      containers:
-      - name: camelpro
-        image: camelpro:latest
-        imagePullPolicy: Never
-        volumeMounts:
-        - name: csv-root
-          mountPath: /app/src/main/resources/csvdata
-      restartPolicy: Never
+      template:
+        spec:
+          volumes:
+          - name: csv-root
+            hostPath:
+              path: /srv/camel/csv
+              type: DirectoryOrCreate
+          containers:
+          - name: camelpro
+            image: ghcr.io/system-integration-exam/si-exam/camelpro-service:latest
+            volumeMounts:
+            - name: csv-root
+              mountPath: /app/src/main/resources/csvdata
+          restartPolicy: Never
 
