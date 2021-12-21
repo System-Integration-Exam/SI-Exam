@@ -14,10 +14,13 @@ builder.Services.AddExternalTaskClient(clientBuilder);
 builder.Services.AddCamundaWorker("dotnetWorker")
     .AddHandler<MetadataTaskHandler>();
 builder.Services.AddHttpClient<RestockService>(clientBuilder);
-builder.Services.AddSingleton<MetadataClientService>();
+builder.Services.AddScoped<MetadataClientService>();
 
-string bookServiceUrl = builder.Configuration.GetValue<string>("MetadataServiceUrl");
-builder.Services.AddSingleton(services => new Book.BookClient(GrpcChannel.ForAddress(bookServiceUrl)));
+string metadataServiceUrl = builder.Configuration.GetValue<string>("MetadataServiceUrl");
+builder.Services.AddScoped(services => new Book.BookClient(GrpcChannel.ForAddress(metadataServiceUrl)));
+builder.Services.AddScoped(services => new Vinyl.VinylClient(GrpcChannel.ForAddress(metadataServiceUrl)));
+builder.Services.AddScoped(services => new Song.SongClient(GrpcChannel.ForAddress(metadataServiceUrl)));
+
 builder.Services.AddHttpClient("discogsVinylApi", client =>
 {
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Discogs", "key=BpRIWJrloHACjruiVMmi, secret=BzLPjQdcnXswOkyDTPyVMjdCUjWykuFi");

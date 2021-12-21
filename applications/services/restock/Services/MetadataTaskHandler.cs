@@ -44,6 +44,9 @@ public class MetadataTaskHandler: IExternalTaskHandler
 
             VinylInfo info = await GetVinylDataAsync(artist, album);
             _logger.LogInformation(info.ToString());
+
+            string itemId = await _metadataClient.AddVinylAsync(info);
+            result.Variables[nameof(itemId)] = Variable.String(itemId);
         }
         
         return result;

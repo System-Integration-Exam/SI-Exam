@@ -16,6 +16,12 @@
 	<Protobuf Include="..\..\protos\metadata\book.proto" OutputDir="Protos" GrpcServices="Client" CompileOutputs="false">
       <Link>Protos\book.proto</Link>
 	</Protobuf>
+	<Protobuf Include="..\..\protos\metadata\vinyl.proto" OutputDir="Protos" GrpcServices="Client" CompileOutputs="false">
+	  <Link>Protos\vinyl.proto</Link>
+	</Protobuf>
+	<Protobuf Include="..\..\protos\metadata\song.proto" OutputDir="Protos" GrpcServices="Client" CompileOutputs="false">
+	  <Link>Protos\song.proto</Link>
+	</Protobuf>
   </ItemGroup>
 
   <ItemGroup>
