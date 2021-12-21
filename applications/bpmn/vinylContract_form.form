@@ -2,6 +2,26 @@
   "schemaVersion": 2,
   "components": [
     {
+      "label": "Album",
+      "type": "textfield",
+      "id": "Field_1vayytb",
+      "key": "vinylAlbum",
+      "description": "The title of the album",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Artist",
+      "type": "textfield",
+      "id": "Field_0u8u15r",
+      "key": "vinylArtist",
+      "description": "The name of the album artist",
+      "validate": {
+        "required": true
+      }
+    },
+    {
       "values": [
         {
           "label": "Yes",

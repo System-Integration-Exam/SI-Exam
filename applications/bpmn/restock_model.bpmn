@@ -13,9 +13,6 @@
       <bpmn:outgoing>Flow_0ebl9tj</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_1g5hec0" name="No" sourceRef="Gateway_1d6ot1q" targetRef="Gateway_09d2aru" />
-    <bpmn:endEvent id="Event_07ph6up" name="Item restocked">
-      <bpmn:incoming>Flow_03iulsa</bpmn:incoming>
-    </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_03iulsa" sourceRef="Activity_1kbasrr" targetRef="Event_07ph6up" />
     <bpmn:userTask id="Activity_1rlso0u" name="Make new contract with Publisher" camunda:formRef="bookContractForm" camunda:formRefBinding="latest" camunda:candidateUsers="demo">
       <bpmn:extensionElements>
@@ -64,9 +61,6 @@
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_0znv02x" sourceRef="Activity_04sxj8l" targetRef="Activity_1kbasrr" />
     <bpmn:sequenceFlow id="Flow_0k6zynv" sourceRef="Activity_1rlso0u" targetRef="Activity_04sxj8l" />
-    <bpmn:endEvent id="Event_08lk3ss" name="Item is not restocked">
-      <bpmn:incoming>Flow_022h617</bpmn:incoming>
-    </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_022h617" name="No" sourceRef="Gateway_1erhqjx" targetRef="Event_08lk3ss">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!validationResult.isApproved}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
@@ -91,6 +85,13 @@
     <bpmn:sequenceFlow id="Flow_0jxkdwt" name="Vinyl" sourceRef="Gateway_09d2aru" targetRef="Activity_1klxn8k">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${itemType == "vinyl"}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_07ph6up" name="Item is restocked">
+      <bpmn:incoming>Flow_03iulsa</bpmn:incoming>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_0ql92wz" camunda:type="external" camunda:topic="notify-restock" />
+    </bpmn:endEvent>
+    <bpmn:endEvent id="Event_08lk3ss" name="Item is not restocked">
+      <bpmn:incoming>Flow_022h617</bpmn:incoming>
+    </bpmn:endEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Restock_Process">
@@ -129,7 +130,7 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_03iulsa_di" bpmnElement="Flow_03iulsa">
         <di:waypoint x="930" y="127" />
-        <di:waypoint x="1042" y="127" />
+        <di:waypoint x="1012" y="127" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1g5hec0_di" bpmnElement="Flow_1g5hec0">
         <di:waypoint x="570" y="152" />
@@ -177,12 +178,6 @@
           <dc:Bounds x="390" y="65" width="81" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_08lk3ss_di" bpmnElement="Event_08lk3ss">
-        <dc:Bounds x="412" y="242" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="404" y="285" width="52" height="27" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_15l6mgd_di" bpmnElement="StartEvent_1">
         <dc:Bounds x="142" y="109" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -191,12 +186,6 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_05qbb9a_di" bpmnElement="Activity_04sxj8l">
         <dc:Bounds x="830" y="220" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_07ph6up_di" bpmnElement="Event_07ph6up">
-        <dc:Bounds x="1042" y="109" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1023" y="155" width="73" height="14" />
-        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1th9we3_di" bpmnElement="Activity_1kbasrr">
         <dc:Bounds x="830" y="87" width="100" height="80" />
@@ -211,6 +200,18 @@
         <dc:Bounds x="545" y="235" width="50" height="50" />
         <bpmndi:BPMNLabel>
           <dc:Bounds x="485.5" y="253" width="49" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1phsokz_di" bpmnElement="Event_08lk3ss">
+        <dc:Bounds x="412" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="404" y="285" width="52" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1lke20c_di" bpmnElement="Event_07ph6up">
+        <dc:Bounds x="1012" y="109" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="988" y="155" width="84" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
