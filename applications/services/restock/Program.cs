@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using Camunda.Worker;
 using Camunda.Worker.Client;
 using Grpc.Net.Client;
@@ -17,7 +18,11 @@ builder.Services.AddSingleton<MetadataClientService>();
 
 string bookServiceUrl = builder.Configuration.GetValue<string>("MetadataServiceUrl");
 builder.Services.AddSingleton(services => new Book.BookClient(GrpcChannel.ForAddress(bookServiceUrl)));
-builder.Services.AddHttpClient<MetadataTaskHandler>();
+builder.Services.AddHttpClient("discogsVinylApi", client =>
+{
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Discogs", "key=BpRIWJrloHACjruiVMmi, secret=BzLPjQdcnXswOkyDTPyVMjdCUjWykuFi");
+    client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("Mozilla", "5.0"));
+});
 
 // Add services to the container.
 builder.Services.AddGrpc();
