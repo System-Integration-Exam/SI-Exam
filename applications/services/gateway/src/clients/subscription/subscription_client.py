@@ -43,8 +43,8 @@ def read_subscription(subscription_id):
             "updated_at": response.updated_at,
         },
         "links": [
-            Link("this subscription", f"/subscription/{response.id}"), 
-            Link("all subscriptions", "/subscription")
+            Link("this subscription", f"/subscription/{response.id}"),
+            Link("all subscriptions", "/subscription"),
         ],
     }
 
@@ -64,8 +64,8 @@ def read_subscription_list():
                 "updated_at": sub.updated_at,
             },
             "links": [
-                Link("this subscription", f"/subscription/{sub.id}"), 
-                Link("all subscriptions", "/subscription")
+                Link("this subscription", f"/subscription/{sub.id}").__dict__,
+                Link("all subscriptions", "/subscription").__dict__,
             ],
         }
         subscriptions.append(obj)

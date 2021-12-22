@@ -43,7 +43,7 @@ def create_song(new_song_json):
 
 
 def read_song(song_id):
-    response = _create_stub().readSong(song_pb2.ReadSongRequest(id=song_id))
+    response = _create_stub().getSongById(song_pb2.GetSongByIdRequest(id=song_id))
     return {
         "payload": {
             "title": response.title,
@@ -51,14 +51,14 @@ def read_song(song_id):
             "vinyl_id": response.vinyl_id,
         },
         "links": [
-            Link("this song", f"/song/{response.id}").__dict__, 
-            Link("all songs", f"/song").__dict__
+            Link("this song", f"/song/{response.id}"),
+            Link("all songs", f"/song"),
         ],
     }
 
 
 def read_song_list():
-    response = _create_stub().readSongList(song_pb2.ReadSongListRequest())
+    response = _create_stub().getAllSongs(song_pb2.GetAllSongsRequest())
     songs = [
         {
             "payload": {
@@ -68,11 +68,11 @@ def read_song_list():
                 "vinyl_id": song.vinyl_id,
             },
             "links": [
-                Link("this song", f"/song/{song.id}").__dict__, 
-                Link("all songs", "/song").__dict__
+                Link("this song", f"/song/{song.id}").__dict__,
+                Link("all songs", "/song").__dict__,
             ],
         }
-        for song in response.song_list
+        for song in response.songs
     ]
     return JSON.dumps(songs)
 
@@ -93,5 +93,5 @@ def update_song(update_song_json, id):
 
 
 def delete_song(song_id):
-    response = _create_stub().deleteSong(song_pb2.DeleteSongRequest(id=song_id))
+    response = _create_stub().deleteSongById(song_pb2.DeleteSongByIdRequest(id=song_id))
     return MessageToJson(response)

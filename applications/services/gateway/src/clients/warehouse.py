@@ -35,17 +35,17 @@ def create_store(new_store_json):
 def read_store(store_id):
     response = _create_stub().ReadStore(store_pb2.ReadStoreRequest(id=store_id)).store
     return {
-        "payload":{
+        "payload": {
             "address": response.address,
             "phone_number": response.phone_number,
             "email": response.email,
             "created_at": response.created_at,
             "updated_at": response.updated_at,
         },
-        "links":[
+        "links": [
             Link("this store", f"/store/{store_id}"),
-            Link("all stores", "/store")
-        ]
+            Link("all stores", "/store"),
+        ],
     }
 
 
@@ -109,7 +109,6 @@ def read_store_list():
                 Link("all vinyls", f"/vinyl").__dict__,
                 Link("all songs", f"/song").__dict__,
                 Link("all stores", f"/store").__dict__,
-                
             ],
         }
         for store in response.store_list

@@ -39,30 +39,33 @@ def create_book(new_book_json):
 
 
 def read_book(book_id):
-    response = _create_stub().readBook(book_pb2.ReadBookRequest(id=book_id))
+    response = _create_stub().getBookById(book_pb2.GetBookByIdRequest(id=book_id))
     return {
         "payload": {
             "title": response.title,
             "author": response.author,
             "rating": response.rating,
         },
-        "links": [Link("stuff", "thing").__dict__, Link("stuff", "thing").__dict__],
+        "links": [Link("stuff", "thing"), Link("stuff", "thing")],
     }
 
 
 def read_book_list():
-    response = _create_stub().readBookList(book_pb2.ReadBookListRequest())
+    response = _create_stub().getAllBooks(book_pb2.GetAllBooksRequest())
     books = [
         {
             "payload": {
                 "id": book.id,
-                "title": book.subscription_id,
-                "author": book.first_name,
-                "rating": book.last_name,
+                "title": book.title,
+                "author": book.author,
+                "rating": book.rating,
             },
-            "links": [Link("this book", f"/book/{book.id}").__dict__, Link("all books", "/book").__dict__],
+            "links": [
+                Link("this book", f"/book/{book.id}").__dict__,
+                Link("all books", "/book").__dict__,
+            ],
         }
-        for book in response.book_list
+        for book in response.books
     ]
     return JSON.dumps(books)
 
@@ -70,7 +73,7 @@ def read_book_list():
 def update_book(update_book_json, id):
     return (
         _create_stub()
-        .rpdateBook(
+        .updateBook(
             book_pb2.UpdateBookRequest(
                 id=id,
                 title=update_book_json["title"],
@@ -83,5 +86,5 @@ def update_book(update_book_json, id):
 
 
 def delete_book(book_id):
-    response = _create_stub().deleteBook(book_pb2.DeleteBookRequest(id=book_id))
+    response = _create_stub().deleteBookById(book_pb2.DeleteBookByIdRequest(id=book_id))
     return MessageToJson(response)

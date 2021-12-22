@@ -48,8 +48,8 @@ def read_customer(customer_id):
             "updated_at": response.updated_at,
         },
         "links": [
-            Link("this customer", f"/customer/{response.id}").__dict__, 
-            Link("all customers", "/customer").__dict__
+            Link("this customer", f"/customer/{response.id}"),
+            Link("all customers", "/customer"),
         ],
     }
 

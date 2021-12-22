@@ -60,12 +60,11 @@ def retrieve_users_reservation(user_id):
         [
             {
                 "payload": _reservation_response_json(response),
-                "links": 
-                    [
-                        Link("all books", "/book")
-                        Link("all vinyls", "/vinyl")
-                        Link("all songs", "/song")
-                    ],
+                "links": [
+                    Link("all books", "/book").__dict__,
+                    Link("all vinyls", "/vinyl").__dict__,
+                    Link("all songs", "/song").__dict__,
+                ],
             }
             for reservation in response.reservations
         ]
