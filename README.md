@@ -110,7 +110,7 @@ We use Kafka as our message broker for sending event based messages between our 
 
 ### Docker & Kubernetes
 
-
+We use docker as a way of containerizing our services and them deploy them with kubernetes. Kubernetes hostes them as pods, which makes the entire system easier to scale, as we can replicate each pod that is being hosted.
 
 # Development Process
 
