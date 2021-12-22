@@ -94,7 +94,7 @@ The new system should make it possible for the scenario's shops to communicate w
 
 ### gRPC
 
-
+We use gRPC as a way for each service to serialize their entity classes, and communicate with the other services through the gateway. We use protocol buffers in order to define the end points of each service.
 
 ### Camunda
 
