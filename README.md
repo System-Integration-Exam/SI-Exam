@@ -48,7 +48,7 @@ A book & vinyl subscription renting chain called Vintage Champions. The concept 
 ## Domain
 
 We designed our system with a domain-driven-design approrach which ment that we needed a domain diagram that contained all our vocabularur from our business domain:
-![Domain Model](/asserts/domain_model.png "Domain Model")
+![Domain Model](/assets/domain_model.png "Domain Model")
 
 ## Requirements
 
@@ -65,13 +65,13 @@ We designed our system with a domain-driven-design approrach which ment that we 
 
 Vintage Champions is currently using an old legacy system that is deployed to each of their stores. This system has a basic frontend for the employees and stores all their data in indiviual csv files.
 
-![Old architecture](/asserts/legacy_system_architecture.png "Old architecture")
+![Old architecture](/assets/legacy_system_architecture.png "Old architecture")
 
 ## Moden Solution
 
 The new system should make it possible for the scenario's shops to communicate with each other. It should also be scalable where the old system was not. We came to the conclusion, that a microservice-like architecture would be more optimal. After discussing some different setups, we came to a conclusion and made the final diagram:
 
-![New architecture](/asserts/system_architecture.png "New architecture")
+![New architecture](/assets/system_architecture.png "New architecture")
 
 ## Technologies
 | Technology | Type | Usage |
@@ -132,10 +132,6 @@ If access is required to any other service, for e.g testing purposes, its possib
 ```
 $ kubectl port-forward service/{serviceName} {servicePort}
 ```
-
-
-
-
 
 # Gateway Endpoints
 
