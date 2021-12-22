@@ -76,14 +76,13 @@ $ kubectl port-forward service/reservation-service 5000
 
 | Endpoint      | HTTP Method   | Description |
 | -             | :---------:   | -
-| /song         | `GET`         | Get a list of all songs
-| /song/\<id>   | `GET`         | Get a specific song by its id
-| /song/\<id>   | `DELETE`      | Remove an song from the system
+| /reservation         | `GET`         | Get a list of all reservations
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /song         | `POST`        | <pre>{<br>  "name": "string"<br>  "songination_date": "string"<br>}</pre> | Create a new song
-| /song/\<id>   | `PUT`         | <pre>{<br>  "name": "string"<br>  "songination_date": "string"<br>}</pre> | Update an existing song
+| /reservation         | `POST`        | <pre>{<br>  "id":"string",<br>  "item_id":"string",<br>  "user_id":"string",<br>  "status":"string", <br>  "store_id":int <br>}</pre> | Create a new reservation
+| /reservation/complete         | `POST`        | <pre>{<br>  "id": "string"<br>}</pre> | Mark a reservation as completed
+| /reservation/cancel         | `POST`        | <pre>{<br>  "id": "string"<br>}</pre> | Mark a reservation as canceled
 
 
 ### Restock
