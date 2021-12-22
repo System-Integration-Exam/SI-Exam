@@ -2,7 +2,6 @@ import logging
 from utils.config import CONFIG
 from flask import Flask
 
-
 from routes.warehouse import store_routes
 from routes.subscription import customer_routes, subscription_routes
 from routes.metadata import song_routes, book_routes, vinyl_routes

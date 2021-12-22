@@ -8,10 +8,6 @@ pub struct ReservationMessage {
     store_id: String,
 }
 
-// Reserve(Reserved) => reserve +1
-// Collect(Fulfilled) => reserve -1, in stock - 1
-// Cancel(Cancelled) => reserve -1
-
 
 impl ReservationMessage {
     pub fn from_payload(payload: String) -> Self {

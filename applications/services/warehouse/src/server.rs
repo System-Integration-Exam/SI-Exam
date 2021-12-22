@@ -302,18 +302,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "Server running on: {}:{}",
         CONFIG.server.host, CONFIG.server.port
     );
-    //tokio::spawn(async move {
-    //    setup_logger(true,Some(&CONFIG.kafka.consumer.log_conf));
-//
-    //    let (version_n, version_s) = get_rdkafka_version();
-    //    info!("rd_kafka_version: 0x{:08x}, {}", version_n, version_s);
-    //
-    //    let topics = CONFIG.kafka.consumer.topics.to_owned();
-    //    let half_owned_topics: Vec<_> = topics.iter().map(String::as_str).collect();
-    //    let group_id = "reservation-created".to_owned();
-    //
-    //    consume_and_print(group_id.as_str(), &half_owned_topics).await
-    //});
+    tokio::spawn(async move {
+        setup_logger(true,Some(&CONFIG.kafka.consumer.log_conf));
+
+        let (version_n, version_s) = get_rdkafka_version();
+        info!("rd_kafka_version: 0x{:08x}, {}", version_n, version_s);
+    
+        let topics = CONFIG.kafka.consumer.topics.to_owned();
+        let half_owned_topics: Vec<_> = topics.iter().map(String::as_str).collect();
+        let group_id = "reservation-created".to_owned();
+    
+        consume_and_print(group_id.as_str(), &half_owned_topics).await
+    });
     Server::builder()
         .add_service(StoreServer::new(StoreCon::default()))
         .serve(addr)
