@@ -40,5 +40,4 @@ spec:
     app: metadata
   type: ClusterIP
   ports:
-  - port: 50051
-    targetPort: 20070
+  - port: 20070
