@@ -99,8 +99,9 @@ We started this process by discussing the business case. It was important to hav
 The business case was agreed upon, and the development process could start.
 
 Process began with the development team agreeing upon a work schedule aswell as work rituals. We agreed on having a scrum-like
-daily meeting each day to follow up on eachother on how the project was coming along. We devided the project into smaller tasks,
-again similar to scrum and their user stories, and shared and distritubuted them on a project board, on Github.
+daily meeting each day to follow up on eachother on how the project was coming along. We divided the project into smaller tasks,
+again similar to scrum and their user stories, and shared and distritubuted them on a project board, on Github. The board can be
+seen on the following link: https://github.com/System-Integration-Exam/SI-Exam/projects/1.
 
 # Run
 ## Prerequisites
