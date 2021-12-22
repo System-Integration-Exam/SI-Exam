@@ -115,7 +115,7 @@ def collect_routes(app):
         methods=["DELETE"],
     )
     app.add_url_rule(
-        "/store/total=<int:store_id>&<int:book_id>",
+        "/store/total-book=<int:store_id>&<int:book_id>",
         view_func=get_amount_of_specific_book_from_store,
         methods=["GET"],
     )
@@ -131,7 +131,7 @@ def collect_routes(app):
         methods=["DELETE"],
     )
     app.add_url_rule(
-        "/store/total=<int:store_id>&<int:vinyl_id>",
+        "/store/total-vinyl=<int:store_id>&<int:vinyl_id>",
         view_func=get_amount_of_specific_vinyl_from_store,
         methods=["GET"],
     )
