@@ -3,6 +3,7 @@ from logic.protogen import vinyl_pb2_grpc
 from logic.protogen import vinyl_pb2
 from utils.config import CONFIG
 from google.protobuf.json_format import MessageToJson
+from entities.link import Link
 
 
 import grpc
@@ -40,16 +41,28 @@ def create_vinyl(new_vinyl_json):
 
 def read_vinyl(vinyl_id):
     response = _create_stub().readVinyl(vinyl_pb2.ReadVinylRequest(id=vinyl_id))
-    return MessageToJson(response)
+    return {
+        "payload": {"artist": response.artis, "genre": response.genre},
+        "links":[
+            Link("this vinyl", f"/vinyl/{response.id}").__dict__, 
+            Link("all vinyls", "/vinyl").__dict__
+        ],
+    }
 
 
 def read_vinyl_list():
     response = _create_stub().readVinylList(vinyl_pb2.ReadVinylListRequest())
     vinyls = [
-        {
-            "id": vinyl.id,
-            "artist": vinyl.artist,
-            "genre": vinyl.genre,
+        {   
+            "payload":{
+                "id": vinyl.id,
+                "artist": vinyl.artist,
+                "genre": vinyl.genre
+            },
+            "links":[
+                Link("this vinyl", f"/vinyl/{vinyl.id}").__dict__, 
+                Link("all vinyls", "/vinyl").__dict__
+            ]
         }
         for vinyl in response.vinyl_list
     ]

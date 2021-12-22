@@ -3,6 +3,7 @@ from logic.protogen import song_pb2_grpc
 from logic.protogen import song_pb2
 from utils.config import CONFIG
 from google.protobuf.json_format import MessageToJson
+from entities.link import Link
 
 
 import grpc
@@ -43,17 +44,33 @@ def create_song(new_song_json):
 
 def read_song(song_id):
     response = _create_stub().readSong(song_pb2.ReadSongRequest(id=song_id))
-    return MessageToJson(response)
+    return {
+        "payload": {
+            "title": response.title,
+            "duration_sec": response.duration_sec,
+            "vinyl_id": response.vinyl_id,
+        },
+        "links": [
+            Link("this song", f"/song/{response.id}").__dict__, 
+            Link("all songs", f"/song").__dict__
+        ],
+    }
 
 
 def read_song_list():
     response = _create_stub().readSongList(song_pb2.ReadSongListRequest())
     songs = [
         {
-            "id": song.id,
-            "title": song.title,
-            "duration_sec": song.duration_sec,
-            "vinyl_id": song.vinyl_id,
+            "payload": {
+                "id": song.id,
+                "title": song.title,
+                "duration_sec": song.duration_sec,
+                "vinyl_id": song.vinyl_id,
+            },
+            "links": [
+                Link("this song", f"/song/{song.id}").__dict__, 
+                Link("all songs", "/song").__dict__
+            ],
         }
         for song in response.song_list
     ]

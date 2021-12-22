@@ -83,7 +83,7 @@ The new system should make it possible for the scenario's shops to communicate w
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
 | /vinyl         | `POST`        | <pre>{<br>  "artist": "string",<br>  "genre": "string"<br>}</pre> | Create a new vinyl
-| /vinyl/\<id>   | `PUT`         | <pre>{<br>  "artist": "string",<br>  "genre": "string"<br>}</pre> | Update an existing song
+| /vinyl/\<id>   | `PUT`         | <pre>{<br>  "artist": "string",<br>  "genre": "string"<br>}</pre> | Update an existing vinyl
 
 ## Reservation
 
@@ -135,7 +135,7 @@ The new system should make it possible for the scenario's shops to communicate w
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
 | /subscription         | `POST`        | <pre>{<br>  "is_active": bool<br>  "expiration_date": "string"<br>}</pre> | Create a new subscription
-| /subscription/\<id>   | `PUT`         | <pre>{<br>  "is_active": bool<br>  "expiration_date": "string"<br>}</pre> | Update an existing song
+| /subscription/\<id>   | `PUT`         | <pre>{<br>  "is_active": bool<br>  "expiration_date": "string"<br>}</pre> | Update an existing subscription
 
 
 
@@ -148,10 +148,10 @@ The new system should make it possible for the scenario's shops to communicate w
 | /store/\<id>   | `GET`         | Get a specific store by its id
 | /store/\<id>   | `DELETE`      | Remove a store from the system
 | /store/remove-book=<store_id>&<book_id>   | `DELETE`      | Remove a book from a store
-| /store/add-book=<store_id>&<book_id>         | `POST`        | <pre></pre> | Add book to store
+| /store/add-book=<store_id>&<book_id>         | `POST`        | Add book to store
 | /store/total-book=<store_id>&<book_id>   | `GET`         | Get the total amount of a specific book from a specific store
 | /store/remove-vinyl=<store_id>&<vinyl_id>   | `DELETE`      | Remove a vinyl from a store
-| /store/add-vinyl=<store_id>&<vinyl_id>         | `POST`        | <pre></pre> | Add vinyl to store
+| /store/add-vinyl=<store_id>&<vinyl_id>         | `POST`        | Add vinyl to store
 | /store/total-vinyl=<store_id>&<vinyl_id>   | `GET`         | Get the total amount of a specific vinyl from a specific store
 
 

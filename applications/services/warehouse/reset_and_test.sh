@@ -5,6 +5,6 @@ rm -rf data
 mkdir data
 sqlite3 data/store.db ""
 python src/main.py
-wait 10
+python -c "import time; time.sleep(10)"
 cd ..
 cargo t
