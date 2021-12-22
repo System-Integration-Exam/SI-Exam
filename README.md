@@ -102,7 +102,7 @@ We use camunda for handling restock requests or reqeust for a new item to be add
 
 ![Camunda BPMN model for Restock process](/assets/restock_model.png "Restock Process")
 
-![Decision Table for Restock process]( "")
+![Decision Table for Restock process](/assets/restock_decision_table.png "Restock decision table")
 
 ### Kafka
 
