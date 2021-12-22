@@ -42,7 +42,7 @@ def create_vinyl(new_vinyl_json):
 def read_vinyl(vinyl_id):
     response = _create_stub().getVinylById(vinyl_pb2.GetVinylByIdRequest(id=vinyl_id))
     return {
-        "payload": {"artist": response.artis, "genre": response.genre},
+        "payload": {"artist": response.artist, "genre": response.genre},
         "links": [
             Link("this vinyl", f"/vinyl/{response.id}"),
             Link("all vinyls", "/vinyl"),
@@ -60,7 +60,7 @@ def read_vinyl_list():
                 Link("all vinyls", "/vinyl").__dict__,
             ],
         }
-        for vinyl in response.vinyl_list
+        for vinyl in response.vinyls
     ]
     return JSON.dumps(vinyls)
 
@@ -71,14 +71,16 @@ def update_vinyl(update_vinyl_json, id):
         .updateVinyl(
             vinyl_pb2.UpdateVinylRequest(
                 id=id,
-                artist=new_vinyl_json["artist"],
-                genre=new_vinyl_json["genre"],
+                artist=update_vinyl_json["artist"],
+                genre=update_vinyl_json["genre"],
             )
         )
-        .msg
+        .statusMessage
     )
 
 
 def delete_vinyl(vinyl_id):
-    response = _create_stub().deleteVinylById(vinyl_pb2.DeleteVinylByIdRequest(id=vinyl_id))
+    response = _create_stub().deleteVinylById(
+        vinyl_pb2.DeleteVinylByIdRequest(id=vinyl_id)
+    )
     return MessageToJson(response)

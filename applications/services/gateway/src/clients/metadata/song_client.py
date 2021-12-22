@@ -19,18 +19,13 @@ def _create_stub():
 
 
 def create_song(new_song_json):
-
-    song = (
-        _create_stub()
-        .createSong(
+    song = _create_stub().createSong(
             song_pb2.CreateSongRequest(
                 title=new_song_json["title"],
                 duration_sec=new_song_json["duration_sec"],
                 vinyl_id=new_song_json["vinyl_id"],
             )
-        )
-        .song
-    )
+        ).song
 
     return JSON.dumps(
         {
@@ -83,12 +78,12 @@ def update_song(update_song_json, id):
         .updateSong(
             song_pb2.UpdateSongRequest(
                 id=id,
-                title=new_song_json["title"],
-                duration_sec=new_song_json["duration_sec"],
-                vinyl_id=new_song_json["vinyl_id"],
+                title=update_song_json["title"],
+                duration_sec=update_song_json["duration_sec"],
+                vinyl_id=update_song_json["vinyl_id"],
             )
         )
-        .msg
+        .statusMessage
     )
 
 
