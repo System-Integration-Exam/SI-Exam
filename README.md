@@ -1,10 +1,10 @@
 # System Integration 2021 Exam
 
 ## Contributors
-- [Emil]()
-- [Emil]()
-- [Henning]()
-- [Sofus]()
+- [Emil Jógvan Svensmark - cph-eb122](https://github.com/Svensmark)
+- [Emil Skovbo - cph-es149](https://github.com/Emil-Skovbo)
+- [Henning Wiberg - cph-hw98](https://github.com/Mutestock)
+- [Sofus Hilfling Nielsen - cph-sn331](https://github.com/sofushn)
 
 [Exam Assignment Document]()
 
@@ -76,10 +76,10 @@ The new system should make it possible for the scenario's shops to communicate w
 ## Technologies
 | Technology | Type | Usage |
 | - | - | - |
-| Python 3 | Language | |
+| Python 3.9 | Language | Used in our Gateway, Subscription, &  |
 | C# 10 | Language | |
 | Java 17 | Language | |
-| Rust | Language | |
+| Rust 1.57 | Language | |
 | Protobuf 3 | Language | |
 | gRPC | Framework |  |
 | Appache Camel | Framework | |
@@ -92,10 +92,35 @@ The new system should make it possible for the scenario's shops to communicate w
 | Insomnia | Tool | API Client for GraphQL, REST, and gRPC |
 | BloomRPC | Tool | gRPC consumer |
 
+### gRPC
+
+
+
+### Camunda
+
+We use camunda for handling restock requests or reqeust for a new item to be added to 
+
+![Camunda BPMN model for Restock process](/assets/restock_model.png "Restock Process")
+
+![Decision Table for Restock process]( "")
+
+### Kafka
+
+We use Kafka as our message broker for sending event based messages between our applications. It allows the services to commynicate asyncrosly with each other and without knowledge of their consuemrs. 
+
+### Docker & Kubernetes
+
+
 
 # Development Process
 
-After this we discussed what a suboptimal existing product would look like. Since the frontend isn't a requirement, we decided that the frontend would in this scenario require the usage of some features, that the old backend provided. Our system should be an optimized stand-in for the legacy backend system. This is what the scenario's old system looks like:
+We started this process by discussing the business case. It was important to have a good and realistic scenario from the get go.
+The business case was agreed upon, and the development process could start.
+
+Process began with the development team agreeing upon a work schedule aswell as work rituals. We agreed on having a scrum-like
+daily meeting each day to follow up on eachother on how the project was coming along. We divided the project into smaller tasks,
+again similar to scrum and their user stories, and shared and distritubuted them on a project board, on Github. The board can be
+seen on the following link: https://github.com/System-Integration-Exam/SI-Exam/projects/1.
 
 # Run
 ## Prerequisites
