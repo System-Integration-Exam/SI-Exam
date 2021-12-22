@@ -67,7 +67,7 @@ Vintage Champions is currently using an old legacy system that is deployed to ea
 
 ![Old architecture](/assets/legacy_system_architecture.png "Old architecture")
 
-## Moden Solution
+## Modern Solution
 
 The new system should make it possible for the scenario's shops to communicate with each other. It should also be scalable where the old system was not. We came to the conclusion, that a microservice-like architecture would be more optimal. After discussing some different setups, we came to a conclusion and made the final diagram:
 
