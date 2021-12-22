@@ -41,8 +41,8 @@ $ kubectl port-forward service/reservation-service 5000
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /book         | `POST`        | <pre>{<br>  "name": "string"<br>  "bookination_date": "string"<br>}</pre> | Create a new book
-| /book/\<id>   | `PUT`         | <pre>{<br>  "name": "string"<br>  "bookination_date": "string"<br>}</pre> | Update an existing book
+| /book         | `POST`        | <pre>{<br>  "title": "string",<br>  "author": "string",<br>  "rating": int<br>}</pre> | Create a new book
+| /book/\<id>   | `PUT`         |<pre>{<br>  "id": "string",<br>  "title": "string",<br>  "author": "string",<br>  "rating": int<br>}</pre> | Update an existing book
 
 ### Song
 
@@ -54,8 +54,8 @@ $ kubectl port-forward service/reservation-service 5000
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /song         | `POST`        | <pre>{<br>  "name": "string"<br>  "songination_date": "string"<br>}</pre> | Create a new song
-| /song/\<id>   | `PUT`         | <pre>{<br>  "name": "string"<br>  "songination_date": "string"<br>}</pre> | Update an existing song
+| /song         | `POST`        | <pre>{<br>  "title": "string",<br>  "duration_sec": int,<br>  "vinyl_id": "string"<br>}</pre> | Create a new song
+| /song/\<id>   | `PUT`         | <pre>{<br>  "id": "string",<br>  "title": "string",<br>  "duration_sec": "string",<br>  "vinyl_id": "string"<br>}</pre> | Update an existing song
 
 ### Vinyl
 
