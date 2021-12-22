@@ -3,6 +3,8 @@ from logic.protogen import store_pb2_grpc
 from logic.protogen import store_pb2
 from utils.config import CONFIG
 from entities.warehouse.store import Store
+from google.protobuf.json_format import MessageToJson
+from entities.link import Link
 
 import grpc
 
@@ -31,8 +33,20 @@ def create_store(new_store_json):
 
 
 def read_store(store_id):
-    response = _create_stub().ReadStore(store_pb2.ReadStoreRequest(id=store_id))
-    return JSON.dumps(response.__dict__)
+    response = _create_stub().ReadStore(store_pb2.ReadStoreRequest(id=store_id)).store
+    return {
+        "payload":{
+            "address": response.address,
+            "phone_number": response.phone_number,
+            "email": response.email,
+            "created_at": response.created_at,
+            "updated_at": response.updated_at,
+        },
+        "links":[
+            Link("this store", f"/store/{store_id}"),
+            Link("all stores", "/store")
+        ]
+    }
 
 
 def update_store(store_id, store_json):
@@ -87,7 +101,20 @@ def delete_store_by_address(address):
 
 def read_store_list():
     response = _create_stub().ReadStoreList(store_pb2.ReadStoreListRequest())
-    return JSON.dumps(Store.from_grpc_list_response(response))
+    stores = [
+        {
+            "payload": Store.from_grpc_response(store).__dict__,
+            "links": [
+                Link("all books", f"/book").__dict__,
+                Link("all vinyls", f"/vinyl").__dict__,
+                Link("all songs", f"/song").__dict__,
+                Link("all stores", f"/store").__dict__,
+                
+            ],
+        }
+        for store in response.store_list
+    ]
+    return JSON.dumps(stores)
 
 
 ################

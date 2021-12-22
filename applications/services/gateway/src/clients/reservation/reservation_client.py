@@ -3,7 +3,7 @@ from logic.protogen import reservation_pb2_grpc
 from logic.protogen import reservation_pb2
 from utils.config import CONFIG
 from google.protobuf.json_format import MessageToJson
-
+from entities.link import Link
 
 import grpc
 
@@ -57,5 +57,16 @@ def retrieve_users_reservation(user_id):
     )
 
     return JSON.dumps(
-        [_reservation_response_json(response) for reservation in response.reservations]
+        [
+            {
+                "payload": _reservation_response_json(response),
+                "links": 
+                    [
+                        Link("all books", "/book")
+                        Link("all vinyls", "/vinyl")
+                        Link("all songs", "/song")
+                    ],
+            }
+            for reservation in response.reservations
+        ]
     )

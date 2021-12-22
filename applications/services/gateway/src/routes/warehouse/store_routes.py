@@ -1,10 +1,12 @@
 from clients import warehouse
 from flask import request
+from entities import link
 
 
 def create_store():
     try:
         return warehouse.create_store(request.json)
+    
     except Exception as e:
         print(e)
         return "500"
