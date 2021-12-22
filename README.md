@@ -21,8 +21,23 @@ This can by default only be done through the gateway. If access to the service i
 $ kubectl port-forward service/reservation-service 5000
 ```
 
-# Gateway Endpoints
+# Development Process
 
+First we chose a subject from the list
+
+After this we discussed what a suboptimal existing product would look like. Since the frontend isn't a requirement, we decided that the frontend would in this scenario require the usage of some features, that the old backend provided. Our system should be an optimized stand-in for the legacy backend system. This is what the scenario's old system looks like:
+
+![alt text](/resources/old_architecture.png "Old architecture")
+
+The new system should make it possible for the scenario's shops to communicate with each other. It should also be scalable where the old system was not. We came to the conclusion, that a microservice-like architecture would be more optimal. After discussing some different setups, we came to a conclusion and made the final diagram:
+
+![alt text](/resources/architecture_diagram.png "New architecture")
+
+
+
+
+
+# Gateway Endpoints
 
 
 | Endpoint      | HTTP Method   | Description |
@@ -105,7 +120,7 @@ $ kubectl port-forward service/reservation-service 5000
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /customer         | `POST`        | <pre>{<br>  "subscription_id": "string", <br>  "first_name": "string", <br>  "last_name": "string",<br>  "email": "string",<br>  "phone_number": "string<br>}</pre> | Create a new customer
+| /customer         | `POST`        | <pre>{<br>  "subscription_id": "string", <br>  "first_name": "string", <br>  "last_name": "string",<br>  "email": "string",<br>  "phone_number": "string"<br>}</pre> | Create a new customer
 | /customer/\<id>   | `PUT`         | <pre>{<br>  "first_name": "string",<br>  "last_name": "string",<br>  "email": "string", <br>  "phone_number": "string"<br>}</pre> | Update an existing customer
 
 
