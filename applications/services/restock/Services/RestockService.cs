@@ -13,10 +13,10 @@ public class RestockService : RestockGrpc.RestockGrpcBase
     private readonly HttpClient _httpClient;
     private readonly JsonSerializerOptions _jsonOptions;
 
-    public RestockService(ILogger<RestockService> logger, HttpClient httpClient)
+    public RestockService(ILogger<RestockService> logger, IHttpClientFactory clientFactory)
     {
         _logger = logger;
-        _httpClient = httpClient;
+        _httpClient = clientFactory.CreateClient("camundaClient");
         _jsonOptions = new()
         {
             Converters = { new JsonStringEnumConverter() }, 

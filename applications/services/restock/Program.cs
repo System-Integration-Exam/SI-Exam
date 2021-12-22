@@ -8,13 +8,13 @@ using Restock.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 string camundaBaseUrl = builder.Configuration.GetValue<string>("CamundaRestUrl");
-Action<HttpClient> clientBuilder = client => client.BaseAddress = new Uri(camundaBaseUrl);
+Action<HttpClient> camunderHttpClientBuilder = client => client.BaseAddress = new Uri(camundaBaseUrl);
 
-builder.Services.AddExternalTaskClient(clientBuilder);
+builder.Services.AddExternalTaskClient(camunderHttpClientBuilder);
 builder.Services.AddCamundaWorker("dotnetWorker")
     .AddHandler<MetadataTaskHandler>();
-builder.Services.AddHttpClient<RestockService>(clientBuilder);
 builder.Services.AddScoped<MetadataClientService>();
+builder.Services.AddScoped<CamundaDeploymentService>();
 
 string metadataServiceUrl = builder.Configuration.GetValue<string>("MetadataServiceUrl");
 builder.Services.AddScoped(services => new Book.BookClient(GrpcChannel.ForAddress(metadataServiceUrl)));
@@ -26,11 +26,21 @@ builder.Services.AddHttpClient("discogsVinylApi", client =>
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Discogs", "key=BpRIWJrloHACjruiVMmi, secret=BzLPjQdcnXswOkyDTPyVMjdCUjWykuFi");
     client.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("Mozilla", "5.0"));
 });
+builder.Services.AddHttpClient("camundaClient", camunderHttpClientBuilder);
 
 // Add services to the container.
 builder.Services.AddGrpc();
 
 var app = builder.Build();
+
+// Deploy Camunda files
+using (IServiceScope scope = app.Services.CreateScope())
+{
+    CamundaDeploymentService deploymentService =  scope.ServiceProvider.GetService<CamundaDeploymentService>()!;
+    await deploymentService.RemoveDefaultDeployments();
+    await deploymentService.DeployRestockModelAsync();
+}
+
 
 // Configure the HTTP request pipeline.
 app.MapGrpcService<RestockService>();
