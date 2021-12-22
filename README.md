@@ -12,7 +12,7 @@ $ minikube tunnel
 ```
 ### 3. Apply kubernetes deployments
 ```
-$ kubectl apply -R -f .kubernetes
+$ kubectl apply -f .kubernetes
 ```
 
 ### 4. Access to services
@@ -67,8 +67,8 @@ $ kubectl port-forward service/reservation-service 5000
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /vinyl         | `POST`        | <pre>{<br>  "name": "string"<br>  "vinylination_date": "string"<br>}</pre> | Create a new vinyl
-| /vinyl/\<id>   | `PUT`         | <pre>{<br>  "name": "string"<br>  "vinylination_date": "string"<br>}</pre> | Update an existing song
+| /vinyl         | `POST`        | <pre>{<br>  "artist": "string",<br>  "genre": "string"<br>}</pre> | Create a new vinyl
+| /vinyl/\<id>   | `PUT`         | <pre>{<br>  "id": "string",  <br>  "name": "string"<br>  "vinylination_date": "string"<br>}</pre> | Update an existing song
 
 ## Reservation
 
@@ -135,11 +135,19 @@ $ kubectl port-forward service/reservation-service 5000
 
 | Endpoint      | HTTP Method   | Description |
 | -             | :---------:   | -
-| /subscription         | `GET`         | Get a list of all subscriptions
-| /subscription/\<id>   | `GET`         | Get a specific subscription by its id
-| /subscription/\<id>   | `DELETE`      | Remove an subscription from the system
+| /store         | `GET`         | Get a list of all stores
+| /store/\<id>   | `GET`         | Get a specific store by its id
+| /store/\<id>   | `DELETE`      | Remove a store from the system
+| /store/remove-book=<store_id>&<book_id>   | `DELETE`      | Remove a book from a store
+| /store/add-book=<store_id>&<book_id>         | `POST`        | <pre></pre> | Add book to store
+| /store/total-book=<store_id>&<book_id>   | `GET`         | Get the total amount of a specific book from a specific store
+| /store/remove-vinyl=<store_id>&<vinyl_id>   | `DELETE`      | Remove a vinyl from a store
+| /store/add-vinyl=<store_id>&<vinyl_id>         | `POST`        | <pre></pre> | Add vinyl to store
+| /store/total-vinyl=<store_id>&<vinyl_id>   | `GET`         | Get the total amount of a specific vinyl from a specific store
+
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /subscription         | `POST`        | <pre>{<br>  "name": "string"<br>  "subscriptionination_date": "string"<br>}</pre> | Create a new subscription
-| /subscription/\<id>   | `PUT`         | <pre>{<br>  "name": "string"<br>  "subscriptionination_date": "string"<br>}</pre> | Update an existing song
+| /store         | `POST`        | <pre>{<br>  "address": "string",<br>  "phone_number": "string",<br>  "email": "string"<br>}</pre> | Create a new store
+| /store/\<id>   | `PUT`         | <pre>{<br>  "id": int,<br>  "address": "string",<br>  "phone_number": "string",<br>  "email": "string"<br>}</pre> | Update an existing store
+
