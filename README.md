@@ -87,16 +87,10 @@ $ kubectl port-forward service/reservation-service 5000
 
 ### Restock
 
-| Endpoint      | HTTP Method   | Description |
-| -             | :---------:   | -
-| /song         | `GET`         | Get a list of all songs
-| /song/\<id>   | `GET`         | Get a specific song by its id
-| /song/\<id>   | `DELETE`      | Remove an song from the system
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /song         | `POST`        | <pre>{<br>  "name": "string"<br>  "songination_date": "string"<br>}</pre> | Create a new song
-| /song/\<id>   | `PUT`         | <pre>{<br>  "name": "string"<br>  "songination_date": "string"<br>}</pre> | Update an existing song
+| /restock         | `POST`        | <pre>{<br>  "requestText": "string",<br>  "item_type": "string",<br>  "existingItemCount": int, <br>  "storeId":int,<br>  "itemId": "string"<br>}</pre> | Restock item
 
 
 ## Subscription
@@ -111,8 +105,8 @@ $ kubectl port-forward service/reservation-service 5000
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /customer         | `POST`        | <pre>{<br>  "name": "string"<br>  "customerination_date": "string"<br>}</pre> | Create a new customer
-| /customer/\<id>   | `PUT`         | <pre>{<br>  "name": "string"<br>  "customerination_date": "string"<br>}</pre> | Update an existing song
+| /customer         | `POST`        | <pre>{<br>  "subscription_id": "string", <br>  "first_name": "string", <br>  "last_name": "string",<br>  "email": "string",<br>  "phone_number": "string<br>}</pre> | Create a new customer
+| /customer/\<id>   | `PUT`         | <pre>{<br>  "first_name": "string",<br>  "last_name": "string",<br>  "email": "string", <br>  "phone_number": "string"<br>}</pre> | Update an existing customer
 
 
 ### Subscription
@@ -125,8 +119,8 @@ $ kubectl port-forward service/reservation-service 5000
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /subscription         | `POST`        | <pre>{<br>  "name": "string"<br>  "subscriptionination_date": "string"<br>}</pre> | Create a new subscription
-| /subscription/\<id>   | `PUT`         | <pre>{<br>  "name": "string"<br>  "subscriptionination_date": "string"<br>}</pre> | Update an existing song
+| /subscription         | `POST`        | <pre>{<br>  "is_active": bool<br>  "expiration_date": "string"<br>}</pre> | Create a new subscription
+| /subscription/\<id>   | `PUT`         | <pre>{<br>  "is_active": bool<br>  "expiration_date": "string"<br>}</pre> | Update an existing song
 
 
 
@@ -149,5 +143,5 @@ $ kubectl port-forward service/reservation-service 5000
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
 | /store         | `POST`        | <pre>{<br>  "address": "string",<br>  "phone_number": "string",<br>  "email": "string"<br>}</pre> | Create a new store
-| /store/\<id>   | `PUT`         | <pre>{<br>  "id": int,<br>  "address": "string",<br>  "phone_number": "string",<br>  "email": "string"<br>}</pre> | Update an existing store
+| /store/\<id>   | `PUT`         | <pre>{<br>  "address": "string",<br>  "phone_number": "string",<br>  "email": "string"<br>}</pre> | Update an existing store
 
