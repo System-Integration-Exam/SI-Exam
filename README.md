@@ -1,10 +1,10 @@
 # System Integration 2021 Exam
 
 ## Contributors
-- [Emil]()
-- [Emil]()
-- [Henning]()
-- [Sofus]()
+- [Emil Jógvan Svensmark - cph-eb122](https://github.com/Svensmark)
+- [Emil Skovbo - cph-es149](https://github.com/Emil-Skovbo)
+- [Henning Wiberg - cph-hw98](https://github.com/Mutestock)
+- [Sofus Hilfling Nielsen - cph-sn331](https://github.com/sofushn)
 
 [Exam Assignment Document]()
 
@@ -76,10 +76,10 @@ The new system should make it possible for the scenario's shops to communicate w
 ## Technologies
 | Technology | Type | Usage |
 | - | - | - |
-| Python 3 | Language | |
+| Python 3.9 | Language | Used in our Gateway, Subscription, &  |
 | C# 10 | Language | |
 | Java 17 | Language | |
-| Rust | Language | |
+| Rust 1.57 | Language | |
 | Protobuf 3 | Language | |
 | gRPC | Framework |  |
 | Appache Camel | Framework | |
@@ -91,6 +91,25 @@ The new system should make it possible for the scenario's shops to communicate w
 | Kafdrop | Tool | Web UI for viewing Kafka topics and browsing consumer groups |
 | Insomnia | Tool | API Client for GraphQL, REST, and gRPC |
 | BloomRPC | Tool | gRPC consumer |
+
+### gRPC
+
+
+
+### Camunda
+
+We use camunda for handling restock requests or reqeust for a new item to be added to 
+
+![Camunda BPMN model for Restock process](/assets/restock_model.png "Restock Process")
+
+![Decision Table for Restock process]( "")
+
+### Kafka
+
+We use Kafka as our message broker for sending event based messages between our applications. It allows the services to commynicate asyncrosly with each other and without knowledge of their consuemrs. 
+
+### Docker & Kubernetes
+
 
 
 # Development Process
