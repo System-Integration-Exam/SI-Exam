@@ -76,15 +76,15 @@ The new system should make it possible for the scenario's stores to communicate 
 ## Technologies
 | Technology | Type | Usage |
 | - | - | - |
-| Python 3.9 | Language | Used in our Gateway, Subscription, &  |
-| C# 10 | Language | |
-| Java 17 | Language | |
-| Rust 1.57 | Language | |
-| Protobuf 3 | Language | |
-| gRPC | Framework |  |
-| Appache Camel | Framework | |
-| Docker | Container Platform | |
-| Kubernetes | Container Orchestration | |
+| Python 3.9 | Language | Used in our Gateway, Subscription, &  Metadata service |
+| C# 10 | Language | Used in Reservation & Restock service |
+| Java 17 | Language | Used in Apache Camel framework |
+| Rust 1.57 | Language | Used in Warehouse service |
+| Protobuf 3 | Language | Used for gRPC |
+| gRPC | Framework | Used for serialization and communication between services |
+| Apache Camel | Framework |  |
+| Docker | Container Platform | Used for containerization |
+| Kubernetes | Container Orchestration | Used to orchestrate docker containers |
 | Camunda | Workflow and Decision Automation | |
 | Apache Kafka | Message Broker | Event streaming platform for sending comunicating between our services |
 | SQLite | Database | In-memory database for persisting our data |
