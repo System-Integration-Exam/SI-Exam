@@ -18,11 +18,14 @@ def serve() -> None:
     subscription_pb2_grpc.add_SubscriptionServicer_to_server(
         SubscriptionRouter(), server
     )
-    t = threading.Thread(target=kafka_consumer())
+    print("thread")
+    t = threading.Thread(target=kafka_consumer)
+    print("defining port")
     server.add_insecure_port(URL)
+    print("Starting kafka")
+    t.start()
     print("Starting server")
     server.start()
-    t.start()
     server.wait_for_termination()
 
 

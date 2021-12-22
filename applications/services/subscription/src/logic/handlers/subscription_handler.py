@@ -33,7 +33,7 @@ def read_subscription(
         )
         return subscription_pb2.ReadSubscriptionResponse(
             id=res[0],
-            is_active=res[1] == "True",
+            is_active=bool(res[1]),
             expiration_date=res[2],
             created_at=res[3],
             updated_at=res[4],
@@ -60,7 +60,7 @@ def read_subscription_list(
         for subscription in res:
             subscrip = subscription_pb2.ReadSubscriptionListResponse.SubscriptionObject(
                 id=subscription[0],
-                is_active=subscription[1],
+                is_active=bool(subscription[1]),
                 expiration_date=subscription[2],
                 created_at=subscription[3],
                 updated_at=subscription[4],

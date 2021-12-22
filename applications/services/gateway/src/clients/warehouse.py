@@ -146,8 +146,8 @@ def remove_book_from_store(store_id, book_id):
 
 
 def get_amount_of_specific_book_from_store(store_id, book_id):
-    return (
-        _create_stub()
+    return {
+        "amount": _create_stub()
         .GetAmountOfSpecificBookFromStore(
             store_pb2.GetAmountOfSpecificBookFromStoreRequest(
                 store_id=store_id,
@@ -155,7 +155,7 @@ def get_amount_of_specific_book_from_store(store_id, book_id):
             )
         )
         .amount
-    )
+    }
 
 
 ##########
@@ -182,7 +182,8 @@ def remove_vinyl_from_store(store_id, vinyl_id):
 
 
 def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
-    return (
+    return {
+        "amount":
         _create_stub()
         .GetAmountOfSpecificVinylFromStore(
             store_pb2.GetAmountOfSpecificVinylFromStoreRequest(
@@ -190,7 +191,7 @@ def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
             )
         )
         .amount
-    )
+    }
 
 
 ########
