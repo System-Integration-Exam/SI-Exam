@@ -95,7 +95,12 @@ The new system should make it possible for the scenario's shops to communicate w
 
 # Development Process
 
-After this we discussed what a suboptimal existing product would look like. Since the frontend isn't a requirement, we decided that the frontend would in this scenario require the usage of some features, that the old backend provided. Our system should be an optimized stand-in for the legacy backend system. This is what the scenario's old system looks like:
+We started this process by discussing the business case. It was important to have a good and realistic scenario from the get go.
+The business case was agreed upon, and the development process could start.
+
+Process began with the development team agreeing upon a work schedule aswell as work rituals. We agreed on having a scrum-like
+daily meeting each day to follow up on eachother on how the project was coming along. We devided the project into smaller tasks,
+again similar to scrum and their user stories, and shared and distritubuted them on a project board, on Github.
 
 # Run
 ## Prerequisites
