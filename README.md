@@ -1,6 +1,110 @@
-# SI-Exam
+# System Integration 2021 Exam
 
-# How to run
+## Contributors
+- [Emil]()
+- [Emil]()
+- [Henning]()
+- [Sofus]()
+
+[Exam Assignment Document]()
+
+The repository is hosted online on GitHub at https://github.com/System-Integration-Exam/SI-Exam
+
+## Video
+
+# Table of Contents
+
+- [System Integration 2021 Exam](#system-integration-2021-exam)
+  * [Contributors](#contributors)
+  * [Video](#video)
+  * [Business case - Book & Vinyl reservation system](#business-case---book---vinyl-reservation-system)
+  * [Requirements](#requirements)
+- [Architecture](#architecture)
+  * [Technologies](#technologies)
+- [Development Process](#development-process)
+- [Run](#run)
+  * [Prerequisites](#prerequisites)
+  * [Minikube](#minikube)
+    + [1. Start minikube cluster](#1-start-minikube-cluster)
+    + [2. Tunnel to cluster](#2-tunnel-to-cluster)
+    + [3. Apply kubernetes deployments](#3-apply-kubernetes-deployments)
+  * [Access to services](#access-to-services)
+- [Gateway Endpoints](#gateway-endpoints)
+  * [Metadata](#metadata)
+    + [Book](#book)
+    + [Song](#song)
+    + [Vinyl](#vinyl)
+  * [Reservation](#reservation)
+  * [Restock](#restock)
+  * [Subscription](#subscription)
+    + [Customer](#customer)
+    + [Subscription](#subscription-1)
+  * [Warehouse](#warehouse)
+
+# Business case
+
+A book & vinyl subscription renting chain called Vintage Champions. The concept is derrived from an older version of blokbuster where you physically had to pick up the item in the store. Each store have their own inventory of books & vinyls that can be rented if you have a subscription service with the chain. 
+
+## Domain
+
+We designed our system with a domain-driven-design approrach which ment that we needed a domain diagram that contained all our vocabularur from our business domain:
+![Domain Model](/assets/domain_model.png "Domain Model")
+
+## Requirements
+
+- Integration with external REST API for retriving item metadata
+- 
+- Transform old customer data from legacy system into moden system
+- Use of BPMN to handle restocking of new or existing items
+- Microservice orchestration with Kubernetes
+- Basic console logging and monitoring
+
+# Architecture
+
+## Legacy System
+
+Vintage Champions is currently using an old legacy system that is deployed to each of their stores. This system has a basic frontend for the employees and stores all their data in indiviual csv files.
+
+![Old architecture](/assets/legacy_system_architecture.png "Old architecture")
+
+## Modern Solution
+
+The new system should make it possible for the scenario's shops to communicate with each other. It should also be scalable where the old system was not. We came to the conclusion, that a microservice-like architecture would be more optimal. After discussing some different setups, we came to a conclusion and made the final diagram:
+
+![New architecture](/assets/system_architecture.png "New architecture")
+
+## Technologies
+| Technology | Type | Usage |
+| - | - | - |
+| Python 3 | Language | |
+| C# 10 | Language | |
+| Java 17 | Language | |
+| Rust | Language | |
+| Protobuf 3 | Language | |
+| gRPC | Framework |  |
+| Appache Camel | Framework | |
+| Docker | Container Platform | |
+| Kubernetes | Container Orchestration | |
+| Camunda | Workflow and Decision Automation | |
+| Apache Kafka | Message Broker | Event streaming platform for sending comunicating between our services |
+| SQLite | Database | In-memory database for persisting our data |
+| Kafdrop | Tool | Web UI for viewing Kafka topics and browsing consumer groups |
+| Insomnia | Tool | API Client for GraphQL, REST, and gRPC |
+| BloomRPC | Tool | gRPC consumer |
+
+
+# Development Process
+
+After this we discussed what a suboptimal existing product would look like. Since the frontend isn't a requirement, we decided that the frontend would in this scenario require the usage of some features, that the old backend provided. Our system should be an optimized stand-in for the legacy backend system. This is what the scenario's old system looks like:
+
+# Run
+## Prerequisites
+The Project requires Docker and Kubernetes (with minikube) to run locally.
+The system also requires a REST API testing tool like Postman, CURL,  or Insomnia for making calls to the Gateway Service.
+
+## Kubernetes with Minikube
+_Tested on Windows 10, Manjaro & Fedora Linux_
+
 ### 1. Start minikube cluster
 ```
 $ minikube start
@@ -11,31 +115,23 @@ _This blocks the terminal so run in seperate terminal window_
 $ minikube tunnel
 ```
 ### 3. Apply kubernetes deployments
+_This assummes that you are stading in the root folder for the repository_
 ```
 $ kubectl apply -f .kubernetes
 ```
 
-### 4. Access to services
-This can by default only be done through the gateway. If access to the service is needed, its possible to do a port forward in k8s by changing and running the command:
+## Access to services
+
+Only some of the services can be access externaly from outside the cluseter:
+- Gateway: `20090`
+- Camunda: `10000`
+- Kafdrop: `9000`
+- Kafka broker: `9094`
+
+If access is required to any other service, for e.g testing purposes, its possible to port forward the internal cluter port in k8s by changing and running the following command:
 ```
-$ kubectl port-forward service/reservation-service 5000
+$ kubectl port-forward service/{serviceName} {servicePort}
 ```
-
-# Development Process
-
-First we chose a subject from the list
-
-After this we discussed what a suboptimal existing product would look like. Since the frontend isn't a requirement, we decided that the frontend would in this scenario require the usage of some features, that the old backend provided. Our system should be an optimized stand-in for the legacy backend system. This is what the scenario's old system looks like:
-
-![alt text](/resources/old_architecture.png "Old architecture")
-
-The new system should make it possible for the scenario's shops to communicate with each other. It should also be scalable where the old system was not. We came to the conclusion, that a microservice-like architecture would be more optimal. After discussing some different setups, we came to a conclusion and made the final diagram:
-
-![alt text](/resources/architecture_diagram.png "New architecture")
-
-
-
-
 
 # Gateway Endpoints
 
@@ -87,8 +183,6 @@ The new system should make it possible for the scenario's shops to communicate w
 
 ## Reservation
 
-### Reservation
-
 | Endpoint      | HTTP Method   | Description |
 | -             | :---------:   | -
 | /reservation         | `GET`         | Get a list of all reservations
@@ -100,7 +194,7 @@ The new system should make it possible for the scenario's shops to communicate w
 | /reservation/cancel         | `POST`        | <pre>{<br>  "id": "string"<br>}</pre> | Mark a reservation as canceled
 
 
-### Restock
+## Restock
 
 
 | Endpoint      | Http Method   | Request Body  | Description
