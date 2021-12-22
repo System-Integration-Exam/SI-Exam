@@ -43,7 +43,7 @@ The repository is hosted online on GitHub at https://github.com/System-Integrati
 
 # Business case
 
-A book & vinyl subscription renting chain called Vintage Champions. The concept is derrived from an older version of blokbuster where you physically had to pick up the item in the store. Each store have their own inventory of books & vinyls that can be rented if you have a subscription service with the chain. 
+A book & vinyl subscription renting chain called Vintage Champions. The concept is derrived from an older version of blokbuster where you physically had to pick up the item from the store. Each store have their own inventory of books & vinyls that can be rented if you have a subscription service with the chain. 
 
 ## Domain
 
@@ -63,13 +63,13 @@ We designed our system with a domain-driven-design approrach which ment that we 
 
 ## Legacy System
 
-Vintage Champions is currently using an old legacy system that is deployed to each of their stores. This system has a basic frontend for the employees and stores all their data in indiviual csv files.
+Vintage Champions is currently using an old legacy system that is deployed to each of their stores. This system has a basic frontend GUI for the employees and the system stores all the data in indiviual csv files.
 
 ![Old architecture](/assets/legacy_system_architecture.png "Old architecture")
 
 ## Modern Solution
 
-The new system should make it possible for the scenario's shops to communicate with each other. It should also be scalable where the old system was not. We came to the conclusion, that a microservice-like architecture would be more optimal. After discussing some different setups, we came to a conclusion and made the final diagram:
+The new system should make it possible for the scenario's stores to communicate with each other. It should also be scalable, as the old system was not scalable. We came to the conclusion, that a microservice-like architecture would be more optimal. After discussing some different setups, we came to a conclusion and made the final diagram:
 
 ![New architecture](/assets/system_architecture.png "New architecture")
 
@@ -106,7 +106,7 @@ We use camunda for handling restock requests or reqeust for a new item to be add
 
 ### Kafka
 
-We use Kafka as our message broker for sending event based messages between our applications. It allows the services to commynicate asyncrosly with each other and without knowledge of their consuemrs. 
+We use Kafka as our message broker for sending event based messages between our applications. It allows the services to communicate asyncrosly with each other and without knowledge of their consuemrs. 
 
 ### Docker & Kubernetes
 
