@@ -1,12 +1,12 @@
 from clients.subscription import customer_client
-from flask import request
+from flask import request, current_app
 
 
 def create_customer():
     try:
         return customer_client.create_customer(request.json)
     except Exception as e:
-        print(e)
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -14,7 +14,7 @@ def read_customer(id):
     try:
         return customer_client.read_customer(id)
     except Exception as e:
-        print(f"Error: {e}")
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -22,7 +22,7 @@ def read_customer_list():
     try:
         return customer_client.read_customer_list()
     except Exception as e:
-        print(f"Error: {e}")
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -30,7 +30,7 @@ def update_customer(id):
     try:
         return customer_client.update_customer(request.json, id)
     except Exception as e:
-        print(e)
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -38,7 +38,7 @@ def delete_customer(id):
     try:
         return customer_client.delete_customer(id)
     except Exception as e:
-        print(f"Error: {e}")
+        current_app.logger.error("%s", e)
         return "500"
 
 

@@ -1,12 +1,12 @@
 from clients.reservation import restock_client
-from flask import request
+from flask import request, current_app
 
 
 def create_restock():
     try:
         return restock_client.make_restock_request(request.json)
     except Exception as e:
-        print(e)
+        current_app.logger.error("%s", e)
         return "500"
 
 

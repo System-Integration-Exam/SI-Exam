@@ -1,12 +1,12 @@
 from clients.metadata import song_client
-from flask import request
+from flask import request, current_app
 
 
 def create_song():
     try:
         return song_client.create_song(request.json)
     except Exception as e:
-        print(e)
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -14,7 +14,7 @@ def read_song(id):
     try:
         return song_client.read_song(id)
     except Exception as e:
-        print(f"Error: {e}")
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -22,7 +22,7 @@ def read_song_list():
     try:
         return song_client.read_song_list()
     except Exception as e:
-        print(f"Error: {e}")
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -30,7 +30,7 @@ def update_song(id):
     try:
         return song_client.update_song(request.json, id)
     except Exception as e:
-        print(e)
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -38,7 +38,7 @@ def delete_song(id):
     try:
         return song_client.delete_song(id)
     except Exception as e:
-        print(f"Error: {e}")
+        current_app.logger.error("%s", e)
         return "500"
 
 

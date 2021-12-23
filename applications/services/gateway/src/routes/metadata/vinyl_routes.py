@@ -1,12 +1,12 @@
 from clients.metadata import vinyl_client
-from flask import request
+from flask import request, current_app
 
 
 def create_vinyl():
     try:
         return vinyl_client.create_vinyl(request.json)
     except Exception as e:
-        print(e)
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -14,7 +14,7 @@ def read_vinyl(id):
     try:
         return vinyl_client.read_vinyl(id)
     except Exception as e:
-        print(f"Error: {e}")
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -22,7 +22,7 @@ def read_vinyl_list():
     try:
         return vinyl_client.read_vinyl_list()
     except Exception as e:
-        print(f"Error: {e}")
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -30,7 +30,7 @@ def update_vinyl(id):
     try:
         return vinyl_client.update_vinyl(request.json, id)
     except Exception as e:
-        print(e)
+        current_app.logger.error("%s", e)
         return "500"
 
 
@@ -38,7 +38,7 @@ def delete_vinyl(id):
     try:
         return vinyl_client.delete_vinyl(id)
     except Exception as e:
-        print(f"Error: {e}")
+        current_app.logger.error("%s", e)
         return "500"
 
 
