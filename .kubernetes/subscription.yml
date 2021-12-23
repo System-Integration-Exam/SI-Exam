@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: subscription
+spec:
+  selector:
+    matchLabels:
+      app: subscription
+  template:
+    metadata:
+      labels:
+        app: subscription
+    spec:
+      volumes:
+      - name: subscriptiondb
+        hostPath:
+          path: /srv/db/subscription
+          type: DirectoryOrCreate
+      containers:
+      - name: subscription
+        image: ghcr.io/system-integration-exam/si-exam/subscription-service:latest
+        volumeMounts:
+        - name: subscriptiondb
+          mountPath: /app/data
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 20060
+        env:
+          - name: PRODUCTION
+            value: "true"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: subscription-service
+spec:
+  selector:
+    app: subscription
+  ports:
+  - port: 20060
