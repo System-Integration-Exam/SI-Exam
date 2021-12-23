@@ -5,17 +5,21 @@ import random
 
 
 def populate() -> None:
-    # faker = Faker()
+    faker = Faker()
 
-    # for _ in range(10):
-    #     Subscription(random.choice([True, False]), faker.date_time()).insert_query()
+    print("populating subscription data...")
 
-    # for customer in range(20):
-    #     Customer(
-    #         random.randrange(1, 10),
-    #         faker.first_name(),
-    #         faker.last_name(),
-    #         faker.email(),
-    #         faker.phone_number(),
-    #     ).insert_query()
-    print("populating...")
+    for _ in range(20):
+        Subscription(random.choice([True, False]), faker.date_time()).insert_query()
+
+    print("populating customer data...")
+
+    for sub_id in range(20):
+        Customer(
+            sub_id,
+            faker.first_name(),
+            faker.last_name(),
+            faker.email(),
+            faker.phone_number(),
+        ).insert_query()
+    
