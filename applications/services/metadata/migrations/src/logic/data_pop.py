@@ -4,6 +4,9 @@ from entities.vinyl import Vinyl
 
 
 def populate() -> None:
+
+    print("populating book data...")
+
     for book in [
         Book("Dune", "Frank Herbert", 4),
         Book("Harry Potter and the prisoner of Azkaban", "J. K. Rowling", 3),
@@ -11,14 +14,17 @@ def populate() -> None:
     ]:
         book.insert_query()
 
-    for vinyl in [Vinyl("Bon Iver", "Classic Modern")]:
+    print("populating vinyl data...")
+
+    vinylId = "e2983ce3-7b69-47d8-8df1-bf775bfdbe6b"
+    for vinyl in [Vinyl(vinylId, "Bon Iver", "Classic Modern")]:
         vinyl.insert_query()
 
-    # todo, get bon iver vinyl_id
+    print("populating song data...")
 
-    # for song in [
-    #     Song("Perth", 124),
-    #     Song("Minnesota, WI", 352),
-    #     Song("Michicant", 458,)
-    # ]:
-    #     song.insert_query()
+    for song in [
+        Song("Perth", 124, vinylId),
+        Song("Minnesota, WI", 352, vinylId),
+        Song("Michicant", 458, vinylId)
+    ]:
+        song.insert_query()
