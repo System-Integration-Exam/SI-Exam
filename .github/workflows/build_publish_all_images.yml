@@ -59,3 +59,12 @@ jobs:
       image_path: "applications/services/camelpro"
     secrets:
       ghcr_token: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}
+
+  call-build-and-publish-restock:
+    name: Build & Publish Restock Service
+    uses: System-Integration-Exam/SI-Exam/.github/workflows/build_publish_image.yml@main
+    with:
+      image_name: restock-service
+      image_path: "applications/services/restock"
+    secrets:
+      ghcr_token: ${{ secrets.CONTAINER_REGISTRY_TOKEN }}

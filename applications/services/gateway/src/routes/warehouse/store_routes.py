@@ -1,10 +1,12 @@
 from clients import warehouse
 from flask import request
+from entities import link
 
 
 def create_store():
     try:
         return warehouse.create_store(request.json)
+
     except Exception as e:
         print(e)
         return "500"
@@ -60,9 +62,7 @@ def remove_book_from_store(store_id, book_id):
 
 def get_amount_of_specific_book_from_store(store_id, book_id):
     try:
-        return warehouse.get_amount_of_specific_book_from_store(
-            store_id, book_id
-        )
+        return warehouse.get_amount_of_specific_book_from_store(store_id, book_id)
     except Exception as e:
         print(e)
         return "500"
@@ -86,9 +86,7 @@ def remove_vinyl_from_store(store_id, vinyl_id):
 
 def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
     try:
-        return warehouse.get_amount_of_specific_vinyl_from_store(
-            store_id, vinyl_id
-        )
+        return warehouse.get_amount_of_specific_vinyl_from_store(store_id, vinyl_id)
     except Exception as e:
         print(e)
         return "500"
@@ -119,7 +117,7 @@ def collect_routes(app):
         methods=["DELETE"],
     )
     app.add_url_rule(
-        "/store/total=<int:store_id>&<int:book_id>",
+        "/store/total-book=<int:store_id>&<int:book_id>",
         view_func=get_amount_of_specific_book_from_store,
         methods=["GET"],
     )
@@ -135,7 +133,7 @@ def collect_routes(app):
         methods=["DELETE"],
     )
     app.add_url_rule(
-        "/store/total=<int:store_id>&<int:vinyl_id>",
+        "/store/total-vinyl=<int:store_id>&<int:vinyl_id>",
         view_func=get_amount_of_specific_vinyl_from_store,
         methods=["GET"],
     )

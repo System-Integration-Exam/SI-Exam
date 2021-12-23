@@ -3,6 +3,7 @@ from logic.protogen import subscription_pb2_grpc
 from logic.protogen import subscription_pb2
 from utils.config import CONFIG
 from google.protobuf.json_format import MessageToJson
+from entities.link import Link
 
 
 import grpc
@@ -34,7 +35,18 @@ def read_subscription(subscription_id):
     response = _create_stub().ReadSubscription(
         subscription_pb2.ReadSubscriptionRequest(id=subscription_id)
     )
-    return MessageToJson(response)
+    return {
+        "payload": {
+            "is_active": response.is_active,
+            "expiration_date": response.expiration_date,
+            "created_at": response.created_at,
+            "updated_at": response.updated_at,
+        },
+        "links": [
+            Link("this subscription", f"/subscription/{response.id}"),
+            Link("all subscriptions", "/subscription"),
+        ],
+    }
 
 
 def read_subscription_list():
@@ -44,11 +56,17 @@ def read_subscription_list():
     subscriptions = []
     for sub in response.subscription_list:
         obj = {
-            "id": sub.id,
-            "is_active": sub.is_active,
-            "expiration_date": sub.expiration_date,
-            "created_at": sub.created_at,
-            "updated_at": sub.updated_at,
+            "payload": {
+                "id": sub.id,
+                "is_active": sub.is_active,
+                "expiration_date": sub.expiration_date,
+                "created_at": sub.created_at,
+                "updated_at": sub.updated_at,
+            },
+            "links": [
+                Link("this subscription", f"/subscription/{sub.id}").__dict__,
+                Link("all subscriptions", "/subscription").__dict__,
+            ],
         }
         subscriptions.append(obj)
 

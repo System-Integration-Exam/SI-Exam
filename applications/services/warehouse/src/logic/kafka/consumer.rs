@@ -63,8 +63,6 @@ pub async fn consume_and_print(group_id: &str, topics: &[&str]) {
             "enable.auto.commit",
             CONFIG.kafka.consumer.enable_auto_commit.to_owned(),
         )
-        //.set("statistics.interval.ms", "30000")
-        //.set("auto.offset.reset", "smallest")
         .set_log_level(RDKafkaLogLevel::Debug)
         .create_with_context(context)
         .expect("Consumer creation failed");

@@ -3,6 +3,7 @@ from logic.protogen import customer_pb2_grpc
 from logic.protogen import customer_pb2
 from utils.config import CONFIG
 from google.protobuf.json_format import MessageToJson
+from entities.link import Link
 
 
 import grpc
@@ -37,7 +38,20 @@ def read_customer(customer_id):
     response = _create_stub().ReadCustomer(
         customer_pb2.ReadCustomerRequest(id=customer_id)
     )
-    return MessageToJson(response)
+    return {
+        "payload": {
+            "first_name": response.first_name,
+            "last_name": response.last_name,
+            "email": response.email,
+            "phone_number": response.phone_number,
+            "created_at": response.created_at,
+            "updated_at": response.updated_at,
+        },
+        "links": [
+            Link("this customer", f"/customer/{response.id}"),
+            Link("all customers", "/customer"),
+        ],
+    }
 
 
 def read_customer_list():
@@ -45,14 +59,20 @@ def read_customer_list():
     customers = []
     for cus in response.customer_list:
         obj = {
-            "id": cus.id,
-            "subscription_id": cus.subscription_id,
-            "first_name": cus.first_name,
-            "last_name": cus.last_name,
-            "email": cus.email,
-            "phone_number": cus.phone_number,
-            "created_at": cus.created_at,
-            "updated_at": cus.updated_at,
+            "payload": {
+                "id": cus.id,
+                "subscription_id": cus.subscription_id,
+                "first_name": cus.first_name,
+                "last_name": cus.last_name,
+                "email": cus.email,
+                "phone_number": cus.phone_number,
+                "created_at": cus.created_at,
+                "updated_at": cus.updated_at,
+            },
+            "links": [
+                Link("this customer", f"/customer/{cus.id}").__dict__,
+                Link("all customers", f"/customer").__dict__,
+            ],
         }
         customers.append(obj)
 

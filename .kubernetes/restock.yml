@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restock
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: restock
+  template:
+    metadata:
+      labels:
+        app: restock
+    spec:
+      containers:
+      - name: restock
+        image: ghcr.io/system-integration-exam/si-exam/restock-service:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: restock-service
+spec:
+  selector:
+    app: restock
+  type: ClusterIP
+  ports:
+  - port: 5000

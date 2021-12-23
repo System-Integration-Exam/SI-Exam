@@ -3,6 +3,7 @@ from logic.protogen import vinyl_pb2_grpc
 from logic.protogen import vinyl_pb2
 from utils.config import CONFIG
 from google.protobuf.json_format import MessageToJson
+from entities.link import Link
 
 
 import grpc
@@ -18,7 +19,7 @@ def _create_stub():
 
 
 def create_vinyl(new_vinyl_json):
-    
+
     vinyl = (
         _create_stub()
         .createVinyl(
@@ -29,27 +30,37 @@ def create_vinyl(new_vinyl_json):
         )
         .vinyl
     )
-    return JSON.dumps({
-        "id":vinyl.id,
-        "artist":vinyl.artist,
-        "genre": vinyl.genre,
-    })
-
-
-def read_vinyl(vinyl_id):
-    response = _create_stub().readVinyl(vinyl_pb2.ReadVinylRequest(id=vinyl_id))
-    return MessageToJson(response)
-
-
-def read_vinyl_list():
-    response = _create_stub().readVinylList(vinyl_pb2.ReadVinylListRequest())
-    vinyls = [
+    return JSON.dumps(
         {
             "id": vinyl.id,
             "artist": vinyl.artist,
             "genre": vinyl.genre,
         }
-        for vinyl in response.vinyl_list
+    )
+
+
+def read_vinyl(vinyl_id):
+    response = _create_stub().getVinylById(vinyl_pb2.GetVinylByIdRequest(id=vinyl_id))
+    return {
+        "payload": {"artist": response.artist, "genre": response.genre},
+        "links": [
+            Link("this vinyl", f"/vinyl/{response.id}"),
+            Link("all vinyls", "/vinyl"),
+        ],
+    }
+
+
+def read_vinyl_list():
+    response = _create_stub().getAllVinyl(vinyl_pb2.GetAllVinylRequest())
+    vinyls = [
+        {
+            "payload": {"id": vinyl.id, "artist": vinyl.artist, "genre": vinyl.genre},
+            "links": [
+                Link("this vinyl", f"/vinyl/{vinyl.id}").__dict__,
+                Link("all vinyls", "/vinyl").__dict__,
+            ],
+        }
+        for vinyl in response.vinyls
     ]
     return JSON.dumps(vinyls)
 
@@ -60,14 +71,16 @@ def update_vinyl(update_vinyl_json, id):
         .updateVinyl(
             vinyl_pb2.UpdateVinylRequest(
                 id=id,
-                artist=new_vinyl_json["artist"],
-                genre=new_vinyl_json["genre"],
+                artist=update_vinyl_json["artist"],
+                genre=update_vinyl_json["genre"],
             )
         )
-        .msg
+        .statusMessage
     )
 
 
 def delete_vinyl(vinyl_id):
-    response = _create_stub().DeleteVinyl(vinyl_pb2.DeleteVinylRequest(id=vinyl_id))
+    response = _create_stub().deleteVinylById(
+        vinyl_pb2.DeleteVinylByIdRequest(id=vinyl_id)
+    )
     return MessageToJson(response)

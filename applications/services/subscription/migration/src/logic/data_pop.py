@@ -18,4 +18,4 @@ def populate() -> None:
     #         faker.email(),
     #         faker.phone_number(),
     #     ).insert_query()
-    print("populating")
+    print("populating...")

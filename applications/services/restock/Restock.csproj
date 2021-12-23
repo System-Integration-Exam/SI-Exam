@@ -1,20 +1,33 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>2c8faeed-2a02-4ca3-8522-29bcf354f86c</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(Configuration)' != 'Release'">
 	<Protobuf Include="..\..\protos\restock.proto" OutputDir="Protos" GrpcServices="Server" CompileOutputs="false">
       <Link>Protos\restock.proto</Link>
 	</Protobuf>
+	<Protobuf Include="..\..\protos\metadata\book.proto" OutputDir="Protos" GrpcServices="Client" CompileOutputs="false">
+      <Link>Protos\book.proto</Link>
+	</Protobuf>
+	<Protobuf Include="..\..\protos\metadata\vinyl.proto" OutputDir="Protos" GrpcServices="Client" CompileOutputs="false">
+	  <Link>Protos\vinyl.proto</Link>
+	</Protobuf>
+	<Protobuf Include="..\..\protos\metadata\song.proto" OutputDir="Protos" GrpcServices="Client" CompileOutputs="false">
+	  <Link>Protos\song.proto</Link>
+	</Protobuf>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Camunda.Worker" Version="0.13.2" />
     <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
   </ItemGroup>
 
 </Project>
