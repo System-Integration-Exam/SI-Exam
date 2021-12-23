@@ -52,4 +52,4 @@ port = 5000
 
 [production.clients.restock]
 host = "restock-service"
-port = 5000
+port = 6000
