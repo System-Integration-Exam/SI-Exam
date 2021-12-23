@@ -210,11 +210,11 @@ $ kubectl port-forward service/{serviceName} {servicePort}
 
 | Endpoint      | HTTP Method   | Description |
 | -             | :---------:   | -
-| /reservation         | `GET`         | Get a list of all reservations
+| /reservation/\<userId>         | `GET`         | Get a list of all reservations for a given user
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /reservation         | `POST`        | <pre>{<br>  "id":"string",<br>  "item_id":"string",<br>  "user_id":"string",<br>  "status":"string", <br>  "store_id":int <br>}</pre> | Create a new reservation
+| /reservation/create         | `POST`        | <pre>{<br>  "id":"string",<br>  "item_id":"string",<br>  "user_id":"string",<br>  "status":"string", <br>  "store_id":int <br>}</pre> | Create a new reservation
 | /reservation/complete         | `POST`        | <pre>{<br>  "id": "string"<br>}</pre> | Mark a reservation as completed
 | /reservation/cancel         | `POST`        | <pre>{<br>  "id": "string"<br>}</pre> | Mark a reservation as canceled
 
