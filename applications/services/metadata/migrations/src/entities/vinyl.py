@@ -10,5 +10,5 @@ class Vinyl:
     genre: str
 
     def insert_query(self) -> None:
-        query = f"INSERT INTO vinyl (id, artist, genre) VALUES ('{self.id}' '{self.artist}', '{self.genre}')"
+        query = f"INSERT INTO vinyl (id, artist, genre) VALUES ('{self.id}', '{self.artist}', '{self.genre}')"
         execute_query(query)

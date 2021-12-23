@@ -9,12 +9,12 @@ def populate() -> None:
 
     print("populating subscription data...")
 
-    for _ in range(20):
+    for _ in range(5):
         Subscription(random.choice([True, False]), faker.date_time()).insert_query()
 
     print("populating customer data...")
 
-    for sub_id in range(20):
+    for sub_id in range(5):
         Customer(
             sub_id,
             faker.first_name(),
