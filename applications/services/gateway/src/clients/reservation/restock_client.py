@@ -7,7 +7,7 @@ from google.protobuf.json_format import MessageToJson
 
 import grpc
 
-_CLIENT_CONFIG: str = CONFIG["clients"]["reservation"]
+_CLIENT_CONFIG: str = CONFIG["clients"]["restock"]
 
 
 def _create_stub():
