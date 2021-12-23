@@ -42,6 +42,7 @@ def read_book(book_id):
     response = _create_stub().getBookById(book_pb2.GetBookByIdRequest(id=book_id))
     return {
         "payload": {
+            "id": response.id,
             "title": response.title,
             "author": response.author,
             "rating": response.rating,

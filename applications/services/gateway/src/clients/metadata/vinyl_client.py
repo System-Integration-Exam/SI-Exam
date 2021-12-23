@@ -42,7 +42,12 @@ def create_vinyl(new_vinyl_json):
 def read_vinyl(vinyl_id):
     response = _create_stub().getVinylById(vinyl_pb2.GetVinylByIdRequest(id=vinyl_id))
     return {
-        "payload": {"artist": response.artist, "genre": response.genre},
+        "payload": 
+        {
+            "id": response.id,
+            "artist": response.artist, 
+            "genre": response.genre
+        },
         "links": [
             Link("this vinyl", f"/vinyl/{response.id}"),
             Link("all vinyls", "/vinyl"),
@@ -54,7 +59,12 @@ def read_vinyl_list():
     response = _create_stub().getAllVinyl(vinyl_pb2.GetAllVinylRequest())
     vinyls = [
         {
-            "payload": {"id": vinyl.id, "artist": vinyl.artist, "genre": vinyl.genre},
+            "payload": 
+            {
+                "id": vinyl.id, 
+                "artist": vinyl.artist, 
+                "genre": vinyl.genre
+            },
             "links": [
                 Link("this vinyl", f"/vinyl/{vinyl.id}").__dict__,
                 Link("all vinyls", "/vinyl").__dict__,

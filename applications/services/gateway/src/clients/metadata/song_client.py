@@ -41,6 +41,7 @@ def read_song(song_id):
     response = _create_stub().getSongById(song_pb2.GetSongByIdRequest(id=song_id))
     return {
         "payload": {
+            "id": response.id,
             "title": response.title,
             "duration_sec": response.duration_sec,
             "vinyl_id": response.vinyl_id,
