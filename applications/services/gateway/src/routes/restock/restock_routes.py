@@ -4,10 +4,11 @@ from flask import request, current_app
 
 def create_restock():
     try:
-        return restock_client.make_restock_request(request.json)
+        restock_client.make_restock_request(request.json)
+        return '', 201
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def collect_routes(app):

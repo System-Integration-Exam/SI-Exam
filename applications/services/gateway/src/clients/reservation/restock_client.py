@@ -1,25 +1,22 @@
-import json as JSON
-from logic.protogen import reservation_pb2_grpc
-from logic.protogen import reservation_pb2
+from logic.protogen.restock_pb2_grpc import RestockGrpcStub
+from logic.protogen import restock_pb2
 from utils.config import CONFIG
-from google.protobuf.json_format import MessageToJson
-
 
 import grpc
 
 _CLIENT_CONFIG: str = CONFIG["clients"]["restock"]
 
 
-def _create_stub():
+def _create_stub() -> RestockGrpcStub:
     channel = grpc.insecure_channel(
         f"{_CLIENT_CONFIG['host']}:{_CLIENT_CONFIG['port']}"
     )
-    return reservation_pb2_grpc.ReservationGrpcStub(channel)
+    return RestockGrpcStub(channel)
 
 
 def make_restock_request(restock_request):
     _create_stub().RequestRestock(
-        reservation_pb2.RestockRequest(
+        restock_pb2.RestockRequest(
             requestText=restock_request["requestText"],
             itemType=restock_request["itemType"],
             existingItemCount=restock_request["existingItemCount"],
