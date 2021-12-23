@@ -14,7 +14,7 @@ def _create_stub():
     channel = grpc.insecure_channel(
         f"{_CLIENT_CONFIG['host']}:{_CLIENT_CONFIG['port']}"
     )
-    return reservation_pb2_grpc.ReservationStub(channel)
+    return reservation_pb2_grpc.ReservationGrpcStub(channel)
 
 
 def create_reservation(new_reservation_json):
@@ -44,7 +44,7 @@ def _reservation_response_json(response):
         {
             "id": response.id,
             "item_id": response.item_id,
-            "user_id": response.duration_sec,
+            "user_id": response.user_id,
             "status": response.status,
             "store_id": response.store_id,
         }
@@ -59,11 +59,16 @@ def retrieve_users_reservation(user_id):
     return JSON.dumps(
         [
             {
-                "payload": _reservation_response_json(response),
+                "payload": {
+                    "id": reservation.id,
+                    "item_id": reservation.item_id,
+                    "user_id": reservation.user_id,
+                    "status": reservation.status,
+                    "store_id": reservation.store_id  
+                },
                 "links": [
-                    Link("all books", "/book").__dict__,
-                    Link("all vinyls", "/vinyl").__dict__,
-                    Link("all songs", "/song").__dict__,
+                    Link("this user", f"/user/{reservation.user_id}").__dict__,
+                    Link("this store", f"/store/{reservation.store_id}").__dict__
                 ],
             }
             for reservation in response.reservations

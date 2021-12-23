@@ -14,7 +14,7 @@ def _create_stub():
     channel = grpc.insecure_channel(
         f"{_CLIENT_CONFIG['host']}:{_CLIENT_CONFIG['port']}"
     )
-    return reservation_pb2_grpc.ReservationStub(channel)
+    return reservation_pb2_grpc.ReservationGrpcStub(channel)
 
 
 def make_restock_request(restock_request):
