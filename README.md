@@ -227,11 +227,11 @@ $ kubectl port-forward service/{serviceName} {servicePort}
 
 | Endpoint      | HTTP Method   | Description |
 | -             | :---------:   | -
-| /reservation         | `GET`         | Get a list of all reservations
+| /reservation/\<userId>         | `GET`         | Get a list of reservations for a specific user
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /reservation         | `POST`        | <pre>{<br>  "id":"string",<br>  "item_id":"string",<br>  "user_id":"string",<br>  "status":"string", <br>  "store_id":int <br>}</pre> | Create a new reservation
+| /reservation/create         | `POST`        | <pre>{<br>  "id":"string",<br>  "item_id":"string",<br>  "user_id":"string",<br>  "status":"string", <br>  "store_id":int <br>}</pre> | Create a new reservation
 | /reservation/complete         | `POST`        | <pre>{<br>  "id": "string"<br>}</pre> | Mark a reservation as completed
 | /reservation/cancel         | `POST`        | <pre>{<br>  "id": "string"<br>}</pre> | Mark a reservation as canceled
 
@@ -241,7 +241,7 @@ $ kubectl port-forward service/{serviceName} {servicePort}
 
 | Endpoint      | Http Method   | Request Body  | Description
 | -             | :-:           | -             |   -
-| /restock         | `POST`        | <pre>{<br>  "requestText": "string",<br>  "item_type": "string",<br>  "existingItemCount": int, <br>  "storeId":int,<br>  "itemId": "string"<br>}</pre> | Restock item
+| /restock         | `POST`        | <pre>{<br>  "requestText": "string",<br>  "itemType": "string",<br>  "existingItemCount": int, <br>  "storeId":int,<br>  "itemId": "string"<br>}</pre> | Restock item
 
 
 ## Subscription
