@@ -11,6 +11,7 @@ def _make_sqlite_connection():
 
 
 def execute_query(query):
+    print("Excecuting script:\n\t" + query)
     conn = _make_sqlite_connection()
     cursor = conn.cursor()
     try:

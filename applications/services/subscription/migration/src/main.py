@@ -2,6 +2,7 @@ import time
 
 from logic.table_exec import migrate_up, migrate_down
 from logic.data_pop import populate
+from utils.config import DATABASE_CONFIG
 
 
 """

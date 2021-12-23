@@ -5,7 +5,7 @@ db ="../data/subscription"
 
 [containerized]
 [containerized.database]
-db ="../data/subscription"
+db ="data/subscription"
 
 
 
