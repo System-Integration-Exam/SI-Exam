@@ -4,10 +4,10 @@ from flask import request, current_app
 
 def create_customer():
     try:
-        return customer_client.create_customer(request.json)
+        return customer_client.create_customer(request.json), 201
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_customer(id):
@@ -15,7 +15,7 @@ def read_customer(id):
         return customer_client.read_customer(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_customer_list():
@@ -23,7 +23,7 @@ def read_customer_list():
         return customer_client.read_customer_list()
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def update_customer(id):
@@ -31,7 +31,7 @@ def update_customer(id):
         return customer_client.update_customer(request.json, id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def delete_customer(id):
@@ -39,7 +39,7 @@ def delete_customer(id):
         return customer_client.delete_customer(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def collect_routes(app):

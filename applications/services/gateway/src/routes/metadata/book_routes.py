@@ -4,10 +4,10 @@ from flask import request, current_app
 
 def create_book():
     try:
-        return book_client.create_book(request.json)
+        return book_client.create_book(request.json), 201
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_book(id):
@@ -15,7 +15,7 @@ def read_book(id):
         return book_client.read_book(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_book_list():
@@ -23,7 +23,7 @@ def read_book_list():
         return book_client.read_book_list()
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def update_book(id):
@@ -31,7 +31,7 @@ def update_book(id):
         return book_client.update_book(request.json, id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def delete_book(id):
@@ -39,7 +39,7 @@ def delete_book(id):
         return book_client.delete_book(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def collect_routes(app):

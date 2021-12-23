@@ -4,10 +4,10 @@ from flask import request, current_app
 
 def create_reservation():
     try:
-        return reservation_client.create_reservation(request.json)
+        return reservation_client.create_reservation(request.json), 201
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def cancel_reservation():
@@ -15,7 +15,7 @@ def cancel_reservation():
         return reservation_client.cancel_reservation(request.json["id"])
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def complete_reservation():
@@ -23,7 +23,7 @@ def complete_reservation():
         return reservation_client.complete_reservation(request.json["id"])
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def retrieve_users_reservation(userId):
@@ -31,7 +31,7 @@ def retrieve_users_reservation(userId):
         return reservation_client.retrieve_users_reservation(userId)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def collect_routes(app):

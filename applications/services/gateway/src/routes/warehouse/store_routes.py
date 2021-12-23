@@ -4,11 +4,11 @@ from entities import link
 
 def create_store():
     try:
-        return warehouse.create_store(request.json)
+        return warehouse.create_store(request.json), 201
 
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_store(id):
@@ -16,7 +16,7 @@ def read_store(id):
         return warehouse.read_store(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def update_store(id):
@@ -24,7 +24,7 @@ def update_store(id):
         return warehouse.update_store(id, request.json)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def delete_store(id):
@@ -32,7 +32,7 @@ def delete_store(id):
         return warehouse.delete_store(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_store_list():
@@ -40,7 +40,7 @@ def read_store_list():
         return warehouse.read_store_list()
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def add_book_to_store(store_id, book_id):
@@ -48,7 +48,7 @@ def add_book_to_store(store_id, book_id):
         return warehouse.add_book_to_store(store_id, book_id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def remove_book_from_store(store_id, book_id):
@@ -56,7 +56,7 @@ def remove_book_from_store(store_id, book_id):
         return warehouse.remove_book_from_store(store_id, book_id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def get_amount_of_specific_book_from_store(store_id, book_id):
@@ -64,7 +64,7 @@ def get_amount_of_specific_book_from_store(store_id, book_id):
         return warehouse.get_amount_of_specific_book_from_store(store_id, book_id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def add_vinyl_to_store(store_id, vinyl_id):
@@ -72,7 +72,7 @@ def add_vinyl_to_store(store_id, vinyl_id):
         return warehouse.add_vinyl_to_store(store_id, vinyl_id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def remove_vinyl_from_store(store_id, vinyl_id):
@@ -80,7 +80,7 @@ def remove_vinyl_from_store(store_id, vinyl_id):
         return warehouse.remove_vinyl_from_store(store_id, vinyl_id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
@@ -88,7 +88,7 @@ def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
         return warehouse.get_amount_of_specific_vinyl_from_store(store_id, vinyl_id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def return_item_stock_info(uuid, store_id):
@@ -96,7 +96,7 @@ def return_item_stock_info(uuid, store_id):
         return warehouse.return_item_stock_info(uuid, store_id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def collect_routes(app):

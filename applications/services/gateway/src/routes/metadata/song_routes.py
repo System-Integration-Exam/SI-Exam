@@ -4,10 +4,10 @@ from flask import request, current_app
 
 def create_song():
     try:
-        return song_client.create_song(request.json)
+        return song_client.create_song(request.json), 201
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_song(id):
@@ -15,7 +15,7 @@ def read_song(id):
         return song_client.read_song(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_song_list():
@@ -23,7 +23,7 @@ def read_song_list():
         return song_client.read_song_list()
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def update_song(id):
@@ -31,7 +31,7 @@ def update_song(id):
         return song_client.update_song(request.json, id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def delete_song(id):
@@ -39,7 +39,7 @@ def delete_song(id):
         return song_client.delete_song(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def collect_routes(app):

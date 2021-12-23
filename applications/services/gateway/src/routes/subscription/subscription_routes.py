@@ -4,10 +4,10 @@ from flask import request, current_app
 
 def create_subscription():
     try:
-        return subscription_client.create_subscription(request.json)
+        return subscription_client.create_subscription(request.json), 201
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_subscription(id):
@@ -15,7 +15,7 @@ def read_subscription(id):
         return subscription_client.read_subscription(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_subscription_list():
@@ -23,7 +23,7 @@ def read_subscription_list():
         return subscription_client.read_subscription_list()
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def update_subscription(id):
@@ -31,7 +31,7 @@ def update_subscription(id):
         return subscription_client.update_subscription(request.json, id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def delete_subscription(id):
@@ -39,7 +39,7 @@ def delete_subscription(id):
         return subscription_client.delete_subscription(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def collect_routes(app):

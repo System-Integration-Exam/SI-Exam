@@ -4,10 +4,10 @@ from flask import request, current_app
 
 def create_vinyl():
     try:
-        return vinyl_client.create_vinyl(request.json)
+        return vinyl_client.create_vinyl(request.json), 201
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_vinyl(id):
@@ -15,7 +15,7 @@ def read_vinyl(id):
         return vinyl_client.read_vinyl(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def read_vinyl_list():
@@ -23,7 +23,7 @@ def read_vinyl_list():
         return vinyl_client.read_vinyl_list()
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def update_vinyl(id):
@@ -31,7 +31,7 @@ def update_vinyl(id):
         return vinyl_client.update_vinyl(request.json, id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def delete_vinyl(id):
@@ -39,7 +39,7 @@ def delete_vinyl(id):
         return vinyl_client.delete_vinyl(id)
     except Exception as e:
         current_app.logger.error("%s", e)
-        return "500"
+        return e, 500
 
 
 def collect_routes(app):
