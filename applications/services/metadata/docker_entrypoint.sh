@@ -2,7 +2,7 @@
 
 echo resetting database data and populating with dummy data ..
 mkdir /app/data
-cd migration
+cd migrations
 if ! python src/main.py; then
     exit 1
 fi
