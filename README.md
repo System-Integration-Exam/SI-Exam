@@ -16,36 +16,40 @@ The repository is hosted online on GitHub at https://github.com/System-Integrati
 _The video is also zipped with the project as a .mp4 file_
 # Table of Contents
 
+- [System Integration 2021 Exam](#system-integration-2021-exam)
+  - [Contributors](#contributors)
+  - [Video](#video)
+- [Table of Contents](#table-of-contents)
 - [Business case](#business-case)
-  * [Domain](#domain)
-  * [Requirements](#requirements)
+  - [Domain](#domain)
+  - [Requirements](#requirements)
 - [Architecture](#architecture)
-  * [Legacy System](#legacy-system)
-  * [Modern Solution](#modern-solution)
-  * [Technologies](#technologies)
-    + [gRPC](#grpc)
-    + [Camunda](#camunda)
-    + [Kafka](#kafka)
-    + [Docker & Kubernetes](#docker-and-kubernetes)
+  - [Legacy System](#legacy-system)
+  - [Modern Solution](#modern-solution)
+  - [Technologies](#technologies)
+    - [gRPC](#grpc)
+    - [Camunda](#camunda)
+    - [Kafka](#kafka)
+    - [Docker and Kubernetes](#docker-and-kubernetes)
 - [Development Process](#development-process)
 - [Run](#run)
-  * [Prerequisites](#prerequisites)
-  * [Kubernetes with Minikube](#kubernetes-with-minikube)
-    + [1. Start minikube cluster](#1-start-minikube-cluster)
-    + [2. Tunnel to cluster](#2-tunnel-to-cluster)
-    + [3. Apply kubernetes deployments](#3-apply-kubernetes-deployments)
-  * [Access to services](#access-to-services)
+  - [Prerequisites](#prerequisites)
+  - [Kubernetes with Minikube](#kubernetes-with-minikube)
+    - [1. Start minikube cluster](#1-start-minikube-cluster)
+    - [2. Tunnel to cluster](#2-tunnel-to-cluster)
+    - [3. Apply kubernetes deployments](#3-apply-kubernetes-deployments)
+  - [Access to services](#access-to-services)
 - [Gateway Endpoints](#gateway-endpoints)
-  * [Metadata](#metadata)
-    + [Book](#book)
-    + [Song](#song)
-    + [Vinyl](#vinyl)
-  * [Reservation](#reservation)
-  * [Restock](#restock)
-  * [Subscription](#subscription)
-    + [Customer](#customer)
-    + [Subscription](#subscription-1)
-  * [Warehouse](#warehouse)
+  - [Metadata](#metadata)
+    - [Book](#book)
+    - [Song](#song)
+    - [Vinyl](#vinyl)
+  - [Reservation](#reservation)
+  - [Restock](#restock)
+  - [Subscription](#subscription)
+    - [Customer](#customer)
+    - [Subscription](#subscription-1)
+  - [Warehouse](#warehouse)
 
 
 # Business case
@@ -103,7 +107,7 @@ Our final architecture can be seen on the picture below:
 
 ### gRPC
 
-We use gRPC as a way for each service to serialize their entity classes and communicate with the other services through the gateway. We use protocol buffers to define the end points of each service.
+The gateway communicates via. gRPC to the services. The services do not use gRPC to communicate with each other internally. That's what Kafka is for. The proto files we're using for this project can be found in the [protos folder](/applications/protos)
 
 ### Camunda
 
