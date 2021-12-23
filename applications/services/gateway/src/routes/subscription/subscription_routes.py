@@ -1,10 +1,14 @@
 from clients.subscription import subscription_client
 from flask import request, current_app
+from grpc import RpcError
 
 
 def create_subscription():
     try:
         return subscription_client.create_subscription(request.json), 201
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -13,6 +17,9 @@ def create_subscription():
 def read_subscription(id):
     try:
         return subscription_client.read_subscription(id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -21,6 +28,9 @@ def read_subscription(id):
 def read_subscription_list():
     try:
         return subscription_client.read_subscription_list()
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -29,6 +39,9 @@ def read_subscription_list():
 def update_subscription(id):
     try:
         return subscription_client.update_subscription(request.json, id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -37,6 +50,9 @@ def update_subscription(id):
 def delete_subscription(id):
     try:
         return subscription_client.delete_subscription(id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500

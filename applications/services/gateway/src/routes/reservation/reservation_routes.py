@@ -1,10 +1,14 @@
 from clients.reservation import reservation_client
 from flask import request, current_app
+from grpc import RpcError
 
 
 def create_reservation():
     try:
         return reservation_client.create_reservation(request.json), 201
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -13,6 +17,9 @@ def create_reservation():
 def cancel_reservation():
     try:
         return reservation_client.cancel_reservation(request.json["id"])
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -21,6 +28,9 @@ def cancel_reservation():
 def complete_reservation():
     try:
         return reservation_client.complete_reservation(request.json["id"])
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -29,6 +39,9 @@ def complete_reservation():
 def retrieve_users_reservation(userId):
     try:
         return reservation_client.retrieve_users_reservation(userId)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500

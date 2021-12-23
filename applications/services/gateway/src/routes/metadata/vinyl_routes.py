@@ -1,10 +1,13 @@
 from clients.metadata import vinyl_client
 from flask import request, current_app
-
+from grpc import RpcError
 
 def create_vinyl():
     try:
         return vinyl_client.create_vinyl(request.json), 201
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -13,6 +16,9 @@ def create_vinyl():
 def read_vinyl(id):
     try:
         return vinyl_client.read_vinyl(id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -21,6 +27,9 @@ def read_vinyl(id):
 def read_vinyl_list():
     try:
         return vinyl_client.read_vinyl_list()
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -29,6 +38,9 @@ def read_vinyl_list():
 def update_vinyl(id):
     try:
         return vinyl_client.update_vinyl(request.json, id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -37,6 +49,9 @@ def update_vinyl(id):
 def delete_vinyl(id):
     try:
         return vinyl_client.delete_vinyl(id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500

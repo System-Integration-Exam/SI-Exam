@@ -1,6 +1,7 @@
 from clients import warehouse
 from flask import request, current_app
 from entities import link
+from grpc import RpcError
 
 def create_store():
     try:
@@ -14,6 +15,9 @@ def create_store():
 def read_store(id):
     try:
         return warehouse.read_store(id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -22,6 +26,9 @@ def read_store(id):
 def update_store(id):
     try:
         return warehouse.update_store(id, request.json)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -30,6 +37,9 @@ def update_store(id):
 def delete_store(id):
     try:
         return warehouse.delete_store(id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -38,6 +48,9 @@ def delete_store(id):
 def read_store_list():
     try:
         return warehouse.read_store_list()
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -46,6 +59,9 @@ def read_store_list():
 def add_book_to_store(store_id, book_id):
     try:
         return warehouse.add_book_to_store(store_id, book_id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -54,6 +70,9 @@ def add_book_to_store(store_id, book_id):
 def remove_book_from_store(store_id, book_id):
     try:
         return warehouse.remove_book_from_store(store_id, book_id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -62,6 +81,9 @@ def remove_book_from_store(store_id, book_id):
 def get_amount_of_specific_book_from_store(store_id, book_id):
     try:
         return warehouse.get_amount_of_specific_book_from_store(store_id, book_id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -70,6 +92,9 @@ def get_amount_of_specific_book_from_store(store_id, book_id):
 def add_vinyl_to_store(store_id, vinyl_id):
     try:
         return warehouse.add_vinyl_to_store(store_id, vinyl_id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -78,6 +103,9 @@ def add_vinyl_to_store(store_id, vinyl_id):
 def remove_vinyl_from_store(store_id, vinyl_id):
     try:
         return warehouse.remove_vinyl_from_store(store_id, vinyl_id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -86,6 +114,9 @@ def remove_vinyl_from_store(store_id, vinyl_id):
 def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
     try:
         return warehouse.get_amount_of_specific_vinyl_from_store(store_id, vinyl_id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -94,6 +125,9 @@ def get_amount_of_specific_vinyl_from_store(store_id, vinyl_id):
 def return_item_stock_info(uuid, store_id):
     try:
         return warehouse.return_item_stock_info(uuid, store_id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500

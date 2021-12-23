@@ -1,10 +1,13 @@
 from clients.metadata import book_client
 from flask import request, current_app
-
+from grpc import RpcError
 
 def create_book():
     try:
         return book_client.create_book(request.json), 201
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -13,6 +16,9 @@ def create_book():
 def read_book(id):
     try:
         return book_client.read_book(id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -21,6 +27,9 @@ def read_book(id):
 def read_book_list():
     try:
         return book_client.read_book_list()
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -29,6 +38,9 @@ def read_book_list():
 def update_book(id):
     try:
         return book_client.update_book(request.json, id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
@@ -37,6 +49,9 @@ def update_book(id):
 def delete_book(id):
     try:
         return book_client.delete_book(id)
+    except RpcError as e:
+        current_app.logger.error("%s", e)
+        return e, 502
     except Exception as e:
         current_app.logger.error("%s", e)
         return e, 500
