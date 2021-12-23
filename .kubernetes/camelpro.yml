@@ -4,7 +4,6 @@ metadata:
   name: camelpro-job
 spec:
   schedule: "0 3 * * *"
-  ttlSecondsAfterFinished: 100
   jobTemplate:
     spec:
       template:
