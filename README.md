@@ -60,7 +60,7 @@ We designed our system with a domain-driven-design approach which meant that we 
 ## Requirements
 
 - Integration with external REST API for retrieving item metadata
-- 
+- Event-based messaging between services
 - Transform old customer data from legacy system into modern system
 - Use of BPMN to handle restocking of new or existing items
 - Microservice orchestration with Kubernetes
@@ -107,21 +107,23 @@ We use gRPC as a way for each service to serialize their entity classes and comm
 
 ### Camunda
 
-We use Camunda for handling restock requests or requests for a new item to be added to the database. Camunda is a perfect match for this use case because it allows us to easily visualize the whole restock process and handle user task throughout the process. Our restock process is shown on the BPMN diagram below, we also use a decision table to validate the request before we continue with the process. This allows us to easily manage the rules which determines whether a request is valid or invalid.  
+We use Camunda for handling restock requests or requests for a new item to be added to the database. Camunda is a perfect match for this use case because it allows us to easily visualize the whole restock process and handle user task throughout the process. Our restock process is shown on the BPMN diagram below, we also use a decision table to validate the request before we continue with the process. This allows us to easily manage the rules which determines whether a request is valid or invalid. 
 
 ![Camunda BPMN model for Restock process](/assets/restock_model.png "Restock Process")
 
-
-
 ![Decision Table for Restock process](/assets/restock_decision_table.png "Restock decision table")
+
+The User Tasks in the BPMN is handle through Camunda's Tasklist where a user can claim a task and then manually complete it. The Service Task for fetching metadata is handled by an External Worker Task Worker in the restock service. The External Task Worker watches for changes through Camunda's REST API and then process the task when a process instance reaches that point in the workflow.
 
 ### Kafka
 
-We use Kafka as our message broker for sending event-based messages between our applications. It allows the services to communicate asynchronously with each other and without knowledge of their consumers.
+We use Kafka as our message broker for sending event-based messages between our applications. This allows the services to communicate asynchronously with each other and without knowledge of their consumers. 
 
 ### Docker and Kubernetes
 
-We use Docker to containerize all our services and thereby make it possible to run the services without requiring us to install all the different runtimes for each service before we can test them. Containerizing all our services also makes it possible to use Kubernetes as a deployment strategy, this makes it possible to run multiple instances of the same service, monitor for errors, and automatically recover from service crashes.
+We use Docker to containerize all our services and thereby make it possible to run the services without requiring us to install all the different runtimes for each service before we can test them. Containerizing all our services also makes it possible to use Kubernetes as a deployment strategy, this makes it possible to run multiple instances of the same service, monitor for errors, and automatically recover from crashes.
+
+All our services are automatically built and published through our CI pipeline when we push changes to our main branch.
 
 # Development Process
 
