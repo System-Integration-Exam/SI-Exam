@@ -16,4 +16,4 @@ WORKDIR /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 20060
-CMD [ "bash", "/app/docker_entrypoint.sh" ]
+ENTRYPOINT [ "/app/docker_entrypoint.sh" ]
