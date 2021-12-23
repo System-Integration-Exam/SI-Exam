@@ -43,7 +43,7 @@ The repository is hosted online on GitHub at https://github.com/System-Integrati
 
 # Business case
 
-A book & vinyl subscription renting chain called Vintage Champions. The concept is derrived from an older version of blokbuster where you physically had to pick up the item in the store. Each store have their own inventory of books & vinyls that can be rented if you have a subscription service with the chain. 
+A book & vinyl subscription renting chain called Vintage Champions. The concept is derrived from an older version of blokbuster where you physically had to pick up the item from the store. Each store have their own inventory of books & vinyls that can be rented if you have a subscription service with the chain. 
 
 ## Domain
 
@@ -63,28 +63,28 @@ We designed our system with a domain-driven-design approrach which ment that we 
 
 ## Legacy System
 
-Vintage Champions is currently using an old legacy system that is deployed to each of their stores. This system has a basic frontend for the employees and stores all their data in indiviual csv files.
+Vintage Champions is currently using an old legacy system that is deployed to each of their stores. This system has a basic frontend GUI for the employees and the system stores all the data in indiviual csv files.
 
 ![Old architecture](/assets/legacy_system_architecture.png "Old architecture")
 
 ## Modern Solution
 
-The new system should make it possible for the scenario's shops to communicate with each other. It should also be scalable where the old system was not. We came to the conclusion, that a microservice-like architecture would be more optimal. After discussing some different setups, we came to a conclusion and made the final diagram:
+The new system should make it possible for the scenario's stores to communicate with each other. It should also be scalable, as the old system was not scalable. We came to the conclusion, that a microservice-like architecture would be more optimal. After discussing some different setups, we came to a conclusion and made the final diagram:
 
 ![New architecture](/assets/system_architecture.png "New architecture")
 
 ## Technologies
 | Technology | Type | Usage |
 | - | - | - |
-| Python 3.9 | Language | Used in our Gateway, Subscription, &  |
-| C# 10 | Language | |
-| Java 17 | Language | |
-| Rust 1.57 | Language | |
-| Protobuf 3 | Language | |
-| gRPC | Framework |  |
-| Appache Camel | Framework | |
-| Docker | Container Platform | |
-| Kubernetes | Container Orchestration | |
+| Python 3.9 | Language | Used in our Gateway, Subscription, &  Metadata service |
+| C# 10 | Language | Used in Reservation & Restock service |
+| Java 17 | Language | Used in Apache Camel framework |
+| Rust 1.57 | Language | Used in Warehouse service |
+| Protobuf 3 | Language | Used for gRPC |
+| gRPC | Framework | Used for serialization and communication between services |
+| Apache Camel | Framework |  |
+| Docker | Container Platform | Used for containerization |
+| Kubernetes | Container Orchestration | Used to orchestrate docker containers |
 | Camunda | Workflow and Decision Automation | |
 | Apache Kafka | Message Broker | Event streaming platform for sending comunicating between our services |
 | SQLite | Database | In-memory database for persisting our data |
@@ -94,7 +94,7 @@ The new system should make it possible for the scenario's shops to communicate w
 
 ### gRPC
 
-
+We use gRPC as a way for each service to serialize their entity classes, and communicate with the other services through the gateway. We use protocol buffers in order to define the end points of each service.
 
 ### Camunda
 
@@ -102,15 +102,15 @@ We use camunda for handling restock requests or reqeust for a new item to be add
 
 ![Camunda BPMN model for Restock process](/assets/restock_model.png "Restock Process")
 
-![Decision Table for Restock process]( "")
+![Decision Table for Restock process](/assets/restock_decision_table.png "Restock decision table")
 
 ### Kafka
 
-We use Kafka as our message broker for sending event based messages between our applications. It allows the services to commynicate asyncrosly with each other and without knowledge of their consuemrs. 
+We use Kafka as our message broker for sending event based messages between our applications. It allows the services to communicate asyncrosly with each other and without knowledge of their consuemrs. 
 
 ### Docker & Kubernetes
 
-
+We use docker as a way of containerizing our services and them deploy them with kubernetes. Kubernetes hostes them as pods, which makes the entire system easier to scale, as we can replicate each pod that is being hosted.
 
 # Development Process
 

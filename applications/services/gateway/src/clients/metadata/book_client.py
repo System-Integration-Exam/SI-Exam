@@ -46,7 +46,7 @@ def read_book(book_id):
             "author": response.author,
             "rating": response.rating,
         },
-        "links": [Link("stuff", "thing"), Link("stuff", "thing")],
+        "links": [Link("this book", f"/book/{response.id}"), Link("all books", "/book")],
     }
 
 
@@ -81,7 +81,7 @@ def update_book(update_book_json, id):
                 rating=update_book_json["rating"],
             )
         )
-        .msg
+        .statusMessage
     )
 
 
