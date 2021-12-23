@@ -15,5 +15,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 WORKDIR /app
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 20070
-ENTRYPOINT [ "/app/docker_entrypoint.sh" ]
+EXPOSE 20060
+CMD [ "bash", "/app/docker_entrypoint.sh" ]
