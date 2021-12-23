@@ -1,15 +1,15 @@
 #!/bin/bash
 
-echo creating database ..
-
 echo resetting database data and populating with dummy data ..
-
-mkdir ../data
-
-python src/main.py
+mkdir /app/data
+cd migration
+if ! python src/main.py; then
+    exit 1
+fi
 
 cd ..
-
 echo server started.
-python server.py
+if ! python server.py; then
+    exit 1
+fi
 echo shutting down...
