@@ -1,12 +1,12 @@
 from kafka import KafkaConsumer
 from json import loads
 from logic.handlers.customer_handler import camel_populate_customer
-
+from utils.config import CONFIG
 
 def kafka_consumer() -> None:
     consumer = KafkaConsumer(
         "subscriptionserviceuserlistupdate-topic",
-        bootstrap_servers=["localhost:9094"],
+        bootstrap_servers=[CONFIG["kafka"]["broker"]],
         auto_offset_reset="earliest",
         enable_auto_commit=True,
         group_id="subscriptionservice",
