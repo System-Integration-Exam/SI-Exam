@@ -7,6 +7,9 @@ using Restock.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Logging.ClearProviders();
+builder.Logging.AddSimpleConsole();
+
 string camundaBaseUrl = builder.Configuration.GetValue<string>("CamundaRestUrl");
 Action<HttpClient> camunderHttpClientBuilder = client => client.BaseAddress = new Uri(camundaBaseUrl);
 
