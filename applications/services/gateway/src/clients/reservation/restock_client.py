@@ -17,7 +17,7 @@ def _create_stub():
     return reservation_pb2_grpc.ReservationStub(channel)
 
 
-def restock(restock_request):
+def make_restock_request(restock_request):
     _create_stub().RequestRestock(
         reservation_pb2.RestockRequest(
             requestText=restock_request["requestText"],

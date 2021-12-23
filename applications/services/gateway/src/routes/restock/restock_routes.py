@@ -1,10 +1,10 @@
-from clients.restock import restock_client
+from clients.reservation import restock_client
 from flask import request
 
 
 def create_restock():
     try:
-        return restock_client.create_restock(request.json)
+        return restock_client.make_restock_request(request.json)
     except Exception as e:
         print(e)
         return "500"
